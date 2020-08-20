@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="14px" viewBox="0 0 19 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>Mail</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="News-Detail" transform="translate(-266.000000, -665.000000)" fill="#CC4FAA">
+            <g id="Feature-Socials-Horiz" transform="translate(189.000000, 662.000000)">
+                <path d="M96,3.92397286 L96,16.1718082 C96,16.3872166 95.8286738,16.5615224 95.6169476,16.5615224 L95.6169476,16.5615224 L77.3823043,16.5615224 C77.1713262,16.5615224 77,16.3872166 77,16.1718082 L77,16.1718082 L77,3.92397286 L86.3900221,10.147222 C86.4476295,10.1829965 86.5202,10.1837577 86.5778075,10.147222 L86.5778075,10.147222 L96,3.92397286 Z M95.2013506,3 L86.5804261,8.71707732 C86.5228186,8.75285187 86.4502481,8.75285187 86.3926406,8.71707732 L86.3926406,8.71707732 L77.7986494,3 L95.2013506,3 Z" id="Mail"></path>
+            </g>
+        </g>
+    </g>
+</svg>
