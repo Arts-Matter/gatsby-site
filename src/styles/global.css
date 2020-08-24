@@ -5,9 +5,17 @@
  * ----------------------------------------------------------------------------- */
 
 :root {
-  --primary: #cc4faa;
+  --magenta: #cc4faa;
+  --tomato: #ed5338;
+  --aqua: #a3dad6;
+  --ocean: #0088ce;
+  --sunflower: #ffce34;
+  --geo: #00b18f;
+  --black: #000000;
+  --white: #ffffff;
+  --could: #e4e1dc;
 }
 
 header {
-  background-color: var(--primary);
+  background-color: var(--magenta);
 }
