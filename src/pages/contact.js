@@ -4,12 +4,12 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const title = "Contact";
+const title = "Contact"
 
 const Page = () => (
-  <Layout>
-    <SEO title={ title } />
-    <h1>{ title }</h1>
+  <Layout active="contact">
+    <SEO title={title} />
+    <h1>{title}</h1>
     <Link to="/">Go back to the homepage</Link>
   </Layout>
 )
