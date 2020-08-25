@@ -16,7 +16,7 @@ export default function HamburgerMenu({
     if (!active) {
       headerRef.current.classList.add("header--secondary")
       headerRef.current.classList.remove("header--primary")
-      mobileNavRef.current.style.height = "50vh"
+      mobileNavRef.current.style.height = "500px"
       setMobileExpanded(true)
     } else {
       headerRef.current.classList.add("header--primary")
