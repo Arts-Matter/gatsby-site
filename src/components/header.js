@@ -101,46 +101,27 @@ const Header = ({ siteTitle, active }) => {
         <nav className="nav-mobile" ref={mobileNavRef}>
           <ul className="nav-list-mobile">
             <li className="nav-list__item nav-list-mobile__item">
-              <Link
-                className={active === "about" ? activeLinkStyles : linkStyles}
-                to="/about"
-              >
+              <Link className={linkStyles} to="/about">
                 About
               </Link>
             </li>
             <li className="nav-list__item nav-list-mobile__item">
-              <Link
-                className={
-                  active === "programs" ? activeLinkStyles : linkStyles
-                }
-                to="/programs"
-              >
+              <Link className={linkStyles} to="/programs">
                 Programs
               </Link>
             </li>
             <li className="nav-list__item nav-list-mobile__item">
-              <Link
-                className={
-                  active === "resources" ? activeLinkStyles : linkStyles
-                }
-                to="/resources"
-              >
+              <Link className={linkStyles} to="/resources">
                 Resources
               </Link>
             </li>
             <li className="nav-list__item nav-list-mobile__item">
-              <Link
-                className={active === "news" ? activeLinkStyles : linkStyles}
-                to="/news"
-              >
+              <Link className={linkStyles} to="/news">
                 News
               </Link>
             </li>
             <li className="nav-list__item nav-list-mobile__item">
-              <Link
-                className={active === "contact" ? activeLinkStyles : linkStyles}
-                to="/contact"
-              >
+              <Link className={linkStyles} to="/contact">
                 Contact
               </Link>
             </li>
