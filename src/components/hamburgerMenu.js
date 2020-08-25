@@ -6,7 +6,6 @@ export default function HamburgerMenu({
   setMobileExpanded,
   mobileNavRef,
 }) {
-  console.log(mobileNavRef)
   const [active, setActive] = useState(false)
   const inactiveClass = "hamburger hamburger--slider"
   const activeClass = "hamburger hamburger--slider is-active"

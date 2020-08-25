@@ -14,28 +14,23 @@
   overflow: visible;
 }
 
-.hamburger:hover {
-  opacity: 0.7;
+.hamburger:focus {
+  border: none;
+  outline: none;
 }
 
-.hamburger:active {
-  outline: none;
-  border: none;
+.hamburger:hover {
+  opacity: 0.7;
 }
 
 .hamburger.is-active:hover {
   opacity: 0.7;
 }
 
-.hamburger.is-active:active {
-  outline: none;
-  border: none;
-}
-
 .hamburger.is-active .hamburger-inner,
 .hamburger.is-active .hamburger-inner::before,
 .hamburger.is-active .hamburger-inner::after {
-  background-color: var(--black);
+  background-color: var(--white);
 }
 
 .hamburger-box {
