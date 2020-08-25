@@ -21,13 +21,14 @@ const Header = ({ siteTitle, active }) => {
   })
 
   const handleScroll = () => {
-    if (
-      document.body.scrollTop > 10 ||
-      document.documentElement.scrollTop > 10
-    ) {
+    if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
       backPanelRef.current.classList.remove("panel--expanded")
+      backPanelRef.current.style.height = `${
+        560 - document.documentElement.scrollTop
+      }px`
     } else {
       backPanelRef.current.classList.add("panel--expanded")
+      backPanelRef.current.style.height = "100px"
     }
   }
 
@@ -42,15 +43,12 @@ const Header = ({ siteTitle, active }) => {
       ></div>
       <div className="header-container">
         <h1 className="header-container__title">
-          <Link
-            to="/"
-            className="header-container__navLink header-container__navLink--flex"
-          >
-            <img
-              className="header-container__img"
-              src={logo}
-              alt="Arts Matter"
-            />
+          <Link to="/" className="header-container__navLink">
+            <div
+              className={`header-container__logo ${
+                mobileExpanded ? "header-container__logo--open" : ""
+              }`}
+            ></div>
           </Link>
         </h1>
         <nav className="nav">
