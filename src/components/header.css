@@ -13,6 +13,10 @@
   background-color: transparent;
 }
 
+.header-container__title {
+  margin: 0;
+}
+
 .nav-list {
   margin: 0;
   display: flex;
@@ -77,6 +81,10 @@
 }
 
 @media only screen and (max-width: 889px) {
+  .header {
+    height: 50px;
+  }
+
   .header--primary {
     background-color: var(--white);
     transition: 0.2s;
@@ -85,6 +93,19 @@
   .header--secondary {
     background-color: var(--magenta);
     transition: 0.2s;
+  }
+
+  .header-container {
+    height: 50px;
+  }
+
+  .header-container__img {
+    width: 120px;
+    height: 16px;
+  }
+
+  .header-container__navLink--flex {
+    display: flex;
   }
 
   .panel {
@@ -112,7 +133,7 @@
     align-items: center;
     height: 0px;
     position: absolute;
-    top: 100px;
+    top: 50px;
     left: 0;
     z-index: -2;
     width: 100vw;

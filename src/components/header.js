@@ -41,8 +41,11 @@ const Header = ({ siteTitle, active }) => {
         className="panel panel--expanded header--primary"
       ></div>
       <div className="header-container">
-        <h1 style={{ margin: 0 }}>
-          <Link to="/" className="header-container__navLink">
+        <h1 className="header-container__title">
+          <Link
+            to="/"
+            className="header-container__navLink header-container__navLink--flex"
+          >
             <img
               className="header-container__img"
               src={logo}
