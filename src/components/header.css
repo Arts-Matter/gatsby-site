@@ -4,60 +4,133 @@
   position: fixed;
 }
 
-.headerContainer {
+.header-container {
   display: flex;
   justify-content: space-between;
-  margin: 0 10rem;
+  margin: 0 5rem;
   height: 100px;
   align-items: center;
+  background-color: transparent;
 }
 
-.navList {
+.nav-list {
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.linkLi {
+.nav-list__item {
   list-style: none;
   margin: 0;
   margin-left: 1rem;
   letter-spacing: 1.25px;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 15px;
 }
 
-.linkLi:hover {
+.nav-list__item:hover {
   cursor: pointer;
 }
 
-.navLink {
-  font-family: "Visuelt Bold", sans-serif;
+.nav-list__link {
+  font-family: var(--visueltBold);
   color: var(--black);
   text-decoration: none;
 }
 
-.active {
-  text-decoration: underline;
+.header-container__img {
+  margin: 0;
 }
 
-.backPanel {
+.nav-list__link--active {
+  border-bottom: 4px solid var(--black);
+  padding-bottom: 8px;
+}
+
+.panel {
   position: absolute;
   width: 100%;
   z-index: -10;
-  transition: all 0.5s ease-out;
+  transition: var(--easeOut);
   height: 100px;
 }
 
-.expandedPanel {
-  position: absolute;
-  width: 100%;
-  z-index: -10;
+.panel--expanded {
   height: 50vh;
-  transition: all 0.5s ease-out;
 }
 
-.primary {
+.header--primary {
   background-color: var(--magenta);
+}
+
+.header--secondary {
+  background-color: var(--white);
+}
+
+.hamburger {
+  display: none;
+}
+
+.nav-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 889px) {
+  .header--primary {
+    background-color: var(--white);
+    transition: 0.2s;
+  }
+
+  .header--secondary {
+    background-color: var(--magenta);
+    transition: 0.2s;
+  }
+
+  .panel {
+    display: none;
+  }
+
+  .header-container {
+    margin: 0 1rem;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: inline-block;
+  }
+
+  .nav-mobile {
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+    background-color: #a3dad6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0px;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    z-index: -2;
+    width: 100vw;
+  }
+
+  .nav-list-mobile {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .nav-list-mobile__item {
+    font-size: 26px;
+    line-height: 34px;
+    text-align: center;
+    padding: 24px 0;
+    text-transform: capitalize;
+  }
 }

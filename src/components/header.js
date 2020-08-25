@@ -1,11 +1,16 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import logo from "../images/logo.svg"
+import HamburgerMenu from "./hamburgerMenu"
 import "./header.css"
 
 const Header = ({ siteTitle, active }) => {
+  const [mobileExpanded, setMobileExpanded] = useState(false)
+
   const backPanelRef = useRef()
+  const headerRef = useRef()
+  const mobileNavRef = useRef()
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, true)
@@ -20,52 +25,132 @@ const Header = ({ siteTitle, active }) => {
       document.body.scrollTop > 10 ||
       document.documentElement.scrollTop > 10
     ) {
-      backPanelRef.current.classList.remove("expandedPanel")
-      backPanelRef.current.classList.add("backPanel")
+      backPanelRef.current.classList.remove("panel--expanded")
     } else {
-      backPanelRef.current.classList.remove("backPanel")
-      backPanelRef.current.classList.add("expandedPanel")
+      backPanelRef.current.classList.add("panel--expanded")
     }
   }
 
+  const linkStyles = "nav-list__link"
+  const activeLinkStyles = "nav-list__link nav-list__link--active"
+
   return (
-    <header className="header">
-      <div ref={backPanelRef} className="expandedPanel primary"></div>
-      <div className="headerContainer">
+    <header ref={headerRef} className="header header--primary">
+      <div
+        ref={backPanelRef}
+        className="panel panel--expanded header--primary"
+      ></div>
+      <div className="header-container">
         <h1 style={{ margin: 0 }}>
-          <Link to="/" className="navLink">
-            <img style={{ margin: 0 }} src={logo} alt="Arts Matter" />
+          <Link to="/" className="header-container__navLink">
+            <img
+              className="header-container__img"
+              src={logo}
+              alt="Arts Matter"
+            />
           </Link>
         </h1>
-        <nav>
-          <ul className="navList">
-            <li className="linkLi">
-              <Link className="navLink" to="/about">
+        <nav className="nav">
+          <ul className="nav-list">
+            <li className="nav-list__item">
+              <Link
+                className={active === "about" ? activeLinkStyles : linkStyles}
+                to="/about"
+              >
                 About
               </Link>
             </li>
-            <li className="linkLi">
-              <Link className="navLink" to="/programs">
+            <li className="nav-list__item">
+              <Link
+                className={
+                  active === "programs" ? activeLinkStyles : linkStyles
+                }
+                to="/programs"
+              >
                 Programs
               </Link>
             </li>
-            <li className="linkLi">
-              <Link className="navLink" to="/resources">
+            <li className="nav-list__item">
+              <Link
+                className={
+                  active === "resources" ? activeLinkStyles : linkStyles
+                }
+                to="/resources"
+              >
                 Resources
               </Link>
             </li>
-            <li className="linkLi">
-              <Link className="navLink" to="/news">
+            <li className="nav-list__item">
+              <Link
+                className={active === "news" ? activeLinkStyles : linkStyles}
+                to="/news"
+              >
                 News
               </Link>
             </li>
-            <li className="linkLi">
-              <Link className="navLink" to="/contact">
+            <li className="nav-list__item">
+              <Link
+                className={active === "contact" ? activeLinkStyles : linkStyles}
+                to="/contact"
+              >
                 Contact
               </Link>
             </li>
           </ul>
         </nav>
+        <nav className="nav-mobile" ref={mobileNavRef}>
+          <ul className="nav-list-mobile">
+            <li className="nav-list__item nav-list-mobile__item">
+              <Link
+                className={active === "about" ? activeLinkStyles : linkStyles}
+                to="/about"
+              >
+                About
+              </Link>
+            </li>
+            <li className="nav-list__item nav-list-mobile__item">
+              <Link
+                className={
+                  active === "programs" ? activeLinkStyles : linkStyles
+                }
+                to="/programs"
+              >
+                Programs
+              </Link>
+            </li>
+            <li className="nav-list__item nav-list-mobile__item">
+              <Link
+                className={
+                  active === "resources" ? activeLinkStyles : linkStyles
+                }
+                to="/resources"
+              >
+                Resources
+              </Link>
+            </li>
+            <li className="nav-list__item nav-list-mobile__item">
+              <Link
+                className={active === "news" ? activeLinkStyles : linkStyles}
+                to="/news"
+              >
+                News
+              </Link>
+            </li>
+            <li className="nav-list__item nav-list-mobile__item">
+              <Link
+                className={active === "contact" ? activeLinkStyles : linkStyles}
+                to="/contact"
+              >
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <HamburgerMenu
+          headerRef={headerRef}
+          setMobileExpanded={setMobileExpanded}
+          mobileNavRef={mobileNavRef}
+        />
       </div>
     </header>
   )
