@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import logo from "../images/logo.svg"
-import HamburgerMenu from "../components/hamburgerMenu"
 
 const IndexPage = () => (
   <Layout active="home">
@@ -90,7 +89,6 @@ const IndexPage = () => (
       exercitation minim fugiat. Excepteur exercitation aute nostrud ad officia
       labore incididunt.
     </p>
-    <HamburgerMenu />
   </Layout>
 )
 
