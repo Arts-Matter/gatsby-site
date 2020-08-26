@@ -83,7 +83,7 @@
 }
 
 .hamburger.is-active .hamburger-inner {
-  transform: translate3d(0, 10px, 0) rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .hamburger.is-active .hamburger-inner::before {
