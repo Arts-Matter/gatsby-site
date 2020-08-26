@@ -21,14 +21,13 @@ const Header = ({ siteTitle, active }) => {
   })
 
   const handleScroll = () => {
-    if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+    if (
+      document.body.scrollTop > 10 ||
+      document.documentElement.scrollTop > 10
+    ) {
       backPanelRef.current.classList.remove("panel--expanded")
-      backPanelRef.current.style.height = `${
-        560 - document.documentElement.scrollTop
-      }px`
     } else {
       backPanelRef.current.classList.add("panel--expanded")
-      backPanelRef.current.style.height = "100px"
     }
   }
 
