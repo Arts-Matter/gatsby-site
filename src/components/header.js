@@ -50,7 +50,7 @@ const Header = ({ siteTitle, active }) => {
             ></div>
           </Link>
         </h1>
-        <nav className="nav">
+        <nav className="nav" ref={mobileNavRef}>
           <ul className="nav-list">
             <li className="nav-list__item">
               <Link
@@ -98,7 +98,7 @@ const Header = ({ siteTitle, active }) => {
             </li>
           </ul>
         </nav>
-        <nav className="nav-mobile" ref={mobileNavRef}>
+        {/* <nav className="nav-mobile" ref={mobileNavRef}>
           <ul className="nav-list-mobile">
             <li className="nav-list__item nav-list-mobile__item">
               <Link className={linkStyles} to="/about">
@@ -126,7 +126,7 @@ const Header = ({ siteTitle, active }) => {
               </Link>
             </li>
           </ul>
-        </nav>
+        </nav> */}
         <HamburgerMenu
           headerRef={headerRef}
           setMobileExpanded={setMobileExpanded}
