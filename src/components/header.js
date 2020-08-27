@@ -34,8 +34,8 @@ const Header = ({ siteTitle, active }) => {
     }
   }
 
-  const linkStyles = "nav-list__link"
-  const activeLinkStyles = "nav-list__link nav-list__link--active"
+  const linkStyles = "nav-list__item"
+  const activeLinkStyles = "nav-list__item nav-list__item--active"
 
   return (
     <header ref={headerRef} className="header header--primary">
@@ -69,35 +69,42 @@ const Header = ({ siteTitle, active }) => {
           aria-hidden={width > 889 || mobileExpanded ? false : true}
         >
           <ul id="main-menu" className="nav-list">
-            <Link
-              className={active === "about" ? activeLinkStyles : linkStyles}
-              to="/about"
-            >
-              <li className="nav-list__item">About</li>
+            <Link className="nav-list__link" to="/about">
+              <li
+                className={active === "about" ? activeLinkStyles : linkStyles}
+              >
+                About
+              </li>
             </Link>
-            <Link
-              className={active === "programs" ? activeLinkStyles : linkStyles}
-              to="/programs"
-            >
-              <li className="nav-list__item">Programs</li>
+            <Link className="nav-list__link" to="/programs">
+              <li
+                className={
+                  active === "programs" ? activeLinkStyles : linkStyles
+                }
+              >
+                Programs
+              </li>
             </Link>
-            <Link
-              className={active === "resources" ? activeLinkStyles : linkStyles}
-              to="/resources"
-            >
-              <li className="nav-list__item">Resources</li>
+            <Link className="nav-list__link" to="/resources">
+              <li
+                className={
+                  active === "resources" ? activeLinkStyles : linkStyles
+                }
+              >
+                Resources
+              </li>
             </Link>
-            <Link
-              className={active === "news" ? activeLinkStyles : linkStyles}
-              to="/news"
-            >
-              <li className="nav-list__item">News</li>
+            <Link className="nav-list__link" to="/news">
+              <li className={active === "news" ? activeLinkStyles : linkStyles}>
+                News
+              </li>
             </Link>
-            <Link
-              className={active === "contact" ? activeLinkStyles : linkStyles}
-              to="/contact"
-            >
-              <li className="nav-list__item">Contact</li>
+            <Link className="nav-list__link" to="/contact">
+              <li
+                className={active === "contact" ? activeLinkStyles : linkStyles}
+              >
+                Contact
+              </li>
             </Link>
           </ul>
         </nav>
