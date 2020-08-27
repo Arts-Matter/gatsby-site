@@ -6,9 +6,9 @@ import promiseFundLogo from "../images/promise-fund-logo.svg"
 export default function footer() {
   return (
     <footer className="footer">
-      <section className="footer-container">
+      <div className="footer-container">
         <div className="footer-content-container">
-          <article className="footer-content-container__left">
+          <div className="footer-content-container__left">
             <div className="footer-content-container__logo"></div>
             <nav className="footer-content-container__links">
               <ul className="footer-content-container__links-list">
@@ -48,8 +48,8 @@ export default function footer() {
                 </li>
               </ul>
             </nav>
-          </article>
-          <article className="promise-fund-container">
+          </div>
+          <div className="promise-fund-container">
             <Link to="" className="footer-content-container__link">
               <img
                 className="promise-fund-container__logo"
@@ -61,11 +61,11 @@ export default function footer() {
               ArtsMatter is an initiative of the LA Promise Fund.
             </p>
             <p className="promise-fund-container__paragraph">
-              © 2019 ArtsMatter. All rights reserved.
+              {`© ${new Date().getFullYear()} ArtsMatter. All rights reserved.`}
             </p>
-          </article>
+          </div>
         </div>
-      </section>
+      </div>
     </footer>
   )
 }
