@@ -165,6 +165,10 @@
     width: 100vw;
   }
 
+  .nav[aria-hidden="true"] .nav-list__link {
+    display: none;
+  }
+
   .nav-list {
     margin: 0;
     display: flex;
