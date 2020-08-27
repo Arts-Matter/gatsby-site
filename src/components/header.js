@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useEffect, useRef, useState } from "react"
+import { useWindowSize } from "./hooks"
 import logo from "../images/logo.svg"
 import HamburgerMenu from "./hamburgerMenu"
 import "./header.css"
@@ -11,6 +12,8 @@ const Header = ({ siteTitle, active }) => {
   const backPanelRef = useRef()
   const headerRef = useRef()
   const mobileNavRef = useRef()
+
+  const { width } = useWindowSize()
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, true)
@@ -42,7 +45,11 @@ const Header = ({ siteTitle, active }) => {
       ></div>
       <div className="header-container">
         <h1 className="header-container__title">
-          <Link to="/" className="header-container__navLink">
+          <Link
+            to="/"
+            className="header-container__navLink"
+            aria-label="Homepage"
+          >
             <div
               className={`header-container__logo ${
                 mobileExpanded ? "header-container__logo--open" : ""
@@ -50,8 +57,18 @@ const Header = ({ siteTitle, active }) => {
             ></div>
           </Link>
         </h1>
-        <nav className="nav" ref={mobileNavRef}>
-          <ul className="nav-list">
+        <HamburgerMenu
+          headerRef={headerRef}
+          setMobileExpanded={setMobileExpanded}
+          mobileNavRef={mobileNavRef}
+        />
+        <nav
+          className="nav"
+          ref={mobileNavRef}
+          aria-labelledby="main-menu"
+          aria-hidden={width > 889 || mobileExpanded ? false : true}
+        >
+          <ul id="main-menu" className="nav-list">
             <Link
               className={active === "about" ? activeLinkStyles : linkStyles}
               to="/about"
@@ -84,11 +101,6 @@ const Header = ({ siteTitle, active }) => {
             </Link>
           </ul>
         </nav>
-        <HamburgerMenu
-          headerRef={headerRef}
-          setMobileExpanded={setMobileExpanded}
-          mobileNavRef={mobileNavRef}
-        />
       </div>
     </header>
   )
