@@ -58,7 +58,12 @@ const Header = ({ siteTitle, active }) => {
           setMobileExpanded={setMobileExpanded}
           mobileNavRef={mobileNavRef}
         />
-        <nav className="nav" ref={mobileNavRef} aria-labelledby="main-menu" hidden={( width > 889 || mobileExpanded ) ? false : true}>
+        <nav 
+          className="nav" 
+          ref={mobileNavRef} 
+          aria-labelledby="main-menu" 
+          hidden={( width > 889 || mobileExpanded ) ? false : true}
+        >
           <ul id="main-menu" className="nav-list">
             <li className="nav-list__item">
               <Link
