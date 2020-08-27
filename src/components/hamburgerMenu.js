@@ -31,6 +31,9 @@ export default function HamburgerMenu({
       className={active ? activeClass : inactiveClass}
       type="button"
       onClick={handleClick}
+      aria-label="Toggle Menu"
+      aria-pressed={active}
+      aria-expanded={active}
     >
       <span className="hamburger-box">
         <span className="hamburger-inner"></span>
