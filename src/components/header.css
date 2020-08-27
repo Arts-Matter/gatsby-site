@@ -52,9 +52,10 @@
   background-position: center;
 }
 
-.nav-list__link--active {
+.nav-list__item--active {
   border-bottom: 4px solid var(--black);
-  padding-bottom: 8px;
+  padding-bottom: 4px;
+  padding-top: 8px;
 }
 
 .panel {
