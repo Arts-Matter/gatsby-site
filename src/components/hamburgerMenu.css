@@ -13,7 +13,7 @@
   overflow: visible;
 }
 
-.hamburger:focus {
+.hamburger.hamburger.is-active {
   border: none;
   outline: none;
 }
