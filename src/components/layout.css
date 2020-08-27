@@ -119,6 +119,7 @@ optgroup {
 button,
 input {
   overflow: visible;
+  padding: 0;
 }
 button,
 select {
