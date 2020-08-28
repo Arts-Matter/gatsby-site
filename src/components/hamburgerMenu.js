@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import "./hamburgerMenu.css"
+import "./hamburgerMenu.scss"
 
 export default function HamburgerMenu({
   headerRef,

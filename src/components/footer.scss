@@ -35,13 +35,13 @@
 
 .footer-content-container__links-list {
   margin-right: 148px;
-  font-family: "Visuelt Bold", sans-serif;
+  font-family: var(--visueltBold);
   font-size: 19px;
   list-style: none;
 }
 
 .footer-content-container__links-list--visuelt-regular {
-  font-family: "Visuelt Regular", sans-serif;
+  font-family: var(--visueltRegular);
 }
 
 .footer-content-container__item {

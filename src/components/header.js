@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import React, { useEffect, useRef, useState } from "react"
 import { useWindowSize } from "./hooks"
 import HamburgerMenu from "./hamburgerMenu"
-import "./header.css"
+import "./header.scss"
 
 const Header = ({ siteTitle, active }) => {
   const [mobileExpanded, setMobileExpanded] = useState(false)
@@ -35,9 +35,6 @@ const Header = ({ siteTitle, active }) => {
 
   const linkStyles = "nav-list__item"
   const activeLinkStyles = "nav-list__item nav-list__item--active"
-
-  console.log("MOBILE EXPANDED: ", mobileExpanded)
-  console.log("should be active: ", active && !mobileExpanded)
 
   return (
     <header ref={headerRef} className="header header--primary">

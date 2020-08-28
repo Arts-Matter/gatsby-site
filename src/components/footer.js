@@ -1,5 +1,5 @@
 import React from "react"
-import "./footer.css"
+import "./footer.scss"
 import promiseFundLogo from "../images/promise-fund-logo.svg"
 
 export default function footer() {
