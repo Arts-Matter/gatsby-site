@@ -36,6 +36,9 @@ const Header = ({ siteTitle, active }) => {
   const linkStyles = "nav-list__item"
   const activeLinkStyles = "nav-list__item nav-list__item--active"
 
+  console.log("MOBILE EXPANDED: ", mobileExpanded)
+  console.log("should be active: ", active && !mobileExpanded)
+
   return (
     <header ref={headerRef} className="header header--primary">
       <div
@@ -72,7 +75,7 @@ const Header = ({ siteTitle, active }) => {
             <Link className="nav-list__link" to="/about">
               <li
                 className={
-                  (active && !mobileExpanded) === "about"
+                  active === "about" && !mobileExpanded
                     ? activeLinkStyles
                     : linkStyles
                 }
@@ -83,7 +86,7 @@ const Header = ({ siteTitle, active }) => {
             <Link className="nav-list__link" to="/programs">
               <li
                 className={
-                  (active && !mobileExpanded) === "programs"
+                  active === "programs" && !mobileExpanded
                     ? activeLinkStyles
                     : linkStyles
                 }
@@ -94,7 +97,7 @@ const Header = ({ siteTitle, active }) => {
             <Link className="nav-list__link" to="/resources">
               <li
                 className={
-                  (active && !mobileExpanded) === "resources"
+                  active === "resources" && !mobileExpanded
                     ? activeLinkStyles
                     : linkStyles
                 }
@@ -105,7 +108,7 @@ const Header = ({ siteTitle, active }) => {
             <Link className="nav-list__link" to="/news">
               <li
                 className={
-                  (active && !mobileExpanded) === "news"
+                  active === "news" && !mobileExpanded
                     ? activeLinkStyles
                     : linkStyles
                 }
@@ -116,7 +119,7 @@ const Header = ({ siteTitle, active }) => {
             <Link className="nav-list__link" to="/contact">
               <li
                 className={
-                  (active && !mobileExpanded) === "contact"
+                  active === "contact" && !mobileExpanded
                     ? activeLinkStyles
                     : linkStyles
                 }
