@@ -5,9 +5,16 @@
  * ----------------------------------------------------------------------------- */
 
 :root {
-  --primary: #cc4faa;
-}
-
-header {
-  background-color: var(--primary);
+  --magenta: #cc4faa;
+  --tomato: #ed5338;
+  --aqua: #a3dad6;
+  --ocean: #0088ce;
+  --sunflower: #ffce34;
+  --geo: #00b18f;
+  --black: #000000;
+  --white: #ffffff;
+  --could: #e4e1dc;
+  --easeOut: all 0.5s ease-out;
+  --visueltBold: "Visuelt Bold", sans-serif;
+  --visueltRegular: "Visuelt Regular", sans-serif;
 }

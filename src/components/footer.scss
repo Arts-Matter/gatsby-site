@@ -1,0 +1,115 @@
+.footer {
+  background-color: #000;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-container {
+  max-width: calc(1440px + 2 * 84px);
+  width: calc(1440px + 2 * 84px);
+  padding: 0 84px;
+  height: auto;
+}
+
+.footer-content-container {
+  padding: 90px 0;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  height: auto;
+}
+
+.footer-content-container__left,
+.footer-content-container__links {
+  display: flex;
+}
+
+.footer-content-container__logo {
+  background-image: url("../images/logo-small.svg");
+  margin-right: 126px;
+  width: 88px;
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+
+.footer-content-container__links-list {
+  margin-right: 148px;
+  font-family: var(--visueltBold);
+  font-size: 19px;
+  list-style: none;
+}
+
+.footer-content-container__links-list--visuelt-regular {
+  font-family: var(--visueltRegular);
+}
+
+.footer-content-container__item {
+  margin-bottom: 19px;
+}
+
+.footer-content-container__item:last-of-type {
+  margin-bottom: 0;
+}
+
+.footer-content-container__link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.promise-fund-container {
+}
+
+.promise-fund-container__logo {
+  display: block;
+  margin-bottom: 14px;
+  min-height: 48px;
+  min-width: 114px;
+}
+
+.promise-fund-container__paragraph {
+  font-family: "Visuelt Regular", sans-serif;
+  font-size: 13px;
+  opacity: 0.6;
+  margin-bottom: 8px;
+  line-height: 15px;
+}
+
+@media only screen and (max-width: 889px) {
+  .footer-container {
+    width: 100%;
+    padding: 36px 24px 48px;
+  }
+
+  .footer-content-container {
+    padding: 0;
+  }
+
+  .footer-content-container__left {
+    display: block;
+  }
+
+  .footer-content-container__logo {
+    background-size: contain;
+    height: 64px;
+    margin-right: 0;
+  }
+
+  .footer-content-container__links {
+    display: block;
+    margin-top: 24px;
+  }
+
+  .footer-content-container__links-list {
+    margin: 0;
+  }
+
+  .footer-content-container__links-list:first-of-type {
+    margin-bottom: 14px;
+  }
+
+  .promise-fund-container {
+    flex: 0 1 50%;
+    padding: 16px 16px 0 0;
+  }
+}
