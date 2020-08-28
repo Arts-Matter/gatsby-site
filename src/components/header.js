@@ -2,7 +2,6 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useEffect, useRef, useState } from "react"
 import { useWindowSize } from "./hooks"
-import logo from "../images/logo.svg"
 import HamburgerMenu from "./hamburgerMenu"
 import "./header.css"
 
@@ -61,6 +60,7 @@ const Header = ({ siteTitle, active }) => {
           headerRef={headerRef}
           setMobileExpanded={setMobileExpanded}
           mobileNavRef={mobileNavRef}
+          width={width}
         />
         <nav
           className="nav"
@@ -71,7 +71,11 @@ const Header = ({ siteTitle, active }) => {
           <ul id="main-menu" className="nav-list">
             <Link className="nav-list__link" to="/about">
               <li
-                className={active === "about" ? activeLinkStyles : linkStyles}
+                className={
+                  (active && !mobileExpanded) === "about"
+                    ? activeLinkStyles
+                    : linkStyles
+                }
               >
                 About
               </li>
@@ -79,7 +83,9 @@ const Header = ({ siteTitle, active }) => {
             <Link className="nav-list__link" to="/programs">
               <li
                 className={
-                  active === "programs" ? activeLinkStyles : linkStyles
+                  (active && !mobileExpanded) === "programs"
+                    ? activeLinkStyles
+                    : linkStyles
                 }
               >
                 Programs
@@ -88,20 +94,32 @@ const Header = ({ siteTitle, active }) => {
             <Link className="nav-list__link" to="/resources">
               <li
                 className={
-                  active === "resources" ? activeLinkStyles : linkStyles
+                  (active && !mobileExpanded) === "resources"
+                    ? activeLinkStyles
+                    : linkStyles
                 }
               >
                 Resources
               </li>
             </Link>
             <Link className="nav-list__link" to="/news">
-              <li className={active === "news" ? activeLinkStyles : linkStyles}>
+              <li
+                className={
+                  (active && !mobileExpanded) === "news"
+                    ? activeLinkStyles
+                    : linkStyles
+                }
+              >
                 News
               </li>
             </Link>
             <Link className="nav-list__link" to="/contact">
               <li
-                className={active === "contact" ? activeLinkStyles : linkStyles}
+                className={
+                  (active && !mobileExpanded) === "contact"
+                    ? activeLinkStyles
+                    : linkStyles
+                }
               >
                 Contact
               </li>
