@@ -5,30 +5,25 @@ export default function HamburgerMenu({
   headerRef,
   setMobileExpanded,
   mobileNavRef,
+  width,
 }) {
   const [active, setActive] = useState(false)
   const inactiveClass = "hamburger hamburger--slider"
   const activeClass = "hamburger hamburger--slider is-active"
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize)
-
-    return () => {
-      window.removeEventListener("resize", handleResize)
+    const handleResize = () => {
+      if (width > 889 && width < 900) {
+        setActive(false)
+        headerRef.current.classList.add("header--primary")
+        headerRef.current.classList.remove("header--secondary")
+        mobileNavRef.current.removeAttribute("style")
+        setMobileExpanded(false)
+      }
     }
-  })
 
-  const handleResize = () => {
-    const width = document.documentElement.clientWidth
-
-    if (width > 889 && width < 900) {
-      setActive(false)
-      headerRef.current.classList.add("header--primary")
-      headerRef.current.classList.remove("header--secondary")
-      mobileNavRef.current.removeAttribute("style")
-      setMobileExpanded(false)
-    }
-  }
+    handleResize()
+  }, [width, headerRef, mobileNavRef, setMobileExpanded])
 
   const handleClick = () => {
     setActive(!active)
