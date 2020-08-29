@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react"
+import "./panel.scss"
 
 export default function Panel() {
   const backPanelRef = useRef()
