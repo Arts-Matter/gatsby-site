@@ -1,6 +1,6 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React, { useEffect, useRef, useState } from "react"
+import React, { useRef, useState } from "react"
 import { useWindowSize } from "./hooks"
 import HamburgerMenu from "./hamburgerMenu"
 import "./header.scss"
@@ -8,40 +8,16 @@ import "./header.scss"
 const Header = ({ siteTitle, active }) => {
   const [mobileExpanded, setMobileExpanded] = useState(false)
 
-  const backPanelRef = useRef()
   const headerRef = useRef()
   const mobileNavRef = useRef()
 
   const { width } = useWindowSize()
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll, true)
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll, true)
-    }
-  })
-
-  const handleScroll = () => {
-    if (
-      document.body.scrollTop > 10 ||
-      document.documentElement.scrollTop > 10
-    ) {
-      backPanelRef.current.classList.remove("panel--expanded")
-    } else {
-      backPanelRef.current.classList.add("panel--expanded")
-    }
-  }
 
   const linkStyles = "nav-list__item"
   const activeLinkStyles = "nav-list__item nav-list__item--active"
 
   return (
     <header ref={headerRef} className="header header--primary">
-      <div
-        ref={backPanelRef}
-        className="panel panel--expanded header--primary"
-      ></div>
       <div className="header-container">
         <h1 className="header-container__title">
           <Link
