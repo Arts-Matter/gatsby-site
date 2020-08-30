@@ -17,7 +17,7 @@ const Header = ({ siteTitle, active }) => {
   const activeLinkStyles = "nav-list__item nav-list__item--active"
 
   return (
-    <header ref={headerRef} className="header header--primary">
+    <header ref={headerRef} className="header magenta">
       <div className="header-container">
         <h1 className="header-container__title">
           <Link
