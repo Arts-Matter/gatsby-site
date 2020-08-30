@@ -1,3 +1,44 @@
+.content-container {
+  max-width: calc(1440px + 2 * 84px);
+  padding: var(--contentContainerPadding);
+}
+
+.magenta {
+  background-color: var(--magenta);
+}
+
+.tomato {
+  background-color: var(--tomato);
+}
+
+.aqua {
+  background-color: var(--aqua);
+}
+
+.ocean {
+  background-color: var(--ocean);
+}
+
+.sunflower {
+  background-color: var(--sunflower);
+}
+
+.geo {
+  background-color: var(--geo);
+}
+
+.black {
+  background-color: var(--black);
+}
+
+.white {
+  background-color: var(--white);
+}
+
+.cloud {
+  background-color: var();
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -616,6 +657,7 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
+
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
