@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useRef, useEffect } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -29,7 +29,7 @@ const Layout = ({ children, active }) => {
     <>
       <Header active={active} siteTitle={data.site.siteMetadata.title} />
       <main>
-        <section>
+        <section className="main-wrapper">
           <Panel />
           <div className="content-container">{children}</div>
         </section>
