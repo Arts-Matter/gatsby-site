@@ -59,3 +59,44 @@
     cursor: pointer;
   }
 }
+
+@media only screen and (max-width: 1080px) {
+  .footer-contact__container {
+    margin: 32px 0 40px 0;
+    display: block;
+  }
+
+  .footer-contact__content {
+    width: 100%;
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .contact-form {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .contact-form__container {
+    height: 96px;
+  }
+
+  .contact-form__form {
+    margin-top: 32px;
+  }
+
+  .contact-form__input {
+    flex: 1 1 auto;
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 889px) {
+  .footer-contact {
+    margin-top: var(--formElementHeight);
+  }
+
+  .footer-contact__container {
+    padding: 32px 24px 24px 24px;
+  }
+}
