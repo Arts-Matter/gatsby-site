@@ -15,6 +15,8 @@ export default function footer() {
                   <a
                     className="footer-content-container__link"
                     href="https://donatenow.networkforgood.org/Shared/Error.aspx"
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     Donate
                   </a>
@@ -25,6 +27,8 @@ export default function footer() {
                   <a
                     className="footer-content-container__link"
                     href="https://www.facebook.com/LAFund"
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     Facebook
                   </a>
@@ -33,6 +37,8 @@ export default function footer() {
                   <a
                     className="footer-content-container__link"
                     href="https://twitter.com/ArtsMatter"
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     Twitter
                   </a>
@@ -41,6 +47,8 @@ export default function footer() {
                   <a
                     className="footer-content-container__link"
                     href="https://www.instagram.com/artsmatter/"
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     Instagram
                   </a>
@@ -52,6 +60,8 @@ export default function footer() {
             <a
               href="http://www.lapromisefund.org/"
               className="footer-content-container__link"
+              target="_blank"
+              rel="noreferrer"
             >
               <img
                 className="promise-fund-container__logo"
