@@ -2,8 +2,12 @@
   position: absolute;
   width: 100%;
   z-index: -10;
-  height: 100px;
+  height: 0px;
   transition: var(--easeOut);
+}
+
+.panel--mobile {
+  height: 400px;
 }
 
 .panel--expanded {
