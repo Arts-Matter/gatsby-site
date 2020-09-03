@@ -12,6 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Footer from "./footer"
 import Panel from "./panel"
+import FooterContactForm from "./footerContactForm"
 import "./layout.scss"
 
 const Layout = ({ children, active }) => {
@@ -34,6 +35,7 @@ const Layout = ({ children, active }) => {
           <div className="content-container">{children}</div>
         </section>
       </main>
+      <FooterContactForm />
       <Footer />
     </>
   )
