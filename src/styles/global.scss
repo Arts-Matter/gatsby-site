@@ -40,7 +40,7 @@
   --buttonFontSize: 14px;
 
   //line heights
-  --headerLineHeightSecondary: 52px;
+  --headerLineHeightPrimary: 52px;
   --headerLineHeightSecondary: 35px;
   --paragraphLineHeight: 27px;
   --buttonLineHeight: 18px;
@@ -52,9 +52,14 @@
 
   //padding
   --contentPaddingPrimary: 48px 96px;
-  --contentContainerPadding: 100px 84px 0;
+  --contentContainerPadding: 100px 84px;
 
   //margin
   --sectionSpacingPrimary: 144px;
   --sectionSpacingSecondary: 140px;
+  --footerContactMargin: 160px;
+
+  //form styles
+  --formElementHeight: 48px;
+  --formElementPadding: 0 24px;
 }

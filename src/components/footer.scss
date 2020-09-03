@@ -34,6 +34,7 @@
 }
 
 .footer-content-container__links-list {
+  margin: 0;
   margin-right: 148px;
   font-family: var(--visueltBold);
   font-size: 19px;
@@ -45,7 +46,7 @@
 }
 
 .footer-content-container__item {
-  margin-bottom: 19px;
+  margin-bottom: 12px;
 }
 
 .footer-content-container__item:last-of-type {
@@ -55,9 +56,6 @@
 .footer-content-container__link {
   color: #fff;
   text-decoration: none;
-}
-
-.promise-fund-container {
 }
 
 .promise-fund-container__logo {
@@ -72,7 +70,7 @@
   font-size: 13px;
   opacity: 0.6;
   margin-bottom: 8px;
-  line-height: 15px;
+  line-height: 13px;
 }
 
 @media only screen and (max-width: 889px) {
@@ -100,12 +98,16 @@
     margin-top: 24px;
   }
 
+  .footer-content-container__item {
+    margin-bottom: 8px;
+  }
+
   .footer-content-container__links-list {
     margin: 0;
   }
 
   .footer-content-container__links-list:first-of-type {
-    margin-bottom: 14px;
+    margin-bottom: 8px;
   }
 
   .promise-fund-container {

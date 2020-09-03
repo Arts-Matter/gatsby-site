@@ -1,0 +1,15 @@
+.panel {
+  position: absolute;
+  width: 100%;
+  z-index: -10;
+  height: 0px;
+  transition: var(--easeOut);
+}
+
+.panel--mobile {
+  height: 400px;
+}
+
+.panel--expanded {
+  height: 560px;
+}
