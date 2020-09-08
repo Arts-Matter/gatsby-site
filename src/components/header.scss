@@ -63,14 +63,6 @@
   padding-top: 8px;
 }
 
-.header--primary {
-  background-color: var(--magenta);
-}
-
-.header--secondary {
-  background-color: var(--white);
-}
-
 .hamburger {
   display: none;
 }
@@ -79,16 +71,7 @@
   .header {
     height: 50px;
     position: inherit;
-  }
-
-  .header--primary {
-    background-color: var(--white);
-    transition: 0.2s;
-  }
-
-  .header--secondary {
-    background-color: var(--magenta);
-    transition: 0.2s;
+    transition: background-color 0.3s ease-out;
   }
 
   .header-container {
