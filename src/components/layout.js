@@ -31,7 +31,7 @@ const Layout = ({ children, active }) => {
       <Header active={active} siteTitle={data.site.siteMetadata.title} />
       <main className={active}>
         <section className="main-wrapper">
-          <Panel />
+          <Panel active={active} />
           <div className="content-container">{children}</div>
         </section>
       </main>

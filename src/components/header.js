@@ -1,12 +1,13 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React, { useRef, useState } from "react"
+import React, { useRef, useState, useEffect } from "react"
 import { useWindowSize } from "./hooks"
 import HamburgerMenu from "./hamburgerMenu"
 import "./header.scss"
 
 const Header = ({ siteTitle, active }) => {
   const [mobileExpanded, setMobileExpanded] = useState(false)
+  const [activeColor, setActiveColor] = useState()
 
   const headerRef = useRef()
   const mobileNavRef = useRef()
@@ -16,8 +17,49 @@ const Header = ({ siteTitle, active }) => {
   const linkStyles = "nav-list__item"
   const activeLinkStyles = "nav-list__item nav-list__item--active"
 
+  useEffect(() => {
+    switch (active) {
+      case "about":
+        setActiveColor("aqua")
+        if (width > 889) {
+          headerRef.current.classList.add("aqua")
+        }
+        break
+      case "programs":
+        if (width > 889) {
+          headerRef.current.classList.add("geo")
+        }
+        setActiveColor("geo")
+        break
+      case "resources":
+        if (width > 889) {
+          headerRef.current.classList.add("geo")
+        }
+        setActiveColor("geo")
+        break
+      case "news":
+        if (width > 889) {
+          headerRef.current.classList.add("sunflower")
+        }
+        setActiveColor("sunflower")
+        break
+      case "contact":
+        if (width > 889) {
+          headerRef.current.classList.add("tomato")
+        }
+        setActiveColor("tomato")
+        break
+      default:
+        if (width > 889) {
+          headerRef.current.classList.add("magenta")
+        }
+        setActiveColor("magenta")
+        break
+    }
+  }, [activeColor])
+
   return (
-    <header ref={headerRef} className="header header--primary">
+    <header ref={headerRef} className="header">
       <div className="header-container">
         <h1 className="header-container__title">
           <Link
@@ -37,6 +79,7 @@ const Header = ({ siteTitle, active }) => {
           setMobileExpanded={setMobileExpanded}
           mobileNavRef={mobileNavRef}
           width={width}
+          activeColor={activeColor}
         />
         <nav
           className="nav"

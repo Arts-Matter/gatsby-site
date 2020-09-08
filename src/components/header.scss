@@ -4,6 +4,7 @@
   position: fixed;
   display: flex;
   justify-content: center;
+  z-index: 10;
 }
 
 .header-container {
@@ -63,14 +64,6 @@
   padding-top: 8px;
 }
 
-.header--primary {
-  background-color: var(--magenta);
-}
-
-.header--secondary {
-  background-color: var(--white);
-}
-
 .hamburger {
   display: none;
 }
@@ -79,16 +72,7 @@
   .header {
     height: 50px;
     position: inherit;
-  }
-
-  .header--primary {
-    background-color: var(--white);
-    transition: 0.2s;
-  }
-
-  .header--secondary {
-    background-color: var(--magenta);
-    transition: 0.2s;
+    transition: background-color 0.3s ease-out;
   }
 
   .header-container {
@@ -153,6 +137,7 @@
     top: 50px;
     left: 0;
     width: 100vw;
+    z-index: 10;
   }
 
   .nav[aria-hidden="true"] .nav-list__link {
