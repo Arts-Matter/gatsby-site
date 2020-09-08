@@ -6,20 +6,31 @@ export default function HamburgerMenu({
   setMobileExpanded,
   mobileNavRef,
   width,
+  activeColor,
 }) {
   const [active, setActive] = useState(false)
-  const inactiveClass = "hamburger hamburger--slider"
-  const activeClass = "hamburger hamburger--slider is-active"
+  const inactiveClass = "hamburger"
+  const activeClass = "hamburger is-active"
 
   useEffect(() => {
     const handleResize = () => {
       if (width > 889 && width < 900) {
         setActive(false)
-        headerRef.current.classList.add("header--primary")
-        headerRef.current.classList.remove("header--secondary")
+        headerRef.current.classList.remove("white")
+        headerRef.current.classList.remove("magenta")
+        headerRef.current.classList.add(activeColor)
         mobileNavRef.current.removeAttribute("style")
         setMobileExpanded(false)
       }
+    }
+
+    if (
+      width < 890 &&
+      !active &&
+      !headerRef.current.classList.contains("white")
+    ) {
+      headerRef.current.classList.add("white")
+      headerRef.current.classList.remove(activeColor)
     }
 
     handleResize()
@@ -29,13 +40,13 @@ export default function HamburgerMenu({
     setActive(!active)
 
     if (!active) {
-      headerRef.current.classList.add("header--secondary")
-      headerRef.current.classList.remove("header--primary")
+      headerRef.current.classList.remove("white")
+      headerRef.current.classList.add("magenta")
       mobileNavRef.current.style.height = "500px"
       setMobileExpanded(true)
     } else {
-      headerRef.current.classList.add("header--primary")
-      headerRef.current.classList.remove("header--secondary")
+      headerRef.current.classList.add("white")
+      headerRef.current.classList.remove("magenta")
       mobileNavRef.current.style.height = "0px"
       setMobileExpanded(false)
     }
