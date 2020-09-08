@@ -1,36 +1,22 @@
-// about page styles
-
-.about .header-area {
+.header-area {
   padding: var(--contentPaddingPrimary);
-  background-color: var(--magenta);
 }
 
-.about .header-area .top {
+.top {
   display: flex;
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
   padding: 24px 0 96px 0;
-  margin: 24px 0;
 }
 
-.about .header-area .bottom {
-  display: flex;
-}
-
-.about .header-area .top .top__left,
-.about .header-area .bottom .bottom__left {
-  flex: 0 1 50%;
-  padding-right: 24px;
-}
-
-.about .header-area .top h1 {
+.top__title {
   font-family: var(--visueltBold);
   font-size: var(--headerFontSizePrimary);
   line-height: 1;
   color: var(--black);
 }
 
-.about .header-area .top h3 {
+.top__right-content {
   font-family: var(--scopeOne);
   font-size: var(--headerFontSizeTertiary);
   font-weight: 400;
@@ -40,19 +26,17 @@
   margin-bottom: 0;
 }
 
-.about .header-area .top .top__right {
+.top__left {
   flex: 0 1 50%;
-  font-size: var(--headerFontSizeTertiary);
-  line-height: var(--headerLineHeightSecondary);
-  padding-left: 24px;
+  padding-right: 24px;
 }
 
-.about .header-area .bottom .bottom__right {
+.top__right {
   flex: 0 1 50%;
   padding-left: 24px;
 }
 
-.about .header-area .bottom .bottom__left .mission {
+.bottom__label {
   display: inline-block;
   font-family: var(--ibmPlexMono);
   font-size: var(--linkFontSize);
@@ -60,6 +44,38 @@
   text-transform: uppercase;
   margin-bottom: 16px;
   color: var(--black);
+}
+
+.rich-text {
+  font-family: var(--visueltRegular);
+  font-size: var(--paragraphFontSize);
+  line-height: var(--paragraphLineHeight);
+  margin-bottom: 28px;
+  color: var(--black);
+}
+
+// about page specific styles
+
+.about .header-area {
+  background-color: var(--magenta);
+}
+
+.about .header-area .top {
+  margin: 24px 0;
+}
+
+.about .header-area .bottom {
+  display: flex;
+}
+
+.about .header-area .bottom .bottom__left {
+  flex: 0 1 50%;
+  padding-right: 24px;
+}
+
+.about .header-area .bottom .bottom__right {
+  flex: 0 1 50%;
+  padding-left: 24px;
 }
 
 .about .header-area .bottom .bottom__right .image-container {
@@ -78,58 +94,67 @@
   background-size: cover;
 }
 
-.rich-text {
-  font-family: var(--visueltRegular);
-  font-size: var(--paragraphFontSize);
-  line-height: var(--paragraphLineHeight);
-  margin-bottom: 28px;
-  color: var(--black);
-}
-
 @media only screen and (max-width: 889px) {
-  .about .header-area {
+  .header-area {
     padding: 50px 24px;
     padding-top: 0;
     background-color: transparent;
   }
 
-  .about .header-area .top {
+  .top {
     border-top: 2px solid var(--black);
     display: block;
     padding-bottom: 0;
     border-bottom: none;
   }
 
-  .about .header-area .top .top__right,
-  .about .header-area .bottom .bottom__right {
+  .top__right {
     padding-left: 0;
   }
 
-  .about .header-area .top h1 {
+  .top__title {
     font-size: var(--mobileTitleFontSize);
     line-height: var(--mobileHeaderLineHeightPrimary);
     margin-bottom: 8px;
   }
 
-  .about .header-area .top h3 {
+  .top__right-content {
     font-size: var(--mobileFontSizeTertiary);
     line-height: var(--mobileLineHeightSecondary);
     margin-bottom: 8px;
   }
 
-  .about .header-area .bottom {
+  .bottom {
     padding: 24px;
-    background-color: var(--magenta);
     display: block;
-  }
-
-  .about .header-area .bottom .bottom__left {
-    padding-right: 0px;
   }
 
   .rich-text {
     font-size: var(--mobileParagraphFontSize);
     line-height: var(--mobileParagraphLineHeight);
     margin-bottom: 21px;
+
+    &:last-child {
+      margin-bottom: 21px;
+    }
+  }
+
+  // about page specific styles
+
+  .about .header-area {
+    background-color: transparent;
+  }
+
+  .about .header-area .bottom {
+    display: block;
+    background-color: var(--magenta);
+  }
+
+  .about .header-area .bottom .bottom__left {
+    padding-right: 0px;
+  }
+
+  .about .header-area .bottom .bottom__right {
+    padding-left: 0;
   }
 }
