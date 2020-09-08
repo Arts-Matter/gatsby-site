@@ -16,8 +16,7 @@ export default function HamburgerMenu({
     const handleResize = () => {
       if (width > 889 && width < 900) {
         setActive(false)
-        headerRef.current.classList.remove("white")
-        headerRef.current.classList.remove("magenta")
+        headerRef.current.classList.remove("white", "magenta")
         headerRef.current.classList.add(activeColor)
         mobileNavRef.current.removeAttribute("style")
         setMobileExpanded(false)
