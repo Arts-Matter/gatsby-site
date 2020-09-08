@@ -4,62 +4,17 @@
  *
  * ----------------------------------------------------------------------------- */
 
-:root {
-  //palette
-  --magenta: #cc4faa;
-  --tomato: #ed5338;
-  --aqua: #a3dad6;
-  --ocean: #0088ce;
-  --sunflower: #ffce34;
-  --geo: #00b18f;
-  --black: #000000;
-  --white: #ffffff;
-  --cloud: #e4e1dc;
+/* Variables */
+@import './variables/all';
 
-  //transitions
-  --easeOut: all 0.5s ease-out;
+/* Resets */
+@import './resets';
 
-  //fonts
-  --visueltBold: "Visuelt Bold", sans-serif;
-  --visueltRegular: "Visuelt Regular", sans-serif;
-  --scopeOne: "Scope One", sans-serif;
-  --ibmPlexMono: "IBM Plex Mono", monospace;
+/* Typography */
+@import './typography/fonts';
+@import './typography/headings';
+@import './typography/p';
+@import './typography/links';
 
-  //font sizes
-  --headerFontSizePrimary: 64px;
-  --headerFontSizeSecondary: 36px;
-  --headerFontSizeTertiary: 22px;
-  --mobileTitleFontSize: 26px;
-  --mobileSectionTitleFontSize: 49px;
-  --mobileFontSizeTertiary: 19px;
-  --mobileSectionSubTitleFontSize: 16px;
-  --paragraphFontSize: 17px;
-  --mobileParagraphFontSize: 14px;
-  --footerLinkFontSize: 19px;
-  --linkFontSize: 13.5px;
-  --buttonFontSize: 14px;
-
-  //line heights
-  --headerLineHeightPrimary: 52px;
-  --headerLineHeightSecondary: 35px;
-  --paragraphLineHeight: 27px;
-  --buttonLineHeight: 18px;
-  --mobileHeaderLineHeightPrimary: 34px;
-  --mobileHeaderLineHeightSecondary: 29px;
-  --mobileParagraphLineHeight: 23px;
-  --mobileSectionTitleLineHeight: 59px;
-  --mobileSectionSubTitleLineHeight: 26px;
-
-  //padding
-  --contentPaddingPrimary: 48px 96px;
-  --contentContainerPadding: 100px 84px;
-
-  //margin
-  --sectionSpacingPrimary: 144px;
-  --sectionSpacingSecondary: 140px;
-  --footerContactMargin: 160px;
-
-  //form styles
-  --formElementHeight: 48px;
-  --formElementPadding: 0 24px;
-}
+/* Forms */
+@import './forms/forms';

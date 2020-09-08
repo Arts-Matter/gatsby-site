@@ -1,0 +1,39 @@
+/* -----------------------------------------------------------------------------
+ *
+ * Typography
+ *
+ * ----------------------------------------------------------------------------- */
+
+:root {
+  //font families
+  --visueltBold: "Visuelt Bold", sans-serif;
+  --visueltRegular: "Visuelt Regular", sans-serif;
+  --scopeOne: "Scope One", serif;
+  --ibmPlexMono: "IBM Plex Mono", monospace;
+
+
+  //font sizes
+  --headerFontSizePrimary: 64px;
+  --headerFontSizeSecondary: 36px;
+  --headerFontSizeTertiary: 22px;
+  --mobileTitleFontSize: 26px;
+  --mobileSectionTitleFontSize: 49px;
+  --mobileFontSizeTertiary: 19px;
+  --mobileSectionSubTitleFontSize: 16px;
+  --paragraphFontSize: 17px;
+  --mobileParagraphFontSize: 14px;
+  --footerLinkFontSize: 19px;
+  --linkFontSize: 13.5px;
+  --buttonFontSize: 14px;
+
+  //line heights
+  --headerLineHeightPrimary: 52px;
+  --headerLineHeightSecondary: 35px;
+  --paragraphLineHeight: 27px;
+  --buttonLineHeight: 18px;
+  --mobileHeaderLineHeightPrimary: 34px;
+  --mobileHeaderLineHeightSecondary: 29px;
+  --mobileParagraphLineHeight: 23px;
+  --mobileSectionTitleLineHeight: 59px;
+  --mobileSectionSubTitleLineHeight: 26px;
+}
