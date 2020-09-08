@@ -1,7 +1,7 @@
 // about page styles
 
 .about .header-area {
-  padding: 48px 96px;
+  padding: var(--contentPaddingPrimary);
   background-color: var(--magenta);
 }
 
@@ -9,7 +9,7 @@
   display: flex;
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
-  padding: 24px 0 96px;
+  padding: 24px 0 96px 0;
   margin: 24px 0;
 }
 
@@ -25,23 +25,25 @@
 
 .about .header-area .top h1 {
   font-family: var(--visueltBold);
-  font-size: 64px;
+  font-size: var(--headerFontSizePrimary);
   line-height: 1;
   color: var(--black);
 }
 
 .about .header-area .top h3 {
   font-family: var(--scopeOne);
-  font-size: 22px;
+  font-size: var(--headerFontSizeTertiary);
   font-weight: 400;
-  line-height: 35px;
+  line-height: var(--headerLineHeightSecondary);
   color: var(--black);
+  border-bottom: none;
+  margin-bottom: 0;
 }
 
 .about .header-area .top .top__right {
   flex: 0 1 50%;
-  font-size: 22px;
-  line-height: 35px;
+  font-size: var(--headerFontSizeTertiary);
+  line-height: var(--headerLineHeightSecondary);
   padding-left: 24px;
 }
 
@@ -53,10 +55,10 @@
 .about .header-area .bottom .bottom__left .mission {
   display: inline-block;
   font-family: var(--ibmPlexMono);
-  font-size: 13.5px;
+  font-size: var(--linkFontSize);
   letter-spacing: 1px;
   text-transform: uppercase;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   color: var(--black);
 }
 
@@ -78,8 +80,8 @@
 
 .rich-text {
   font-family: var(--visueltRegular);
-  font-size: 17px;
-  line-height: 27px;
+  font-size: var(--paragraphFontSize);
+  line-height: var(--paragraphLineHeight);
   margin-bottom: 28px;
   color: var(--black);
 }
@@ -104,14 +106,14 @@
   }
 
   .about .header-area .top h1 {
-    font-size: 26px;
-    line-height: 34px;
+    font-size: var(--mobileTitleFontSize);
+    line-height: var(--mobileHeaderLineHeightPrimary);
     margin-bottom: 8px;
   }
 
   .about .header-area .top h3 {
-    font-size: 19px;
-    line-height: 29px;
+    font-size: var(--mobileFontSizeTertiary);
+    line-height: var(--mobileLineHeightSecondary);
     margin-bottom: 8px;
   }
 
@@ -126,8 +128,8 @@
   }
 
   .rich-text {
-    font-size: 14px;
-    line-height: 23px;
+    font-size: var(--mobileParagraphFontSize);
+    line-height: var(--mobileParagraphLineHeight);
     margin-bottom: 21px;
   }
 }
