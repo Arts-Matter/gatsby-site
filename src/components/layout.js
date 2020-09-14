@@ -29,7 +29,7 @@ const Layout = ({ children, active }) => {
   return (
     <>
       <Header active={active} siteTitle={data.site.siteMetadata.title} />
-      <main>
+      <main className={active}>
         <section className="main-wrapper">
           <Panel active={active} />
           <div className="content-container">{children}</div>

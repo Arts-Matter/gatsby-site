@@ -76,6 +76,10 @@ module.exports = {
             family: "IBM Plex Mono",
             variants: [600],
           },
+          {
+            family: "Scope One",
+            variants: [400],
+          },
         ],
       },
     },

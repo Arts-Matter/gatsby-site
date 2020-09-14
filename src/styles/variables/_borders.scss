@@ -1,12 +1,10 @@
 /* -----------------------------------------------------------------------------
  *
- * Variables
+ * Borders
  *
  * ----------------------------------------------------------------------------- */
 
-@import "./colors";
-@import "./typography";
-@import "./spacers";
-@import "./transitions";
-@import "./forms";
-@import "./borders";
+:root {
+  --border-thin-black: solid 1px var(--black);
+  --border-thick-black: solid 2px var(--black);
+}
