@@ -1,14 +1,7 @@
 import React from "react"
 import "./headerArea.scss"
 
-export default function HeaderArea({
-  topLeft,
-  topRight,
-  bottomTitle,
-  bottomLeft,
-  bottomRight,
-  useBottom,
-}) {
+export default function HeaderArea({ topLeft, topRight, bottom }) {
   return (
     <div className="header-area">
       <div className="top">
@@ -19,15 +12,7 @@ export default function HeaderArea({
           <h3 className="top__right-content">{topRight}</h3>
         </div>
       </div>
-      {useBottom && (
-        <div className="bottom">
-          <div className="bottom__left">
-            <span class="bottom__label">{bottomTitle}</span>
-            {bottomLeft}
-          </div>
-          <div className="bottom__right">{bottomRight}</div>
-        </div>
-      )}
+      {bottom && <div className="bottom">{bottom}</div>}
     </div>
   )
 }
