@@ -4,8 +4,8 @@
 
 .top {
   display: flex;
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
+  border-top: var(--border-thin-black);
+  border-bottom: var(--border-thin-black);
   padding: var(--spacing-s) 0 96px 0;
 }
 
@@ -54,7 +54,7 @@
   }
 
   .top {
-    border-top: 2px solid var(--black);
+    border-top: var(--border-thick-black);
     display: block;
     padding-bottom: 0;
     border-bottom: none;
