@@ -46,7 +46,12 @@ export default function ProgramPillars() {
         </p>,
         <p className="pillar__content">
           According to the{" "}
-          <a href="https://www.artseddata.org/" className="pillar__link">
+          <a
+            href="https://www.artseddata.org/"
+            target="_blank"
+            rel="nofollow noopener"
+            className="pillar__link"
+          >
             Arts Education Data Project
           </a>
           , schools across California with a high percentage of low
