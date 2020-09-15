@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeaderArea from "../components/headerArea"
 import AboutBottomHeaderArea from "../components/aboutBottomHeaderArea"
+import History from "../components/history"
 
 const title = "About"
 
@@ -16,6 +17,7 @@ const Page = () => (
   <Layout active="about">
     <SEO title={title} />
     <HeaderArea topLeft="About" topRight={topRight} bottom={bottom} />
+    <History />
   </Layout>
 )
 
