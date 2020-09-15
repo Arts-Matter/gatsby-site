@@ -144,10 +144,12 @@
   .stats-panel__header {
     font-size: 17px;
     line-height: 25px;
+    margin-bottom: -6px;
   }
 
   .stats-panel__stat {
     font-size: 26px;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
+    line-height: 59px;
   }
 }
