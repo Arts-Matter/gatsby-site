@@ -1,0 +1,153 @@
+.history {
+  margin-top: var(--sectionSpacingPrimary);
+}
+
+.history__title {
+  color: #0088ce;
+  font-family: var(--visueltBold);
+  font-size: 64px;
+  margin-bottom: 42px;
+}
+
+.history__wrapper {
+  display: flex;
+}
+
+.history__section-left {
+  flex: 0 1 55%;
+  padding-right: var(--spacing-s);
+}
+
+.history__sub-heading {
+  font-family: var(--scopeOne);
+  font-size: var(--headerFontSizeTertiary);
+  line-height: var(--headerLineHeightSecondary);
+  margin-bottom: 42px;
+  border-bottom: none;
+}
+
+.history__section--right {
+  flex: 0 1 45%;
+  padding-left: var(--spacing-s);
+}
+
+.stats-panel {
+  position: relative;
+  background-color: var(--aqua);
+  padding: 54px 62px 24px 54px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-width: 0 40px 52px 0;
+    border-style: solid;
+    border-color: var(--tomato) var(--white);
+  }
+}
+
+.stats-panel__section {
+  display: flex;
+  border-bottom: var(--border-thin-ocean);
+  margin-bottom: 32px;
+
+  &:last-of-type {
+    border: none;
+    margin-bottom: 0;
+  }
+}
+
+.stats-panel__title {
+  font-family: var(--visueltBold);
+  font-size: 23px;
+  line-height: 28px;
+  color: var(--tomato);
+  flex: 0 1 40%;
+}
+
+.stats-panel__header {
+  font-family: var(--scopeOne);
+  font-size: var(--footerLinkFontSize);
+  line-height: 25px;
+  margin-bottom: 12px;
+  font-weight: 400;
+  color: var(--black);
+}
+
+.stats-panel__stat {
+  font-family: var(--visueltBold);
+  font-size: 29px;
+  margin-bottom: var(--spacing-s);
+  color: var(--black);
+}
+
+.stats-panel__content {
+  flex: 0 1 60%;
+  padding-left: var(--spacing-s);
+}
+
+@media only screen and (max-width: 889px) {
+  .history {
+    margin-top: 0;
+    padding: 0 24px;
+  }
+
+  .history__title {
+    font-size: 49px;
+    line-height: 59px;
+    margin-bottom: 0;
+  }
+
+  .history__wrapper {
+    display: block;
+  }
+
+  .history__sub-heading {
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 16px;
+  }
+
+  .history__content {
+    font-size: 14px;
+    line-height: 23px;
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 16px;
+    }
+  }
+
+  .history__section--right {
+    padding-left: 0;
+  }
+
+  .stats-panel {
+    padding: 54px 62px 14px 24px;
+  }
+
+  .stats-panel__section {
+    display: block;
+  }
+
+  .stats-panel__title {
+    font-size: 21px;
+    line-height: 28px;
+  }
+
+  .stats-panel__content {
+    margin-top: 18px;
+    padding-left: 0;
+  }
+
+  .stats-panel__header {
+    font-size: 17px;
+    line-height: 25px;
+  }
+
+  .stats-panel__stat {
+    font-size: 26px;
+    margin-bottom: 16px;
+  }
+}
