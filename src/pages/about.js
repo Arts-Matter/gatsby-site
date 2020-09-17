@@ -17,7 +17,6 @@ const topRight =
 const bottom = <AboutBottomHeaderArea />
 
 const Page = ({ data }) => {
-  data.allContentfulBio.nodes.splice(1, 1)
   const teamMembers = data.allContentfulBio.nodes.reduce(
     (members, curMember) => {
       const { name, role } = curMember
