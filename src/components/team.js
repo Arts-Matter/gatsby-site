@@ -22,17 +22,16 @@ export default function Team({ team }) {
       </h3>
       <div className="team-container">
         {width > 889 ? (
-          team.map(member => <TeamMember member={member} />)
+          team.map((member, i) => (
+            <TeamMember key={`${member.name}${i}`} member={member} />
+          ))
         ) : (
           <div className="team-container__wrapper">
-            {team.map(member => (
-              <TeamMember member={member} />
+            {team.map((member, i) => (
+              <TeamMember key={`${member.role}${i}`} member={member} />
             ))}
           </div>
         )}
-        {/* <div className="team-container__wrapper">
-        {team && team.map(member => <TeamMember member={member} />)}
-        </div> */}
       </div>
     </div>
   )
