@@ -1,8 +1,11 @@
 import React from "react"
 import "./team.scss"
+import { useWindowSize } from "./hooks"
+
+import TeamMember from "./teamMember"
 
 export default function Team({ team }) {
-  console.log("TEAM: ", team)
+  const { width } = useWindowSize()
   return (
     <div className="team">
       <h2 className="team__title">Team</h2>
@@ -17,7 +20,20 @@ export default function Team({ team }) {
         professional development, teacher coaching, and impactful work
         throughout LA County schools.
       </h3>
-      <div className="staff-container"></div>
+      <div className="team-container">
+        {width > 889 ? (
+          team.map(member => <TeamMember member={member} />)
+        ) : (
+          <div className="team-container__wrapper">
+            {team.map(member => (
+              <TeamMember member={member} />
+            ))}
+          </div>
+        )}
+        {/* <div className="team-container__wrapper">
+        {team && team.map(member => <TeamMember member={member} />)}
+        </div> */}
+      </div>
     </div>
   )
 }
