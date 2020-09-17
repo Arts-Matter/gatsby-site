@@ -1,0 +1,112 @@
+.member-image-container {
+  height: 348px;
+  margin-bottom: var(--spacing-s);
+}
+
+.member-image {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  transition: var(--easeOut);
+}
+
+.bio-collapsible__title-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.bio-collapsible__name {
+  font-family: var(--visueltRegular);
+  font-size: var(--headerFontSizeTertiary);
+  line-height: var(--paragraphLineHeight);
+  margin-bottom: 4px;
+  border-bottom: none;
+}
+
+.bio-collapsible__role {
+  font-family: var(--ibmPlexMono);
+  font-size: 13px;
+  letter-spacing: 0.96px;
+  line-height: 17px;
+  text-transform: uppercase;
+}
+
+.bio-collapsible__expand-button {
+  border: var(--border-thin-black);
+  padding: 8px;
+  width: 64px;
+  font-family: var(--ibmPlexMono);
+  font-size: var(--linkFontSize);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--white);
+}
+
+.bio-collapsible__expand-icon {
+  box-sizing: border-box;
+  transition: transform 0.3s;
+  width: 12px;
+  height: 12px;
+  transform: rotate(180deg);
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 1px;
+    background-color: var(--black);
+    position: absolute;
+    bottom: 5px;
+    transform: rotate(90deg);
+    transition: width 0.3s;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 1px;
+    background-color: var(--black);
+    position: absolute;
+    bottom: 5.5px;
+  }
+}
+
+.bio-collapsible--expanded .bio-collapsible__expand-icon {
+  transform: rotate(0deg);
+  &:before {
+    content: "";
+    display: block;
+    width: 0px;
+    height: 1px;
+    background-color: var(--black);
+    position: absolute;
+    bottom: 5px;
+    transform: rotate(90deg);
+  }
+}
+
+.bio-collapsible__collapsible-content {
+  transition: max-height 300ms ease 0s;
+  margin-top: 30px;
+  overflow: hidden;
+}
+
+.bio-collapsible__collapsible-content--collapsed {
+  max-height: 0;
+}
+
+.bio-collapsible__collapsible-content--expanded {
+  max-height: 1280px;
+}
+
+@media only screen and (max-width: 889px) {
+  .team-member {
+    min-width: 300px;
+    margin-right: 24px;
+  }
+}
