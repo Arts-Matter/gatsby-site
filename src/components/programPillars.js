@@ -161,10 +161,15 @@ export default function ProgramPillars() {
             <AccordionItem
               title={createPillarTitle(i, pillar.title)}
               className="pillar"
+              key={`${pillar.title}${i}`}
             >
               <div>
                 <h3 className="pillar__subtitle">{pillar.subtitle}</h3>
-                {pillar.content.map(content => content)}
+                {pillar.content.map((content, i) => (
+                  <React.Fragment key={`${content}${i}`}>
+                    {content}
+                  </React.Fragment>
+                ))}
               </div>
             </AccordionItem>
           )
