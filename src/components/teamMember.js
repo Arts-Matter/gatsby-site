@@ -31,7 +31,12 @@ export default function TeamMember({ member }) {
             <h3 className="bio-collapsible__name">{name}</h3>
             <h4 className="bio-collapsible__role">{role}</h4>
           </div>
-          <button className="bio-collapsible__expand-button">
+          <button
+            className="bio-collapsible__expand-button"
+            aria-label="Toggle Menu"
+            aria-pressed={expanded}
+            aria-expanded={expanded}
+          >
             Bio
             <div className="bio-collapsible__expand-icon"></div>
           </button>
