@@ -3,10 +3,10 @@
 }
 
 .history__title {
-  color: #0088ce;
+  color: var(--ocean);
   font-family: var(--visueltBold);
-  font-size: 64px;
-  margin-bottom: 42px;
+  font-size: var(--headerFontSizePrimary);
+  margin-bottom: var(--spacing-m);
 }
 
 .history__wrapper {
@@ -22,7 +22,7 @@
   font-family: var(--scopeOne);
   font-size: var(--headerFontSizeTertiary);
   line-height: var(--headerLineHeightSecondary);
-  margin-bottom: 42px;
+  margin-bottom: var(--spacing-m);
   border-bottom: none;
 }
 
@@ -90,12 +90,12 @@
 @media only screen and (max-width: 889px) {
   .history {
     margin-top: 0;
-    padding: 0 24px;
+    padding: var(--contentPadding-s);
   }
 
   .history__title {
-    font-size: 49px;
-    line-height: 59px;
+    font-size: var(--mobileSectionTitleFontSize);
+    line-height: var(--mobileSectionTitleLineHeight);
     margin-bottom: 0;
   }
 
@@ -104,14 +104,14 @@
   }
 
   .history__sub-heading {
-    font-size: 16px;
-    line-height: 26px;
+    font-size: var(--mobileSectionSubTitleFontSize);
+    line-height: var(--mobileSectionSubTitleLineHeight);
     margin-bottom: 16px;
   }
 
   .history__content {
-    font-size: 14px;
-    line-height: 23px;
+    font-size: var(--mobileParagraphFontSize);
+    line-height: var(--mobileParagraphLineHeight);
     margin-bottom: 16px;
 
     &:last-child {
@@ -142,14 +142,14 @@
   }
 
   .stats-panel__header {
-    font-size: 17px;
+    font-size: var(--paragraphFontSize);
     line-height: 25px;
     margin-bottom: -6px;
   }
 
   .stats-panel__stat {
-    font-size: 26px;
+    font-size: var(--mobileTitleFontSize);
     margin-bottom: 8px;
-    line-height: 59px;
+    line-height: var(--mobileSectionTitleLineHeight);
   }
 }
