@@ -1,6 +1,12 @@
 import React from "react"
 import "./programPillars.scss"
-import { Accordion, AccordionItem } from "react-sanfona"
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
+} from "react-accessible-accordion"
 
 export default function ProgramPillars() {
   const pillars = [
@@ -131,15 +137,7 @@ export default function ProgramPillars() {
 
   const createPillarTitle = (i, title) => {
     return (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-        className="pillar__title"
-      >
+      <div className="pillar__title" tabIndex="-1">
         {`${i + 1}. ${title}`}
         <div className="expand-icon"></div>
       </div>
@@ -155,25 +153,24 @@ export default function ProgramPillars() {
         produce standards-based arts education programming to support Los
         Angeles students, teachers, and schools.
       </h3>
-      <Accordion>
-        {pillars.map((pillar, i) => {
-          return (
-            <AccordionItem
-              title={createPillarTitle(i, pillar.title)}
-              className="pillar"
-              key={`${pillar.title}${i}`}
-            >
-              <div>
-                <h3 className="pillar__subtitle">{pillar.subtitle}</h3>
-                {pillar.content.map((content, i) => (
-                  <React.Fragment key={`${content}${i}`}>
-                    {content}
-                  </React.Fragment>
-                ))}
-              </div>
-            </AccordionItem>
-          )
-        })}
+      <Accordion allowZeroExpanded>
+        {pillars.map((pillar, i) => (
+          <AccordionItem className="pillar" key={`${pillar.title}${i}`}>
+            <AccordionItemHeading>
+              <AccordionItemButton className="accordion__button">
+                {createPillarTitle(i, pillar.title)}
+              </AccordionItemButton>
+            </AccordionItemHeading>
+            <AccordionItemPanel>
+              <h3 className="pillar__subtitle">{pillar.subtitle}</h3>
+              {pillar.content.map((content, i) => (
+                <React.Fragment key={`${content}${i}`}>
+                  {content}
+                </React.Fragment>
+              ))}
+            </AccordionItemPanel>
+          </AccordionItem>
+        ))}
       </Accordion>
     </div>
   )

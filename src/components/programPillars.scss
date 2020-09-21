@@ -45,7 +45,7 @@
   }
 }
 
-.react-sanfona-item-expanded .expand-icon {
+div[aria-expanded="true"] .expand-icon {
   transform: rotate(0deg);
 
   &:before {
@@ -62,18 +62,24 @@
 
 .pillar {
   border-top: var(--border-thin-black);
-
   &:last-of-type {
     border-bottom: var(--border-thin-black);
   }
 }
 
 .pillar__title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   font-family: var(--ibmPlexMono);
   text-transform: uppercase;
   height: 58px;
   color: var(--black);
   cursor: pointer;
+  &:focus {
+    outline: none;
+  }
 }
 
 .pillar__subtitle {
@@ -95,6 +101,42 @@
 .pillar__link {
   color: #0000ee;
   font-size: var(--paragraphFontSize);
+}
+
+// accordion focus overrides
+
+.accordion__button {
+  &:focus {
+    outline: none;
+  }
+}
+
+.accordion__button:focus .pillar__title {
+  background-color: var(--aqua);
+  padding: 0 8px;
+  outline: -webkit-focus-ring-color auto 1px;
+}
+
+.accordion__button:focus .expand-icon {
+  &:after,
+  &:before {
+    background-color: var(--white);
+  }
+}
+
+.accordion__panel[hidden] {
+  display: block;
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.accordion__panel[hidden] a {
+  display: none;
+}
+
+.accordion__panel {
+  transition: max-height 300ms ease 0s;
+  max-height: 1000px;
 }
 
 @media only screen and (max-width: 889px) {
