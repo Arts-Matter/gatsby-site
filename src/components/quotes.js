@@ -65,13 +65,13 @@ export default function Quotes() {
                 className="quotes-container__button"
                 onClick={handleNextQuote}
               >
-                <div className="quotes-container__arrow-right"></div>
+                <div className="quotes-container__arrow quotes-container__arrow-right"></div>
               </button>
               <button
                 className="quotes-container__button"
                 onClick={handlePreviousQuote}
               >
-                <div className="quotes-container__arrow-left"></div>
+                <div className="quotes-container__arrow quotes-container__arrow-left"></div>
               </button>
             </div>
           </div>
