@@ -13,7 +13,11 @@ export default function ProgrammingCardExpandable({ title, summary, cards }) {
     >
       <h3 className="programming-card__title">{title}</h3>
       <p className="programming-card__summary">{summary}</p>
-      <button className="programming-card__expand-button">
+      <button
+        className="programming-card__expand-button"
+        aria-pressed={expanded}
+        aria-expanded={expanded}
+      >
         <div className="programming-card__expand-icon"></div>
       </button>
       <div
