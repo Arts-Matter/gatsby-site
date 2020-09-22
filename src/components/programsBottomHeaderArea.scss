@@ -1,0 +1,25 @@
+.current-programming__title {
+  font-family: var(--ibmPlexMono);
+  font-size: 13.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  line-height: 1;
+  color: var(--black);
+}
+
+.current-programming__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 889px) {
+  .current-programming__title {
+    margin-bottom: 18px;
+  }
+
+  .current-programming__cards {
+    display: block;
+  }
+}

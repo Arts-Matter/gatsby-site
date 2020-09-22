@@ -1,0 +1,132 @@
+.programming-card {
+  max-width: 48%;
+  margin-bottom: 56px;
+}
+
+.programming-card__title {
+  font-size: 36px;
+  line-height: 52px;
+  margin-bottom: 12px;
+  border-bottom: none;
+  font-family: var(--visueltBold);
+}
+
+.programming-card__summary {
+  font-size: 17px;
+  line-height: 27px;
+  margin-bottom: 21px;
+
+  &:last-of-type {
+    margin-bottom: 0px;
+  }
+}
+
+.programming-card__link {
+  display: block;
+  margin-top: 18px;
+  font-size: 13.5px;
+  font-family: var(--ibmPlexMono);
+  color: var(--black);
+  line-height: 1;
+}
+
+.programming-card__expand-button {
+  margin-top: 18px;
+  border: var(--border-thin-black);
+  padding: 8px;
+  width: 125px;
+  font-family: var(--ibmPlexMono);
+  font-size: 13.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--aqua);
+  cursor: pointer;
+
+  &:before {
+    content: "Expand";
+  }
+}
+
+.programming-card__expand-icon {
+  box-sizing: border-box;
+  transition: transform 0.3s;
+  width: 12px;
+  height: 12px;
+  transform: rotate(180deg);
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 1px;
+    background-color: #000;
+    position: absolute;
+    bottom: 5px;
+    transform: rotate(90deg);
+    transition: width 0.3s;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 1px;
+    background-color: #000;
+    position: absolute;
+    bottom: 5.5px;
+  }
+}
+
+.is-open .programming-card__expand-button {
+  &:before {
+    content: "Collapse";
+  }
+}
+
+.is-open .programming-card__expand-icon {
+  transform: rotate(0deg);
+  &:before {
+    content: "";
+    display: block;
+    width: 0px;
+    height: 1px;
+    background-color: #000;
+    position: absolute;
+    bottom: 5px;
+    transform: rotate(90deg);
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 1px;
+    background-color: #000;
+    position: absolute;
+    bottom: 5.5px;
+  }
+}
+
+@media only screen and (max-width: 889px) {
+  .programming-card {
+    max-width: 100%;
+    margin-bottom: 32px;
+  }
+
+  .programming-card__title {
+    font-size: 24px;
+    line-height: 35px;
+  }
+
+  .programming-card__summary {
+    font-size: 14px;
+    line-height: 23px;
+    margin-bottom: 21px;
+
+    &:last-of-type {
+      margin-bottom: 21px;
+    }
+  }
+}
