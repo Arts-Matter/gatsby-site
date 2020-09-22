@@ -1,12 +1,17 @@
 import React, { useState } from "react"
 import "./teamMember.scss"
+
 export default function TeamMember({ member }) {
   const { name, role, descriptions, imageSrc } = member
   const [expanded, setExpanded] = useState(false)
-  const collapsedClasses =
-    "bio-collapsible__collapsible-content bio-collapsible__collapsible-content--collapsed"
-  const expandedClasses =
-    "bio-collapsible__collapsible-content bio-collapsible__collapsible-content--expanded"
+  const collapsedClasses = "collapsible-content collapsible-content--collapsed"
+  const expandedClasses = "collapsible-content collapsible-content--expanded"
+  const classes = [
+    "collapsible-content",
+    expanded
+      ? "collapsible-content--expanded"
+      : "collapsible-content--collapsed",
+  ]
 
   return (
     <div className="team-member">
@@ -41,7 +46,7 @@ export default function TeamMember({ member }) {
             <div className="bio-collapsible__expand-icon"></div>
           </button>
         </div>
-        <div className={expanded ? expandedClasses : collapsedClasses}>
+        <div className={classes.join(" ")}>
           {descriptions.map(description => (
             <p key={description} className="rich-text">
               {description}
