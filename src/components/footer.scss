@@ -6,8 +6,8 @@
 }
 
 .footer-container {
-  max-width: calc(1440px + 2 * 84px);
-  width: calc(1440px + 2 * 84px);
+  max-width: var(--max-width-calc);
+  width: var(--max-width-calc);
   padding: 0 84px;
   height: auto;
 }

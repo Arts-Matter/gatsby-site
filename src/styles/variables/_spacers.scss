@@ -4,6 +4,9 @@
  *
  * ----------------------------------------------------------------------------- */
 :root {
+  //max width
+  --max-width: 1440px;
+  --max-width-calc: calc(1440px + 2 * 84px);
   //padding
   --contentPaddingPrimary: 48px 96px;
   --contentContainerPadding: 100px 84px;
