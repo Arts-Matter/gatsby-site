@@ -1,6 +1,6 @@
 .collapsible__outer {
   height: auto;
-  transition: max-height 300ms ease 0s;
+  transition: var(--maxHeightAnimation);
   overflow: hidden;
 }
 
@@ -9,7 +9,7 @@
 }
 
 .collapsible__outer--expanded {
-  max-height: 3000px;
+  max-height: 2000px;
 }
 
 .collapsible__inner {

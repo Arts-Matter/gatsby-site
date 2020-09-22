@@ -6,21 +6,20 @@
 
 @media only screen and (max-width: 889px) {
   .programs .header-area {
-    margin-top: 24px;
+    margin-top: var(--spacing-s);
   }
 
   .programs .top {
     border-bottom: none;
-    margin-bottom: 24px;
+    margin-bottom: var(--spacing-s);
   }
 
   .programs .top__right-content {
-    // font-size: 19px;
-    line-height: 29px;
+    line-height: var(--mobileHeaderLineHeightSecondary);
   }
 
   .programs .bottom {
-    padding: 24px;
+    padding: var(--spacing-s);
     background-color: var(--aqua);
   }
 }

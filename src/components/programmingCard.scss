@@ -4,16 +4,16 @@
 }
 
 .programming-card__title {
-  font-size: 36px;
-  line-height: 52px;
+  font-size: var(--headerFontSizeSecondary);
+  line-height: var(--headerLineHeightPrimary);
   margin-bottom: 12px;
   border-bottom: none;
   font-family: var(--visueltBold);
 }
 
 .programming-card__summary {
-  font-size: 17px;
-  line-height: 27px;
+  font-size: var(--paragraphFontSize);
+  line-height: var(--paragraphLineHeight);
   margin-bottom: 21px;
 
   &:last-of-type {
@@ -24,7 +24,7 @@
 .programming-card__link {
   display: block;
   margin-top: 18px;
-  font-size: 13.5px;
+  font-size: var(--linkFontSize);
   font-family: var(--ibmPlexMono);
   color: var(--black);
   line-height: 1;
@@ -36,7 +36,7 @@
   padding: 8px;
   width: 125px;
   font-family: var(--ibmPlexMono);
-  font-size: 13.5px;
+  font-size: var(--linkFontSize);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -117,12 +117,12 @@
 
   .programming-card__title {
     font-size: 24px;
-    line-height: 35px;
+    line-height: var(--headerLineHeightSecondary);
   }
 
   .programming-card__summary {
-    font-size: 14px;
-    line-height: 23px;
+    font-size: var(--mobileParagraphFontSize);
+    line-height: var(--mobileParagraphLineHeight);
     margin-bottom: 21px;
 
     &:last-of-type {
