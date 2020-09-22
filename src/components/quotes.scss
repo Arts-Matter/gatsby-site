@@ -1,0 +1,170 @@
+.quotes-container {
+  width: 100%;
+  margin-top: var(--sectionSpacingPrimary);
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.quotes-container__background {
+  background-color: #f1efec;
+  width: 80%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+}
+
+.quotes-container__wrapper {
+  max-width: var(--max-width-calc);
+  width: 100%;
+  padding: 84px;
+}
+
+.quotes-container__inner-wrapper {
+  width: 80%;
+}
+
+.quotes-container__quotes-gallery {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.quotes-container__open-quote {
+  margin: 12px 18px 0 0;
+  position: relative;
+  height: 33px;
+  width: 56px;
+  &:after {
+    content: "";
+    position: absolute;
+    background: url("../images/open-quote.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 26px;
+    height: 100%;
+    top: 0;
+  }
+}
+
+.quotes-container__quote-wrapper {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.quotes-container__quote {
+  font-family: var(--visueltBold);
+  line-height: var(--headerLineHeightPrimary);
+  font-size: var(--headerFontSizeSecondary);
+  color: #ed5338;
+  margin-bottom: 32px;
+}
+
+.quotes-container__tag {
+  font-family: var(--ibmPlexMono);
+  font-size: var(--linkFontSize);
+  line-height: 21px;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  margin-bottom: 0;
+}
+
+.quotes-container__controls {
+  width: 40px;
+  margin-left: 56px;
+}
+
+.quotes-container__button {
+  width: 40px;
+  height: 40px;
+  background-color: var(--white);
+  cursor: pointer;
+  border: none;
+
+  &:nth-of-type(2) {
+    margin-top: 14px;
+  }
+}
+
+.quotes-container__arrow {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background-color: #ed5338;
+  }
+}
+
+.quotes-container__arrow-right {
+  &:after {
+    -webkit-mask: url("../images/arrow-right.svg") no-repeat 50% 50%;
+    mask: url("../images/arrow-right.svg") no-repeat 50% 50%;
+  }
+}
+
+.quotes-container__arrow-left {
+  &:after {
+    -webkit-mask: url("../images/arrow-left.svg") no-repeat 50% 50%;
+    mask: url("../images/arrow-left.svg") no-repeat 50% 50%;
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .quotes-container__quotes-gallery {
+    display: block;
+  }
+
+  .quotes-container__controls {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    width: auto;
+    margin-left: 0;
+  }
+
+  .quotes-container__button {
+    margin-top: var(--spacing-s);
+
+    &:nth-of-type(1) {
+      margin-left: 8px;
+    }
+
+    &:nth-of-type(2) {
+      margin-top: var(--spacing-s);
+    }
+  }
+}
+
+@media only screen and (max-width: 889px) {
+  .quotes-container {
+    margin-top: 48px;
+    margin-right: var(--spacing-s);
+    padding: 0;
+    width: auto;
+  }
+
+  .quotes-container__background {
+    width: 100%;
+  }
+
+  .quotes-container__wrapper {
+    padding: var(--spacing-s) 0 var(--spacing-s) var(--spacing-s);
+  }
+
+  .quotes-container__quotes-gallery {
+    display: block;
+  }
+
+  .quotes-container__quote {
+    font-size: var(--mobileTitleFontSize);
+    line-height: 37px;
+  }
+}
