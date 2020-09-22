@@ -91,17 +91,17 @@
   }
 }
 
-.bio-collapsible__collapsible-content {
+.collapsible-content {
   transition: max-height 300ms ease 0s;
   margin-top: 30px;
   overflow: hidden;
 }
 
-.bio-collapsible__collapsible-content--collapsed {
+.collapsible-content--collapsed {
   max-height: 0;
 }
 
-.bio-collapsible__collapsible-content--expanded {
+.collapsible-content--expanded {
   max-height: 1280px;
 }
 
