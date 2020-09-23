@@ -11,7 +11,7 @@ export default function ProgrammingCardExpandable({ title, summary, cards }) {
       className={`programming-card ${expanded ? "is-open" : ""}`}
       onClick={() => setExpanded(!expanded)}
     >
-      <h3 className="programming-card__title">{title}</h3>
+      <h4 className="programming-card__title">{title}</h4>
       <p className="programming-card__summary">{summary}</p>
       <button
         className="programming-card__expand-button"

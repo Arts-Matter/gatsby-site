@@ -6,7 +6,7 @@ export default function ProgrammingCard({ title, summary, id }) {
   const href = `https://www.artsmatter.org/programs/${id}`
   return (
     <div className="programming-card">
-      <h3 className="programming-card__title">{title}</h3>
+      <h4 className="programming-card__title">{title}</h4>
       <p className="programming-card__summary">{summary}</p>
       <Link
         className="programming-card__link"
