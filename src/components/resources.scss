@@ -1,0 +1,24 @@
+.resources {
+  .panel--expanded {
+    height: 480px;
+  }
+
+  .header-area {
+    background-color: var(--ocean);
+
+    @media only screen and (max-width: 889px) {
+      padding-bottom: 0;
+      background-color: transparent;
+    }
+
+    .top {
+      border-bottom: none;
+      padding-bottom: calc( var(--spacing-s) * 5 );
+
+      @media only screen and (max-width: 889px) {
+        margin: var(--spacing-s) 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+}
