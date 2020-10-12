@@ -32,7 +32,7 @@ export default function TeamMember({ member }) {
                   </span>
                 )
               } else {
-                return <span key={`${text.value}${index}`}>{text.value}</span>
+                return <React.Fragment key={`${text.value}${index}`}>{text.value}</React.Fragment>
               }
             } else {
               return (
