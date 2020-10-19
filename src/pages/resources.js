@@ -3,6 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeaderArea from "../components/headerArea"
+import ResourcesSearchPanel from "../components/resourcesSearchPanel"
 
 import "../components/resources.scss"
 
@@ -13,6 +14,7 @@ const Page = () => (
   <Layout active="resources">
     <SEO title={title} />
     <HeaderArea topLeft={title} topRight={topRight} />
+    <ResourcesSearchPanel />
   </Layout>
 )
 

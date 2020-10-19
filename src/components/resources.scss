@@ -1,6 +1,6 @@
 .resources {
   .panel--expanded {
-    height: 480px;
+    height: 460px;
   }
 
   .header-area {
@@ -14,6 +14,7 @@
     .top {
       border-bottom: none;
       padding-bottom: calc( var(--spacing-s) * 5 );
+      margin-top: var(--spacing-s);
 
       @media only screen and (max-width: 889px) {
         margin: var(--spacing-s) 0;
