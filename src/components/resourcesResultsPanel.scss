@@ -1,0 +1,124 @@
+.resources-results {
+  @media only screen and (max-width: 889px) {
+    padding-left: var(--spacing-s);
+    padding-right: var(--spacing-s);
+  }
+}
+
+.resource {
+  margin-top: calc( var(--spacing-s) * 1.5 );
+  padding: calc( var(--spacing-s) * 3) calc( var(--spacing-s) * 2);
+  background-color: var(--oyster);
+
+  @media only screen and (max-width: 889px) {
+    padding: var(--spacing-s);
+  }
+}
+
+.resource__columns {
+  display: flex;
+  margin-left: calc( var(--spacing-s) * -4 );
+
+  @media only screen and (max-width: 889px) {
+    display: block;
+    margin-left: 0;
+  }
+}
+
+.resource__col {
+  width: 50%;
+  padding-left: calc( var(--spacing-s) * 4 );
+
+  @media only screen and (max-width: 889px) {
+    width: 100%;
+    padding-left: 0;
+
+    &:last-child {
+      margin-top: 20px;
+    }
+  }
+}
+
+.resource__meta-list {
+  margin-bottom: 16px;
+}
+
+.resource__meta-item {
+  font-family: var(--ibmPlexMono);
+  font-size: 13px;
+  letter-spacing: 0.96px;
+  line-height: 1.31;
+  text-transform: uppercase;
+  color: var(--magenta);
+
+  &:after {
+    content: "\2022";
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+
+  &:last-child:after {
+    display: none;
+  }
+}
+
+.resource__meta-item--strain {
+  color: var(--black);
+}
+
+.resource__title {
+  margin-bottom: 20px;
+  font-size: var(--headerFontSizeTertiary);
+}
+
+.resource__downloads-title {
+  margin-bottom: 16px;
+  font-size: 13px;
+  font-family: var(--ibmPlexMono);
+  text-transform: uppercase;
+  letter-spacing: 0.96px;
+  line-height: 1.31;
+  border: none;
+}
+
+.resource__files-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resource__files-list-item {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--black);
+
+  &:last-child {
+    border-bottom: 1px solid var(--black);
+  }
+
+  a {
+    display: block;
+    position: relative;
+    padding: 10px 0;
+    color: var(--magenta);
+    text-decoration: none;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 13px;
+      height: 17px;
+      transform: translateY(-50%);
+      background: url("../images/download-arrow.svg") no-repeat center center;
+      background-size: contain;
+      transition: all 0.3s;
+    }
+
+    &:hover:after {
+      transform: translateY(-50%) scale(1.2);
+    }
+  }
+}
