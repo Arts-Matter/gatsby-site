@@ -1,94 +1,126 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, push } from "gatsby"
 import "./programsBottomHeaderArea.scss"
 import ProgrammingCard from "./programmingCard"
-import ProgrammingCardExpandable from "./programmingCardExpandable"
 
 export default function ProgramsBottomHeaderArea() {
   const data = useStaticQuery(graphql`
     {
-      allContentfulProgram {
-        edges {
-          node {
-            title
-            summary {
-              content {
+      allContentfulListOfThings(
+        filter: { listName: { eq: "Featured programs" } }
+      ) {
+        nodes {
+          entries {
+            ... on ContentfulProgram {
+              title
+              childContentfulProgramSummaryRichTextNode {
                 content {
-                  value
+                  content {
+                    value
+                  }
+                }
+              }
+              contentful_id
+            }
+            ... on ContentfulListOfThings {
+              listName
+              listDescription {
+                content {
+                  content {
+                    value
+                  }
+                }
+              }
+              entries {
+                ... on ContentfulProgram {
+                  title
+                  summary {
+                    content {
+                      content {
+                        value
+                      }
+                    }
+                  }
+                  contentful_id
                 }
               }
             }
-            contentful_id
           }
         }
       }
     }
   `)
 
-  const cardsData = data.allContentfulProgram.edges.reduce((acc, cur) => {
-    const { title, contentful_id } = cur.node
-    let summary = cur.node.summary.content[0].content.reduce(
-      (summary, curSummary) => {
-        summary.push(curSummary.value)
-        return summary
-      },
-      []
-    )
+  const cardData = data.allContentfulListOfThings.nodes[0].entries.reduce(
+    (acc, curEntry) => {
+      const type = curEntry["__typename"]
 
-    summary = summary.join("")
+      if (type === "ContentfulProgram") {
+        let summary = curEntry.childContentfulProgramSummaryRichTextNode.content.reduce(
+          (summaries, curSummary) => {
+            summaries.push(curSummary.content[0].value)
+            return summaries
+          },
+          []
+        )
+        summary = summary.join("")
+        const title = curEntry.title
+        const id = curEntry["contentful_id"]
 
-    const data = {
-      title,
-      summary,
-      id: contentful_id,
-    }
+        acc.push({
+          id,
+          title,
+          summary,
+        })
+      } else {
+        const title = curEntry.listName
+        let summary = curEntry.listDescription.content.reduce(
+          (summaries, curSummary) => {
+            summaries.push(curSummary.content[0].value)
+            return summaries
+          },
+          []
+        )
+        summary = summary.join("")
+        const entries = curEntry.entries.reduce((acc, cur) => {
+          const title = cur.title
+          const id = cur["contentful_id"]
 
-    acc.push(data)
-    return acc
-  }, [])
+          let summary = cur.summary.content[0].content.reduce(
+            (summaries, curSummary) => {
+              summaries.push(curSummary.value)
+              return summaries
+            },
+            []
+          )
+          summary = summary.join("")
+          acc.push({ title, id, summary })
+          return acc
+        }, [])
+        acc.push({ title, summary, entries })
+      }
 
-  const mediaCard = cardsData.find(card =>
-    card.title.includes("Media ArtsMatter")
-  )
-  const la2030Card = cardsData.find(card => card.title.includes("LA2030"))
-  const filmIndependentCard = cardsData.find(card =>
-    card.title.includes("Film Independent")
-  )
-  const spongebobCard = cardsData.find(card => card.title.includes("SpongeBob"))
-  const wonderParkCard = cardsData.find(card =>
-    card.title.includes("Wonder Park")
-  )
-  const sherlockGnomesCard = cardsData.find(card =>
-    card.title.includes("Sherlock Gnomes")
+      return acc
+    },
+    []
   )
 
   return (
-    <>
-      <div className="current-programming">
-        <div className="current-programming__title">current programming</div>
-        <div className="current-programming__cards">
-          <ProgrammingCard
-            title={mediaCard.title}
-            summary={mediaCard.summary}
-            id={mediaCard.id}
-          />
-          <ProgrammingCardExpandable
-            title="Paramount"
-            summary="Each Spring, Paramount collaborates with ArtsMatter to bring animation integration curriculum into ten LA County public schools."
-            cards={[spongebobCard, wonderParkCard, sherlockGnomesCard]}
-          />
-          <ProgrammingCard
-            title={la2030Card.title}
-            summary={la2030Card.summary}
-            id={la2030Card.id}
-          />
-          <ProgrammingCard
-            title={filmIndependentCard.title}
-            summary={filmIndependentCard.summary}
-            id={filmIndependentCard.id}
-          />
-        </div>
+    <div className="current-programming">
+      <div className="current-programming__title">current programming</div>
+      <div className="current-programming__cards">
+        {cardData.map((card, i) => {
+          return (
+            <ProgrammingCard
+              key={`${card.title}${i}`}
+              title={card.title}
+              summary={card.summary}
+              id={card.id}
+              entries={card.entries ? card.entries : null}
+            />
+          )
+        })}
       </div>
-    </>
+    </div>
   )
 }
