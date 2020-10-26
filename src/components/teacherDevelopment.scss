@@ -1,0 +1,30 @@
+.teacher-development {
+  display: flex;
+  margin-bottom: 140px;
+}
+
+.teacher-development__left {
+  flex: 0 1 50%;
+  display: flex;
+  align-items: center;
+  margin-right: 48px;
+}
+
+.teacher-development__right {
+  flex: 0 1 50%;
+  margin-right: 94px;
+}
+
+.teacher-development__text-container {
+  margin-right: 48px;
+  padding: 32px 0;
+}
+
+.teacher-development__image {
+  background-image: url('../images/4.jpg');
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 400px;
+}
