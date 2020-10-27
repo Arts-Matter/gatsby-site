@@ -1,6 +1,6 @@
 .teacher-development {
   display: flex;
-  margin-bottom: 140px;
+  margin-bottom: var(--sectionSpacingSecondary);
 }
 
 .teacher-development__left {
@@ -8,16 +8,35 @@
   display: flex;
   align-items: center;
   margin-right: 48px;
-}
+  
+  h3 {
+    border-bottom: none;
+    font-family: var(--visueltBold);
+    font-size: var(--headerFontSizeSecondary);
+    line-height: var(--headerLineHeightPrimary);
+    margin-bottom: 38px;
+  }
 
-.teacher-development__right {
-  flex: 0 1 50%;
-  margin-right: 94px;
+  p {
+    font-family: var(--visueltRegular);
+    font-size: var(--paragraphFontSize);
+    line-height: var(--paragraphLineHeight);
+    margin-bottom: 21px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .teacher-development__text-container {
   margin-right: 48px;
   padding: 32px 0;
+}
+
+.teacher-development__right {
+  flex: 0 1 50%;
+  margin-right: 94px;
 }
 
 .teacher-development__image {
@@ -27,4 +46,51 @@
   background-repeat: no-repeat;
   background-position: center;
   min-height: 400px;
+}
+
+@media only screen and (max-width: 1080px) {
+  .teacher-development {
+    display: block;
+  }
+
+  .teacher-development__left,
+  .teacher-development__right {
+    margin-right: 0;
+  }
+}
+
+@media only screen and (max-width: 889px) {
+  .teacher-development {
+    margin: 48px 0 48px;
+    padding: var(--contentPadding-s);
+  }
+
+  .teacher-development__left {
+    margin: 0;
+  }
+
+  .teacher-development__text-container {
+    margin: 0;
+    padding: 0;
+
+    h3 {
+      font-size: 24px;
+      line-height: 32px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: var(--mobileParagraphLineHeight);
+    }
+  }
+
+  .teacher-development__image-wrapper {
+    margin-bottom: 16px;
+  }
+
+  .teacher-development__image {
+    padding-top: 66%;
+    min-height: 0px;
+  }
 }
