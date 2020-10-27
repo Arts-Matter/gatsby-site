@@ -4,8 +4,6 @@ import "./teamMember.scss"
 export default function TeamMember({ member }) {
   const { name, role, descriptions, imageSrc } = member
   const [expanded, setExpanded] = useState(false)
-  const collapsedClasses = "collapsible-content collapsible-content--collapsed"
-  const expandedClasses = "collapsible-content collapsible-content--expanded"
   const classes = [
     "collapsible-content",
     expanded

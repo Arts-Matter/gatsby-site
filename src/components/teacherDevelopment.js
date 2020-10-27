@@ -1,12 +1,20 @@
 import React from "react"
 import "./teacherDevelopment.scss"
+import { useWindowSize } from './hooks';
 
-export default function teacherDevelopment() {
+export default function TeacherDevelopment() {
+  const { width } = useWindowSize();
+
   return (
     <div className="teacher-development">
       <div className="teacher-development__left">
         <div className="teacher-development__text-container">
           <h3>Teacher Professional Development</h3>
+          {width < 890 && (
+            <div className="teacher-development__image-wrapper">
+              <div className="teacher-development__image"></div>
+            </div>
+          )}
           <p>
             Workshops and in-classroom support is provided to teachers
             participating in ArtsMatter programming. Along with adaptable
@@ -25,9 +33,11 @@ export default function teacherDevelopment() {
           </p>
         </div>
       </div>
-      <div className="teacher-development__right">
-        <div className="teacher-development__image"></div>
-      </div>
+      {width > 889 && (
+        <div className="teacher-development__right">
+          <div className="teacher-development__image"></div>
+        </div>
+      )}
     </div>
   )
 }
