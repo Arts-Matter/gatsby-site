@@ -5,7 +5,7 @@ import { useWindowSize } from "./hooks"
 
 import TeamMember from "./teamMember"
 
-export default function Team({ team }) {
+export default function Team() {
   const { width } = useWindowSize()
 
   const data = useStaticQuery(graphql`
