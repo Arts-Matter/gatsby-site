@@ -45,10 +45,15 @@ export default function Team() {
     (team, curMember) => {
       const descriptions = curMember.description.content.reduce(
         (descriptions, curDescription) => {
+          console.log(curDescription);
+          // The content is nested within description.content
+          // If there are marks this content will be broken up in to separate arrays
           const desc = curDescription.content.reduce((content, curContent) => {
+            // If the description has marks (i.e. italic) preserve this data
             if (curContent.marks.length !== 0) {
               content.push(curContent)
             } else {
+              // Otherwise it's normal text
               content.push(curContent.value)
             }
             return content
