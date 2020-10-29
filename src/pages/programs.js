@@ -9,6 +9,7 @@ import ProgramsBottomHeaderArea from "../components/programsBottomHeaderArea"
 import StudentEngagementOpportunities from "../components/studentEngagementOpportunities"
 import TeacherDevelopment from "../components/teacherDevelopment"
 import ProgramResources from "../components/programResources"
+import WhereItStarted from "../components/whereItStarted"
 
 const title = "Programs"
 const bottom = <ProgramsBottomHeaderArea />
@@ -20,6 +21,7 @@ const Page = () => (
     <StudentEngagementOpportunities />
     <TeacherDevelopment />
     <ProgramResources />
+    <WhereItStarted />
   </Layout>
 )
 
