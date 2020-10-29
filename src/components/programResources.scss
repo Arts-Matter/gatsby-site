@@ -23,15 +23,14 @@
   padding-top: 48px;
 
   h2 {
-    font-size: 64px;
     line-height: 59px;
     color: var(--ocean);
     margin-bottom: 32px;
   }
 
   p {
-    font-size: 22px;
-    line-height: 35px;
+    font-size: var(--headerFontSizeTertiary);
+    line-height: var(--headerLineHeightSecondary);
     font-family: var(--scopeOne);
     margin: 0;
   }
@@ -40,7 +39,7 @@
 .program-resources__button {
   margin-top: 32px;
   font-family: var(--ibmPlexMono);
-  font-size: 13.5px;
+  font-size: var(--linkFontSize);
   display: inline-block;
   text-decoration: none;
   text-transform: uppercase;
@@ -60,5 +59,32 @@
     height: 100%;
     top: 0;
     right: 18px;
+  }
+}
+
+@media only screen and (max-width: 889px) {
+  .program-resources {
+    margin: 48px 0 48px;
+    padding: var(--contentPadding-s);
+    display: block;
+    height: auto;
+  }
+
+  .program-resources__right {
+    padding: 0;
+
+    h2 {
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: var(--mobileSectionSubTitleFontSize);
+      line-height: 26px;
+    }
+  }
+
+  .program-resources__image {
+    padding-top: 100%;
+    min-height: 0;
   }
 }
