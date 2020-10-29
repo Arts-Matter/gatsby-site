@@ -8,6 +8,7 @@ import HeaderArea from "../components/headerArea"
 import ProgramsBottomHeaderArea from "../components/programsBottomHeaderArea"
 import StudentEngagementOpportunities from "../components/studentEngagementOpportunities"
 import TeacherDevelopment from "../components/teacherDevelopment"
+import ProgramResources from "../components/programResources"
 
 const title = "Programs"
 const bottom = <ProgramsBottomHeaderArea />
@@ -18,6 +19,7 @@ const Page = () => (
     <HeaderArea topLeft="Programs" backgroundClass="aqua" bottom={bottom} />
     <StudentEngagementOpportunities />
     <TeacherDevelopment />
+    <ProgramResources />
   </Layout>
 )
 
