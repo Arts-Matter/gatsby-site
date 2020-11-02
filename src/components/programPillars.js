@@ -55,7 +55,7 @@ export default function ProgramPillars() {
           <a
             href="https://www.artseddata.org/"
             target="_blank"
-            rel="nofollow noopener"
+            rel="nofollow noopener noreferrer"
             className="pillar__link"
           >
             Arts Education Data Project

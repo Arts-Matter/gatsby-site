@@ -56,7 +56,7 @@ const Header = ({ siteTitle, active }) => {
         setActiveColor("magenta")
         break
     }
-  }, [activeColor])
+  }, [active, width])
 
   return (
     <header ref={headerRef} className="header">
