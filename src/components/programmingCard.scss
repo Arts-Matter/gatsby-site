@@ -117,6 +117,7 @@
 
 .collapsible__outer--collapsed {
   max-height: 0px;
+  visibility: hidden;
 }
 
 .collapsible__outer--expanded {
