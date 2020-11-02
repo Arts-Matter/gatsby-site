@@ -33,7 +33,7 @@ export default function HamburgerMenu({
     }
 
     handleResize()
-  }, [width, headerRef, mobileNavRef, setMobileExpanded])
+  }, [width, headerRef, mobileNavRef, setMobileExpanded, active, activeColor])
 
   const handleClick = () => {
     setActive(!active)

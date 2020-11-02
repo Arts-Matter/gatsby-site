@@ -48,6 +48,7 @@
   font-family: var(--visueltBold);
   color: var(--black);
   text-decoration: none;
+  margin-top: -6px;
 }
 
 .header-container__logo {
@@ -60,8 +61,8 @@
 
 .nav-list__item--active {
   border-bottom: 4px solid var(--black);
-  padding-bottom: 4px;
-  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-top: 12px;
 }
 
 .hamburger {
@@ -154,6 +155,7 @@
 
   .nav-list__link {
     font-size: 26px;
+    margin-top: 0px;
   }
 
   .nav-list__item {
