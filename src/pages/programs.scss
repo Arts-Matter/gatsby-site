@@ -1,0 +1,25 @@
+.programs .top {
+  border-top: var(--border-thick-black);
+  border-bottom: var(--border-thick-black);
+  margin-bottom: 48px;
+}
+
+@media only screen and (max-width: 889px) {
+  .programs .header-area {
+    margin-top: var(--spacing-s);
+  }
+
+  .programs .top {
+    border-bottom: none;
+    margin-bottom: var(--spacing-s);
+  }
+
+  .programs .top__right-content {
+    line-height: var(--mobileHeaderLineHeightSecondary);
+  }
+
+  .programs .bottom {
+    padding: var(--spacing-s);
+    background-color: var(--aqua);
+  }
+}
