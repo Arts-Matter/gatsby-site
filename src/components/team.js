@@ -45,7 +45,6 @@ export default function Team() {
     (team, curMember) => {
       const descriptions = curMember.description.content.reduce(
         (descriptions, curDescription) => {
-          console.log(curDescription);
           // The content is nested within description.content
           // If there are marks this content will be broken up in to separate arrays
           const desc = curDescription.content.reduce((content, curContent) => {
