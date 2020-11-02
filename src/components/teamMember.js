@@ -26,19 +26,17 @@ export default function TeamMember({ member }) {
             : "bio-collapsible"
         }
       >
-        <div
-          className="bio-collapsible__title-container"
-          onClick={() => setExpanded(!expanded)}
-        >
+        <div className="bio-collapsible__title-container">
           <div className="bio-collapsible__title-left">
             <h3 className="bio-collapsible__name">{name}</h3>
             <h4 className="bio-collapsible__role">{role}</h4>
           </div>
           <button
             className="bio-collapsible__expand-button"
-            aria-label="Toggle Menu"
+            aria-label="Toggle Bio"
             aria-pressed={expanded}
             aria-expanded={expanded}
+            onClick={() => setExpanded(!expanded)}
           >
             Bio
             <div className="bio-collapsible__expand-icon"></div>
