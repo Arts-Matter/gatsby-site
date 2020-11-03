@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql, push } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import "./programsBottomHeaderArea.scss"
 import ProgrammingCard from "./programmingCard"
 
