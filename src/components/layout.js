@@ -39,7 +39,9 @@ const Layout = ({ children, active }) => {
       </main>
       {active === "about" && <Quotes />}
       {active === "programs" && <WhereItStarted />}
-      <FooterContactForm />
+      <FooterContactForm
+        isProgramsPage={active === "programs" ? true : false}
+      />
       <Footer />
     </>
   )
