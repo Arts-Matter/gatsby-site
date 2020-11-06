@@ -1,0 +1,114 @@
+.bottom-left {
+  flex: 0 1 50%;
+  padding-right: 24px;
+}
+
+.bottom-left__label {
+  text-transform: uppercase;
+  font-family: var(--ibmPlexMono);
+  font-size: 13.5px;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.bottom-left__date {
+  margin-top: 51px;
+  font-family: var(--visueltRegular);
+  font-size: 17px;
+  line-height: 1;
+}
+
+.bottom-left__title {
+  margin-top: 25px;
+  font-family: var(--visueltBold);
+  font-size: 36px;
+  line-height: 42px;
+}
+
+.bottom-left__description {
+  margin-top: 30px;
+  font-family: var(--visueltRegular);
+  font-size: 17px;
+  line-height: 27px;
+}
+
+.bottom-left__more {
+  margin-top: 30px;
+  width: 25px;
+  position: relative;
+  height: 16px;
+  margin-right: 56px;
+  -webkit-mask: url("../images/nav-arrow.svg") no-repeat 50% 50%;
+  mask: url("../images/nav-arrow.svg") no-repeat 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #000;
+}
+
+.bottom-right {
+  flex: 0 1 50%;
+  padding-left: 24px;
+}
+
+.bottom-right__image-container {
+  position: relative;
+  padding-top: 66%;
+}
+
+.bottom-right__image {
+  background-image: url("https://images.ctfassets.net/0yqesla6898r/6QaHtBRl7kfwEjOirJnAlL/1584457b080ef392b08698dcc4c161ad/WONDER_2.jpg");
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+@media only screen and (max-width: 889px) {
+
+  .bottom-left__date {
+    margin-top: 24px;
+    font-size: 14px;
+    line-height: 23px;
+  }
+
+  .bottom-left__title {
+    font-size: 24px;
+    line-height: 31px;
+    margin-top: 0;
+  }
+
+  .bottom-left__description {
+    font-size: 14px;
+    line-height: 23px;
+  }
+
+  .bottom-left__more {
+    background: none;
+    -webkit-mask: none;
+    mask: none;
+    margin: 16px 0 32px;
+    margin-top: 16px;
+    margin-right: 0;
+    width: 100%;
+    height: auto;
+
+    &:before {
+      content: "Learn More";
+      font-family: var(--ibmPlexMono);
+    }
+  }
+
+  .bottom-left__link {
+    text-decoration: underline;
+    color: black;
+    font-size: 13.5px;
+    line-height: 18px;
+  }
+
+  .bottom-right {
+    padding-left: 0;
+  }
+}
