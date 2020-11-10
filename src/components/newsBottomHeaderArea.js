@@ -39,20 +39,20 @@ export default function NewsBottomHeaderArea() {
       <div className="bottom-left">
         <div className="bottom-left__label">Featured Post</div>
         <div className="bottom-left__date">{date}&nbsp;&nbsp;|&nbsp;&nbsp;News</div>
-        <div className="bottom-left__title">
+        {title && <div className="bottom-left__title">
           {title}
-        </div>
-        <div className="bottom-left__description">
+        </div>}
+        {summary && <div className="bottom-left__description">
           {summary}
-        </div>
-        <Link className="bottom-left__link" to={`/news/${contentful_id}`}>
+        </div>}
+        {contentful_id && <Link className="bottom-left__link" to={`/news/${contentful_id}`}>
           <div className="bottom-left__more"></div>
-        </Link>
+        </Link>}
       </div>
       <div className="bottom-right">
-        <div className="bottom-right__image-container">
+        {imgSrc && <div className="bottom-right__image-container">
           <div className="bottom-right__image" style={{backgroundImage: `url(${imgSrc})`}}></div>
-        </div>
+        </div>}
       </div>
     </>
   )
