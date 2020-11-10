@@ -1,12 +1,12 @@
 .bottom-left {
   flex: 0 1 50%;
-  padding-right: 24px;
+  padding-right: var(--spacing-s);
 }
 
 .bottom-left__label {
   text-transform: uppercase;
   font-family: var(--ibmPlexMono);
-  font-size: 13.5px;
+  font-size: var(--linkFontSize);
   letter-spacing: 1px;
   line-height: 1;
 }
@@ -14,22 +14,22 @@
 .bottom-left__date {
   margin-top: 51px;
   font-family: var(--visueltRegular);
-  font-size: 17px;
+  font-size: var(--paragraphFontSize);
   line-height: 1;
 }
 
 .bottom-left__title {
   margin-top: 25px;
   font-family: var(--visueltBold);
-  font-size: 36px;
+  font-size: var(--headerFontSizeSecondary);
   line-height: 42px;
 }
 
 .bottom-left__description {
   margin-top: 30px;
   font-family: var(--visueltRegular);
-  font-size: 17px;
-  line-height: 27px;
+  font-size: var(--paragraphFontSize);
+  line-height: var(--paragraphLineHeight);
 }
 
 .bottom-left__more {
@@ -42,12 +42,12 @@
   mask: url("../images/nav-arrow.svg") no-repeat 50% 50%;
   background-repeat: no-repeat;
   background-size: contain;
-  background-color: #000;
+  background-color: var(--black);
 }
 
 .bottom-right {
   flex: 0 1 50%;
-  padding-left: 24px;
+  padding-left: var(--spacing-s);
 }
 
 .bottom-right__image-container {
@@ -69,9 +69,9 @@
 @media only screen and (max-width: 889px) {
 
   .bottom-left__date {
-    margin-top: 24px;
-    font-size: 14px;
-    line-height: 23px;
+    margin-top: var(--spacing-s);
+    font-size: var(--buttonFontSize);
+    line-height: var(--mobileParagraphLineHeight);
   }
 
   .bottom-left__title {
@@ -81,8 +81,8 @@
   }
 
   .bottom-left__description {
-    font-size: 14px;
-    line-height: 23px;
+    font-size: var(--buttonFontSize);
+    line-height: var(--mobileParagraphLineHeight);
   }
 
   .bottom-left__more {
@@ -103,9 +103,9 @@
 
   .bottom-left__link {
     text-decoration: underline;
-    color: black;
-    font-size: 13.5px;
-    line-height: 18px;
+    color: var(--black);
+    font-size: var(--linkFontSize);
+    line-height: var(--buttonLineHeight);
   }
 
   .bottom-right {

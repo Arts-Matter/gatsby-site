@@ -3,7 +3,7 @@
 }
 
 .news .top {
-  margin: 24px 0;
+  margin: var(--spacing-s) 0;
 }
 
 .top {
@@ -92,7 +92,7 @@
 
   .news .header-area .bottom {
     margin-top: 32px;
-    padding: 24px;
+    padding: var(--spacing-s);
     display: block;
     background-color: var(--geo);
   }
