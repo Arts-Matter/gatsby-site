@@ -1,27 +1,57 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 import "./newsBottomHeaderArea.scss"
 
 export default function NewsBottomHeaderArea() {
+
+  const data = useStaticQuery(graphql`
+    {
+      allContentfulNewsItem(filter: {contentful_id: {eq: "53h9cnhCcWudxIJbiLLOCg"}}) {
+        edges {
+          node {
+            title
+            byline
+            date
+            headerImage {
+              fixed {
+                src
+              }
+            }
+            summary {
+              internal {
+                content
+              }
+            }
+            contentful_id
+          }
+        }
+      }
+    }
+  `)
+
+  const {title, date, contentful_id } = data.allContentfulNewsItem.edges[0].node
+  const summary = data.allContentfulNewsItem.edges[0].node.summary.internal.content
+  const imgSrc = data.allContentfulNewsItem.edges[0].node.headerImage.fixed.src
+
   return (
     <>
       <div className="bottom-left">
         <div className="bottom-left__label">Featured Post</div>
-        <div className="bottom-left__date">2019-04-04 | News</div>
+        <div className="bottom-left__date">{date}&nbsp;&nbsp;|&nbsp;&nbsp;News</div>
         <div className="bottom-left__title">
-          500 Student Animators Converge on Paramount Pictures
+          {title}
         </div>
         <div className="bottom-left__description">
-          Los Angeles is the world capital of media and entertainment, yet only
-          7% of LA schools offer courses in media arts.
+          {summary}
         </div>
-        <Link className="bottom-left__link" to="/news/53h9cnhCcWudxIJbiLLOCg">
+        <Link className="bottom-left__link" to={`/news/${contentful_id}`}>
           <div className="bottom-left__more"></div>
         </Link>
       </div>
       <div className="bottom-right">
         <div className="bottom-right__image-container">
-          <div className="bottom-right__image"></div>
+          <div className="bottom-right__image" style={{backgroundImage: `url(${imgSrc})`}}></div>
         </div>
       </div>
     </>
