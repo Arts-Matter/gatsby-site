@@ -14,6 +14,7 @@ import Footer from "./footer"
 import Panel from "./panel"
 import FooterContactForm from "./footerContactForm"
 import Quotes from "./quotes"
+import NewsFeed from "./newsFeed"
 import "./layout.scss"
 
 const Layout = ({ children, active }) => {
@@ -37,6 +38,7 @@ const Layout = ({ children, active }) => {
         </section>
       </main>
       {active === "about" && <Quotes />}
+      {active === "news" && <NewsFeed />}
       <FooterContactForm />
       <Footer />
     </>
