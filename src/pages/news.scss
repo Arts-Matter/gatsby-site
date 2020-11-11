@@ -1,0 +1,24 @@
+.latest-news {
+  margin-top: 92px;
+  border-top: var(--border-thin-black);
+  padding-top: 92px;
+}
+
+.latest-news__title {
+  color: var(--ocean);
+  font-family: var(--visueltBold);
+  font-size: var(--headerFontSizePrimary);
+  line-height: var(--mobileSectionTitleLineHeight);
+}
+
+.latest-news__sub-title {
+  font-family: var(--scopeOne);
+  font-size: var(--headerFontSizeTertiary);
+  line-height: var(--headerLineHeightSecondary);
+  border-bottom: none;
+}
+
+.latest-news__archive-link {
+  font-size: var(--headerFontSizeTertiary);
+  line-height: 1;
+}
