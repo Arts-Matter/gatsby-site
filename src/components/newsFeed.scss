@@ -1,0 +1,16 @@
+.news-feed {
+  height: 634px;
+  width: 100%;
+}
+
+.news-feed__container {
+  margin-top: 48px;
+  height: 100%;
+}
+
+.news-feed__feed {
+  padding-left: 63px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
