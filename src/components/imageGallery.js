@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import "./imageGallery.scss"
 
-export default function ImageGallery() {
+export default function ImageGallery({ src1, src2, src3 }) {
   const img1 = useRef()
   const img2 = useRef()
   const img3 = useRef()
@@ -61,14 +61,24 @@ export default function ImageGallery() {
       <div className="gallery">
         <div className="gallery-container">
           <div className="gallery-image-wrapper">
-            <div className="gallery-image gallery-image__1" ref={img1}>
+            <div
+              className="gallery-image gallery-image__1"
+              ref={img1}
+              style={{
+                backgroundImage: `url(${src1})`,
+              }}
+            >
               <div className="gallery-image__caption">
                 <div className="gallery-image__title">
                   Film Independent screening + Q&A
                 </div>
               </div>
             </div>
-            <div className="gallery-image gallery-image__2" ref={img2}>
+            <div
+              className="gallery-image gallery-image__2"
+              ref={img2}
+              style={{ backgroundImage: `url(${src2})` }}
+            >
               <div className="gallery-image__caption gallery-image__caption--no-display">
                 <div className="gallery-image__title">
                   PST:LA/LA - A Celebration of Student Culture and Identity at
@@ -76,7 +86,13 @@ export default function ImageGallery() {
                 </div>
               </div>
             </div>
-            <div className="gallery-image gallery-image__3" ref={img3}>
+            <div
+              className="gallery-image gallery-image__3"
+              ref={img3}
+              style={{
+                backgroundImage: `url("${src3}")`,
+              }}
+            >
               <div className="gallery-image__caption gallery-image__caption--no-display">
                 <div className="gallery-image__title">
                   Students present projects to staff on the Paramount lot
