@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import "./programmingCard.scss"
 
 export default function ProgrammingCard({ title, summary, id, entries }) {
-  const href = `https://www.artsmatter.org/programs/${id}`
   const [expanded, setExpanded] = useState(false)
 
   const card = (title, summary, id) => {
@@ -41,6 +40,7 @@ export default function ProgrammingCard({ title, summary, id, entries }) {
         </button>
         {nestedCards.length > 0 && (
           <div
+            aria-hidden={!expanded}
             className={`collapsible__outer ${
               expanded
                 ? "collapsible__outer--expanded"
