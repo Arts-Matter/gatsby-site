@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ReactFullpage from '@fullpage/react-fullpage'
+import AboutSection from '../components/homepage/about'
 
 const IndexPage = () => (
   <Layout active="home">
@@ -12,10 +13,7 @@ const IndexPage = () => (
       return (
         <ReactFullpage.Wrapper>
           <div className="section about">
-            <p>Section About</p>
-            <button onClick={() => fullpageApi.moveSectionDown()}>
-              Click me to move down
-            </button>
+            <AboutSection />
           </div>
           <div className="section pillars">
             <p>Section Pillars</p>
