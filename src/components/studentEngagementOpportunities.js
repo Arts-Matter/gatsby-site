@@ -12,7 +12,11 @@ export default function StudentEngagementOpportunities() {
         <h3>Student Engagement Opportunities</h3>
         {width < 890 && (
           <div className="student-engagement__left">
-            <ImageGallery />
+            <ImageGallery
+              src1="/1.jpg"
+              src2="/2.jpg"
+              src3="/3.jpg"
+            />
           </div>
         )}
         <p>
@@ -43,7 +47,11 @@ export default function StudentEngagementOpportunities() {
     <div className="student-engagement">
       {width > 889 && (
         <div className="student-engagement__left">
-          <ImageGallery />
+          <ImageGallery
+            src1="/1.jpg"
+            src2="/2.jpg"
+            src3="/3.jpg"
+          />
         </div>
       )}
       <div className="student-engagement__right">{displayTextContainer()}</div>
