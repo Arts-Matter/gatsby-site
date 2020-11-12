@@ -1,37 +1,51 @@
 import React from "react"
-import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ReactFullpage from '@fullpage/react-fullpage'
-import AboutSection from '../components/homepage/about'
+import ReactFullpage from "@fullpage/react-fullpage"
+import Wrapper from "../components/homepage/wrapper"
+import AboutSection from "../components/homepage/about"
+import PillarsSection from "../components/homepage/pillars"
+import ResourcesSection from "../components/homepage/resources"
+import ProgrammingSection from "../components/homepage/programming"
+import ContactSection from "../components/homepage/contact"
 
 const IndexPage = () => (
-  <Layout active="home">
+  <>
     <SEO title="Home" />
     <ReactFullpage
-    scrollingSpeed = {1000}
-    render={({ state, fullpageApi }) => {
-      return (
-        <ReactFullpage.Wrapper>
-          <div className="section about">
-            <AboutSection />
-          </div>
-          <div className="section pillars">
-            <p>Section Pillars</p>
-          </div>
-          <div className="section resources">
-            <p>Section Resources</p>
-          </div>
-          <div className="section programming">
-            <p>Section Programming</p>
-          </div>
-          <div className="section contact">
-            <p>Section Contact</p>
-          </div>
-        </ReactFullpage.Wrapper>
-      );
-    }}
+      scrollingSpeed={700}
+      render={({ state, fullpageApi }) => {
+        return (
+          <ReactFullpage.Wrapper>
+            <div className="section section--about">
+              <Wrapper bgColor="magenta">
+                <AboutSection />
+              </Wrapper>
+            </div>
+            <div className="section section--pillars">
+              <Wrapper bgColor="tomato">
+                <PillarsSection />
+              </Wrapper>
+            </div>
+            <div className="section section--resources">
+              <Wrapper bgColor="aqua">
+                <ResourcesSection />
+              </Wrapper>
+            </div>
+            <div className="section section--programming">
+              <Wrapper bgColor="geo">
+                <ProgrammingSection />
+              </Wrapper>
+            </div>
+            <div className="section section--contact">
+              <Wrapper bgColor="sunflower">
+                <ContactSection />
+              </Wrapper>
+            </div>
+          </ReactFullpage.Wrapper>
+        )
+      }}
     />
-  </Layout>
+  </>
 )
 
 export default IndexPage
