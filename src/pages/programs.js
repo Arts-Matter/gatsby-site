@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 import HeaderArea from "../components/headerArea"
 import ProgramsBottomHeaderArea from "../components/programsBottomHeaderArea"
 import StudentEngagementOpportunities from "../components/studentEngagementOpportunities"
+import TeacherDevelopment from "../components/teacherDevelopment"
 
 const title = "Programs"
 const bottom = <ProgramsBottomHeaderArea />
@@ -16,6 +17,7 @@ const Page = () => (
     <SEO title={title} />
     <HeaderArea topLeft="Programs" backgroundClass="aqua" bottom={bottom} />
     <StudentEngagementOpportunities />
+    <TeacherDevelopment />
   </Layout>
 )
 
