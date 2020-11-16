@@ -4,6 +4,10 @@
   flex-wrap: wrap;
 }
 
+.programs .content-container {
+  padding-bottom: 0;
+}
+
 .content-container {
   max-width: var(--max-width-calc);
   padding: var(--contentContainerPadding);
