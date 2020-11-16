@@ -11,6 +11,40 @@ export default function TeamMember({ member }) {
       : "collapsible-content--collapsed",
   ]
 
+  const generateFormattedDescriptions = () => {
+    return descriptions.map((desc, i) => {
+      return (
+        <p key={i}>
+          {desc.map((text, index) => {
+            if (typeof text === "object" && text.marks.length > 0) {
+              if (text.marks[0].type === "italic") {
+                return (
+                  <span key={`${text.value}${index}`}>
+                    <em>{text.value}</em>
+                  </span>
+                )
+              } else if (text.marks[0].type === "bold") {
+                return (
+                  <span key={`${text.value}${index}`}>
+                    <b>{text.value}</b>
+                  </span>
+                )
+              } else {
+                return <React.Fragment key={`${text.value}${index}`}>{text.value}</React.Fragment>
+              }
+            } else {
+              return (
+                <React.Fragment key={`${text.value}${index}`}>
+                  {text}
+                </React.Fragment>
+              )
+            }
+          })}
+        </p>
+      )
+    })
+  }
+
   return (
     <div className="team-member">
       <div className="member-image-container">
@@ -43,11 +77,7 @@ export default function TeamMember({ member }) {
           </button>
         </div>
         <div className={classes.join(" ")}>
-          {descriptions.map(description => (
-            <p key={description} className="rich-text">
-              {description}
-            </p>
-          ))}
+          {generateFormattedDescriptions()}
         </div>
       </div>
     </div>
