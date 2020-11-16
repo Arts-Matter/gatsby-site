@@ -5,7 +5,7 @@ import { useWindowSize } from "./hooks"
 import HamburgerMenu from "./hamburgerMenu"
 import "./header.scss"
 
-const Header = ({ siteTitle, active }) => {
+const Header = ({ siteTitle, active, bgColor='magenta' }) => {
   const [mobileExpanded, setMobileExpanded] = useState(false)
   const [activeColor, setActiveColor] = useState()
 
@@ -18,45 +18,12 @@ const Header = ({ siteTitle, active }) => {
   const activeLinkStyles = "nav-list__item nav-list__item--active"
 
   useEffect(() => {
-    switch (active) {
-      case "about":
-        setActiveColor("aqua")
-        if (width > 889) {
-          headerRef.current.classList.add("aqua")
-        }
-        break
-      case "programs":
-        if (width > 889) {
-          headerRef.current.classList.add("geo")
-        }
-        setActiveColor("geo")
-        break
-      case "resources":
-        if (width > 889) {
-          headerRef.current.classList.add("geo")
-        }
-        setActiveColor("geo")
-        break
-      case "news":
-        if (width > 889) {
-          headerRef.current.classList.add("sunflower")
-        }
-        setActiveColor("sunflower")
-        break
-      case "contact":
-        if (width > 889) {
-          headerRef.current.classList.add("tomato")
-        }
-        setActiveColor("tomato")
-        break
-      default:
-        if (width > 889) {
-          headerRef.current.classList.add("magenta")
-        }
-        setActiveColor("magenta")
-        break
+    setActiveColor(bgColor)
+
+    if (width > 889) {
+      headerRef.current.classList.add(bgColor)
     }
-  }, [active, width])
+  }, [bgColor, width])
 
   return (
     <header ref={headerRef} className="header">
@@ -153,6 +120,7 @@ const Header = ({ siteTitle, active }) => {
 Header.propTypes = {
   siteTitle: PropTypes.string,
   active: PropTypes.string,
+  bgColor: PropTypes.string,
 }
 
 Header.defaultProps = {

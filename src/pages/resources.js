@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 const title = "Resources"
 
 const Page = () => (
-  <Layout active="resources">
+  <Layout active="resources" bgColor="geo">
     <SEO title={title} />
     <h1>{title}</h1>
     <Link to="/">Go back to the homepage</Link>

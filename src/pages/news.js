@@ -10,7 +10,7 @@ import NewsBottomHeaderArea from "../components/newsBottomHeaderArea"
 const title = "News"
 
 const Page = () => (
-  <Layout active="news">
+  <Layout active="news" bgColor="sunflower">
     <SEO title={title} />
     <HeaderArea
       topLeft="News"
