@@ -2,31 +2,12 @@ import React, { useEffect, useRef } from "react"
 import { useWindowSize } from "./hooks"
 import "./panel.scss"
 
-export default function Panel({ active }) {
+export default function Panel({ bgColor }) {
   const backPanelRef = useRef()
   const { width } = useWindowSize()
 
   useEffect(() => {
-    switch (active) {
-      case "about":
-        backPanelRef.current.classList.add("aqua")
-        break
-      case "programs":
-        backPanelRef.current.classList.add("geo")
-        break
-      case "resources":
-        backPanelRef.current.classList.add("geo")
-        break
-      case "news":
-        backPanelRef.current.classList.add("sunflower")
-        break
-      case "contact":
-        backPanelRef.current.classList.add("tomato")
-        break
-      default:
-        backPanelRef.current.classList.add("magenta")
-        break
-    }
+    backPanelRef.current.classList.add(bgColor)
   })
 
   useEffect(() => {

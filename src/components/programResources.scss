@@ -36,6 +36,33 @@
   }
 }
 
+.program-resources__button {
+  margin-top: 32px;
+  font-family: var(--ibmPlexMono);
+  font-size: var(--linkFontSize);
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: var(--geo);
+  padding: 18px 100px 18px 18px;
+  position: relative;
+  color: var(--black);
+  border: none;
+  cursor: pointer;
+
+  &:after {
+    content: "";
+    position: absolute;
+    -webkit-mask: url('../images/nav-arrow.svg') no-repeat 50% 50%;
+    mask: url('../images/nav-arrow.svg') no-repeat 50% 50%;
+    background-color: var(--black);
+    width: 20px;
+    height: 100%;
+    top: 0;
+    right: 18px;
+  }
+}
+
 @media only screen and (max-width: 889px) {
   .program-resources {
     margin: 48px 0 48px;
