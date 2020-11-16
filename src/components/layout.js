@@ -16,7 +16,7 @@ import FooterContactForm from "./footerContactForm"
 import Quotes from "./quotes"
 import "./layout.scss"
 
-const Layout = ({ children, active }) => {
+const Layout = ({ children, active, bgColor }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -29,10 +29,10 @@ const Layout = ({ children, active }) => {
 
   return (
     <>
-      <Header active={active} siteTitle={data.site.siteMetadata.title} />
+      <Header active={active} bgColor={bgColor} siteTitle={data.site.siteMetadata.title} />
       <main className={active}>
         <section className="main-wrapper">
-          <Panel active={active} />
+          <Panel active={active} bgColor={bgColor} />
           <div className="content-container">{children}</div>
         </section>
       </main>
