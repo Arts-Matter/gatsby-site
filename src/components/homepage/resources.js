@@ -2,7 +2,7 @@ import React from "react"
 import './resources.scss'
 
 const ResourcesSection = () => (
-  <div className='section--resources__content'>
+  <div className='section--resources__content content-container'>
     <p>Section Resources</p>
   </div>
 )
