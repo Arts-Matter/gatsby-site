@@ -2,7 +2,7 @@ import React from "react"
 import { addOrdinalToGrade } from "./utils.js"
 import "./resourcesSearchPanel.scss"
 
-export default function ResourcesSearchPanel() {
+export default function ResourcesSearchPanel({ handleFilterClick }) {
   const filters = [
     {
       "groupName": "Subject Area",
@@ -63,7 +63,7 @@ export default function ResourcesSearchPanel() {
                         return (
                           <li key={i}>
                             <label className="fancy-checkbox">
-                              <input type="checkbox" name={group.groupSlug} value={child} />
+                              <input type="checkbox" name={group.groupSlug} value={child} onClick={ (e) => handleFilterClick(e, group.groupSlug, child)} />
                               <span className="fancy-checkbox__indicator"></span>
                               <span className="fancy-checkbox__text">{group.groupSlug === "gradeLevel" ? addOrdinalToGrade(parseInt(child)) : child}</span>
                             </label>
