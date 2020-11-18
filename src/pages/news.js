@@ -4,13 +4,19 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import HeaderArea from "../components/headerArea"
+import NewsBottomHeaderArea from "../components/newsBottomHeaderArea"
+
 const title = "News"
 
 const Page = () => (
   <Layout active="news" bgColor="sunflower">
     <SEO title={title} />
-    <h1>{title}</h1>
-    <Link to="/">Go back to the homepage</Link>
+    <HeaderArea
+      topLeft="News"
+      backgroundClass="geo"
+      bottom={<NewsBottomHeaderArea />}
+    />
   </Layout>
 )
 

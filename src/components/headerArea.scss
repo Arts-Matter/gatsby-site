@@ -2,6 +2,10 @@
   padding: var(--contentPaddingPrimary);
 }
 
+.news .top {
+  margin: var(--spacing-s) 0;
+}
+
 .top {
   display: flex;
   border-top: var(--border-thin-black);
@@ -46,6 +50,11 @@
   color: var(--black);
 }
 
+.news .header-area .bottom {
+  margin-top: 48px;
+  display: flex;
+}
+
 @media only screen and (max-width: 889px) {
   .header-area {
     padding: 50px var(--spacing-s);
@@ -79,5 +88,12 @@
   .bottom {
     padding: var(--spacing-s);
     display: block;
+  }
+
+  .news .header-area .bottom {
+    margin-top: 32px;
+    padding: var(--spacing-s);
+    display: block;
+    background-color: var(--geo);
   }
 }
