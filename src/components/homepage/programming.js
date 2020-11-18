@@ -1,10 +1,8 @@
 import React from "react"
-import Header from "../header"
 import './programming.scss'
 
-const ProgrammingSection = ({ bgColor }) => (
-  <div className={`section--programming__content ${bgColor}`}>
-    <Header active="home" bgColor={bgColor} siteTitle='Arts Matter' />
+const ProgrammingSection = () => (
+  <div className='section--programming__content'>
     <p>Section Programming</p>
   </div>
 )
