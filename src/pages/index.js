@@ -7,7 +7,6 @@ import PillarsSection from "../components/homepage/pillars"
 import ResourcesSection from "../components/homepage/resources"
 import ProgrammingSection from "../components/homepage/programming"
 import ContactSection from "../components/homepage/contact"
-import "../components/layout.scss"
 
 const IndexPage = () => (
   <>
