@@ -15,7 +15,10 @@ const Page = () => {
   return (
     <Layout active="about" bgColor="aqua">
       <SEO title={title} />
-      <HeaderArea topLeft="About" bottom={bottom} backgroundClass="magenta" />
+      <HeaderArea 
+        topLeft="About" 
+        bottom={bottom} 
+        backgroundClass="magenta" />
       <History />
       <ProgramPillars />
       <Team />
