@@ -22,6 +22,10 @@ const AboutSection = () => {
     },
   ]
 
+  const controls = {
+    theme: 'light',
+  }
+
   return (
     <div className="section--about__content">
       <div class="content-container">
@@ -34,7 +38,7 @@ const AboutSection = () => {
         </div>
         <div className="right">
           <div className="color"></div>
-          <ImageGallery images={images} />
+          <ImageGallery images={images} controls={controls} />
           {width < 890 && <Button url="/about" text="Our Mission" size="small" theme="light" />}
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import "./imageGallery.scss"
 
-export default function ImageGallery({ images }) {
+export default function ImageGallery({ images, controls }) {
   const img1 = useRef()
   const img2 = useRef()
   const img3 = useRef()
@@ -43,14 +43,18 @@ export default function ImageGallery({ images }) {
   const handleStyleUpdates = newIndex => {
     gallery.forEach((el, i) => {
       if (i === newIndex) {
-        el.current.firstChild.classList.remove(
-          "gallery-image__caption--no-display"
-        )
+        if (el.current.firstChild) {
+          el.current.firstChild.classList.remove(
+            "gallery-image__caption--no-display"
+          )
+        }
         el.current.style.zIndex = 3
       } else {
-        el.current.firstChild.classList.add(
-          "gallery-image__caption--no-display"
-        )
+        if (el.current.firstChild) {
+          el.current.firstChild.classList.add(
+            "gallery-image__caption--no-display"
+          )
+        }
         el.current.style.zIndex = 2
       }
     })
@@ -99,7 +103,9 @@ export default function ImageGallery({ images }) {
               )}
             </div>
           </div>
-          <div className="gallery-controls">
+          <div
+            className={`gallery-controls gallery-controls--${controls.theme}`}
+          >
             <button onClick={() => handleNextImage(false)}>
               <div className="gallery-controls__left"></div>
             </button>
@@ -111,4 +117,10 @@ export default function ImageGallery({ images }) {
       </div>
     </div>
   )
+}
+
+ImageGallery.defaultProps = {
+  controls: {
+    theme: "dark",
+  },
 }
