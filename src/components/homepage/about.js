@@ -7,6 +7,21 @@ import "./about.scss"
 const AboutSection = () => {
   const { width } = useWindowSize()
 
+  const images = [
+    {
+      src: "/1.jpg",
+      caption: '',
+    },
+    {
+      src: "/2.jpg",
+      caption: '',
+    },
+    {
+      src: "/3.jpg",
+      caption: '',
+    },
+  ]
+
   return (
     <div className="section--about__content">
       <div class="content-container">
@@ -19,7 +34,7 @@ const AboutSection = () => {
         </div>
         <div className="right">
           <div className="color"></div>
-          <ImageGallery src1="/1.jpg" src2="/2.jpg" src3="/3.jpg" />
+          <ImageGallery images={images} />
           {width < 890 && <Button url="/about" text="Our Mission" size="small" theme="light" />}
         </div>
       </div>
