@@ -4,7 +4,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    height: 100%;
+    height: calc(100% - 50px);
     margin: 0 auto;
 
     @media (max-width: 889px) {
@@ -13,6 +13,7 @@
 
     @media (min-width: 890px) {
       flex-wrap: nowrap;
+      height: calc(100% - 100px);
     }
   }
 
@@ -43,5 +44,9 @@
       flex: 0 1 60%;
       position: relative;
     }
+  }
+
+  .gallery-wrapper {
+    margin-bottom: 0;
   }
 }

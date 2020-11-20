@@ -22,3 +22,17 @@
     right: 18px;
   }
 }
+
+.button--small {
+  font-size: 12px;
+  padding: 12px 80px 12px 12px;
+}
+
+.button--light {
+  background-color: var(--white);
+  color: var(--magenta);
+
+  &:after {
+    background-color: var(--magenta);
+  }
+}
