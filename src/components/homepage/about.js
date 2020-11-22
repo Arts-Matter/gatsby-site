@@ -29,10 +29,10 @@ const AboutSection = () => {
   // TODO: Add images from Contentful
 
   return (
-    <div className="section--about__content">
+    <div className="section__content section--about__content">
       <div class="content-container">
         <div className="left">
-          <h3 className="section--about__title">
+          <h3 className="section__title section--about__title">
             We provide high-impact arts education programming for Los Angeles
             schools.
           </h3>
