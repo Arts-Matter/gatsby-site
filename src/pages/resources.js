@@ -77,7 +77,6 @@ const Page = ({ data }) => {
       <SEO title={title} />
       <HeaderArea topLeft={title} topRight={topRight} />
       <ResourcesSearchPanel handleFilterClick={handleFilterClick} />
-      <ResourcesResultsPanel resources={activeResources} />
       {activeResources.length > 0
         ? <ResourcesResultsPanel resources={activeResources} />
         : <ResourcesNotFound />
