@@ -22,10 +22,10 @@ const Page = ({ data }) => {
   }
   const [activeFilters, setActiveFilters] = useState(initialActiveFilters)
 
-  const handleFilterClick = (e, groupSlug, childName) => {
+  const handleFilterChange = (isFilterChecked, groupSlug, childName) => {
     let groupArray = activeFilters[groupSlug].slice()
 
-    if ( e.target.checked ) {
+    if ( isFilterChecked ) {
       groupArray.push(childName);
     } else {
       groupArray = groupArray.filter(item => item !== childName)
@@ -108,7 +108,7 @@ const Page = ({ data }) => {
     <Layout active="resources">
       <SEO title={title} />
       <HeaderArea topLeft={title} topRight={topRight} />
-      <ResourcesSearchPanel handleFilterClick={handleFilterClick} handleSearch={handleSearch} />
+      <ResourcesSearchPanel handleFilterChange={handleFilterChange} handleSearch={handleSearch} />
       {activeResources.length > 0
         ? <ResourcesResultsPanel resources={activeResources} />
         : <ResourcesNotFound />

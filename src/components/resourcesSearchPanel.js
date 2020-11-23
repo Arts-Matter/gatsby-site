@@ -2,8 +2,17 @@ import React, { useState } from "react"
 import { addOrdinalToGrade } from "./utils.js"
 import "./resourcesSearchPanel.scss"
 
-export default function ResourcesSearchPanel({ handleFilterClick, handleSearch }) {
+export default function ResourcesSearchPanel({ handleFilterChange, handleSearch }) {
   const [searchTerm, setSearchTerm] = useState('')
+
+  const handleFilterClick = (e, groupSlug, childName) => {
+    const isFilterChecked = e.target.checked
+
+    // Clear out search field because we are now filtering
+    setSearchTerm('')
+
+    handleFilterChange(isFilterChecked, groupSlug, childName)
+  }
 
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value)
