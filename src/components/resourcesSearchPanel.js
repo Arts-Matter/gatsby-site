@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { addOrdinalToGrade } from "./utils.js"
+import ResourcesFilterGroup from "../components/resourcesFilterGroup"
+
 import "./resourcesSearchPanel.scss"
 
 export default function ResourcesSearchPanel({ handleFilterChange, handleSearch }) {
@@ -141,24 +142,7 @@ export default function ResourcesSearchPanel({ handleFilterChange, handleSearch 
           {
             filters.map((group, i) => {
               return (
-                <div key={i} className="resources-filter-group">
-                  <h3 className="resources-filter-group__title">{group.groupName}</h3>
-                  <ul className={"resources-filter-group__list " + (group.groupSlug === "gradeLevel" ? "resources-filter-group__list--3-up" : "")}>
-                    {
-                      group.children.map((child, i) => {
-                        return (
-                          <li key={i}>
-                            <label className="fancy-checkbox">
-                              <input type="checkbox" name={group.groupSlug} value={child.slug} onClick={ (e) => handleFilterClick(e, group.groupSlug, child.slug)} />
-                              <span className="fancy-checkbox__indicator"></span>
-                              <span className="fancy-checkbox__text">{group.groupSlug === "gradeLevel" ? addOrdinalToGrade(parseInt(child.name)) : child.name}</span>
-                            </label>
-                          </li>
-                        )
-                      })
-                    }
-                  </ul>
-                </div>
+                <ResourcesFilterGroup key={i} groupID={i} group={group} handleFilterClick={handleFilterClick} />
               )
             })
           }

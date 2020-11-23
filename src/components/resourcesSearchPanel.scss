@@ -57,6 +57,7 @@
 
 .resources-filter-group {
   margin-left: 80px;
+  margin-bottom: var(--spacing-s);
 
   @media only screen and (max-width: 1325px) {
     margin-left: var(--spacing-s);
@@ -67,7 +68,15 @@
   }
 
   @media only screen and (max-width: 889px) {
-    margin-left: 0;
+    margin: 0;
+    padding-top: calc(var(--spacing-s) / 2);
+    padding-bottom: calc(var(--spacing-s) / 2);
+    border-top: 1px solid var(--black);
+
+    &:first-child {
+      padding-top: 0;
+      border-top: none;
+    }
   }
 }
 
@@ -78,17 +87,106 @@
   line-height: 1.23;
   border-bottom: none;
 
+  @media only screen and (max-width: 889px) {
+    margin-bottom: 0;
+  }
+
   &:after {
     content: ':';
+
+    @media only screen and (max-width: 889px) {
+      display: none;
+    }
+  }
+}
+
+.resources-filter-group__button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  appearance: none;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+
+  &:focus {
+    outline: 1px dotted;
+  }
+}
+
+.resources-filter-group__button-indicator {
+  display: block;
+  position: relative;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  pointer-events: none;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    width: 50%;
+    background-color: var(--black);
+    transform: translateY(-50%);
+    transition: transform 0.3s;
+  }
+
+  &::before {
+    right: calc(50% - 2px);
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    left: calc(50% - 2px);
+    transform: rotate(-45deg);
+  }
+
+  .resources-filter-group__button[aria-expanded="true"] &::before {
+    transform: rotate(-45deg);
+  }
+
+  .resources-filter-group__button[aria-expanded="true"] &::after {
+    transform: rotate(45deg);
+  }
+}
+
+.resources-filter-group__drawer {
+  @media only screen and (max-width: 889px) {
+    visibility: hidden;
+    overflow: hidden;
+    max-height: 0;
+    transition: visibility 0s 0.3s, max-height 0.3s ease;
+
+    &.resources-filter-group__drawer--is-open {
+      visibility: visible;
+      max-height: 800px;
+      transition-delay: 0s;
+    }
   }
 }
 
 .resources-filter-group__list {
   margin-left: 1px;
+  margin-bottom: 0;
   list-style: none;
+
+  @media only screen and (max-width: 889px) {
+    padding-top: calc(var(--spacing-s) / 2);
+  }
 
   li {
     margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
