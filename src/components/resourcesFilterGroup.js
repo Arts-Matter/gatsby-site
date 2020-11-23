@@ -2,6 +2,8 @@ import React, { useState }  from "react"
 import { useWindowSize } from "./hooks"
 import { addOrdinalToGrade } from "./utils.js"
 
+import "./resourcesFilterGroup.scss"
+
 const ResourcesFilterGroup = ({ groupID, group, handleFilterClick }) => {
   const [groupExpanded, setGroupExpanded] = useState(false)
   const { width } = useWindowSize()
