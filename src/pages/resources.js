@@ -42,6 +42,8 @@ const Page = ({ data }) => {
       filteredResources = filteredResources.filter(({ node }) => {
         if (node.subjectArea) {
           return updatedActiveFilters.subjectArea.some(i => node.subjectArea.includes(i))
+        } else {
+          return false
         }
       })
     }
@@ -51,6 +53,8 @@ const Page = ({ data }) => {
       filteredResources = filteredResources.filter(({ node }) => {
         if (node.mediaArtsStrain) {
           return updatedActiveFilters.mediaArtsStrain.some(i => node.mediaArtsStrain.includes(i))
+        } else {
+          return false
         }
       })
     }
@@ -60,6 +64,8 @@ const Page = ({ data }) => {
       filteredResources = filteredResources.filter(({ node }) => {
         if (node.gradeLevel !== null) {
           return updatedActiveFilters.gradeLevel.some(i => node.gradeLevel === parseInt(i))
+        } else {
+          return false
         }
       })
     }
