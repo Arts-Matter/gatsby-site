@@ -1,8 +1,19 @@
-import React from "react"
+import React, { useState } from "react"
 import { addOrdinalToGrade } from "./utils.js"
 import "./resourcesSearchPanel.scss"
 
-export default function ResourcesSearchPanel({ handleFilterClick }) {
+export default function ResourcesSearchPanel({ handleFilterClick, handleSearch }) {
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value)
+  }
+
+  const handleSubmitClick = (e) => {
+    e.preventDefault();
+    handleSearch(searchTerm);
+  }
+
   const filters = [
     {
       "groupName": "Subject Area",
@@ -148,8 +159,8 @@ export default function ResourcesSearchPanel({ handleFilterClick }) {
       <div className="resources-search-panel__search-bar">
         <h2 className="resources-search-panel__search-bar-title">or Search by Standard</h2>
         <form className="resources-search-panel__search-bar-form">
-          <input placeholder="i.e. CCSS.MATH.CONTENT.K.CC.A.1" name="standard" />
-          <button type="submit">Submit</button>
+          <input placeholder="i.e. CCSS.MATH.CONTENT.K.CC.A.1" name="standard" value={searchTerm} onChange={handleInputChange} />
+          <button type="submit" onClick={handleSubmitClick}>Submit</button>
         </form>
       </div>
     </div>
