@@ -1,3 +1,6 @@
+/**
+ * Mobile Styles
+ */
 .mobile-mini-content {
   position: relative;
   margin-top: 18px;
@@ -105,6 +108,79 @@
     a {
       display: block;
       padding-bottom: 16px;
+    }
+  }
+}
+
+/**
+ * Desktop Styles
+ */
+.mini-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .mini-content__nav {
+    display: block;
+    background-color: var(--aqua);
+    position: absolute;
+    bottom: 36px;
+    padding: 36px;
+    width: 272px;
+
+    ul {
+      margin-left: 0;
+    }
+
+    li {
+      font-family: var(--visueltBold);
+      font-size: 15px;
+      list-style: none;
+      margin-bottom: 30px;
+      cursor: pointer;
+
+      &.active {
+        color: var(--white);
+      }
+    }
+  }
+
+  .mini-content__content-container {
+    background-color: var(--cloud);
+    margin-left: 214px;
+    padding: 24px 68px 24px 24px;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+  }
+
+  .mini-content__content {
+    margin-left: 88px;
+
+    h4 {
+      font-size: 13.5px;
+      color: var(--tomato);
+      font-family: var(--ibmPlexMono);
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      font-family: var(--visueltBold);
+      font-size: 26px;
+      line-height: 30px;
+      margin-bottom: 25px;
+    }
+
+    p {
+      font-family: var(--scopeOne);
+      font-size: 22px;
+      line-height: 35px;
+    }
+
+    p:last-of-type {
+      margin-bottom: 40px;
     }
   }
 }

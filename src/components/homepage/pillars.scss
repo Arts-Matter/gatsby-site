@@ -17,6 +17,11 @@
     font-family: var(--visueltRegular);
     font-size: 14px;
     line-height: 22px;
+
+    @media (min-width: 890px) {
+      font-size: 19px;
+      line-height: 26px;
+    }
   }
 
   .left {
@@ -43,7 +48,6 @@
     margin-top: 16px;
 
     @media (min-width: 890px) {
-      margin-top: 40px;
       font-size: 16px;
     }
   }

@@ -12,18 +12,23 @@ const MiniContent = ({ content }) => {
     nav.current.classList.toggle('open');
   }
 
-  if (width > 890) {
+  const toggleProgram = (index) => {
+    setActiveItem(index)
+    toggleNav();
+  }
+
+  if (width > 1080) {
     return (
       <div class="mini-content-wrapper">
         <div class="mini-content">
-          <div class="mini-content__nav">
+          <div class="mini-content__nav" ref={nav}>
             <ul>
               {content.map((item, index) => {
                 return (
                   <li
                     key={index}
                     class={index === activeItem && "active"}
-                    onClick={() => setActiveItem(index)}
+                    onClick={() => toggleProgram(index)}
                   >
                     {item.name}
                   </li>
@@ -61,7 +66,7 @@ const MiniContent = ({ content }) => {
                   <li
                     key={index}
                     class={index === activeItem && "active"}
-                    onClick={() => setActiveItem(index)}
+                    onClick={() => toggleProgram(index)}
                   >
                     {item.name}
                   </li>

@@ -52,6 +52,9 @@ const PillarsSection = () => {
         </div>
         <div className="right">
           <MiniContent content={content} />
+          {
+            //TODO: Update link to go to program pillars anchor on about page
+          }
           {width < 890 && (
             <Button
               url="/about"
