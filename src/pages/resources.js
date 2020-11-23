@@ -56,7 +56,7 @@ const Page = ({ data }) => {
     // filter Grade Level
     if (updatedActiveFilters.gradeLevel.length) {
       filteredResources = filteredResources.filter(({ node }) => {
-        if (node.gradeLevel) {
+        if (node.gradeLevel !== null) {
           return updatedActiveFilters.gradeLevel.some(i => node.gradeLevel === parseInt(i))
         }
       })
