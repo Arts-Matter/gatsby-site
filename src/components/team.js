@@ -1,11 +1,81 @@
 import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import "./team.scss"
 import { useWindowSize } from "./hooks"
 
 import TeamMember from "./teamMember"
 
-export default function Team({ team }) {
+export default function Team() {
   const { width } = useWindowSize()
+
+  const data = useStaticQuery(graphql`
+    {
+      allContentfulListOfThings(
+        filter: { listName: { eq: "About page bios" } }
+      ) {
+        totalCount
+        nodes {
+          entries {
+            ... on ContentfulBio {
+              role
+              name
+              description {
+                content {
+                  content {
+                    value
+                    marks {
+                      type
+                    }
+                  }
+                }
+              }
+              image {
+                fixed {
+                  src
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const teamMembers = data.allContentfulListOfThings.nodes[0].entries.reduce(
+    (team, curMember) => {
+      const descriptions = curMember.description.content.reduce(
+        (descriptions, curDescription) => {
+          // The content is nested within description.content
+          // If there are marks this content will be broken up in to separate arrays
+          const desc = curDescription.content.reduce((content, curContent) => {
+            // If the description has marks (i.e. italic) preserve this data
+            if (curContent.marks.length !== 0) {
+              content.push(curContent)
+            } else {
+              // Otherwise it's normal text
+              content.push(curContent.value)
+            }
+            return content
+          }, [])
+          descriptions.push(desc)
+          return descriptions
+        },
+        []
+      )
+
+      const newMember = {
+        name: curMember.name,
+        role: curMember.role,
+        imageSrc: curMember.image.fixed.src,
+        descriptions,
+      }
+
+      team.push(newMember)
+      return team
+    },
+    []
+  )
+
   return (
     <div className="team">
       <h2 className="team__title">Team</h2>
@@ -22,12 +92,12 @@ export default function Team({ team }) {
       </h3>
       <div className="team-container">
         {width > 889 ? (
-          team.map((member, i) => (
+          teamMembers.map((member, i) => (
             <TeamMember key={`${member.name}${i}`} member={member} />
           ))
         ) : (
           <div className="team-container__wrapper">
-            {team.map((member, i) => (
+            {teamMembers.map((member, i) => (
               <TeamMember key={`${member.role}${i}`} member={member} />
             ))}
           </div>

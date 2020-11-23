@@ -111,7 +111,7 @@ const Page = ({ data }) => {
   })
   
   return (  
-    <Layout active="resources">
+    <Layout active="resources" bgColor="geo">
       <SEO title={title} />
       <HeaderArea topLeft={title} topRight={topRight} />
       <ResourcesSearchPanel handleFilterChange={handleFilterChange} handleSearch={handleSearch} />

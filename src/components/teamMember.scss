@@ -92,7 +92,7 @@
 }
 
 .collapsible-content {
-  transition: max-height 300ms ease 0s;
+  transition: var(--maxHeightAnimation);
   margin-top: 30px;
   overflow: hidden;
 }

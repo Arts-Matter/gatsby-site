@@ -22,7 +22,7 @@ export default function footer() {
                   </a>
                 </li>
               </ul>
-              <ul className="footer-content-container__links-list footer-content-container__links-list--visuelt-regular">
+              <ul className="footer-content-container__links-list">
                 <li className="footer-content-container__item">
                   <a
                     className="footer-content-container__link"
