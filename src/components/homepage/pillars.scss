@@ -4,15 +4,19 @@
     font-size: 45px;
     line-height: var(--headerLineHeightPrimary);
     padding: 0;
-    margin-bottom: var(--spacing-s);
-    border-bottom: var(--border-thick-black);
+    border-bottom: var(--border-thin-black);
     padding-bottom: 18px;
 
     @media (min-width: 890px) {
       font-size: 45px;
       line-height: 54px;
-      margin-bottom: 128px;
     }
+  }
+
+  .section--pillars__description {
+    font-family: var(--visueltRegular);
+    font-size: 14px;
+    line-height: 22px;
   }
 
   .left {
@@ -27,9 +31,19 @@
     }
   }
 
+  .button {
+    color: var(--tomato);
+
+    &:after {
+      color: var(--tomato);
+    }
+  }
+
   .button--medium {
+    margin-top: 16px;
+
     @media (min-width: 890px) {
-      margin-top: 0;
+      margin-top: 40px;
       font-size: 16px;
     }
   }

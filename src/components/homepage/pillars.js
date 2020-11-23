@@ -36,7 +36,7 @@ const PillarsSection = () => {
           <h3 className="section__title section--pillars__title">
             Program Pillars
           </h3>
-          <p>
+          <p className="section__description section--pillars__description">
             We draw upon a dynamic catalogue of content provided by top artists
             and creators to produce high-impact arts education programming for
             Los Angeles schools.
