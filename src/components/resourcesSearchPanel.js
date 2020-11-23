@@ -8,40 +8,106 @@ export default function ResourcesSearchPanel({ handleFilterClick }) {
       "groupName": "Subject Area",
       "groupSlug": "subjectArea",
       "children": [
-        "Math",
-        "English/Language Arts",
-        "Science",
-        "Social Studies"
+        {
+          "name": "Math",
+          "slug": "Math"
+        },
+        {
+          "name": "English/Language Arts",
+          "slug": "English"
+        },
+        {
+          "name": "Science",
+          "slug": "Science"
+        },
+        {
+          "name": "Social Studies",
+          "slug": "Social"
+        }
       ]
     },
     {
       "groupName": "Media Arts Strain",
       "groupSlug": "mediaArtsStrain",
       "children": [
-        "Design",
-        "Photography",
-        "Animation",
-        "Film",
-        "Game Design"
+        {
+          "name": "Design",
+          "slug": "Design"
+        },
+        {
+          "name": "Photography",
+          "slug": "Photography"
+        },
+        {
+          "name": "Animation",
+          "slug": "Animation"
+        },
+        {
+          "name": "Film",
+          "slug": "Film"
+        },
+        {
+          "name": "Game Design",
+          "slug": "Game Design"
+        }
       ]
     },
     {
       "groupName": "Grade Level",
       "groupSlug": "gradeLevel",
       "children": [
-        "0",
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"
+        {
+          "name": "0",
+          "slug": "0"
+        },
+        {
+          "name": "1",
+          "slug": "1"
+        },
+        {
+          "name": "2",
+          "slug": "2"
+        },
+        {
+          "name": "3",
+          "slug": "3"
+        },
+        {
+          "name": "4",
+          "slug": "4"
+        },
+        {
+          "name": "5",
+          "slug": "5"
+        },
+        {
+          "name": "6",
+          "slug": "6"
+        },
+        {
+          "name": "7",
+          "slug": "7"
+        },
+        {
+          "name": "8",
+          "slug": "8"
+        },
+        {
+          "name": "9",
+          "slug": "9"
+        },
+        {
+          "name": "10",
+          "slug": "10"
+        },
+        {
+          "name": "11",
+          "slug": "11"
+        },
+        {
+          "name": "12",
+          "slug": "12"
+        }
       ]
     }
   ]
@@ -63,9 +129,9 @@ export default function ResourcesSearchPanel({ handleFilterClick }) {
                         return (
                           <li key={i}>
                             <label className="fancy-checkbox">
-                              <input type="checkbox" name={group.groupSlug} value={child} onClick={ (e) => handleFilterClick(e, group.groupSlug, child)} />
+                              <input type="checkbox" name={group.groupSlug} value={child.slug} onClick={ (e) => handleFilterClick(e, group.groupSlug, child.slug)} />
                               <span className="fancy-checkbox__indicator"></span>
-                              <span className="fancy-checkbox__text">{group.groupSlug === "gradeLevel" ? addOrdinalToGrade(parseInt(child)) : child}</span>
+                              <span className="fancy-checkbox__text">{group.groupSlug === "gradeLevel" ? addOrdinalToGrade(parseInt(child.name)) : child.name}</span>
                             </label>
                           </li>
                         )
