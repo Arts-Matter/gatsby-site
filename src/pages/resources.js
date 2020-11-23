@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import HeaderArea from "../components/headerArea"
 import ResourcesSearchPanel from "../components/resourcesSearchPanel"
 import ResourcesResultsPanel from "../components/resourcesResultsPanel"
+import ResourcesNotFound from "../components/resourcesNotFound"
 
 import "../components/resources.scss"
 
@@ -77,6 +78,10 @@ const Page = ({ data }) => {
       <HeaderArea topLeft={title} topRight={topRight} />
       <ResourcesSearchPanel handleFilterClick={handleFilterClick} />
       <ResourcesResultsPanel resources={activeResources} />
+      {activeResources.length > 0
+        ? <ResourcesResultsPanel resources={activeResources} />
+        : <ResourcesNotFound />
+      }
     </Layout>
   )
 }
