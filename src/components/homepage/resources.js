@@ -8,7 +8,49 @@ const ResourcesSection = () => {
   const { width } = useWindowSize()
 
   if (width > 890) {
-    return null
+    return (
+      <div className="section__content section--resources__content">
+        <div className="content-container">
+          <div className="content-wrapper">
+            <div className="section--resources__top">
+              <div className="left">
+                <h3>Instructional Resources</h3>
+                <p>
+                  Lesson plans, activity guides, instructional media, student
+                  worksheets, assessment rubrics, and more provide a
+                  standards-based framework for teaching media arts in the
+                  classroom with the structure needed for students to learn.
+                </p>
+                <Button
+                  url="/resources"
+                  text="View Resources"
+                  size="medium"
+                  theme="light"
+                />
+              </div>
+              <div className="right">
+                <div className="pyramid"></div>
+              </div>
+            </div>
+            <div className="section--resources__bottom">
+              <Ticker speed={8}>
+                {({ index }) => (
+                  <>
+                    <div className="ticker-content">
+                      <span>Lesson Plans</span>
+                      <span>Student Worksheets</span>
+                      <span>Instructional Media</span>
+                      <span>Supplemental Resources</span>
+                      <span>Assessments</span>
+                    </div>
+                  </>
+                )}
+              </Ticker>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -28,7 +70,7 @@ const ResourcesSection = () => {
                 <div className="pyramid"></div>
               </div>
               <Button
-                url="/about"
+                url="/resources"
                 text="View Resources"
                 size="medium"
                 theme="light"
