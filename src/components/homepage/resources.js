@@ -7,6 +7,8 @@ import { useWindowSize } from "../hooks"
 const ResourcesSection = () => {
   const { width } = useWindowSize()
 
+  //TODO: Add Contentful data
+
   if (width > 890) {
     return (
       <div className="section__content section--resources__content">
