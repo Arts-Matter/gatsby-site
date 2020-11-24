@@ -59,7 +59,7 @@ const PillarsSection = () => {
             <Button
               url="/about"
               text="Go to Pillars"
-              size="small"
+              size="medium"
               theme="light"
             />
           )}

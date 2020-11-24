@@ -1,5 +1,5 @@
 .section--pillars {
-  .section--pillars__title {
+  .section__title {
     font-family: var(--scopeOne);
     font-size: 45px;
     line-height: var(--headerLineHeightPrimary);
@@ -13,7 +13,7 @@
     }
   }
 
-  .section--pillars__description {
+  .section__description {
     font-family: var(--visueltRegular);
     font-size: 14px;
     line-height: 22px;
@@ -40,7 +40,7 @@
     color: var(--tomato);
 
     &:after {
-      color: var(--tomato);
+      background-color: var(--tomato);
     }
   }
 
