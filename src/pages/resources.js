@@ -95,7 +95,8 @@ const Page = ({ data }) => {
     
     searchedResources = searchedResources.filter(({ node }) => {
       if (node.standard) {
-        return node.standard.includes(searchTerm)
+        const standardArray = node.standard.split(",").map(item => item.trim());
+        return standardArray.includes(searchTerm)
       } else {
         return false
       }
