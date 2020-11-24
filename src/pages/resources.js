@@ -104,12 +104,6 @@ const Page = ({ data }) => {
 
     setActiveResources(searchedResources)
   }
-
-  useEffect(() => {
-    // Log the stuff to see what is going on
-    console.log(activeFilters)
-    console.log(activeResources)
-  })
   
   return (  
     <Layout active="resources" bgColor="geo">
