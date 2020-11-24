@@ -69,17 +69,11 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          {
-            family: "IBM Plex Mono",
-            variants: [600],
-          },
-          {
-            family: "Scope One",
-            variants: [400],
-          },
+          "IBM Plex Mono\:600",
+          "Scope One\:400",
         ],
       },
     },
