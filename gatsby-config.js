@@ -75,6 +75,7 @@ module.exports = {
           "IBM Plex Mono\:600",
           "Scope One\:400",
         ],
+        display: 'swap'
       },
     },
     {
