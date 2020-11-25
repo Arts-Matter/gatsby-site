@@ -6,17 +6,28 @@ import ImageGallery from "./imageGallery"
 export default function StudentEngagementOpportunities() {
   const { width } = useWindowSize()
 
+  const images = [
+    {
+      src: "/1.jpg",
+      caption: 'Film Independent screening + Q&A',
+    },
+    {
+      src: "/2.jpg",
+      caption: 'PST:LA/LA - A Celebration of Student Culture and Identity at the Getty Museum',
+    },
+    {
+      src: "/3.jpg",
+      caption: 'Students present projects to staff on the Paramount lot',
+    },
+  ]
+
   const displayTextContainer = () => {
     return (
       <div className="text-container">
         <h3>Student Engagement Opportunities</h3>
         {width < 890 && (
           <div className="student-engagement__left">
-            <ImageGallery
-              src1="/1.jpg"
-              src2="/2.jpg"
-              src3="/3.jpg"
-            />
+            <ImageGallery images={images} />
           </div>
         )}
         <p>
@@ -47,11 +58,7 @@ export default function StudentEngagementOpportunities() {
     <div className="student-engagement">
       {width > 889 && (
         <div className="student-engagement__left">
-          <ImageGallery
-            src1="/1.jpg"
-            src2="/2.jpg"
-            src3="/3.jpg"
-          />
+          <ImageGallery images={images} />
         </div>
       )}
       <div className="student-engagement__right">{displayTextContainer()}</div>

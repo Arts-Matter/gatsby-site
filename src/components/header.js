@@ -5,7 +5,7 @@ import { useWindowSize } from "./hooks"
 import HamburgerMenu from "./hamburgerMenu"
 import "./header.scss"
 
-const Header = ({ siteTitle, active, bgColor='magenta' }) => {
+const Header = ({ siteTitle, active, bgColor }) => {
   const [mobileExpanded, setMobileExpanded] = useState(false)
   const [activeColor, setActiveColor] = useState()
 
