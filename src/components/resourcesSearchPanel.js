@@ -19,8 +19,13 @@ export default function ResourcesSearchPanel({ handleFilterChange, handleSearch 
     setSearchTerm(e.target.value)
   }
 
-  const handleSubmitClick = (e) => {
-    e.preventDefault();
+  const handleClearClick = () => {
+    setSearchTerm('')
+    handleSearch('')
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
     handleSearch(searchTerm);
   }
 
@@ -151,9 +156,14 @@ export default function ResourcesSearchPanel({ handleFilterChange, handleSearch 
       </div>
       <div className="resources-search-panel__search-bar">
         <h2 className="resources-search-panel__search-bar-title">or Search by Standard</h2>
-        <form className="resources-search-panel__search-bar-form">
-          <input placeholder="i.e. CCSS.MATH.CONTENT.K.CC.A.1" name="standard" value={searchTerm} onChange={handleInputChange} />
-          <button type="submit" onClick={handleSubmitClick}>Submit</button>
+        <form className="resources-search-panel__search-bar-form" onSubmit={handleSubmit}>
+          <div className="resources-search-panel__search-input">
+            <input type="text" placeholder="i.e. CCSS.MATH.CONTENT.K.CC.A.1" name="standard" value={searchTerm} onChange={handleInputChange} autoComplete="off" autoCorrect="off" />
+            <button className={"resources-search-panel__search-input-clear " + (searchTerm ? 'resources-search-panel__search-input-clear--active' : '')} type="button" title="clear" onClick={handleClearClick}>
+              <span className="u-visually-hide">Clear</span>
+            </button>
+          </div>
+          <button className="resources-search-panel__search-submit" type="submit">Submit</button>
         </form>
       </div>
     </div>
