@@ -29,6 +29,13 @@ export default function ResourcesSearchPanel({ handleFilterChange, handleSearch 
     handleSearch(searchTerm);
   }
 
+  /* ======================================================================= */
+  /* NOTE: I couldn't figure out a way to pull the possible field values from
+  /*       Contentful, so these are hardcoded. That means if they decide to
+  /*       add a new Subject Area it will need to be added here before it will
+  /*       work as a new filter.
+  /* ======================================================================= */
+
   const filters = [
     {
       "groupName": "Subject Area",
