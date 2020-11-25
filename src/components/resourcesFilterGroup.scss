@@ -24,15 +24,11 @@
 }
 
 .resources-filter-group__title {
-  margin-bottom: 16px;
+  margin-bottom: 0;
   font-family: var(--visueltBold);
   font-size: var(--headerFontSizeTertiary);
   line-height: 1.23;
   border-bottom: none;
-
-  @media only screen and (max-width: 889px) {
-    margin-bottom: 0;
-  }
 
   &:after {
     content: ':';
@@ -120,16 +116,9 @@
   margin-bottom: 0;
   list-style: none;
 
-  @media only screen and (max-width: 889px) {
-    padding-top: calc(var(--spacing-s) / 2);
-  }
-
   li {
-    margin-bottom: 16px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    margin-bottom: 0;
+    padding-top: 16px;
   }
 }
 
