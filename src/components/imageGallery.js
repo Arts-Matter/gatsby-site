@@ -40,6 +40,8 @@ export default function ImageGallery({ images, controls }) {
     return nextIndex
   }
 
+  // TODO: Ensure only top caption displays on initial load
+
   const handleStyleUpdates = newIndex => {
     gallery.forEach((el, i) => {
       if (i === newIndex) {
@@ -72,9 +74,10 @@ export default function ImageGallery({ images, controls }) {
                 backgroundImage: `url(${images[0].src})`,
               }}
             >
-              {images[0].caption && (
+              {(images[0].caption || images[0].title) && (
                 <div className="gallery-image__caption">
-                  <div className="gallery-image__title"></div>
+                  {images[0].title && (<div className="gallery-image__caption-title">{images[0].title}</div>)}
+                  {images[0].caption && (<p className="gallery-image__caption-text">{images[0].caption}</p>)}
                 </div>
               )}
             </div>
@@ -83,9 +86,10 @@ export default function ImageGallery({ images, controls }) {
               ref={img2}
               style={{ backgroundImage: `url(${images[1].src})` }}
             >
-              {images[1].caption && (
-                <div className="gallery-image__caption gallery-image__caption--no-display">
-                  <div className="gallery-image__title"></div>
+              {(images[1].caption || images[1].title) && (
+                <div className="gallery-image__caption">
+                  {images[1].title && (<div className="gallery-image__caption-title">{images[1].title}</div>)}
+                  {images[1].caption && (<p className="gallery-image__caption-text">{images[1].caption}</p>)}
                 </div>
               )}
             </div>
@@ -96,9 +100,10 @@ export default function ImageGallery({ images, controls }) {
                 backgroundImage: `url("${images[2].src}")`,
               }}
             >
-              {images[2].caption && (
-                <div className="gallery-image__caption gallery-image__caption--no-display">
-                  <div className="gallery-image__title"></div>
+              {(images[2].caption || images[2].title) && (
+                <div className="gallery-image__caption">
+                  {images[2].title && (<div className="gallery-image__caption-title">{images[2].title}</div>)}
+                  {images[2].caption && (<p className="gallery-image__caption-text">{images[2].caption}</p>)}
                 </div>
               )}
             </div>

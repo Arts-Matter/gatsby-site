@@ -41,12 +41,18 @@
   display: none;
 }
 
-.gallery-image__title {
+.gallery-image__caption-title {
   font-family: var(--ibmPlexMono);
   font-size: 18px;
   letter-spacing: 0.5px;
   line-height: var(--mobileParagraphLineHeight);
   margin-bottom: 8px;
+}
+
+.gallery-image__caption-text {
+  font-family: var(--visueltRegular);
+  font-size: 17px;
+  line-height: 24px;
 }
 
 .gallery-image__1 {
