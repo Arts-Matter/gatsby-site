@@ -3,7 +3,7 @@ import "./contactBottomHeaderArea.scss"
 
 export default function ContactBottomHeaderArea() {
     const bottomLeft = (
-        <form >
+        <form>
             <div class="form-row">
                 <input type="text" placeholder="First Name" value="" />
                 <input type="text" placeholder="Last Name" value="" />
