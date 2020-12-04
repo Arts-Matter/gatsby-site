@@ -11,7 +11,7 @@ export default function ContactBottomHeaderArea() {
             <div class="form-row"> 
                 <input type="text" placeholder="Email" value="" />
                 <select>
-                    <option value="" disabled="">Subject</option>
+                    <option value="Subject">Subject</option>
                     <option value="General">General</option>
                     <option value="Partnerships ">Partnerships </option>
                     <option value="Professional Development">Professional Development</option>

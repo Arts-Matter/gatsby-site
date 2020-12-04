@@ -43,10 +43,10 @@
     appearance: none;
     box-shadow: none;
     outline-width: 0;
-    padding: var(--contentPadding-s);
+    padding: 0 20px;
     border-radius: 0px;
     background: transparent;
-    // background-image: url(data:image/svg+xml,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='%23444' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>);
+    background-image: url("data:image/svg+xml,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='%23444' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
     background-position: 98% 50%;
     background-repeat: no-repeat;
     border: var(--border-thin-black);
@@ -84,7 +84,7 @@
     font-family: var(--ibmPlexMono);
     font-size: var(--mobileParagraphFontSize);
     text-transform: uppercase;
-    background-color: #ed5338;
+    background-color: var(--tomato);
     padding: 0 24px;
     line-height: 18px;
     outline: none;
@@ -118,19 +118,18 @@
 
 @media only screen and (max-width: 889px) {
     .contact .header-area {
-        padding: 50px 24px;
         background-color: transparent;
         margin-bottom: 32px;
     }
 
-    .contact .header .top {
+    .contact .header-area .top {
         padding: 0;
         display: block;
         margin-top: 32px;
-        border-top: 2px solid #000;
+        border-top: var(--border-thick-black);
     }
 
-    .contact .header .top h1 {
+    .contact .header-area .top h1 {
         font-size: var(--mobileTitleFontSize);
         line-height: 34px;
         margin-top: 18px;
@@ -147,15 +146,27 @@
       padding-right: 0px;
     }
 
-    .contact .header .bottom .bottom_left .form-row {
+    .contact .header-area .bottom .bottom__left .form-row {
         display: block;
         margin-bottom: 24px;
     }
 
-    .contact .header .bottom .bottom_left .form-row>* {
+    .contact .header-area .bottom .bottom__left .form-row>* {
         width: 100%;
     }
+
+    .contact .header-area .bottom .bottom__left input {
+        margin-bottom: 24px;
+    }
+
+    .contact .header-area .bottom .bottom__left input:nth-of-type(2) {
+        margin-bottom: 0;
+    }
   
+    .contact .header-area .bottom .bottom__left select {
+        margin-top: 4px;
+    }
+
     .contact .header-area .bottom .bottom__right {
         display: none;
     }
