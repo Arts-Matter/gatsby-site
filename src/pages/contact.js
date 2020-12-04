@@ -14,6 +14,7 @@ const Page = () => (
   <Layout active="contact" bgColor="tomato">
     <SEO title={title} />
     <HeaderArea
+      topRight=" "
       topLeft="Contact Us"
       bottom={bottom}
       backgroundClass="sunflower"

@@ -1,0 +1,101 @@
+.contact .header-area .top {
+ margin: var(--spacing-s) 0;
+ border-bottom: none;
+}
+
+.contact .header-area .bottom {
+    margin-top: 48px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact .header-area .bottom .bottom__left .form-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 52px;
+}
+
+.form-row input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000;
+    font-family: "visuelt-regular";
+    font-size: 22px;
+    line-height: 27px;
+    height: 48px;
+}
+
+.form-row>.textarea-wrapper {
+    width: 100%;
+}
+
+.contact .header-area .bottom .bottom__right {
+flex: 0 1 25%;
+// padding-left: var(--spacing-s);
+}
+
+.contact .header-area .bottom .bottom__right h3:first-of-type {
+margin-top: 0;
+}
+
+.contact .header-area .bottom .bottom__right h3 {
+font-family: "visuelt-bold";
+font-size: 22px;
+line-height: 27px;
+margin-top: 24px;
+}
+
+.contact .header .bottom .bottom__right .contact-detail {
+margin-top: 10px;
+font-family: "visuelt-regular";
+font-size: 17px;
+line-height: 21px;
+}
+
+
+@media only screen and (max-width: 889px) {
+    .contact .header-area {
+        padding: 50px 24px;
+        background-color: transparent;
+        margin-bottom: 32px;
+    }
+
+    .contact .header .top {
+        padding: 0;
+        display: block;
+        margin-top: 32px;
+        border-top: 2px solid #000;
+    }
+
+    .contact .header .top h1 {
+        font-size: 26px;
+        line-height: 34px;
+        margin-top: 18px;
+    }
+  
+    .contact .header-area .bottom {
+      display: block;
+      padding: 24px;
+      background-color: var(--sunflower);
+    }
+  
+    .contact .header-area .bottom .bottom__left {
+      flex: 0 1 70%;
+      padding-right: 0px;
+    }
+
+    .contact .header .bottom .bottom_left .form-row {
+        display: block;
+        margin-bottom: 24px;
+    }
+
+    .contact .header .bottom .bottom_left .form-row>* {
+        width: 100%;
+    }
+  
+    .contact .header-area .bottom .bottom__right {
+        display: none;
+    }
+}

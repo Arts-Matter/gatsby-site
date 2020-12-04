@@ -3,7 +3,7 @@ import "./contactBottomHeaderArea.scss"
 
 export default function ContactBottomHeaderArea() {
     const bottomLeft = (
-        <form>
+        <form >
             <div class="form-row">
                 <input type="text" placeholder="First Name" value="" />
                 <input type="text" placeholder="Last Name" value="" />
@@ -26,9 +26,9 @@ export default function ContactBottomHeaderArea() {
                     <textarea></textarea>
                 </div>
             </div>
-            <a href="mailto:alexk@lapromisefund.org?subject=&amp;body=First Name: %0D%0ALast Name: %0D%0AEmail: %0D%0AMessage: ">
-                <button>Sumbit</button>
-            </a>
+            {/* <a href="mailto:alexk@lapromisefund.org?subject=&amp;body=First Name: %0D%0ALast Name: %0D%0AEmail: %0D%0AMessage: "> */}
+                <button>Submit</button>
+            {/* </a> */}
         </form>
     )
 
