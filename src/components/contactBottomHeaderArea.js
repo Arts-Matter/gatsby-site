@@ -9,7 +9,7 @@ export default function ContactBottomHeaderArea() {
                 <input type="text" placeholder="Last Name" value="" />
             </div>
             <div class="form-row"> 
-                <input type="text" placeholder="Email" value="" />
+                <input type="email" placeholder="Email" value="" />
                 <select>
                     <option value="Subject">Subject</option>
                     <option value="General">General</option>
