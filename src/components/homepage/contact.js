@@ -1,14 +1,16 @@
 import React from "react"
 import FooterContactForm from "../footerContactForm"
-import Quotes from "../quotes"
-import Footer from "../footer"
-import './contact.scss'
+import Quotes from "../quotesBasic"
+import "./contact.scss"
 
 const ContactSection = () => (
-  <div className='section--contact__content content-container'>
-    <Quotes />
-    <FooterContactForm />
-    <Footer />
+  <div className="section--contact__content">
+    <div class="content-container">
+      <div class="content-wrapper">
+        <Quotes />
+        <FooterContactForm bgColor='' />
+      </div>
+    </div>
   </div>
 )
 
