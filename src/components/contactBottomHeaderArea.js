@@ -27,7 +27,7 @@ export default function ContactBottomHeaderArea() {
                 </div>
             </div>
             {/* <a href="mailto:alexk@lapromisefund.org?subject=&amp;body=First Name: %0D%0ALast Name: %0D%0AEmail: %0D%0AMessage: "> */}
-                <button>Submit</button>
+                <input type="submit" value="Submit" />
             {/* </a> */}
         </form>
     )
