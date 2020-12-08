@@ -84,3 +84,39 @@ textarea {
   -webkit-appearance: button;
   font: inherit;
 }
+
+// Fancy Checkboxes
+.fancy-checkbox {
+  position: relative;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+.fancy-checkbox__indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 12px;
+  width: 12px;
+  border: 1px solid var(--black);
+  background-color: transparent;
+  transition: background-color 0.2s;
+
+  input:checked ~ & {
+    background-color: var(--magenta);
+  }
+
+  input:focus ~ & {
+    box-shadow: 0 0 0 2px var(--magenta);
+  }
+}
+
+.fancy-checkbox__text {
+  margin-left: 22px;
+  font-size: 17px;
+  font-family: var(--visueltRegular);
+}

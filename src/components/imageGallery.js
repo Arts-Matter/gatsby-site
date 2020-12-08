@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import "./imageGallery.scss"
 
-export default function ImageGallery({ src1, src2, src3 }) {
+export default function ImageGallery({ images, controls }) {
   const img1 = useRef()
   const img2 = useRef()
   const img3 = useRef()
@@ -43,14 +43,18 @@ export default function ImageGallery({ src1, src2, src3 }) {
   const handleStyleUpdates = newIndex => {
     gallery.forEach((el, i) => {
       if (i === newIndex) {
-        el.current.firstChild.classList.remove(
-          "gallery-image__caption--no-display"
-        )
+        if (el.current.firstChild) {
+          el.current.firstChild.classList.remove(
+            "gallery-image__caption--no-display"
+          )
+        }
         el.current.style.zIndex = 3
       } else {
-        el.current.firstChild.classList.add(
-          "gallery-image__caption--no-display"
-        )
+        if (el.current.firstChild) {
+          el.current.firstChild.classList.add(
+            "gallery-image__caption--no-display"
+          )
+        }
         el.current.style.zIndex = 2
       }
     })
@@ -65,42 +69,43 @@ export default function ImageGallery({ src1, src2, src3 }) {
               className="gallery-image gallery-image__1"
               ref={img1}
               style={{
-                backgroundImage: `url(${src1})`,
+                backgroundImage: `url(${images[0].src})`,
               }}
             >
-              <div className="gallery-image__caption">
-                <div className="gallery-image__title">
-                  Film Independent screening + Q&A
+              {images[0].caption && (
+                <div className="gallery-image__caption">
+                  <div className="gallery-image__title"></div>
                 </div>
-              </div>
+              )}
             </div>
             <div
               className="gallery-image gallery-image__2"
               ref={img2}
-              style={{ backgroundImage: `url(${src2})` }}
+              style={{ backgroundImage: `url(${images[1].src})` }}
             >
-              <div className="gallery-image__caption gallery-image__caption--no-display">
-                <div className="gallery-image__title">
-                  PST:LA/LA - A Celebration of Student Culture and Identity at
-                  the Getty Museum
+              {images[1].caption && (
+                <div className="gallery-image__caption gallery-image__caption--no-display">
+                  <div className="gallery-image__title"></div>
                 </div>
-              </div>
+              )}
             </div>
             <div
               className="gallery-image gallery-image__3"
               ref={img3}
               style={{
-                backgroundImage: `url("${src3}")`,
+                backgroundImage: `url("${images[2].src}")`,
               }}
             >
-              <div className="gallery-image__caption gallery-image__caption--no-display">
-                <div className="gallery-image__title">
-                  Students present projects to staff on the Paramount lot
+              {images[2].caption && (
+                <div className="gallery-image__caption gallery-image__caption--no-display">
+                  <div className="gallery-image__title"></div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
-          <div className="gallery-controls">
+          <div
+            className={`gallery-controls gallery-controls--${controls.theme}`}
+          >
             <button onClick={() => handleNextImage(false)}>
               <div className="gallery-controls__left"></div>
             </button>
@@ -112,4 +117,10 @@ export default function ImageGallery({ src1, src2, src3 }) {
       </div>
     </div>
   )
+}
+
+ImageGallery.defaultProps = {
+  controls: {
+    theme: "dark",
+  },
 }

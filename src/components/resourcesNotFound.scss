@@ -1,0 +1,20 @@
+.resources-no-results {
+  margin-top: calc( var(--spacing-s) * 1.5 );
+
+  @media only screen and (max-width: 889px) {
+    margin-left: var(--spacing-s);
+    margin-right: var(--spacing-s);
+  }
+
+}
+
+.resources-no-results__title {
+  font-size: var(--headerFontSizePrimary);
+  line-height: 1.1;
+  font-family: var(--scopeOne);
+  color: var(--aqua);
+
+  @media only screen and (max-width: 889px) {
+    font-size: var(--headerFontSizeSecondary);
+  }
+}
