@@ -49,7 +49,6 @@ export default function ContactPageTeam() {
     []
   )
 
-  console.log(teamMembers, 'teamMembers');
   return (
     <div className="team">
         <h2 className="team__title">Our Team</h2>

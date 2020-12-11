@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeaderArea from "../components/headerArea"
 import ContactBottomHeaderArea from "../components/contactBottomHeaderArea"
-import ContactPageTeam from "../components/contactPageTeam"
+import ContactPageTeam from "../components/contactTeam"
 
 
 const title = "Contact"

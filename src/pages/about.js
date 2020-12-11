@@ -6,7 +6,7 @@ import HeaderArea from "../components/headerArea"
 import AboutBottomHeaderArea from "../components/aboutBottomHeaderArea"
 import History from "../components/history"
 import ProgramPillars from "../components/programPillars"
-import AboutPageTeam from "../components/aboutPageTeam"
+import AboutPageTeam from "../components/aboutTeam"
 
 const title = "About"
 const bottom = <AboutBottomHeaderArea />
