@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeaderArea from "../components/headerArea"
 import ContactBottomHeaderArea from "../components/contactBottomHeaderArea"
-import ContactPageTeam from "../components/contactTeam"
+import ContactTeam from "../components/contactTeam"
 
 
 const title = "Contact"
@@ -20,7 +20,7 @@ const Page = () => (
       bottom={bottom}
       backgroundClass="sunflower"
     />
-    <ContactPageTeam />
+    <ContactTeam />
   </Layout>
 )
 

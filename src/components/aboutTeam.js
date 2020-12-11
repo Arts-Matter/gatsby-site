@@ -77,6 +77,17 @@ export default function AboutPageTeam() {
     []
   )
 
+  const aboutTeam = (
+    teamMembers.map((member, i) => (
+      <TeamMember 
+        key={`${member.name}${i}`}  
+        member={member} 
+        teamDescriptions={true}
+      />
+    ))
+  )
+
+
   return (
     <div className="team">
       <h2 className="team__title">Our Team</h2>
@@ -92,25 +103,7 @@ export default function AboutPageTeam() {
         throughout LA County schools.
       </h3>
       <div className="team-container">
-        {width > 889 ? (
-          teamMembers.map((member, i) => (
-            <TeamMember 
-              key={`${member.name}${i}`}  
-              member={member} 
-              teamDescriptions={false}
-            />
-          ))
-        ) : (
-          <div className="team-container__wrapper">
-            {teamMembers.map((member, i) => (
-              <TeamMember 
-                key={`${member.role}${i}`} 
-                member={member} 
-                teamDescriptions={false}
-              />
-            ))}
-          </div>
-        )}
+        {aboutTeam}
       </div>
     </div>
   )

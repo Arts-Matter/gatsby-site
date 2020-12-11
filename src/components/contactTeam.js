@@ -49,29 +49,21 @@ export default function ContactPageTeam() {
     []
   )
 
+  const contactTeam = (
+    teamMembers.map((member, i) => (
+      <TeamMember 
+        key={`${member.name}${i}`}  
+        member={member} 
+        teamDescriptions={false}
+      />
+    ))
+  )
+
   return (
     <div className="team">
         <h2 className="team__title">Our Team</h2>
         <div className="team-container">
-        {width > 889 ? (
-            teamMembers.map((member, i) => (
-            <TeamMember 
-                key={`${member.name}${i}`}  
-                member={member} 
-                teamDescriptions={false}
-            />
-            ))
-        ) : (
-            <div className="team-container__wrapper">
-            {teamMembers.map((member, i) => (
-                <TeamMember 
-                key={`${member.role}${i}`} 
-                member={member} 
-                teamDescriptions={false}
-                />
-            ))}
-            </div>
-        )}
+          {contactTeam}
         </div>
     </div>
   )
