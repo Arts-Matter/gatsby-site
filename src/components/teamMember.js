@@ -1,8 +1,11 @@
 import React, { useState } from "react"
 import "./teamMember.scss"
 
-export default function TeamMember({ member }) {
-  const { name, role, descriptions, imageSrc } = member
+export default function TeamMember({ 
+  member,
+  teamDescriptions
+ }) {
+  const { name, role, email, phone, descriptions, imageSrc } = member
   const [expanded, setExpanded] = useState(false)
   const classes = [
     "collapsible-content",
@@ -53,33 +56,48 @@ export default function TeamMember({ member }) {
           style={{ backgroundImage: `url(${imageSrc})` }}
         ></div>
       </div>
-      <div
-        className={
-          expanded
-            ? "bio-collapsible bio-collapsible--expanded"
-            : "bio-collapsible"
-        }
-      >
-        <div className="bio-collapsible__title-container">
-          <div className="bio-collapsible__title-left">
-            <h3 className="bio-collapsible__name">{name}</h3>
-            <h4 className="bio-collapsible__role">{role}</h4>
-          </div>
-          <button
-            className="bio-collapsible__expand-button"
-            aria-label="Toggle Bio"
-            aria-pressed={expanded}
-            aria-expanded={expanded}
-            onClick={() => setExpanded(!expanded)}
+      {
+        (teamDescriptions ? 
+          <div
+          className={
+            expanded
+              ? "bio-collapsible bio-collapsible--expanded"
+              : "bio-collapsible"
+          }
           >
-            Bio
-            <div className="bio-collapsible__expand-icon"></div>
-          </button>
-        </div>
-        <div className={classes.join(" ")}>
-          {generateFormattedDescriptions()}
-        </div>
-      </div>
+            <div className="bio-collapsible__title-container">
+              <div className="bio-collapsible__title-left">
+                <h3 className="bio-collapsible__name">{name}</h3>
+                <h4 className="bio-collapsible__role">{role}</h4>
+              </div>
+              <button
+                className="bio-collapsible__expand-button"
+                aria-label="Toggle Bio"
+                aria-pressed={expanded}
+                aria-expanded={expanded}
+                onClick={() => setExpanded(!expanded)}
+              >
+                Bio
+                <div className="bio-collapsible__expand-icon"></div>
+              </button>
+            </div>
+            <div className={classes.join(" ")}>
+              {generateFormattedDescriptions()}
+            </div>
+          </div>
+        : 
+          <div>
+            <div className="bio-collapsible__title-left">
+                <h3 className="bio-collapsible__name">{name}</h3>
+                <h4 className="bio-collapsible__role">{role}</h4>
+            </div>
+            <div>
+                <p>{email}</p>
+                <p>{phone}</p>
+            </div>
+          </div>
+        ) 
+      }   
     </div>
   )
 }

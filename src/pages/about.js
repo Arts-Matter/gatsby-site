@@ -6,7 +6,7 @@ import HeaderArea from "../components/headerArea"
 import AboutBottomHeaderArea from "../components/aboutBottomHeaderArea"
 import History from "../components/history"
 import ProgramPillars from "../components/programPillars"
-import Team from "../components/team"
+import AboutPageTeam from "../components/aboutPageTeam"
 
 const title = "About"
 const bottom = <AboutBottomHeaderArea />
@@ -21,7 +21,7 @@ const Page = () => {
         backgroundClass="magenta" />
       <History />
       <ProgramPillars />
-      <Team />
+      <AboutPageTeam />
     </Layout>
   )
 }
