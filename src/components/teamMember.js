@@ -50,11 +50,16 @@ export default function TeamMember({
 
   return (
     <div className="team-member">
-      <div className="member-image-container">
+      <div 
+      className={
+        teamDescriptions ? "member-image-container"
+        : "member-image-container__spaced"
+      }
+      >
         <div
           className="member-image"
           style={{ backgroundImage: `url(${imageSrc})` }}
-        ></div>
+        />
       </div>
       {
         (teamDescriptions ? 
@@ -65,10 +70,10 @@ export default function TeamMember({
               : "bio-collapsible"
           }
           >
-            <div className="bio-collapsible__title-container">
-              <div className="bio-collapsible__title-left">
-                <h3 className="bio-collapsible__name">{name}</h3>
-                <h4 className="bio-collapsible__role">{role}</h4>
+            <div className="about-bio__title-container">
+              <div className="bio__title-left">
+                <h3 className="bio__name">{name}</h3>
+                <h4 className="bio__role">{role}</h4>
               </div>
               <button
                 className="bio-collapsible__expand-button"
@@ -86,13 +91,17 @@ export default function TeamMember({
             </div>
           </div>
         : 
-          <div>
-            <div className="bio-collapsible__title-left">
-                <h3 className="bio-collapsible__name">{name}</h3>
-                <h4 className="bio-collapsible__role">{role}</h4>
+          <div className="contact-bio__title-container">
+            <div className="bio__title-left">
+                <h3 className="bio__name">{name}</h3>
+                <h4 className="bio__role">{role}</h4>
             </div>
-            <div>
-                <p>{email}</p>
+            <div className="contact-details">
+              <p>
+                <a href="mailto:alexk@lapromisefund.org">
+                  {email}
+                </a>
+              </p>
                 <p>{phone}</p>
             </div>
           </div>

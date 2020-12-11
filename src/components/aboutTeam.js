@@ -102,7 +102,7 @@ export default function AboutPageTeam() {
         professional development, teacher coaching, and impactful work
         throughout LA County schools.
       </h3>
-      <div className="team-container">
+      <div className="about-team-container">
         {aboutTeam}
       </div>
     </div>
