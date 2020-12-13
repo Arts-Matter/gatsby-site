@@ -1,0 +1,141 @@
+.gallery-wrapper {
+  width: 100%;
+}
+
+.gallery {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.gallery-image-wrapper {
+  width: 100%;
+  padding-top: 66%;
+  position: relative;
+}
+
+.gallery-image {
+  width: 90%;
+  height: 90%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+.gallery-image__caption {
+  position: absolute;
+  bottom: 0;
+  height: auto;
+  background-color: #ffce34;
+  padding: var(--spacing-s);
+  width: 100%;
+}
+
+.gallery-image__caption--no-display {
+  display: none;
+}
+
+.gallery-image__title {
+  font-family: var(--ibmPlexMono);
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  line-height: var(--mobileParagraphLineHeight);
+  margin-bottom: 8px;
+}
+
+.gallery-image__1 {
+  z-index: 3;
+  right: 10px;
+  top: 0px;
+}
+
+.gallery-image__2 {
+  z-index: 2;
+  left: 0px;
+  bottom: 0px;
+}
+
+.gallery-image__3 {
+  z-index: 1;
+  left: 3.2%;
+  top: 4.2%;
+}
+
+.gallery-controls {
+  bottom: -12px;
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: flex-end;
+  z-index: 25;
+
+  button {
+    background-color: #cc4faa;
+    width: 40px;
+    height: 40px;
+    margin-left: 14px;
+    border: none;
+  }
+}
+
+.gallery-controls__left,
+.gallery-controls__right {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &:after {
+    background-color: white;
+    content: "";
+    width: 20px;
+    height: 100%;
+  }
+}
+
+.gallery-controls--light {
+  button {
+    background-color: white;
+  }
+
+  .gallery-controls__left,
+  .gallery-controls__right {
+    &:after {
+      background-color: var(--tomato);
+    }
+  }
+}
+
+.gallery-controls__left {
+  &:after {
+    -webkit-mask: url("../images/arrow-left.svg") no-repeat 50% 50%;
+    mask: url("../images/arrow-left.svg") no-repeat 50% 50%;
+  }
+}
+
+.gallery-controls__right {
+  &:after {
+    -webkit-mask: url("../images/arrow-right.svg") no-repeat 50% 50%;
+    mask: url("../images/arrow-right.svg") no-repeat 50% 50%;
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .gallery-controls {
+    bottom: -10px !important;
+  }
+}
+
+@media only screen and (max-width: 889px) {
+  .gallery-wrapper {
+    margin-bottom: 48px;
+  }
+}

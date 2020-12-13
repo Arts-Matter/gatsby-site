@@ -1,0 +1,38 @@
+.button {
+  margin-top: 32px;
+  font-family: var(--ibmPlexMono);
+  font-size: var(--linkFontSize);
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: var(--geo);
+  padding: 18px 100px 18px 18px;
+  position: relative;
+  color: var(--black);
+
+  &:after {
+    content: "";
+    position: absolute;
+    -webkit-mask: url("../images/nav-arrow.svg") no-repeat 50% 50%;
+    mask: url("../images/nav-arrow.svg") no-repeat 50% 50%;
+    background-color: var(--black);
+    width: 20px;
+    height: 100%;
+    top: 0;
+    right: 18px;
+  }
+}
+
+.button--small {
+  font-size: 12px;
+  padding: 12px 80px 12px 12px;
+}
+
+.button--light {
+  background-color: var(--white);
+  color: var(--magenta);
+
+  &:after {
+    background-color: var(--magenta);
+  }
+}

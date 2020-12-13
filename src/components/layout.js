@@ -15,6 +15,7 @@ import Panel from "./panel"
 import FooterContactForm from "./footerContactForm"
 import Quotes from "./quotes"
 import NewsFeed from "./newsFeed"
+import WhereItStarted from "../components/whereItStarted"
 import "./layout.scss"
 
 const Layout = ({ children, active, bgColor }) => {
@@ -39,7 +40,10 @@ const Layout = ({ children, active, bgColor }) => {
       </main>
       {active === "about" && <Quotes />}
       {active === "news" && <NewsFeed />}
-      <FooterContactForm />
+      {active === "programs" && <WhereItStarted />}
+      <FooterContactForm
+        isProgramsPage={active === "programs" ? true : false}
+      />
       <Footer />
     </>
   )
