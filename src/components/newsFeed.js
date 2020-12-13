@@ -6,28 +6,26 @@ import NewsItem from "./newsItem"
 
 export default function NewsFeed() {
   const data = useStaticQuery(graphql`
-    {
-      allContentfulNewsItem(sort: { fields: date, order: DESC }) {
-        edges {
-          node {
-            title
-            summary {
-              summary
-            }
-            contentful_id
-            date
-            headerImage {
-              fixed {
-                src
-              }
+  {
+    allContentfulNewsItem(sort: {fields: date, order: DESC}, limit: 10, filter: {title: {ne: "Why #ArtsMatter"}}, skip: 1) {
+      edges {
+        node {
+          title
+          summary {
+            summary
+          }
+          contentful_id
+          date
+          headerImage {
+            fixed {
+              src
             }
           }
         }
       }
     }
+  }
   `)
-
-  console.log(data)
 
   const newsItems = data.allContentfulNewsItem.edges.reduce((news, curNews) => {
     const { date, title, contentful_id } = curNews.node
@@ -68,13 +66,6 @@ export default function NewsFeed() {
               />
             )
           })}
-          {/* <NewsItem image="//images.ctfassets.net/0yqesla6898r/4K2pZfJWenbZ6svb2DaDSM/33bcb8d6730b8c88bae126b770f6ce71/il_1588xN.849554362_rwlq.jpg" 
-            date="2020-10-23"
-            title="In the Spotlight! Ilene Squires LaCourt, Teaching Artist"
-            description="Today we chat with Ilene, Teaching Artist for ArtsMatter at The LA
-            Promise Fund."
-            id="testID"
-          /> */}
         </div>
       </div>
     </div>
