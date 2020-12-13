@@ -31,7 +31,11 @@ const Layout = ({ children, active, bgColor }) => {
 
   return (
     <>
-      <Header active={active} bgColor={bgColor} siteTitle={data.site.siteMetadata.title} />
+      <Header
+        active={active}
+        bgColor={bgColor}
+        siteTitle={data.site.siteMetadata.title}
+      />
       <main className={active}>
         <section className="main-wrapper">
           <Panel active={active} bgColor={bgColor} />

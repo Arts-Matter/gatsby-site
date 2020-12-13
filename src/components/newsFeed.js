@@ -6,25 +6,30 @@ import NewsItem from "./newsItem"
 
 export default function NewsFeed() {
   const data = useStaticQuery(graphql`
-  {
-    allContentfulNewsItem(sort: {fields: date, order: DESC}, limit: 10, filter: {title: {ne: "Why #ArtsMatter"}}, skip: 1) {
-      edges {
-        node {
-          title
-          summary {
-            summary
-          }
-          contentful_id
-          date
-          headerImage {
-            fixed {
-              src
+    {
+      allContentfulNewsItem(
+        sort: { fields: date, order: DESC }
+        limit: 10
+        filter: { title: { ne: "Why #ArtsMatter" } }
+        skip: 1
+      ) {
+        edges {
+          node {
+            title
+            summary {
+              summary
+            }
+            contentful_id
+            date
+            headerImage {
+              fixed {
+                src
+              }
             }
           }
         }
       }
     }
-  }
   `)
 
   const newsItems = data.allContentfulNewsItem.edges.reduce((news, curNews) => {
@@ -43,7 +48,7 @@ export default function NewsFeed() {
       imgSrc,
     }
 
-    if (title && date && contentful_id && summary && imgSrc){
+    if (title && date && contentful_id && summary && imgSrc) {
       news.push(newNewsItem)
     }
 
