@@ -13,6 +13,10 @@
   padding: var(--contentContainerPadding);
 }
 
+.news .content-container {
+  padding-bottom: 0;
+}
+
 .magenta {
   background-color: var(--magenta);
 }
