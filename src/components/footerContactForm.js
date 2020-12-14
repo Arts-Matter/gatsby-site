@@ -1,15 +1,16 @@
 import React, { useState } from "react"
 import "./footerContactForm.scss"
 
-export default function FooterContactForm({ isProgramsPage }) {
+export default function FooterContactForm({ classes }) {
   const [email, setEmail] = useState("")
-  const classes = [
-    "magenta",
-    isProgramsPage ? "programs footer-contact" : "footer-contact",
-  ]
+  let curClasses = ["magenta", "footer-contact"]
+
+  if (classes && Array.isArray(classes)) {
+    curClasses = [...curClasses, ...classes]
+  }
 
   return (
-    <section className={classes.join(' ')}>
+    <section className={curClasses.join(" ")}>
       <div className="footer-contact__container">
         <div className="footer-contact__content">
           Receive up-to-date information related to upcoming ArtsMatter events
