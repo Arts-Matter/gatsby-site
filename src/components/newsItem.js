@@ -2,9 +2,9 @@ import React from "react"
 import { Link } from "gatsby"
 import "./newsItem.scss"
 
-export default function NewsItem({ image, date, title, description, id }) {
+export default function NewsItem({ image, date, title, description, id, hoverEffects }) {
   return (
-    <div className="news-item">
+    <div className={hoverEffects ? "news-item news-item--hover" : "news-item"}>
       <div className="news-item__back-panel"></div>
       <div className="news-item__wrapper">
         <div className="news-item__image-container">
