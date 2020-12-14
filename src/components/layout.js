@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useRef } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -29,6 +29,9 @@ const Layout = ({ children, active, bgColor }) => {
     }
   `)
 
+   // Used to position news page news feed on larger screens
+   const contentContainerRef = useRef()
+
   return (
     <>
       <Header
@@ -39,14 +42,20 @@ const Layout = ({ children, active, bgColor }) => {
       <main className={active}>
         <section className="main-wrapper">
           <Panel active={active} bgColor={bgColor} />
-          <div className="content-container">{children}</div>
+          <div className="content-container" ref={contentContainerRef}>
+            {children}
+          </div>
         </section>
       </main>
       {active === "about" && <Quotes />}
-      {active === "news" && <NewsFeed />}
+      {active === "news" && (
+        <NewsFeed contentContainerRef={contentContainerRef} />
+      )}
       {active === "programs" && <WhereItStarted />}
       <FooterContactForm
-        isProgramsPage={active === "programs" ? true : false}
+        classes={[
+          active === "programs" ? "programs" : active === "news" ? "news" : "",
+        ]}
       />
       <Footer />
     </>
