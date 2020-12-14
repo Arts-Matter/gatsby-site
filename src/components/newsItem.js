@@ -9,11 +9,11 @@ export default function NewsItem({
   description,
   id,
   hoverEffects,
+  isNewsArchive,
 }) {
-  return (
-    <div className={hoverEffects ? "news-item news-item--hover" : "news-item"}>
-      <div className="news-item__back-panel"></div>
-      <div className="news-item__wrapper">
+  const renderWrapperContent = () => {
+    return (
+      <React.Fragment>
         <div className="news-item__image-container">
           {image && (
             <div
@@ -28,12 +28,28 @@ export default function NewsItem({
         {title && <h3>{title}</h3>}
         <div className="news-item__description-container">
           {description && <p>{description}</p>}
-          {id && (
+          {(id && !isNewsArchive) && (
             <Link to={`/news/${id}`}>
               <div className="news-item__link-arrow"></div>
             </Link>
           )}
         </div>
+      </React.Fragment>
+    )
+  }
+
+  const renderLinkWrapperContent = () => {
+    return (
+      <Link className="news-item__link-wrapper" to={`/news/${id}`}>
+        {renderWrapperContent()}
+      </Link>
+    )
+  }
+  return (
+    <div className={hoverEffects ? "news-item news-item--hover" : "news-item"}>
+      <div className="news-item__back-panel"></div>
+      <div className="news-item__wrapper">
+        {isNewsArchive ? renderLinkWrapperContent() : renderWrapperContent()}
       </div>
     </div>
   )
