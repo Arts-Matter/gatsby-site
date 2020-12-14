@@ -4,17 +4,19 @@
   flex-wrap: wrap;
 }
 
-.programs .content-container {
-  padding-bottom: 0;
-}
-
 .content-container {
   max-width: var(--max-width-calc);
   padding: var(--contentContainerPadding);
 }
 
+.programs .content-container,
 .news .content-container {
   padding-bottom: 0;
+}
+
+.news-archive .content-container {
+  padding: 180px 84px 0;
+  width: 100%
 }
 
 .magenta {
@@ -56,6 +58,10 @@
 @media only screen and (max-width: 889px) {
   .content-container {
     padding: 0;
+  }
+
+  .news-archive .content-container {
+    padding-top: 130px;
   }
 }
 
