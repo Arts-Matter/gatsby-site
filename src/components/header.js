@@ -91,7 +91,7 @@ const Header = ({ siteTitle, active, bgColor }) => {
             <Link className="nav-list__link" to="/news">
               <li
                 className={
-                  active === "news" && !mobileExpanded
+                  active.includes("news") && !mobileExpanded
                     ? activeLinkStyles
                     : linkStyles
                 }
