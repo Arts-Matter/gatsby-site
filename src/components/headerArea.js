@@ -10,7 +10,7 @@ export default function HeaderArea({
   const topRightDefault =
     "ArtsMatter draws upon a dynamic catalogue of content provided by top artists and creators to produce high-impact arts education programming for Los Angeles schools."
   return (
-    <div className={`header-area ${backgroundClass}`}>
+    <div className={`header-area${backgroundClass ? " " + backgroundClass : ""}`}>
       <div className="top">
         <div className="top__left">
           <h1 className="top__title">{topLeft}</h1>
