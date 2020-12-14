@@ -30,17 +30,17 @@
   .latest-news {
     margin-top: 0;
     border-top: none;
-    padding: 0 24px;
+    padding: var(--contentPadding-s);
   }
 
   .latest-news__title {
-    font-size: 49px;
+    font-size: var(--mobileSectionTitleFontSize);
     line-height: 57px;
   }
 
   .latest-news__sub-title,
   .latest-news__archive-link {
-    font-size: 16px;
-    line-height: 26px;
+    font-size: var(--mobileSectionSubTitleFontSize);
+    line-height: var(--mobileSectionSubTitleLineHeight);
   }
 }

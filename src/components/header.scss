@@ -78,7 +78,7 @@
 
   .header-container {
     height: 50px;
-    padding: 0 24px;
+    padding: var(--contentPadding-s);
     margin: 0;
   }
 
@@ -118,7 +118,7 @@
 
   .header-container__navLink {
     text-decoration: none;
-    color: #000;
+    color: var(--black);
     transition: var(--easeOut);
   }
 
@@ -154,13 +154,13 @@
   }
 
   .nav-list__link {
-    font-size: 26px;
+    font-size: var(--mobileTitleFontSize);
     margin-top: 0px;
   }
 
   .nav-list__item {
-    font-size: 26px;
-    line-height: 34px;
+    font-size: var(--mobileTitleFontSize);
+    line-height: var(--mobileHeaderLineHeightPrimary);
     text-align: center;
     padding: 24px 0;
     text-transform: capitalize;

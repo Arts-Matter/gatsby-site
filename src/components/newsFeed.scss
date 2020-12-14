@@ -18,7 +18,7 @@
 @media only screen and (max-width: 889px) {
   .news-feed {
     margin-top: 32px;
-    padding: 0 0 0 24px;
+    padding-left: var(--spacing-s);
     height: auto;
   }
 

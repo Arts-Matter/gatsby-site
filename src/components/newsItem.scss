@@ -139,7 +139,7 @@
 
     p {
       margin: 0;
-      font-size: 16px;
+      font-size: var(--mobileSectionSubTitleFontSize);
       line-height: 1;
     }
   }
@@ -153,8 +153,8 @@
     &:before {
       content: "Learn More";
       font-family: var(--ibmPlexMono);
-      font-size: 13.5px;
-      line-height: 18px;
+      font-size: var(--linkFontSize);
+      line-height: var(--buttonLineHeight);
     }
   }
 }

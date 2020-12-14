@@ -105,6 +105,7 @@
   }
 
   .footer-contact__container {
-    padding: 32px 24px 24px 24px;
+    padding: var(--spacing-s);
+    padding-top: 32px;
   }
 }
