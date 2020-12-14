@@ -3,6 +3,7 @@ import React from "react"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import HeaderArea from "../../components/headerArea"
+import NewsArchive from "../../components/newsArchive"
 const title = "News Archive"
 
 const Page = () => {
@@ -14,6 +15,7 @@ const Page = () => {
         topRight=" "
         backgroundClass=""
       />
+      <NewsArchive />
     </Layout>
   )
 }
