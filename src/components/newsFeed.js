@@ -1,10 +1,13 @@
-import React from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import { useWindowSize } from "./hooks"
 import "./newsFeed.scss"
 
 import NewsItem from "./newsItem"
 
-export default function NewsFeed() {
+export default function NewsFeed({ contentContainerRef }) {
+  const { width } = useWindowSize()
+  const newsFeedRef = useRef()
   const data = useStaticQuery(graphql`
     {
       allContentfulNewsItem(
@@ -32,6 +35,17 @@ export default function NewsFeed() {
     }
   `)
 
+  useEffect(() => {
+    const latestNewsPositionX = contentContainerRef.current.children[1].getBoundingClientRect()
+      .x
+    //On mobile position is 0, small screens is 84, we need to calculate padding when x > 84
+    if (latestNewsPositionX === 0 || latestNewsPositionX === 84) {
+      newsFeedRef.current.style.removeProperty("padding-left")
+    } else if (latestNewsPositionX > 84) {
+      newsFeedRef.current.style.paddingLeft = latestNewsPositionX - 13.5 + "px"
+    }
+  }, [width])
+
   const newsItems = data.allContentfulNewsItem.edges.reduce((news, curNews) => {
     const { date, title, contentful_id } = curNews.node
     const summary =
@@ -58,7 +72,7 @@ export default function NewsFeed() {
   return (
     <div className="news-feed">
       <div className="news-feed__container">
-        <div className="news-feed__feed">
+        <div className="news-feed__feed" ref={newsFeedRef}>
           {newsItems.map(item => {
             return (
               <NewsItem
@@ -68,6 +82,7 @@ export default function NewsFeed() {
                 description={item.summary}
                 id={item.contentfulId}
                 key={item.contentfulId}
+                hoverEffects={width > 889 ? true : false}
               />
             )
           })}
