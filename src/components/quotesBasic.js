@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import "./quotes.scss"
+import "./quotesBasic.scss"
 
 export default function Quotes() {
   const [quoteIndex, setQuoteIndex] = useState(0)
@@ -44,10 +44,8 @@ export default function Quotes() {
   }
 
   return (
-    <div className="about quotes-container">
-      <div className="quotes-container__background"></div>
-      <div className="quotes-container__wrapper">
-        <div className="quotes-container__inner-wrapper">
+    <div className="quotes-container">
+      <div className="quotes-container__wrapper--no-padding">
           <div className="quotes-container__quotes-gallery">
             <div className="quotes-container__open-quote"></div>
             <div className="quotes-container__quote-wrapper">
@@ -75,7 +73,6 @@ export default function Quotes() {
               </button>
             </div>
           </div>
-        </div>
       </div>
     </div>
   )

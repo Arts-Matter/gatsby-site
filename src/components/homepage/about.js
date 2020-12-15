@@ -10,15 +10,12 @@ const AboutSection = () => {
   const images = [
     {
       src: "/1.jpg",
-      caption: "",
     },
     {
       src: "/2.jpg",
-      caption: "",
     },
     {
       src: "/3.jpg",
-      caption: "",
     },
   ]
 

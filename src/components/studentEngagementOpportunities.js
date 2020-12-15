@@ -9,15 +9,15 @@ export default function StudentEngagementOpportunities() {
   const images = [
     {
       src: "/1.jpg",
-      caption: 'Film Independent screening + Q&A',
+      title: 'Film Independent screening + Q&A',
     },
     {
       src: "/2.jpg",
-      caption: 'PST:LA/LA - A Celebration of Student Culture and Identity at the Getty Museum',
+      title: 'PST:LA/LA - A Celebration of Student Culture and Identity at the Getty Museum',
     },
     {
       src: "/3.jpg",
-      caption: 'Students present projects to staff on the Paramount lot',
+      title: 'Students present projects to staff on the Paramount lot',
     },
   ]
 

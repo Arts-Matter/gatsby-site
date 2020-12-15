@@ -29,8 +29,7 @@
 }
 
 .news-item--hover {
-  &:hover,
-  &:focus {
+  &:hover {
     width: 473px;
 
     .news-item__back-panel {
@@ -80,6 +79,10 @@
   top: 10px;
   width: calc(100% - 10px);
   height: 246px;
+}
+
+.news-item__link {
+  text-decoration: none;
 }
 
 .news-item__image-container {
@@ -197,6 +200,7 @@
       font-family: var(--ibmPlexMono);
       font-size: var(--linkFontSize);
       line-height: var(--buttonLineHeight);
+      text-decoration: underline;
     }
   }
 }
