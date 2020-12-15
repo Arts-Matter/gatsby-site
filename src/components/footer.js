@@ -4,7 +4,7 @@ import promiseFundLogo from "../images/promise-fund-logo.svg"
 
 export default function footer({classes}) {
   return (
-    <footer className={`footer ${classes}`}>
+    <footer className={`footer${classes ? " " + classes : ""}`}>
       <div className="footer-container">
         <div className="footer-content-container">
           <div className="footer-content-container__left">
