@@ -34,8 +34,21 @@ class ContactBottomHeaderArea extends Component {
           "form-name": "contact-form",
           ...this.state.completedForm
         })
-      }).then(() => this.setState({successMessage: 'Thank you for contacting Arts Matter!'}))
-        .catch(error => this.setState({errorMessage: 'An unexpected error occurred'}));
+      }).then(() => this.setState({
+            completedForm: {
+                firstName: "",
+                lastName: "",
+                email: "",
+                subject: "",
+                message: "",
+              },
+            successMessage: 'Thank you for contacting Arts Matter!'
+            })
+        )
+        .catch(error => this.setState({  
+            errorMessage: 'An unexpected error occurred'
+            })
+        );
 
       event.preventDefault();
     }
