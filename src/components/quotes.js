@@ -44,7 +44,7 @@ export default function Quotes() {
   }
 
   return (
-    <div className="quotes-container">
+    <div className="about quotes-container">
       <div className="quotes-container__background"></div>
       <div className="quotes-container__wrapper">
         <div className="quotes-container__inner-wrapper">
