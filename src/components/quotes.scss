@@ -1,4 +1,4 @@
-.quotes-container {
+.about.quotes-container {
   width: 100%;
   margin-top: var(--sectionSpacingPrimary);
   display: flex;
@@ -6,7 +6,7 @@
   position: relative;
 }
 
-.quotes-container__background {
+.about .quotes-container__background {
   background-color: #f1efec;
   width: 80%;
   height: 100%;
@@ -14,17 +14,17 @@
   left: 0;
 }
 
-.quotes-container__wrapper {
+.about .quotes-container__wrapper {
   max-width: var(--max-width-calc);
   width: 100%;
   padding: 84px;
 }
 
-.quotes-container__inner-wrapper {
+.about .quotes-container__inner-wrapper {
   width: 80%;
 }
 
-.quotes-container__quotes-gallery {
+.about .quotes-container__quotes-gallery {
   width: 100%;
   height: 100%;
   position: relative;
@@ -32,7 +32,7 @@
   justify-content: space-between;
 }
 
-.quotes-container__open-quote {
+.about .quotes-container__open-quote {
   margin: 12px 18px 0 0;
   position: relative;
   height: 33px;
@@ -49,12 +49,12 @@
   }
 }
 
-.quotes-container__quote-wrapper {
+.about .quotes-container__quote-wrapper {
   flex-grow: 1;
   width: 100%;
 }
 
-.quotes-container__quote {
+.about .quotes-container__quote {
   font-family: var(--visueltBold);
   line-height: var(--headerLineHeightPrimary);
   font-size: var(--headerFontSizeSecondary);
@@ -62,21 +62,22 @@
   margin-bottom: 32px;
 }
 
-.quotes-container__tag {
+.about .quotes-container__tag {
   font-family: var(--ibmPlexMono);
   font-size: var(--linkFontSize);
   line-height: 21px;
+  color: #ed5338;
   text-transform: uppercase;
   letter-spacing: 0px;
   margin-bottom: 0;
 }
 
-.quotes-container__controls {
+.about .quotes-container__controls {
   width: 40px;
   margin-left: 56px;
 }
 
-.quotes-container__button {
+.about .quotes-container__button {
   width: 40px;
   height: 40px;
   background-color: var(--white);
@@ -88,7 +89,7 @@
   }
 }
 
-.quotes-container__arrow {
+.about .quotes-container__arrow {
   position: relative;
   height: 100%;
   display: flex;
@@ -103,14 +104,14 @@
   }
 }
 
-.quotes-container__arrow-right {
+.about .quotes-container__arrow-right {
   &:after {
     -webkit-mask: url("../images/arrow-right.svg") no-repeat 50% 50%;
     mask: url("../images/arrow-right.svg") no-repeat 50% 50%;
   }
 }
 
-.quotes-container__arrow-left {
+.about .quotes-container__arrow-left {
   &:after {
     -webkit-mask: url("../images/arrow-left.svg") no-repeat 50% 50%;
     mask: url("../images/arrow-left.svg") no-repeat 50% 50%;
@@ -118,11 +119,11 @@
 }
 
 @media only screen and (max-width: 1080px) {
-  .quotes-container__quotes-gallery {
+  .about .quotes-container__quotes-gallery {
     display: block;
   }
 
-  .quotes-container__controls {
+  .about .quotes-container__controls {
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
@@ -130,7 +131,7 @@
     margin-left: 0;
   }
 
-  .quotes-container__button {
+  .about .quotes-container__button {
     margin-top: var(--spacing-s);
 
     &:nth-of-type(1) {
@@ -144,18 +145,18 @@
 }
 
 @media only screen and (max-width: 889px) {
-  .quotes-container {
+  .about.quotes-container {
     margin-top: 48px;
     margin-right: var(--spacing-s);
     padding: 0;
     width: auto;
   }
 
-  .quotes-container__background {
+  .about .quotes-container__background {
     width: 100%;
   }
 
-  .quotes-container__wrapper {
+  .about .quotes-container__wrapper {
     padding: var(--spacing-s) 0 var(--spacing-s) var(--spacing-s);
   }
 
@@ -163,7 +164,7 @@
     display: block;
   }
 
-  .quotes-container__quote {
+  .about .quotes-container__quote {
     font-size: var(--mobileTitleFontSize);
     line-height: 37px;
   }
