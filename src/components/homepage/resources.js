@@ -16,8 +16,8 @@ const ResourcesSection = () => {
           <div className="content-wrapper">
             <div className="section--resources__top">
               <div className="left">
-                <h3>Instructional Resources</h3>
-                <p>
+                <h3 className="section__title section--pillars__title">Instructional Resources</h3>
+                <p className="section__description section--resources__description">
                   Lesson plans, activity guides, instructional media, student
                   worksheets, assessment rubrics, and more provide a
                   standards-based framework for teaching media arts in the
@@ -61,7 +61,7 @@ const ResourcesSection = () => {
         <div className="content-wrapper">
           <div className="section--resources__top">
             <div className="left">
-              <h3>Instructional Resources</h3>
+              <h3 className="section__title section--pillars__title">Instructional Resources</h3>
               <p className="section__description section--resources__description">
                 Lesson plans, activity guides, instructional media, student
                 worksheets, assessment rubrics, and more provide a

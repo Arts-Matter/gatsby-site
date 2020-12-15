@@ -1,16 +1,14 @@
 import React, { useState } from "react"
 import "./footerContactForm.scss"
-
-export default function FooterContactForm({ classes }) {
+export default function FooterContactForm({ isProgramsPage, bgColor }) {
   const [email, setEmail] = useState("")
-  let curClasses = ["magenta", "footer-contact"]
-
-  if (classes && Array.isArray(classes)) {
-    curClasses = [...curClasses, ...classes]
-  }
+  const classes = [
+    bgColor,
+    isProgramsPage ? "programs footer-contact" : "footer-contact",
+  ]
 
   return (
-    <section className={curClasses.join(" ")}>
+    <section className={classes.join(" ")}>
       <div className="footer-contact__container">
         <div className="footer-contact__content">
           Receive up-to-date information related to upcoming ArtsMatter events
@@ -37,3 +35,7 @@ export default function FooterContactForm({ classes }) {
     </section>
   )
 }
+
+FooterContactForm.defaultProps = {
+  bgColor: 'magenta'
+};

@@ -7,13 +7,31 @@
 }
 
 .footer-contact {
-  color: var(--white);
+  color: var(--black);
   margin-top: var(--footerContactMargin);
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: center;
   margin-bottom: -1px;
+
+  &.magenta {
+    color: var(--white);
+  }
+
+  &:not(.magenta) {
+    margin-top: 120px;
+    padding-top: 80px;
+    border-top: 1px solid var(--black);
+
+    .footer-contact__container {
+      padding: 0;
+    }
+
+    .contact-form {
+      justify-content: center;
+    }
+  }
 }
 
 .footer-contact__container {

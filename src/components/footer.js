@@ -2,9 +2,9 @@ import React from "react"
 import "./footer.scss"
 import promiseFundLogo from "../images/promise-fund-logo.svg"
 
-export default function footer() {
+export default function footer({classes}) {
   return (
-    <footer className="footer">
+    <footer className={`footer ${classes}`}>
       <div className="footer-container">
         <div className="footer-content-container">
           <div className="footer-content-container__left">

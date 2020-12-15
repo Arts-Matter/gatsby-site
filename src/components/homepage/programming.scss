@@ -1,0 +1,45 @@
+.section--programming {
+
+  .left {
+    @media (min-width: 890px) {
+      flex: 0 1 35%;
+      margin-right: 48px;
+    }
+  }
+
+  .right {
+    @media (min-width: 890px) {
+      flex: 0 1 60%;
+      position: relative;
+    }
+  }
+
+  .gallery-wrapper {
+    margin-bottom: 0;
+  }
+
+  .gallery-controls {
+    bottom: 30px;
+  }
+
+  .button--medium {
+    @media (min-width: 890px) {
+      margin-top: 16px;
+      font-size: 16px;
+      color: var(--geo);
+
+      &:after {
+        background-color: var(--geo);
+      }
+    }
+  }
+
+  .color {
+    width: 50%;
+    padding-top: 50%;
+    position: absolute;
+    right: 28px;
+    bottom: -7%;
+    background-color: #ed5338;
+  }
+}
