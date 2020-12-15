@@ -14,43 +14,37 @@ export default function NewsItem({
   const renderWrapperContent = () => {
     return (
       <React.Fragment>
-        <div className="news-item__image-container">
-          {image && (
-            <div
-              className="news-item__image"
-              style={{
-                backgroundImage: `url("${image}")`,
-              }}
-            ></div>
-          )}
-        </div>
-        {date && <h5>{date}</h5>}
-        {title && <h3>{title}</h3>}
-        <div className="news-item__description-container">
-          {description && <p>{description}</p>}
-          {(id && !isNewsArchive) && (
-            <Link to={`/news/${id}`}>
-              <div className="news-item__link-arrow"></div>
-            </Link>
-          )}
+        <div className="news-item__back-panel"></div>
+        <div className="news-item__wrapper">
+          <div className="news-item__image-container">
+            {image && (
+              <div
+                className="news-item__image"
+                style={{
+                  backgroundImage: `url("${image}")`,
+                }}
+              ></div>
+            )}
+          </div>
+          {date && <time dateTime={date}>{date}</time>}
+          {title && <h3>{title}</h3>}
+          <div className="news-item__description-container">
+            {description && <p>{description}</p>}
+            {id && <div className="news-item__link-arrow"></div>}
+          </div>
         </div>
       </React.Fragment>
     )
   }
 
-  const renderLinkWrapperContent = () => {
-    return (
-      <Link className="news-item__link-wrapper" to={`/news/${id}`}>
-        {renderWrapperContent()}
-      </Link>
-    )
-  }
   return (
-    <div className={hoverEffects ? "news-item news-item--hover" : "news-item"}>
+    // Later on we want to use something other than the contentful ID for the link
+    <Link
+      to={`/news/${id}`}
+      className={hoverEffects ? "news-item news-item--hover" : "news-item"}
+    >
       <div className="news-item__back-panel"></div>
-      <div className="news-item__wrapper">
-        {isNewsArchive ? renderLinkWrapperContent() : renderWrapperContent()}
-      </div>
-    </div>
+      <div className="news-item__wrapper">{renderWrapperContent()}</div>
+    </Link>
   )
 }
