@@ -9,7 +9,8 @@
 }
 
 .news-item--hover {
-  &:hover {
+  &:hover,
+  &:focus {
     width: 473px;
 
     .news-item__back-panel {
@@ -25,7 +26,7 @@
       height: 317px;
     }
 
-    h5 {
+    time {
       margin-top: 28px;
       font-size: var(--paragraphFontSize);
     }
@@ -71,7 +72,7 @@
   background-size: cover;
 }
 
-.news-item h5 {
+.news-item time {
   transition: all 0.2s ease-out;
   margin: 0;
   margin-top: var(--spacing-s);
@@ -80,6 +81,7 @@
   color: var(--black);
   letter-spacing: normal;
   line-height: 1;
+  display: block;
 }
 
 .news-item h3 {
