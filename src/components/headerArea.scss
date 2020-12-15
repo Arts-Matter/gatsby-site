@@ -120,3 +120,27 @@
     background-color: var(--geo);
   }
 }
+
+@media only screen and (max-width: 375px) {
+  .news-archive .header-area {
+    padding: 32px 24px 50px 24px;
+    background-color: var(--magenta);
+    margin-bottom: 32px;
+  }
+
+  .news-archive .top {
+    display: block;
+    border-top: 2px solid var(--black);
+  }
+
+  .news-archive .top__title {
+    font-size: 26px;
+    line-height: 34px;
+    margin-top: 18px;
+    margin-bottom: 0px;
+  }
+  
+  .news-archive .top__right {
+    display: none;
+  }
+}

@@ -16,7 +16,7 @@
 
 .news-archive .content-container {
   padding: 180px 84px 0;
-  width: 100%
+  max-width: calc(1440px + 2 * 84);
 }
 
 .magenta {
@@ -68,5 +68,11 @@
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .news-archive .content-container {
+    padding: 0;
   }
 }
