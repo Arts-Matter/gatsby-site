@@ -62,7 +62,7 @@ export default function ContactPageTeam() {
   return (
     <div className="team">
         <h2 className="team__title">Our Team</h2>
-        <div className="contact-team-container">
+        <div className="team-container">
           {contactTeam}
         </div>
     </div>
