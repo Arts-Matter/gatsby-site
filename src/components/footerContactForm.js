@@ -1,10 +1,11 @@
 import React, { useState } from "react"
 import "./footerContactForm.scss"
-export default function FooterContactForm({ isProgramsPage, bgColor }) {
+export default function FooterContactForm({ activePage, bgColor }) {
   const [email, setEmail] = useState("")
   const classes = [
     bgColor,
-    isProgramsPage ? "programs footer-contact" : "footer-contact",
+    activePage ? activePage : "",
+    "footer-contact",
   ]
 
   return (
