@@ -61,8 +61,6 @@ export default function NewsArchive() {
             image={item.imgSrc}
             date={item.date}
             title={item.title}
-            description={item.summary}
-            id={item.contentfulId}
             key={item.contentfulId}
             isNewsArchive={true}
           />

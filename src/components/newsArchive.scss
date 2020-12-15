@@ -1,0 +1,15 @@
+.news-archive-container {
+  margin-top: 130px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 18px 80px;
+}
+
+
+@media only screen and (max-width: 375px) {
+  .news-archive-container {
+    margin-top: 0;
+    display: block;
+    padding: 0 24px;
+  }
+}
