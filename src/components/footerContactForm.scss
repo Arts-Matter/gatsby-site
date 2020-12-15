@@ -19,7 +19,7 @@
     color: var(--white);
   }
 
-  &:not(.magenta) {
+  &:not(.magenta.news-archive) {
     margin-top: 120px;
     padding-top: 80px;
     border-top: 1px solid var(--black);
@@ -84,6 +84,10 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+.aqua .contact-form__button {
+  background-color: var(--tomato);
 }
 
 @media only screen and (max-width: 1080px) {
