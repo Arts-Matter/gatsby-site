@@ -29,8 +29,8 @@ const Layout = ({ children, active, bgColor }) => {
     }
   `)
 
-   // Used to position news page news feed on larger screens
-   const contentContainerRef = useRef()
+  // Used to position news page news feed on larger screens
+  const contentContainerRef = useRef()
 
   return (
     <>
@@ -53,9 +53,7 @@ const Layout = ({ children, active, bgColor }) => {
       )}
       {active === "programs" && <WhereItStarted />}
       <FooterContactForm
-        classes={[
-          active === "programs" ? "programs" : active === "news" ? "news" : "",
-        ]}
+        isProgramsPage={active === "programs" ? true : false}
       />
       <Footer />
     </>
