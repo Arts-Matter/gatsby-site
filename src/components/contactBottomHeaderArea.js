@@ -14,7 +14,8 @@ class ContactBottomHeaderArea extends Component {
                 subject: "",
                 message: "",
             },
-            formSuccess: "",
+            successMessage: "",
+            errorMessage: "",
         };
       }
 
@@ -33,8 +34,8 @@ class ContactBottomHeaderArea extends Component {
           "form-name": "contact-form",
           ...this.state.completedForm
         })
-      }).then(() => alert("Success!"))
-        .catch(error => alert(error));
+      }).then(() => this.setState({successMessage: 'Thank you for contacting Arts Matter!'}))
+        .catch(error => this.setState({errorMessage: 'An unexpected error occurred'}));
 
       event.preventDefault();
     }
@@ -92,15 +93,10 @@ class ContactBottomHeaderArea extends Component {
                     </div>
                 </div>
                 <input type="submit" value="Submit" />
-                {this.state.formSuccess ?
-                    <h2>
-                    Thank you for contacting Arts Matter!
-                    </h2>
-                    :
-                    <h2>
-                    An unexpected error occurred. 
-                    </h2>
-                }
+                <div className="formMessage">
+                    {this.state.successMessage}
+                    {this.state.errorMessage}
+                </div>
             </form>
         )
     

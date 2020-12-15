@@ -98,6 +98,12 @@
     cursor: pointer
 }
 
+.contact .header-area .bottom .bottom__left .formMessage {
+    padding-top: 30px;
+    font-family: var(--visueltRegular);
+    font-size: var(--headerFontSizeTertiary);
+}
+
 .contact .header-area .bottom .bottom__right {
     flex: 0 1 25%;
 }
