@@ -7,11 +7,14 @@ class ContactBottomHeaderArea extends Component {
         super(props);
     
         this.state = {
-          firstName: "",
-          lastName: "",
-          email: "",
-          subject: "",
-          message: "",
+            completedForm: {
+                firstName: "",
+                lastName: "",
+                email: "",
+                subject: "",
+                message: "",
+            },
+            formSuccess: "",
         };
       }
 
@@ -28,7 +31,7 @@ class ContactBottomHeaderArea extends Component {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: this.encode({
           "form-name": "contact-form",
-          ...this.state
+          ...this.state.completedForm
         })
       }).then(() => alert("Success!"))
         .catch(error => alert(error));
@@ -38,7 +41,12 @@ class ContactBottomHeaderArea extends Component {
 
     handleChange = (event) => {
         const { name, value } = event.target;
-        this.setState({ [name]: value });
+        this.setState({ 
+            completedForm: {
+                ...this.state.completedForm,
+                [name]: value
+            } 
+        });
     }
 
     render() {
@@ -48,7 +56,7 @@ class ContactBottomHeaderArea extends Component {
             email,
             subject, 
             message 
-        } = this.state;
+        } = this.state.completedForm;
 
         const bottomLeft = (
             <form 
@@ -62,11 +70,11 @@ class ContactBottomHeaderArea extends Component {
                 <input type="hidden" name="bot-field" />
                 
                 <div class="form-row">
-                    <input type="text" name="firstName" placeholder="First Name" value={firstName} onChange={this.handleChange}/>
-                    <input type="text" name="lastName" placeholder="Last Name" value={lastName} onChange={this.handleChange}/>
+                    <input type="text" name="firstName" placeholder="First Name" value={firstName} onChange={this.handleChange} required />
+                    <input type="text" name="lastName" placeholder="Last Name" value={lastName} onChange={this.handleChange} required/>
                 </div>
                 <div class="form-row"> 
-                    <input type="text" name="email" placeholder="Email" value={email} onChange={this.handleChange}/>
+                    <input type="email" name="email" placeholder="Email" value={email} onChange={this.handleChange} required />
                     <select name="subject" value={subject} onChange={this.handleChange}>
                         <option value="Subject">Subject</option>
                         <option value="General">General</option>
@@ -80,12 +88,19 @@ class ContactBottomHeaderArea extends Component {
                 <div class="form-row"> 
                     <div class="textarea-wrapper">
                         <label>Message</label>
-                        <textarea name="message" value={message} onChange={this.handleChange} />
+                        <textarea name="message" value={message} onChange={this.handleChange} required />
                     </div>
                 </div>
-                {/* <a href="mailto:alexk@lapromisefund.org?subject=&amp;body=First Name: %0D%0ALast Name: %0D%0AEmail: %0D%0AMessage: "> */}
-                    <input type="submit" value="Submit" />
-                {/* </a> */}
+                <input type="submit" value="Submit" />
+                {this.state.formSuccess ?
+                    <h2>
+                    Thank you for contacting Arts Matter!
+                    </h2>
+                    :
+                    <h2>
+                    An unexpected error occurred. 
+                    </h2>
+                }
             </form>
         )
     
