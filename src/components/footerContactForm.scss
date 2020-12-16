@@ -15,6 +15,10 @@
     color: var(--white);
   }
 
+  &.aqua {
+    margin-top: 70px;
+  }
+
   &:not(.magenta):not(.aqua) {
     margin-top: 120px;
     padding-top: 80px;
