@@ -7,6 +7,7 @@ import PillarsSection from "../components/homepage/pillars"
 import ResourcesSection from "../components/homepage/resources"
 import ProgrammingSection from "../components/homepage/programming"
 import ContactSection from "../components/homepage/contact"
+import Footer from "../components/footer"
 
 const IndexPage = () => (
   <>
@@ -37,10 +38,11 @@ const IndexPage = () => (
               </Wrapper>
             </div>
             <div className="section section--contact">
-              <Wrapper bgColor="sunflower">
+              <Wrapper bgColor="sunflower" header={false}>
                 <ContactSection />
               </Wrapper>
             </div>
+            <Footer classes="section fp-auto-height" />
           </ReactFullpage.Wrapper>
         )
       }}
