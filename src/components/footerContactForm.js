@@ -7,7 +7,7 @@ export default function FooterContactForm({ isProgramsPage, bgColor }) {
     bgColor,
     isProgramsPage ? "programs footer-contact" : "footer-contact",
   ]
-
+  console.log(classes, 'classes');
   return (
     <section className={classes.join(' ')}>
       <div className="footer-contact__container">

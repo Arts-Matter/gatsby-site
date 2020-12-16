@@ -41,6 +41,7 @@ const Layout = ({ children, active, bgColor }) => {
       {active === "programs" && <WhereItStarted />}
       <FooterContactForm
         isProgramsPage={active === "programs" ? true : false}
+        bgColor="aqua"
       />
       <Footer />
     </>
