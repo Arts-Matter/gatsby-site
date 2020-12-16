@@ -15,7 +15,7 @@
     color: var(--white);
   }
 
-  &:not(.magenta) {
+  &:not(.magenta):not(.aqua) {
     margin-top: 120px;
     padding-top: 80px;
     border-top: 1px solid var(--black);
