@@ -1,10 +1,7 @@
 import React, { useState } from "react"
 import "./teamMember.scss"
 
-export default function TeamMember({ 
-  member,
-  teamDescriptions
- }) {
+export default function TeamMember({ member, teamDescriptions }) {
   const { name, role, email, phone, descriptions, imageSrc } = member
   const [expanded, setExpanded] = useState(false)
   const classes = [
@@ -33,7 +30,11 @@ export default function TeamMember({
                   </span>
                 )
               } else {
-                return <React.Fragment key={`${text.value}${index}`}>{text.value}</React.Fragment>
+                return (
+                  <React.Fragment key={`${text.value}${index}`}>
+                    {text.value}
+                  </React.Fragment>
+                )
               }
             } else {
               return (
@@ -50,63 +51,60 @@ export default function TeamMember({
 
   return (
     <div className="team-member">
-      <div 
-      className={
-        teamDescriptions ? "member-image-container"
-        : "member-image-container__spaced"
-      }
+      <div
+        className={
+          teamDescriptions
+            ? "member-image-container"
+            : "member-image-container__spaced"
+        }
       >
         <div
           className="member-image"
           style={{ backgroundImage: `url(${imageSrc})` }}
-        />
+        ></div>
       </div>
-      {
-        (teamDescriptions ? 
-          <div
+      {teamDescriptions ? (
+        <div
           className={
             expanded
               ? "bio-collapsible bio-collapsible--expanded"
               : "bio-collapsible"
           }
-          >
-            <div className="about-bio__title-container">
-              <div className="bio__title-left">
-                <h3 className="bio__name">{name}</h3>
-                <h4 className="bio__role">{role}</h4>
-              </div>
-              <button
-                className="bio-collapsible__expand-button"
-                aria-label="Toggle Bio"
-                aria-pressed={expanded}
-                aria-expanded={expanded}
-                onClick={() => setExpanded(!expanded)}
-              >
-                Bio
-                <div className="bio-collapsible__expand-icon"></div>
-              </button>
-            </div>
-            <div className={classes.join(" ")}>
-              {generateFormattedDescriptions()}
-            </div>
-          </div>
-        : 
-          <div className="contact-bio__title-container">
+        >
+          <div className="bio-collapsible__title-container">
             <div className="bio__title-left">
-                <h3 className="bio__name">{name}</h3>
-                <h4 className="bio__role">{role}</h4>
+              <h3 className="bio__name">{name}</h3>
+              <h4 className="bio__role">{role}</h4>
             </div>
-            <div className="contact-details">
-              <p>
-                <a href="mailto:alexk@lapromisefund.org">
-                  {email}
-                </a>
-              </p>
-                <p>{phone}</p>
-            </div>
+            <button
+              className="bio-collapsible__expand-button"
+              aria-label="Toggle Bio"
+              aria-pressed={expanded}
+              aria-expanded={expanded}
+              onClick={() => setExpanded(!expanded)}
+            >
+              Bio
+              <div className="bio-collapsible__expand-icon"></div>
+            </button>
           </div>
-        ) 
-      }   
+          <div className={classes.join(" ")}>
+            {generateFormattedDescriptions()}
+          </div>
+        </div>
+      ) : (
+        <div className="contact-bio__title-container">
+          <div className="bio__title-left">
+            <h3 className="bio__name">{name}</h3>
+            <h4 className="bio__role">{role}</h4>
+          </div>
+          <div className="contact-details">
+            <p>
+              <a href="mailto:alexk@lapromisefund.org">{email}</a>
+            </p>
+            <p>{phone}</p>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

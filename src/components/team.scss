@@ -6,6 +6,7 @@
   color: var(--ocean);
   font-size: var(--headerFontSizePrimary);
   margin-bottom: var(--spacing-m);
+  line-height: 1;
 }
 
 .team__subtitle {
@@ -53,5 +54,10 @@
   .team-container {
     overflow-x: scroll;
     margin-top: 0;
+  }
+
+  .team-container__wrapper {
+    display: flex;
+    flex-wrap: nowrap;
   }
 }

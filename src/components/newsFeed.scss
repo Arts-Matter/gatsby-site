@@ -1,0 +1,32 @@
+.news-feed {
+  height: 634px;
+  width: 100%;
+}
+
+.news-feed__container {
+  margin-top: 48px;
+  height: 100%;
+}
+
+.news-feed__feed {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-left: 70.5px;
+}
+
+@media only screen and (max-width: 889px) {
+  .news-feed {
+    margin-top: 32px;
+    padding-left: var(--spacing-s);
+    height: auto;
+  }
+
+  .news-feed__container {
+    margin-top: 0;
+  }
+
+  .news-feed__feed {
+    padding-left: 0;
+  }
+}
