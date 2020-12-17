@@ -93,12 +93,20 @@ export default function AboutTeam() {
       <div className="team-container">
         {width > 889 ? (
           teamMembers.map((member, i) => (
-            <TeamMember key={`${member.name}${i}`} member={member} />
+            <TeamMember
+              key={`${member.name}${i}`}
+              member={member}
+              teamDescriptions={true}
+            />
           ))
         ) : (
           <div className="team-container__wrapper">
             {teamMembers.map((member, i) => (
-              <TeamMember key={`${member.role}${i}`} member={member} />
+              <TeamMember
+                key={`${member.role}${i}`}
+                member={member}
+                teamDescriptions={true}
+              />
             ))}
           </div>
         )}
