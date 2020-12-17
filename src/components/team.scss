@@ -25,6 +25,13 @@
   grid-column-gap: 30px;
 }
 
+.contact-team__container {
+  margin-top: 68px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minMax(276px, 1fr));
+  grid-column-gap: 50px;
+}
+
 @media only screen and (max-width: 889px) {
   .team {
     margin-top: 48px;
@@ -46,10 +53,5 @@
   .team-container {
     overflow-x: scroll;
     margin-top: 0;
-  }
-
-  .team-container__wrapper {
-    display: flex;
-    flex-wrap: nowrap;
   }
 }

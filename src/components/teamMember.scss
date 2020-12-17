@@ -1,6 +1,10 @@
-.member-image-container {
+.member-image-container, .member-image-container__spaced {
   height: 348px;
   margin-bottom: var(--spacing-s);
+}
+
+.member-image-container__spaced {
+  width: 315px;
 }
 
 .member-image {
@@ -11,13 +15,13 @@
   transition: var(--easeOut);
 }
 
-.bio-collapsible__title-container {
+.about-bio__title-container {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
 }
 
-.bio-collapsible__name {
+.bio__name {
   font-family: var(--visueltRegular);
   font-size: var(--headerFontSizeTertiary);
   line-height: var(--paragraphLineHeight);
@@ -25,7 +29,7 @@
   border-bottom: none;
 }
 
-.bio-collapsible__role {
+.bio__role {
   font-family: var(--ibmPlexMono);
   font-size: 13px;
   letter-spacing: 0.96px;
@@ -105,9 +109,24 @@
   max-height: 1280px;
 }
 
+.contact-details {
+  margin-top: var(--spacing-s);
+}
+
+.contact-details p {
+  font-family: var(--visueltRegular);
+  font-size: var(--paragraphFontSize);
+  line-height: 17px;
+  margin-bottom: 12px;
+}
+
+.contact-details a {
+  color: var(--ocean);
+}
+
 @media only screen and (max-width: 889px) {
   .team-member {
     min-width: 300px;
-    margin-right: 24px;
+    margin-right: var(--spacing-s);
   }
 }

@@ -5,7 +5,8 @@ import { useWindowSize } from "./hooks"
 
 import TeamMember from "./teamMember"
 
-export default function Team() {
+export default function AboutPageTeam() {
+
   const { width } = useWindowSize()
 
   const data = useStaticQuery(graphql`
@@ -76,9 +77,20 @@ export default function Team() {
     []
   )
 
+  const aboutTeam = (
+    teamMembers.map((member, i) => (
+      <TeamMember 
+        key={`${member.name}${i}`}  
+        member={member} 
+        teamDescriptions={true}
+      />
+    ))
+  )
+
+
   return (
     <div className="team">
-      <h2 className="team__title">Team</h2>
+      <h2 className="team__title">Our Team</h2>
       <h3 className="team__subtitle">
         ArtsMatter has assembled an exceptional team of staff and project
         consultants to implement the innovative work of Media ArtsMatter and its
@@ -91,17 +103,7 @@ export default function Team() {
         throughout LA County schools.
       </h3>
       <div className="team-container">
-        {width > 889 ? (
-          teamMembers.map((member, i) => (
-            <TeamMember key={`${member.name}${i}`} member={member} />
-          ))
-        ) : (
-          <div className="team-container__wrapper">
-            {teamMembers.map((member, i) => (
-              <TeamMember key={`${member.role}${i}`} member={member} />
-            ))}
-          </div>
-        )}
+        {aboutTeam}
       </div>
     </div>
   )
