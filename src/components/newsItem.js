@@ -10,31 +10,6 @@ export default function NewsItem({
   id,
   hoverEffects,
 }) {
-  const renderWrapperContent = () => {
-    return (
-      <React.Fragment>
-        <div className="news-item__back-panel"></div>
-        <div className="news-item__wrapper">
-          <div className="news-item__image-container">
-            {image && (
-              <div
-                className="news-item__image"
-                style={{
-                  backgroundImage: `url("${image}")`,
-                }}
-              ></div>
-            )}
-          </div>
-          {date && <time dateTime={date}>{date}</time>}
-          {title && <h3>{title}</h3>}
-          <div className="news-item__description-container">
-            {description && <p>{description}</p>}
-            {id && <div className="news-item__link-arrow"></div>}
-          </div>
-        </div>
-      </React.Fragment>
-    )
-  }
 
   return (
     // Later on we want to use something other than the contentful ID for the link
