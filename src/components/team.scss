@@ -54,4 +54,9 @@
     overflow-x: scroll;
     margin-top: 0;
   }
+
+  .team-container__wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+  }
 }
