@@ -44,7 +44,7 @@ export default function NewsFeed({ contentContainerRef }) {
     } else if (latestNewsPositionX > 84) {
       newsFeedRef.current.style.paddingLeft = latestNewsPositionX - 13.5 + "px"
     }
-  }, [width])
+  }, [width, contentContainerRef])
 
   const newsItems = data.allContentfulNewsItem.edges.reduce((news, curNews) => {
     const { date, title, contentful_id } = curNews.node
