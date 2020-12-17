@@ -62,7 +62,6 @@ export default function NewsArchive() {
             date={item.date}
             title={item.title}
             key={item.contentfulId}
-            isNewsArchive={true}
           />
         )
       })}

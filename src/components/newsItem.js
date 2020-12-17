@@ -9,7 +9,6 @@ export default function NewsItem({
   description,
   id,
   hoverEffects,
-  isNewsArchive,
 }) {
   const renderWrapperContent = () => {
     return (
