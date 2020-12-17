@@ -1,14 +1,10 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import "./team.scss"
-import { useWindowSize } from "./hooks"
-
 import TeamMember from "./teamMember"
 
 export default function ContactPageTeam() {
-    const { width } = useWindowSize()
-
-    const data = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     {
       allContentfulListOfThings(
         filter: { listName: { eq: "Contact page bios" } }
@@ -49,22 +45,18 @@ export default function ContactPageTeam() {
     []
   )
 
-  const contactTeam = (
-    teamMembers.map((member, i) => (
-      <TeamMember 
-        key={`${member.name}${i}`}  
-        member={member} 
-        teamDescriptions={false}
-      />
-    ))
-  )
+  const contactTeam = teamMembers.map((member, i) => (
+    <TeamMember
+      key={`${member.name}${i}`}
+      member={member}
+      teamDescriptions={false}
+    />
+  ))
 
   return (
     <div className="team">
-        <h2 className="team__title">Our Team</h2>
-        <div className="contact-team__container">
-          {contactTeam}
-        </div>
+      <h2 className="team__title">Our Team</h2>
+      <div className="contact-team__container">{contactTeam}</div>
     </div>
   )
 }
