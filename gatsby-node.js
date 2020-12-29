@@ -18,7 +18,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
     actions.createPage({
       path: `news/${slug}`,
-      component: require.resolve("./src/templates/single-news.js"),
+      component: require.resolve("./src/templates/singleNews.js"),
       context: { id: slug }, // Pass ID to get news item in template
     })
   })
