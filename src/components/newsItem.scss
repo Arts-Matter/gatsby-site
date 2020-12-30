@@ -71,6 +71,10 @@
 
 .news-item__link {
   text-decoration: none;
+}
+
+.news-archive .news-item__link {
+  text-decoration: none;
 
   &:hover,
   &:focus {
