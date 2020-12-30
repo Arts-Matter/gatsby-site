@@ -5,6 +5,7 @@ import "./singleNews.scss"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import HeaderArea from "../components/headerArea"
+import SocialMediaBar from "../components/socialMediaBar"
 
 export default function SingleNews({ data, pageContext }) {
   const newsData = data.allContentfulNewsItem.edges[0].node
@@ -56,6 +57,9 @@ export default function SingleNews({ data, pageContext }) {
         topRight={returnHeaderRight()}
         customTop={true}
       />
+      <div className="news-article__container">
+        <SocialMediaBar />
+      </div>
     </Layout>
   )
 }
