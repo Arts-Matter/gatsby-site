@@ -4,18 +4,20 @@
   flex-wrap: wrap;
 }
 
-.programs .content-container {
-  padding-bottom: 0;
-}
-
 .content-container {
   max-width: var(--max-width-calc);
   padding: var(--contentContainerPadding);
   width: 100%;
 }
 
+.programs .content-container,
 .news .content-container {
   padding-bottom: 0;
+}
+
+.news-archive .content-container {
+  padding: 180px 84px 0;
+  max-width: calc(1440px + 2 * 84px);
 }
 
 .magenta {
@@ -58,10 +60,20 @@
   .content-container {
     padding: 0;
   }
+
+  .news-archive .content-container {
+    padding-top: 130px;
+  }
 }
 
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .news-archive .content-container {
+    padding: 0;
   }
 }

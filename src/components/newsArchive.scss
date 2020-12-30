@@ -1,0 +1,22 @@
+.news-archive-container {
+  margin-top: 130px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 18px 80px;
+}
+
+@media only screen and (max-width: 889px) {
+  .news-archive-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .news-archive-container {
+    margin-top: 0;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}

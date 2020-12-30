@@ -2,7 +2,8 @@
   margin-top: 0;
 }
 
-.news.footer-contact {
+.news.footer-contact,
+.news-archive.footer-contact {
   margin-top: 160px;
 }
 
@@ -90,6 +91,10 @@
   }
 }
 
+.aqua .contact-form__button {
+  background-color: var(--tomato);
+}
+
 @media only screen and (max-width: 1080px) {
   .footer-contact__container {
     margin: 32px 0 40px 0;
@@ -126,8 +131,18 @@
     margin-top: var(--formElementHeight);
   }
 
+  .news-archive.footer-contact {
+    margin-top: 160px;
+  }
+
   .footer-contact__container {
     padding: var(--spacing-s);
     padding-top: 32px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .news-archive.footer-contact {
+    margin-top: 48px;
   }
 }
