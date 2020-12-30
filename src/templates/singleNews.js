@@ -1,29 +1,62 @@
 import React from "react"
 import { graphql } from "gatsby"
+import "./singleNews.scss"
+
+import SEO from "../components/seo"
+import Layout from "../components/layout"
+import HeaderArea from "../components/headerArea"
 
 export default function SingleNews({ data, pageContext }) {
-  console.log(data)
+  const newsData = data.allContentfulNewsItem.edges[0].node
+  const body = newsData.body ? newsData.body.body : null
+  const byline = newsData.byline ? newsData.byline : null
+  const id = newsData["contentful_id"] ? newsData["contentful_id"] : null
+  const date = newsData.date ? newsData.date : null
+  const image = newsData.headerImage ? newsData.headerImage.fixed.src : null
+  const summary = newsData.summary ? newsData.summary.summary : null
+  const title = newsData.title ? newsData.title : null
+
+  const returnHeaderLeft = () => {
+    return (
+      <React.Fragment>
+        {title && <h1>{title}</h1>}
+        {(date || byline) && (
+          <h6>
+            {`${date ? date : ""}`}&nbsp;&nbsp;{`${date && byline ? "|" : ""}`}
+            &nbsp;&nbsp;By {`${byline ? byline : ""}`}
+          </h6>
+        )}
+        <h4>{summary}</h4>
+      </React.Fragment>
+    )
+  }
+
+  const returnHeaderRight = () => {
+    return (
+      <React.Fragment>
+        {image && (
+          <div className="top__image-container">
+            <div
+              className="top__image"
+              style={{
+                backgroundImage: `url("${image}")`,
+              }}
+            ></div>
+          </div>
+        )}
+      </React.Fragment>
+    )
+  }
+
   return (
-    <div
-      style={{
-        textAlign: "center",
-        display: "flex",
-        flexDirection: "column",
-        height: "500px",
-        justifyContent: "space-around",
-      }}
-    >
-      <h1>This is a single news page</h1>
-      <h4>
-        <strong>Open the console to view GraphQL data</strong>
-      </h4>
-      <p>
-        Most if not all of the data needed for single news pages should be
-        present. Will need to edit query if missing needed data. To preserve
-        styles of the body property of returned data(in console) you will need to use a Rich
-        Text Rendering library.
-      </p>
-    </div>
+    <Layout active="news-article" bgColor="magenta">
+      <SEO title="News Article" />
+      <HeaderArea
+        topLeft={returnHeaderLeft()}
+        topRight={returnHeaderRight()}
+        customTop={true}
+      />
+    </Layout>
   )
 }
 
