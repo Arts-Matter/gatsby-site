@@ -14,18 +14,6 @@
   margin-bottom: 48px;
   margin-right: 0;
   width: 100%;
-
-  &:hover,
-  &:focus {
-    .news-item__image {
-      -webkit-filter: none;
-      filter: none;
-    }
-
-    time, h3 {
-      color: var(--magenta);
-    }
-  }
 }
 
 .news-item--hover {
@@ -56,7 +44,7 @@
       font-family: var(--visueltBold);
       margin-top: 14px;
     }
-    
+
     .news-item__description-container {
       height: 100%;
       opacity: 1;
@@ -83,6 +71,19 @@
 
 .news-item__link {
   text-decoration: none;
+
+  &:hover,
+  &:focus {
+    .news-item__image {
+      -webkit-filter: none;
+      filter: none;
+    }
+
+    time,
+    h3 {
+      color: var(--magenta);
+    }
+  }
 }
 
 .news-item__image-container {
