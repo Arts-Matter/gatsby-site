@@ -15,9 +15,10 @@
   padding-bottom: 0;
 }
 
-.news-archive .content-container {
+.news-archive .content-container,
+.news-article .content-container {
   padding: 180px 84px 0;
-  max-width: calc(1440px + 2 * 84px);
+  max-width: var(--max-width-calc);
 }
 
 .magenta {
