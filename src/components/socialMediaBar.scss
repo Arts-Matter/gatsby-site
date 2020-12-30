@@ -1,0 +1,39 @@
+.social-media-bar {
+  ul {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    display: inline-block;
+  }
+}
+
+.social-media-bar__image {
+  width: 30px;
+  height: 30px;
+  background-color: #cc4faa;
+  margin-right: 18px;
+}
+
+#fb-logo.social-media-bar__image {
+  -webkit-mask: url("../images/fb.svg") no-repeat 50% 50%;
+  mask: url("../images/fb.svg") no-repeat 50% 50%;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+#twitter-logo.social-media-bar__image {
+  -webkit-mask: url("../images/twitter.svg") no-repeat 50% 50%;
+  mask: url("../images/twitter.svg") no-repeat 50% 50%;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+#email-logo.social-media-bar__image {
+  -webkit-mask: url("../images/mail.svg") no-repeat 50% 50%;
+  mask: url("../images/mail.svg") no-repeat 50% 50%;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  margin-right: 0;
+}
