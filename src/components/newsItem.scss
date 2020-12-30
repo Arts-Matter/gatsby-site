@@ -17,7 +17,8 @@
 }
 
 .news-item--hover {
-  &:hover {
+  &:hover,
+  &:focus-within {
     width: 473px;
 
     .news-item__back-panel {
