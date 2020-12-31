@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import "./singleNews.scss"
+import { useWindowSize } from "../components/hooks"
 
 import SEO from "../components/seo"
 import Layout from "../components/layout"
@@ -8,6 +9,7 @@ import HeaderArea from "../components/headerArea"
 import SocialMediaBar from "../components/socialMediaBar"
 
 export default function SingleNews({ data, pageContext }) {
+  const { width } = useWindowSize()
   const newsData = data.allContentfulNewsItem.edges[0].node
   const body = newsData.body ? newsData.body.body : null
   const byline = newsData.byline ? newsData.byline : null
@@ -27,6 +29,7 @@ export default function SingleNews({ data, pageContext }) {
             &nbsp;&nbsp;By {`${byline ? byline : ""}`}
           </h6>
         )}
+        {width < 890 && returnHeaderRight()}
         <h4>{summary}</h4>
       </React.Fragment>
     )
@@ -54,7 +57,7 @@ export default function SingleNews({ data, pageContext }) {
       <SEO title="News Article" />
       <HeaderArea
         topLeft={returnHeaderLeft()}
-        topRight={returnHeaderRight()}
+        topRight={width > 889 ? returnHeaderRight() : null}
         customTop={true}
       />
       <div className="news-article__container">
