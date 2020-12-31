@@ -59,7 +59,12 @@ export default function SingleNews({ data, pageContext }) {
   const NewsImage = ({ file, description }) => {
     return (
       <div className="news-article__image">
-        {file && <img src={file["en-US"].url} alt={description ? description["en-US"]: ""} />}
+        {file && (
+          <img
+            src={file["en-US"].url}
+            alt={description ? description["en-US"] : ""}
+          />
+        )}
         {description && <div>{description["en-US"]}</div>}
       </div>
     )
@@ -73,6 +78,12 @@ export default function SingleNews({ data, pageContext }) {
       },
       [BLOCKS.PARAGRAPH]: (node, children) => (
         <p className="news-article__text">{children}</p>
+      ),
+      [BLOCKS.LIST_ITEM]: (node, children) => (
+        <li className="news-article__li">{children}</li>
+      ),
+      [BLOCKS.QUOTE]: (node, children) => (
+        <blockquote className="news-article__quote">{children}</blockquote>
       ),
     },
   }
