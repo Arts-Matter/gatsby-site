@@ -21,8 +21,6 @@ export default function SingleNews({ data, pageContext }) {
   const summary = newsData.summary ? newsData.summary.summary : null
   const title = newsData.title ? newsData.title : null
 
-  console.log(body)
-
   const returnHeaderLeft = () => {
     return (
       <React.Fragment>
