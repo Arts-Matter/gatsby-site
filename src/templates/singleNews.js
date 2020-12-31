@@ -57,11 +57,10 @@ export default function SingleNews({ data, pageContext }) {
   }
 
   const NewsImage = ({ file, description }) => {
-    console.log(file["en-US"].url)
     return (
-      <div>
+      <div className="news-article__image">
         <img src={file["en-US"].url} alt={description["en-US"]} />
-        <span>{description["en-US"]}</span>
+        <div>{description["en-US"]}</div>
       </div>
     )
   }
@@ -72,6 +71,9 @@ export default function SingleNews({ data, pageContext }) {
         const { file, description } = node.data.target.fields
         return <NewsImage file={file} description={description} />
       },
+      [BLOCKS.PARAGRAPH]: (node, children) => (
+        <p className="news-article__text">{children}</p>
+      ),
     },
   }
 
@@ -85,8 +87,8 @@ export default function SingleNews({ data, pageContext }) {
       />
       <div className="news-article__container">
         <SocialMediaBar />
+        {documentToReactComponents(body, options)}
       </div>
-      {documentToReactComponents(body, options)}
     </Layout>
   )
 }
