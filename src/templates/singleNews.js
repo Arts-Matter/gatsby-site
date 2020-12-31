@@ -56,22 +56,31 @@ export default function SingleNews({ data, pageContext }) {
 
   const NewsImage = ({ file, description }) => {
     return (
-      <div className="news-article__image">
-        {file && (
-          <img
-            src={file["en-US"].url}
-            alt={description ? description["en-US"] : ""}
-          />
+      <React.Fragment>
+        {(file || description) && (
+          <div className="news-article__image">
+            {file && (
+              <img
+                src={file["en-US"].url}
+                alt={description ? description["en-US"] : ""}
+              />
+            )}
+            {description && <div>{description["en-US"]}</div>}
+          </div>
         )}
-        {description && <div>{description["en-US"]}</div>}
-      </div>
+      </React.Fragment>
     )
   }
 
   const options = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: node => {
-        const { file, description } = node.data.target.fields
+        let file, description
+
+        if (node.data && node.data.target && node.data.target.fields) {
+          file = node.data.target.fields.file
+          description = node.data.target.fields.description
+        }
         return <NewsImage file={file} description={description} />
       },
       [BLOCKS.PARAGRAPH]: (node, children) => (
