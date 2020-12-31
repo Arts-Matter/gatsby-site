@@ -1,0 +1,26 @@
+.news-article__container {
+  width: 60%;
+  margin: 54px 0 0 108px;
+}
+
+.news-article__text {
+  margin-bottom: 28px;
+}
+
+.news-article__image {
+  margin: 32px 0;
+  background-size: cover;
+
+  img {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  div {
+    font-family: var(--visueltRegular);
+    color: #545454;
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
