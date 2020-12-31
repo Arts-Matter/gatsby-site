@@ -1,6 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
 import "./singleNews.scss"
+import { BLOCKS } from "@contentful/rich-text-types"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { useWindowSize } from "../components/hooks"
 
 import SEO from "../components/seo"
@@ -11,13 +13,15 @@ import SocialMediaBar from "../components/socialMediaBar"
 export default function SingleNews({ data, pageContext }) {
   const { width } = useWindowSize()
   const newsData = data.allContentfulNewsItem.edges[0].node
-  const body = newsData.body ? newsData.body.body : null
+  const body = newsData.body ? newsData.body.json : null
   const byline = newsData.byline ? newsData.byline : null
   const id = newsData["contentful_id"] ? newsData["contentful_id"] : null
   const date = newsData.date ? newsData.date : null
   const image = newsData.headerImage ? newsData.headerImage.fixed.src : null
   const summary = newsData.summary ? newsData.summary.summary : null
   const title = newsData.title ? newsData.title : null
+
+  console.log(body)
 
   const returnHeaderLeft = () => {
     return (
@@ -52,6 +56,25 @@ export default function SingleNews({ data, pageContext }) {
     )
   }
 
+  const NewsImage = ({ file, description }) => {
+    console.log(file["en-US"].url)
+    return (
+      <div>
+        <img src={file["en-US"].url} alt={description["en-US"]} />
+        <span>{description["en-US"]}</span>
+      </div>
+    )
+  }
+
+  const options = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: node => {
+        const { file, description } = node.data.target.fields
+        return <NewsImage file={file} description={description} />
+      },
+    },
+  }
+
   return (
     <Layout active="news-article" bgColor="magenta">
       <SEO title="News Article" />
@@ -63,6 +86,7 @@ export default function SingleNews({ data, pageContext }) {
       <div className="news-article__container">
         <SocialMediaBar />
       </div>
+      {documentToReactComponents(body, options)}
     </Layout>
   )
 }
@@ -85,7 +109,7 @@ export const query = graphql`
           }
           byline
           body {
-            body
+            json
           }
         }
       }
