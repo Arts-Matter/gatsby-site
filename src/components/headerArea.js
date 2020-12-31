@@ -29,8 +29,8 @@ export default function HeaderArea({
   const renderCustomTop = () => {
     return (
       <React.Fragment>
-        <div className="top__left">{topLeft}</div>
-        <div className="top__right">{topRight}</div>
+        {topLeft && <div className="top__left">{topLeft}</div>}
+        {topRight && <div className="top__right">{topRight}</div>}
       </React.Fragment>
     )
   }
