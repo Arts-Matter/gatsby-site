@@ -59,8 +59,8 @@ export default function SingleNews({ data, pageContext }) {
   const NewsImage = ({ file, description }) => {
     return (
       <div className="news-article__image">
-        <img src={file["en-US"].url} alt={description["en-US"]} />
-        <div>{description["en-US"]}</div>
+        {file && <img src={file["en-US"].url} alt={description ? description["en-US"]: ""} />}
+        {description && <div>{description["en-US"]}</div>}
       </div>
     )
   }
