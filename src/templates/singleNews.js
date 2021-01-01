@@ -15,7 +15,6 @@ export default function SingleNews({ data, pageContext }) {
   const newsData = data.allContentfulNewsItem.edges[0].node
   const body = newsData.body ? newsData.body.json : null
   const byline = newsData.byline ? newsData.byline : null
-  const id = newsData["contentful_id"] ? newsData["contentful_id"] : null
   const date = newsData.date ? newsData.date : null
   const image = newsData.headerImage ? newsData.headerImage.fixed.src : null
   const summary = newsData.summary ? newsData.summary.summary : null
