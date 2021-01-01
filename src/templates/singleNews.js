@@ -123,7 +123,7 @@ export const query = graphql`
           contentful_id
           date
           headerImage {
-            fixed {
+            fixed(quality: 100, width: 850) {
               src
             }
           }
