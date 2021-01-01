@@ -14,8 +14,12 @@
 .social-media-bar__image {
   width: 30px;
   height: 30px;
-  background-color: #cc4faa;
+  background-color: var(--magenta);
   margin-bottom: 0;
+
+  &:before {
+    content: none;
+  }
 }
 
 #fb-logo.social-media-bar__image {
@@ -31,7 +35,7 @@
   mask: url("../images/twitter.svg") no-repeat 50% 50%;
   -webkit-mask-size: contain;
   mask-size: contain;
-  margin-right: 24px;
+  margin-right: var(--spacing-s);
 }
 
 #email-logo.social-media-bar__image {

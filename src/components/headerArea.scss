@@ -67,14 +67,14 @@
 
   h1 {
     font-size: 45px;
-    line-height: 59px;
+    line-height: var(--mobileSectionTitleLineHeight);
     margin-top: 30px;
   }
 
   h6 {
     font-family: var(--visueltRegular);
-    font-size: 17px;
-    line-height: 27px;
+    font-size: var(--paragraphFontSize);
+    line-height: var(--paragraphLineHeight);
     margin-top: 12px;
     text-transform: capitalize;
     letter-spacing: 0;
@@ -84,8 +84,8 @@
 
   h4 {
     font-family: var(--scopeOne);
-    font-size: 22px;
-    line-height: 35px;
+    font-size: var(--headerFontSizeTertiary);
+    line-height: var(--headerLineHeightSecondary);
     margin-top: 148px;
     font-weight: normal;
     color: var(--black);
@@ -151,20 +151,20 @@
   }
 
   .news-article .top__left {
-    font-size: 26px;
+    font-size: var(--mobileTitleFontSize);
     line-height: 24px;
     margin-bottom: 8px;
     margin-right: 0;
 
     h1 {
-      font-size: 26px;
-      line-height: 34px;
-      margin-top: 24px;
+      font-size: var(--mobileTitleFontSize);
+      line-height: var(--mobileHeaderLineHeightPrimary);
+      margin-top: var(--spacing-s);
     }
 
     h6 {
-      font-size: 14px;
-      line-height: 23px;
+      font-size: var(--mobileParagraphFontSize);
+      line-height: var(--mobileParagraphLineHeight);
     }
 
     .top__image {
@@ -174,9 +174,9 @@
     }
 
     h4 {
-      margin-top: 42px;
-      font-size: 16px;
-      line-height: 26px;
+      margin-top: var(--spacing-m);
+      font-size: var(--mobileSectionSubTitleFontSize);
+      line-height: var(--mobileSectionSubTitleLineHeight);
     }
   }
 
@@ -222,12 +222,12 @@
 
   .news-archive .top {
     display: block;
-    border-top: 2px solid var(--black);
+    border-top: var(--border-thick-black);
   }
 
   .news-archive .top__title {
-    font-size: 26px;
-    line-height: 34px;
+    font-size: var(--mobileTitleFontSize);
+    line-height: var(--mobileHeaderLineHeightPrimary);
     margin-top: 18px;
     margin-bottom: 0px;
   }
