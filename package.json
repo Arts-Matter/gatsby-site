@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Jason Zinn <jason@zinnfinity.com>",
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^14.1.2",
+    "@contentful/rich-text-types": "^14.1.2",
     "@fullpage/react-fullpage": "^0.1.18",
     "dotenv": "^8.2.0",
     "gatsby": "^2.24.47",

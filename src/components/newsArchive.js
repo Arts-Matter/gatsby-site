@@ -46,9 +46,7 @@ export default function NewsArchive() {
       imgSrc,
     }
 
-    if (title && date && contentful_id && summary && imgSrc) {
-      news.push(newNewsItem)
-    }
+    news.push(newNewsItem);
 
     return news
   }, [])
@@ -62,6 +60,7 @@ export default function NewsArchive() {
             date={item.date}
             title={item.title}
             key={item.contentfulId}
+            id={item.contentfulId}
           />
         )
       })}
