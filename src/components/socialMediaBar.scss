@@ -3,47 +3,16 @@
 
   ul {
     margin: 0;
+    display: flex;
   }
 
-  a {
-    text-decoration: none;
-    display: inline-block;
+  li {
+    margin: 0;
   }
-}
 
-.social-media-bar__image {
-  width: 30px;
-  height: 30px;
-  background-color: var(--magenta);
-  margin-bottom: 0;
-
-  &:before {
-    content: none;
+  button {
+    margin-right: 18px;
   }
-}
-
-#fb-logo.social-media-bar__image {
-  -webkit-mask: url("../images/fb.svg") no-repeat 50% 50%;
-  mask: url("../images/fb.svg") no-repeat 50% 50%;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  margin-right: 18px;
-}
-
-#twitter-logo.social-media-bar__image {
-  -webkit-mask: url("../images/twitter.svg") no-repeat 50% 50%;
-  mask: url("../images/twitter.svg") no-repeat 50% 50%;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  margin-right: var(--spacing-s);
-}
-
-#email-logo.social-media-bar__image {
-  -webkit-mask: url("../images/mail.svg") no-repeat 50% 50%;
-  mask: url("../images/mail.svg") no-repeat 50% 50%;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  margin-right: 0;
 }
 
 @media only screen and (max-width: 889px) {
