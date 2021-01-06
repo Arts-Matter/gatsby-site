@@ -69,7 +69,6 @@
 }
 
 .gallery-image__2 {
-
   z-index: 2;
   left: 0px;
   bottom: 0px;
@@ -145,5 +144,11 @@
 @media only screen and (max-width: 889px) {
   .gallery-wrapper {
     margin-bottom: 48px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .gallery-image__caption--active {
+    display: none;
   }
 }
