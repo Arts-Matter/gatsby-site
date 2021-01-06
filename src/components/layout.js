@@ -54,7 +54,7 @@ const Layout = ({ children, active, bgColor }) => {
       <FooterContactForm
         activePage={active}
         bgColor={
-          (active === "news-archive" || active === "contact")
+          (active.includes("news-") || active === "contact")
           ? "aqua"
           : "magenta"
         }

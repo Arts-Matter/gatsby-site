@@ -3,8 +3,9 @@
 }
 
 .news.footer-contact,
-.news-archive.footer-contact {
-  margin-top: 160px;
+.news-archive.footer-contact,
+.news-article.footer-contact.aqua {
+  margin-top: var(--footerContactMargin);
 }
 
 .footer-contact {
@@ -67,7 +68,7 @@
   height: var(--formElementHeight);
   width: 350px;
   padding: var(--formElementPadding);
-  font-size: 22px;
+  font-size: var(--headerFontSizeTertiary);
   font-family: var(--visueltRegular);
   color: var(--black);
   text-transform: lowercase;
@@ -132,7 +133,7 @@
   }
 
   .news-archive.footer-contact {
-    margin-top: 160px;
+    margin-top: var(--footerContactMargin);
   }
 
   .footer-contact__container {
