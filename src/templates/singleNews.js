@@ -20,6 +20,7 @@ export default function SingleNews({ data, pageContext }) {
   const image = newsData.headerImage ? newsData.headerImage.fixed.src : null
   const summary = newsData.summary ? newsData.summary.summary : null
   const title = newsData.title ? newsData.title : null
+  const url = window.location.href;
 
   const returnHeaderLeft = () => {
     return (
@@ -106,7 +107,7 @@ export default function SingleNews({ data, pageContext }) {
       <div className="news-article__container">
         <SocialMediaBar
           title={title}
-          url={window ? window.location.href : null}
+          url={url}
           hashtags={["#arts-matter"]}
         />
         {documentToReactComponents(body, options)}
