@@ -51,7 +51,6 @@ const Layout = ({ children, active, bgColor }) => {
       {active === "news" && (
         <NewsFeed contentContainerRef={contentContainerRef} />
       )}
-      {active === "programs" && <WhereItStarted />}
       <FooterContactForm
         activePage={active}
         bgColor={
