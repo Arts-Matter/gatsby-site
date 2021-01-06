@@ -13,7 +13,6 @@ const MiniContent = ({ content }) => {
   }
 
   const toggleProgram = index => {
-    console.log("Clicked program")
     setActiveItem(index)
     toggleNav()
   }
