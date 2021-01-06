@@ -20,7 +20,7 @@ export default function SingleNews({ data, pageContext }) {
   const image = newsData.headerImage ? newsData.headerImage.fixed.src : null
   const summary = newsData.summary ? newsData.summary.summary : null
   const title = newsData.title ? newsData.title : null
-  const url = window.location.href;
+  const url = typeof window !== `undefined` ? window.location.href : null;
 
   const returnHeaderLeft = () => {
     return (
