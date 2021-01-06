@@ -106,7 +106,7 @@ export default function SingleNews({ data, pageContext }) {
       <div className="news-article__container">
         <SocialMediaBar
           title={title}
-          url={window.location.href}
+          url={window ? window.location.href : null}
           hashtags={["#arts-matter"]}
         />
         {documentToReactComponents(body, options)}
