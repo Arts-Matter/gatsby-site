@@ -105,7 +105,7 @@ export default function SingleNews({ data, pageContext }) {
         customTop={true}
       />
       <div className="news-article__container">
-        <SocialMediaBar title={title} url={url} hashtags={["#arts-matter"]} />
+        <SocialMediaBar title={title} url={url} hashtags={["arts-matter"]} />
         {documentToReactComponents(body, options)}
       </div>
     </Layout>
