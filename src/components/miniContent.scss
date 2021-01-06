@@ -65,10 +65,16 @@
     }
 
     li {
-      font-family: var(--visueltRegular);
       list-style: none;
       padding: 8px 0;
       margin-bottom: 0;
+    }
+
+    button {
+      font-family: var(--visueltBold);
+      background-color: transparent;
+      border: 0;
+      border-radius: 0;
     }
   }
 
@@ -133,14 +139,25 @@
     }
 
     li {
-      font-family: var(--visueltBold);
-      font-size: 15px;
+      
       list-style: none;
       margin-bottom: 30px;
       cursor: pointer;
 
       &.active {
-        color: var(--white);
+
+        button {
+          color: var(--white);
+        }
+      }
+
+      button {
+        font-family: var(--visueltBold);
+        font-size: 15px;
+        background-color: transparent;
+        border: 0;
+        border-radius: 0;
+        cursor: pointer;
       }
     }
   }

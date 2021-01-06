@@ -6,15 +6,16 @@ import "./miniContent.scss"
 const MiniContent = ({ content }) => {
   const [activeItem, setActiveItem] = React.useState(0)
   const { width } = useWindowSize()
-  const nav = React.useRef(null);
+  const nav = React.useRef(null)
 
   const toggleNav = () => {
-    nav.current.classList.toggle('open');
+    nav.current.classList.toggle("open")
   }
 
-  const toggleProgram = (index) => {
+  const toggleProgram = index => {
+    console.log("Clicked program")
     setActiveItem(index)
-    toggleNav();
+    toggleNav()
   }
 
   if (width > 1080) {
@@ -25,12 +26,13 @@ const MiniContent = ({ content }) => {
             <ul>
               {content.map((item, index) => {
                 return (
-                  <li
-                    key={index}
-                    class={index === activeItem && "active"}
-                    onClick={() => toggleProgram(index)}
-                  >
-                    {item.name}
+                  <li key={index} class={index === activeItem && "active"}>
+                    <button
+                      onClick={() => toggleProgram(index)}
+                      onKeyUp={() => toggleProgram(index)}
+                    >
+                      {item.name}
+                    </button>
                   </li>
                 )
               })}
@@ -55,20 +57,23 @@ const MiniContent = ({ content }) => {
     <div class="mini-content-wrapper">
       <div class="mobile-mini-content">
         <div class="mini-content__nav" ref={nav}>
-          <div class="mini-content__nav-bar" onClick={toggleNav}>
-            <div class="mini-content__nav-title">{content[activeItem].name}</div>
+          <div class="mini-content__nav-bar" role="button" tabIndex={0} onClick={toggleNav} onkeypress={toggleNav}>
+            <div class="mini-content__nav-title">
+              {content[activeItem].name}
+            </div>
             <div class="mini-content__nav-icon"></div>
           </div>
           <div class="mini-content__options-panel">
             <ul>
               {content.map((item, index) => {
                 return (
-                  <li
-                    key={index}
-                    class={index === activeItem && "active"}
-                    onClick={() => toggleProgram(index)}
-                  >
-                    {item.name}
+                  <li key={index} class={index === activeItem && "active"}>
+                    <button
+                      onClick={() => toggleProgram(index)}
+                      onKeyUp={() => toggleProgram(index)}
+                    >
+                      {item.name}
+                    </button>
                   </li>
                 )
               })}

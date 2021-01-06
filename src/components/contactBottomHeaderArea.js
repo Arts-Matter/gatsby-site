@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-onchange */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from "react"
 import "./contactBottomHeaderArea.scss"
 
@@ -101,8 +103,8 @@ class ContactBottomHeaderArea extends Component {
                 </div>
                 <div class="form-row"> 
                     <div class="textarea-wrapper">
-                        <label>Message</label>
-                        <textarea name="message" value={message} onChange={this.handleChange} required />
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" value={message} onChange={this.handleChange} required />
                     </div>
                 </div>
                 <input type="submit" value="Submit" />
