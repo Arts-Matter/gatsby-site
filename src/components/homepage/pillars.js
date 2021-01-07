@@ -14,7 +14,7 @@ const PillarsSection = () => {
       description: 'Arts integration has a range of positive effects on student learning, including content retention, improved engagement, and persistence in pursuing positive academic outcomes.',
       link: {
         text: 'Read More',
-        url: 'http://www.artsmatter.org/about?topic=student-engagement#student-engagement'
+        url: '/about?topic=student-engagement#program-pillars'
       }
     },
     {
@@ -23,7 +23,7 @@ const PillarsSection = () => {
       description: 'Arts integration is an approach to teaching that has a positive effect on teachers, with studies showing that incorporating the arts into their toolbox of pedagogical strategies energizes teachers and enhances their enthusiasm for teaching.',
       link: {
         text: 'Read More',
-        url: 'http://www.artsmatter.org/about?topic=teacher-engagement#teacher-development'
+        url: '/about?topic=teacher-engagement#program-pillars'
       }
     }
   ]
