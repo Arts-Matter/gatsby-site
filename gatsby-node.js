@@ -20,6 +20,7 @@ exports.createPages = async ({ actions, graphql }) => {
           node {
             contentful_id
             title
+            date
           }
         }
       }
@@ -31,9 +32,10 @@ exports.createPages = async ({ actions, graphql }) => {
     // We will want to replace this slug with something more meaningful
     const slug = convertTitleToSlug(edge.node.title)
     const id = edge.node["contentful_id"]
+    const date = edge.node.date
 
     actions.createPage({
-      path: `news/${slug ? slug : id}`,
+      path: `news${date ? '/' + date : ''}/${slug ? slug : id}`,
       component: require.resolve("./src/templates/singleNews.js"),
       context: { id }, // Pass ID to get news item in template
     })

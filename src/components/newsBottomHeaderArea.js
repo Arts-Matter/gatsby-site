@@ -54,7 +54,7 @@ export default function NewsBottomHeaderArea() {
         {contentful_id && (
           <Link
             className="bottom-left__link"
-            to={`/news/${slug ? slug : contentful_id}`}
+            to={`/news${date ? "/" + date : ""}/${slug ? slug : contentful_id}`}
           >
             <div className="bottom-left__more"></div>
           </Link>

@@ -21,7 +21,10 @@ export default function NewsItem({
         className={hoverEffects ? "news-item news-item--hover" : "news-item"}
       >
         <div className="news-item__back-panel"></div>
-        <Link className="news-item__link" to={`/news/${slug ? slug : id}`}>
+        <Link
+          className="news-item__link"
+          to={`/news${date ? "/" + date : ""}/${slug ? slug : id}`}
+        >
           <div className="news-item__wrapper">
             <div className="news-item__image-container">
               {image && (
