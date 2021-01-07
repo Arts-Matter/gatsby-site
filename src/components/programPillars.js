@@ -165,7 +165,7 @@ export default function ProgramPillars() {
           <AccordionItem
             className="pillar"
             key={`${pillar.title}${i}`}
-            uuid={`${pillar.title.replace(" ", "-")}`}
+            uuid={`${pillar.title.replace(/[/\s]/g, "-").toLowerCase()}`}
           >
             <AccordionItemHeading>
               <AccordionItemButton className="accordion__button">
