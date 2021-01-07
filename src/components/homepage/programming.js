@@ -4,32 +4,12 @@ import ImageGallery from "../imageGallery"
 import { useWindowSize } from "../hooks"
 import "./programming.scss"
 
-const ProgrammingSection = () => {
+const ProgrammingSection = ({ images }) => {
   const { width } = useWindowSize()
-
-  const images = [
-    {
-      src: "/1.jpg",
-      title: "Paramount",
-      caption: "Students give final project presentations to animation staff and executives before a special screening on the Paramount lot."
-    },
-    {
-      src: "/2.jpg",
-      title: "LA2030",
-      caption: "Students designing sustainable cities using Epic Games 3D visualization tool Twinmotion."
-    },
-    {
-      src: "/3.jpg",
-      title: "Media ArtsMatter",
-      caption: "Teachers at Nickelodeon for an animation 101 training and tour of the studios."
-    },
-  ]
 
   const controls = {
     theme: "light",
   }
-
-  // TODO: Add images from Contentful
 
   return (
     <div className="section__content section--programming__content">

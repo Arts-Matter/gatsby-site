@@ -4,26 +4,12 @@ import ImageGallery from "../imageGallery"
 import { useWindowSize } from "../hooks"
 import "./about.scss"
 
-const AboutSection = () => {
+const AboutSection = ({images}) => {
   const { width } = useWindowSize()
-
-  const images = [
-    {
-      src: "/1.jpg",
-    },
-    {
-      src: "/2.jpg",
-    },
-    {
-      src: "/3.jpg",
-    },
-  ]
 
   const controls = {
     theme: "light",
   }
-
-  // TODO: Add images from Contentful
 
   return (
     <div className="section__content section--about__content">
