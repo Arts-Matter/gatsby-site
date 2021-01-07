@@ -1,5 +1,5 @@
 import React from "react"
-import MiniContent from '../miniContent'
+import MiniContent from "../miniContent"
 import Button from "../button"
 import { useWindowSize } from "../hooks"
 import "./pillars.scss"
@@ -9,23 +9,65 @@ const PillarsSection = () => {
 
   const content = [
     {
-      name: 'Student Engagement',
-      title: 'Improve Student Learning In and through the Arts',
-      description: 'Arts integration has a range of positive effects on student learning, including content retention, improved engagement, and persistence in pursuing positive academic outcomes.',
+      name: "Student Engagement",
+      title: "Improve Student Learning In and through the Arts",
+      description:
+        "Arts integration has a range of positive effects on student learning, including content retention, improved engagement, and persistence in pursuing positive academic outcomes.",
       link: {
-        text: 'Read More',
-        url: '/about?topic=student-engagement#program-pillars'
-      }
+        text: "Read More",
+        url: "/about?topic=student-engagement#program-pillars",
+      },
     },
     {
-      name: 'Teacher Development',
-      title: 'Improve Teacher Capacity through Professional Development',
-      description: 'Arts integration is an approach to teaching that has a positive effect on teachers, with studies showing that incorporating the arts into their toolbox of pedagogical strategies energizes teachers and enhances their enthusiasm for teaching.',
+      name: "Teacher Development",
+      title: "Improve Teacher Capacity through Professional Development",
+      description:
+        "Arts integration is an approach to teaching that has a positive effect on teachers, with studies showing that incorporating the arts into their toolbox of pedagogical strategies energizes teachers and enhances their enthusiasm for teaching.",
       link: {
-        text: 'Read More',
-        url: '/about?topic=teacher-engagement#program-pillars'
-      }
-    }
+        text: "Read More",
+        url: "/about?topic=teacher-development#program-pillars",
+      },
+    },
+    {
+      name: "Access/Opportunity",
+      title: "Increase Access to the Arts in Schools",
+      description:
+        "In LA County, currently 90% of schools offer some arts instruction to some students, yet less than 15% offer yearlong instruction to all students.",
+      link: {
+        text: "Read More",
+        url: "/about?topic=access-opportunity#program-pillars",
+      },
+    },
+    {
+      name: "Creativity",
+      title: "Amplify Student Voice and Expression",
+      description:
+        "If we’re not teaching the arts in schools, we’re telling students that creativity isn’t valued. At the heart of arts integration is engagement in the creative process",
+      link: {
+        text: "Read More",
+        url: "/about?topic=creativity#program-pillars",
+      },
+    },
+    {
+      name: "Innovation",
+      title: "Design and Develop New Media Arts Curriculum",
+      description:
+        "The Media Arts Standards were added to the National Core Arts Standards in 2014 and were incorporated into the California Arts Framework in 2018. But only about 6% of students are participating in Media Arts education in LA",
+      link: {
+        text: "Read More",
+        url: "/about?topic=innovation#program-pillars",
+      },
+    },
+    {
+      name: "Jobs",
+      title: "Build Career Pathways in the Local Economy",
+      description:
+        "1 in 7 jobs in Los Angeles County are in the creative economy. Yet thousands of public school students graduate from high school without any exposure to the skills that would prepare them for these careers in college or beyond.",
+      link: {
+        text: "Read More",
+        url: "/about?topic=jobs#program-pillars",
+      },
+    },
   ]
 
   return (
