@@ -145,7 +145,7 @@ export default function ProgramPillars() {
   }
 
   return (
-    <div className="pillars">
+    <div id="program-pillars" className="pillars">
       <h2 className="pillars__title">Program Pillars</h2>
       <h3 className="pillars__subtitle">
         ArtsMatter draws upon a dynamic catalog of content provided by top

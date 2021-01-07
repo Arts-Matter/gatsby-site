@@ -7,7 +7,6 @@ import "./pillars.scss"
 const PillarsSection = () => {
   const { width } = useWindowSize()
 
-  // TODO: Add Contentful data
   const content = [
     {
       name: 'Student Engagement',
@@ -43,7 +42,7 @@ const PillarsSection = () => {
           </p>
           {width > 889 && (
             <Button
-              url="/about"
+              url="/about#program-pillars"
               text="Go to Pillars"
               size="medium"
               theme="light"
@@ -52,12 +51,9 @@ const PillarsSection = () => {
         </div>
         <div className="right">
           <MiniContent content={content} />
-          {
-            //TODO: Update link to go to program pillars anchor on about page
-          }
           {width < 890 && (
             <Button
-              url="/about"
+              url="/about#program-pillars"
               text="Go to Pillars"
               size="medium"
               theme="light"
