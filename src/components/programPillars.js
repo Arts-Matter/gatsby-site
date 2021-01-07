@@ -9,6 +9,13 @@ import {
 } from "react-accessible-accordion"
 
 export default function ProgramPillars() {
+  // Get the topic to preExpand if it exists
+  const queryString =
+    typeof window !== `undefined` ? window.location.search : null
+  const params =
+    queryString && queryString !== "" ? new URLSearchParams(queryString) : null
+  const topic = params ? params.get("topic") : null
+
   const pillars = [
     {
       title: "student engagement",
@@ -153,9 +160,13 @@ export default function ProgramPillars() {
         produce standards-based arts education programming to support Los
         Angeles students, teachers, and schools.
       </h3>
-      <Accordion allowZeroExpanded>
+      <Accordion allowZeroExpanded preExpanded={topic ? [topic] : []}>
         {pillars.map((pillar, i) => (
-          <AccordionItem className="pillar" key={`${pillar.title}${i}`}>
+          <AccordionItem
+            className="pillar"
+            key={`${pillar.title}${i}`}
+            uuid={`${pillar.title.replace(" ", "-")}`}
+          >
             <AccordionItemHeading>
               <AccordionItemButton className="accordion__button">
                 {createPillarTitle(i, pillar.title)}
