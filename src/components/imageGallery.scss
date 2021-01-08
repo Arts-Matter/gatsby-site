@@ -42,6 +42,10 @@
   display: block;
 }
 
+.section--about .gallery-image__caption--active {
+  display: none;
+}
+
 .gallery-image__caption-title {
   font-family: var(--ibmPlexMono);
   font-size: 18px;

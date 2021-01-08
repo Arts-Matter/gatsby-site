@@ -26,8 +26,37 @@ const Layout = ({ children, active, bgColor }) => {
           title
         }
       }
+      allContentfulListOfThings(
+        filter: { listName: { eq: "About page quotes" } }
+      ) {
+        edges {
+          node {
+            listName
+            entries {
+              ... on ContentfulQuote {
+                quoteText {
+                  quoteText
+                }
+                attribution
+              }
+            }
+          }
+        }
+      }
     }
   `)
+
+  const quotes = data.allContentfulListOfThings.edges[0].node.entries.reduce(
+    (quotes, curQuote) => {
+      const quote = curQuote.quoteText ? curQuote.quoteText.quoteText : null
+      const tag = curQuote.attribution ? curQuote.attribution : null
+
+      if (quote && tag) quotes.push({ quote, tag })
+
+      return quotes
+    },
+    []
+  )
 
   // Used to position news page news feed on larger screens
   const contentContainerRef = useRef()
@@ -47,16 +76,14 @@ const Layout = ({ children, active, bgColor }) => {
           </div>
         </section>
       </main>
-      {active === "about" && <Quotes />}
+      {active === "about" && <Quotes quotes={quotes} />}
       {active === "news" && (
         <NewsFeed contentContainerRef={contentContainerRef} />
       )}
       <FooterContactForm
         activePage={active}
         bgColor={
-          (active.includes("news-") || active === "contact")
-          ? "aqua"
-          : "magenta"
+          active.includes("news-") || active === "contact" ? "aqua" : "magenta"
         }
       />
       <Footer />
