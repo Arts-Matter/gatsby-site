@@ -57,7 +57,7 @@ const MiniContent = ({ content }) => {
     <div className="mini-content-wrapper">
       <div className="mobile-mini-content">
         <div className="mini-content__nav" ref={nav}>
-          <div className="mini-content__nav-bar" role="button" tabIndex={0} onClick={toggleNav} onkeypress={toggleNav}>
+          <div className="mini-content__nav-bar" role="button" tabIndex={0} onClick={toggleNav} onKeyPress={toggleNav}>
             <div className="mini-content__nav-title">
               {content[activeItem].name}
             </div>
@@ -67,7 +67,7 @@ const MiniContent = ({ content }) => {
             <ul>
               {content.map((item, index) => {
                 return (
-                  <li key={index} className={index === activeItem && "active"}>
+                  <li key={index} className={index === activeItem ? "active" : ""}>
                     <button
                       onClick={() => toggleProgram(index)}
                       onKeyUp={() => toggleProgram(index)}
