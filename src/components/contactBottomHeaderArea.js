@@ -85,11 +85,11 @@ class ContactBottomHeaderArea extends Component {
                 <input type="hidden" name="form-name" value="contact-form" />
                 <input type="hidden" name="bot-field" />
                 
-                <div class="form-row">
+                <div className="form-row">
                     <input type="text" name="firstName" placeholder="First Name" value={firstName} onChange={this.handleChange} required />
                     <input type="text" name="lastName" placeholder="Last Name" value={lastName} onChange={this.handleChange} required/>
                 </div>
-                <div class="form-row"> 
+                <div className="form-row"> 
                     <input type="email" name="email" placeholder="Email" value={email} onChange={this.handleChange} required />
                     <select name="subject" value={subject} onChange={this.handleChange}>
                         <option value="Subject">Subject</option>
@@ -101,8 +101,8 @@ class ContactBottomHeaderArea extends Component {
                         <option value="Donations">Donations</option>
                     </select>
                 </div>
-                <div class="form-row"> 
-                    <div class="textarea-wrapper">
+                <div className="form-row"> 
+                    <div className="textarea-wrapper">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" value={message} onChange={this.handleChange} required />
                     </div>
@@ -118,11 +118,11 @@ class ContactBottomHeaderArea extends Component {
         const bottomRight = (
             <div>
                 <h3>Address</h3>
-                <p class="contact-detail">202 W. 1st Street, Suite 160
+                <p className="contact-detail">202 W. 1st Street, Suite 160
                 <p>Los Angeles, CA 90012</p>
                 </p>
                 <h3>Phone</h3>
-                <p class="contact-detail">(213) 745-4928</p>
+                <p className="contact-detail">(213) 745-4928</p>
             </div>
         )
 

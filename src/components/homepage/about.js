@@ -13,7 +13,7 @@ const AboutSection = ({images}) => {
 
   return (
     <div className="section__content section--about__content">
-      <div class="content-container">
+      <div className="content-container">
         <div className="left">
           <h3 className="section__title section--about__title">
             We provide high-impact arts education programming for Los Angeles
@@ -30,7 +30,7 @@ const AboutSection = ({images}) => {
         </div>
         <div className="right">
           <ImageGallery images={images} controls={controls} />
-          {width > 889 && <div class="color" />}
+          {width > 889 && <div className="color" />}
           {width < 890 && (
             <Button
               url="/about"

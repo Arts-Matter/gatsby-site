@@ -72,7 +72,7 @@ const PillarsSection = () => {
 
   return (
     <div className="section__content section--pillars__content">
-      <div class="content-container">
+      <div className="content-container">
         <div className="left">
           <h3 className="section__title section--pillars__title">
             Program Pillars

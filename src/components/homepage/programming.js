@@ -13,7 +13,7 @@ const ProgrammingSection = ({ images }) => {
 
   return (
     <div className="section__content section--programming__content">
-      <div class="content-container">
+      <div className="content-container">
         <div className="left">
           <h3 className="section__title section--programming__title">
             Current Programming
@@ -30,7 +30,7 @@ const ProgrammingSection = ({ images }) => {
         </div>
         <div className="right">
           <ImageGallery images={images} controls={controls} />
-          {width > 889 && <div class="color" />}
+          {width > 889 && <div className="color" />}
           {width < 890 && (
             <Button
               url="/programs"

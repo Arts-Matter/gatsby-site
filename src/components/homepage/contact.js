@@ -41,8 +41,8 @@ const ContactSection = () => {
 
   return (
     <div className="section--contact__content">
-      <div class="content-container">
-        <div class="content-wrapper">
+      <div className="content-container">
+        <div className="content-wrapper">
           <Quotes quotes={quotes} />
           <FooterContactForm bgColor="" />
         </div>
