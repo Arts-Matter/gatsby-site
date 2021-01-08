@@ -80,7 +80,7 @@ export default function NewsFeed({ contentContainerRef }) {
                 date={item.date}
                 title={item.title}
                 description={item.summary}
-                id={item.contentfulId}
+                contentful_id={item.contentfulId}
                 key={item.contentfulId}
                 hoverEffects={width > 889 ? true : false}
               />

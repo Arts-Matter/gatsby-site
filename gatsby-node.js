@@ -29,7 +29,6 @@ exports.createPages = async ({ actions, graphql }) => {
 
   // Create single news page(s)
   data.allContentfulNewsItem.edges.forEach(edge => {
-    // We will want to replace this slug with something more meaningful
     const slug = convertTitleToSlug(edge.node.title)
     const id = edge.node["contentful_id"]
     const date = edge.node.date
