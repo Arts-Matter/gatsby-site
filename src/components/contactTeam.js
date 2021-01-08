@@ -1,13 +1,10 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import "./team.scss"
-import { useWindowSize } from "./hooks"
 
 import TeamMember from "./teamMember"
 
 export default function ContactPageTeam() {
-    const { width } = useWindowSize()
-
     const data = useStaticQuery(graphql`
     {
       allContentfulListOfThings(
