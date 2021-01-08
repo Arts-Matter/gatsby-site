@@ -7,25 +7,28 @@ import { convertTitleToSlug } from "./helpers"
 export default function NewsBottomHeaderArea() {
   const data = useStaticQuery(graphql`
     {
-      allContentfulNewsItem(
-        filter: { contentful_id: { eq: "53h9cnhCcWudxIJbiLLOCg" } }
+      allContentfulSingleton(
+        filter: { singletonName: { eq: "Featured news item" } }
       ) {
         edges {
           node {
-            title
-            byline
-            date
-            headerImage {
-              fixed {
-                src
+            singletonName
+            entry {
+              ... on ContentfulNewsItem {
+                byline
+                title
+                date
+                headerImage {
+                  fixed(width: 600, quality: 100) {
+                    src
+                  }
+                }
+                summary {
+                  summary
+                }
+                contentful_id
               }
             }
-            summary {
-              internal {
-                content
-              }
-            }
-            contentful_id
           }
         }
       }
@@ -35,13 +38,12 @@ export default function NewsBottomHeaderArea() {
   const {
     title,
     date,
+    summary,
     contentful_id,
-  } = data.allContentfulNewsItem.edges[0].node
-  const summary =
-    data.allContentfulNewsItem.edges[0].node.summary.internal.content
-  const imgSrc = data.allContentfulNewsItem.edges[0].node.headerImage.fixed.src
+    headerImage,
+  } = data.allContentfulSingleton.edges[0].node.entry
   const slug = title ? convertTitleToSlug(title) : null
-
+ 
   return (
     <>
       <div className="bottom-left">
@@ -50,7 +52,9 @@ export default function NewsBottomHeaderArea() {
           {date}&nbsp;&nbsp;|&nbsp;&nbsp;News
         </div>
         {title && <div className="bottom-left__title">{title}</div>}
-        {summary && <div className="bottom-left__description">{summary}</div>}
+        {summary && (
+          <div className="bottom-left__description">{summary.summary}</div>
+        )}
         {contentful_id && (
           <Link
             className="bottom-left__link"
@@ -61,11 +65,11 @@ export default function NewsBottomHeaderArea() {
         )}
       </div>
       <div className="bottom-right">
-        {imgSrc && (
+        {headerImage && (
           <div className="bottom-right__image-container">
             <div
               className="bottom-right__image"
-              style={{ backgroundImage: `url(${imgSrc})` }}
+              style={{ backgroundImage: `url(${headerImage.fixed.src})` }}
             ></div>
           </div>
         )}
