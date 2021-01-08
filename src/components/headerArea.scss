@@ -92,6 +92,11 @@
   }
 }
 
+.contact .top__left {
+  flex: unset;
+  width: 100%;
+}
+
 .top__right {
   flex: 0 1 50%;
   padding-left: var(--spacing-s);

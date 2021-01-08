@@ -96,6 +96,10 @@
   background-color: var(--tomato);
 }
 
+.contact.aqua .contact-form__button {
+  background-color: var(--geo);
+}
+
 @media only screen and (max-width: 1080px) {
   .footer-contact__container {
     margin: 32px 0 40px 0;
