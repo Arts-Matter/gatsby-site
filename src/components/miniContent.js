@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby";
 import PropTypes from "prop-types"
 import { useWindowSize } from "./hooks"
 import "./miniContent.scss"
@@ -42,9 +43,9 @@ const MiniContent = ({ content }) => {
               <h4>{content[activeItem].name}</h4>
               <h3>{content[activeItem].title}</h3>
               <p>{content[activeItem].description}</p>
-              <a href={content[activeItem].link.url}>
+              <Link to={content[activeItem].link.url}>
                 {content[activeItem].link.text}
-              </a>
+              </Link>
             </div>
           </div>
         </div>

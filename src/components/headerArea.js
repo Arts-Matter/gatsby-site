@@ -6,12 +6,14 @@ export default function HeaderArea({
   topRight,
   bottom,
   backgroundClass,
+  customTop,
 }) {
   const topRightDefault =
     "ArtsMatter draws upon a dynamic catalogue of content provided by top artists and creators to produce high-impact arts education programming for Los Angeles schools."
-  return (
-    <div className={`header-area${backgroundClass ? " " + backgroundClass : ""}`}>
-      <div className="top">
+
+  const renderDefaultTop = () => {
+    return (
+      <React.Fragment>
         <div className="top__left">
           <h1 className="top__title">{topLeft}</h1>
         </div>
@@ -20,6 +22,24 @@ export default function HeaderArea({
             {topRight ? topRight : topRightDefault}
           </h3>
         </div>
+      </React.Fragment>
+    )
+  }
+
+  const renderCustomTop = () => {
+    return (
+      <React.Fragment>
+        {topLeft && <div className="top__left">{topLeft}</div>}
+        {topRight && <div className="top__right">{topRight}</div>}
+      </React.Fragment>
+    )
+  }
+  return (
+    <div
+      className={`header-area${backgroundClass ? " " + backgroundClass : ""}`}
+    >
+      <div className="top">
+        {customTop === true ? renderCustomTop() : renderDefaultTop()}
       </div>
       {bottom && <div className="bottom">{bottom}</div>}
     </div>

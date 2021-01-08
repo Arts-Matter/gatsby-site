@@ -15,7 +15,7 @@ const bottom = <ProgramsBottomHeaderArea />
 const Page = () => (
   <Layout active="programs" bgColor="geo">
     <SEO title={title} />
-    <HeaderArea topLeft="Programs" backgroundClass="aqua" bottom={bottom} />
+    <HeaderArea topLeft="Programs" backgroundClass="aqua" />
     <StudentEngagementOpportunities />
     <TeacherDevelopment />
     <ProgramResources />

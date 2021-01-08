@@ -42,6 +42,10 @@
   display: block;
 }
 
+.section--about .gallery-image__caption--active {
+  display: none;
+}
+
 .gallery-image__caption-title {
   font-family: var(--ibmPlexMono);
   font-size: 18px;
@@ -69,7 +73,6 @@
 }
 
 .gallery-image__2 {
-
   z-index: 2;
   left: 0px;
   bottom: 0px;
@@ -145,5 +148,11 @@
 @media only screen and (max-width: 889px) {
   .gallery-wrapper {
     margin-bottom: 48px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .gallery-image__caption--active {
+    display: none;
   }
 }

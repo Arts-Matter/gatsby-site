@@ -1,7 +1,42 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+exports.createPages = async ({ actions, graphql }) => {
+  const convertTitleToSlug = title => {
+    if (title) {
+      // Remove anything that is not alpha numeric, "/", or " "
+      const slugNoSpecialChars = title.replace(/[^0-9a-zA-Z/\s]/g, "")
+      // Replace "/", or " ", with "-"
+      // If consecutive "-"s replace with "-"
+      return slugNoSpecialChars
+        .replace(/[/\s]/g, "-")
+        .replace(/--+/g, "-")
+        .toLowerCase()
+    }
+    return null
+  }
 
-// You can delete this file if you're not using it
+  const { data } = await graphql(`
+    query {
+      allContentfulNewsItem(sort: { fields: date, order: DESC }) {
+        edges {
+          node {
+            contentful_id
+            title
+            date
+          }
+        }
+      }
+    }
+  `)
+
+  // Create single news page(s)
+  data.allContentfulNewsItem.edges.forEach(edge => {
+    const slug = convertTitleToSlug(edge.node.title)
+    const id = edge.node["contentful_id"]
+    const date = edge.node.date
+
+    actions.createPage({
+      path: `news${date ? '/' + date : ''}/${slug ? slug : id}`,
+      component: require.resolve("./src/templates/singleNews.js"),
+      context: { id }, // Pass ID to get news item in template
+    })
+  })
+}

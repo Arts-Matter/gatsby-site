@@ -1,32 +1,53 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import "./aboutBottomHeaderArea.scss"
 
 export default function AboutBottomHeaderArea() {
+  const data = useStaticQuery(graphql`
+    {
+      allContentfulImageWithText(
+        filter: { title: { eq: "About page header content" } }
+      ) {
+        edges {
+          node {
+            image {
+              fixed(width: 600, quality: 100) {
+                src
+              }
+            }
+            description {
+              content {
+                content {
+                  value
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const { description, image } = data.allContentfulImageWithText.edges[0].node
+
   const bottomLeft = (
     <div>
-      <p className="bottom-text">
-        Los Angeles is the world capital of media and entertainment, yet most LA
-        County schools do not prepare students to take on jobs in these
-        industries. ArtsMatter addresses these gaps by creating and sharing
-        educational programming based in media arts to increase exposure and
-        access to career pathways and equip students of color with the skills
-        they need for success in the local creative economy.{" "}
-      </p>
-      <p className="bottom-text">
-        ArtsMatter creates standards-based curriculum and instructional
-        materials to be paired with hands-on Professional Development training
-        for teachers to increase student engagement in schools while building
-        teachers’ capacity to integrate arts learning in their classrooms.
-        Trained teachers then become ambassadors in their larger school
-        communities to activate county-wide impact projects to advance media
-        arts education not only in Los Angeles, but in every city across the
-        country.{" "}
-      </p>
+      {description &&
+        description.content.map((content, i) => (
+          <p key={i} className="bottom-text">
+            {content.content[0].value}
+          </p>
+        ))}
     </div>
   )
   const bottomRight = (
     <div className="image-container">
-      <div className="image"></div>
+      {image && (
+        <div
+          className="image"
+          style={{ backgroundImage: `url(${image.fixed.src})` }}
+        ></div>
+      )}
     </div>
   )
 
