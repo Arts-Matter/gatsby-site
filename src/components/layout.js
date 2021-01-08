@@ -15,7 +15,6 @@ import Panel from "./panel"
 import FooterContactForm from "./footerContactForm"
 import Quotes from "./quotes"
 import NewsFeed from "./newsFeed"
-import WhereItStarted from "../components/whereItStarted"
 import "./layout.scss"
 
 const Layout = ({ children, active, bgColor }) => {
