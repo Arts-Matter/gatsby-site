@@ -1,12 +1,15 @@
 import React, { useState } from "react"
+import addToMailChimp from "gatsby-plugin-mailchimp"
 import "./footerContactForm.scss"
 export default function FooterContactForm({ activePage, bgColor }) {
   const [email, setEmail] = useState("")
-  const classes = [
-    bgColor,
-    activePage ? activePage : "",
-    "footer-contact",
-  ]
+  const [result, setResult] = useState("")
+  const classes = [bgColor, activePage ? activePage : "", "footer-contact"]
+
+  const handleSubmit = async (e, email) => {
+    const result = await addToMailChimp(email)
+    setResult(result)
+  }
 
   return (
     <section className={classes.join(" ")}>
@@ -17,7 +20,10 @@ export default function FooterContactForm({ activePage, bgColor }) {
         </div>
         <div className="contact-form">
           <div className="contact-form__container">
-            <div className="contact-form__form">
+            <form
+              className="contact-form__form"
+              onSubmit={e => handleSubmit(e, email)}
+            >
               <input
                 className="contact-form__input"
                 placeholder="your email"
@@ -25,11 +31,16 @@ export default function FooterContactForm({ activePage, bgColor }) {
                 onChange={e => setEmail(e.target.value)}
                 value={email}
                 aria-label="email input"
+                required
               />
-              <button className="contact-form__button" aria-label="submit">
+              <button
+                type="submit"
+                className="contact-form__button"
+                aria-label="submit"
+              >
                 submit
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
@@ -38,5 +49,5 @@ export default function FooterContactForm({ activePage, bgColor }) {
 }
 
 FooterContactForm.defaultProps = {
-  bgColor: 'magenta'
-};
+  bgColor: "magenta",
+}
