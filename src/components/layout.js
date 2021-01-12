@@ -15,6 +15,7 @@ import Panel from "./panel"
 import FooterContactForm from "./footerContactForm"
 import Quotes from "./quotes"
 import NewsFeed from "./newsFeed"
+import WhereItStarted from "./whereItStarted"
 import "./layout.scss"
 
 const Layout = ({ children, active, bgColor }) => {
@@ -79,6 +80,7 @@ const Layout = ({ children, active, bgColor }) => {
       {active === "news" && (
         <NewsFeed contentContainerRef={contentContainerRef} />
       )}
+      {active === "programs" && <WhereItStarted />}
       <FooterContactForm
         activePage={active}
         bgColor={
