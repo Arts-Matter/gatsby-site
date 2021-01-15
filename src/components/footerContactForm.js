@@ -3,12 +3,30 @@ import addToMailChimp from "gatsby-plugin-mailchimp"
 import "./footerContactForm.scss"
 export default function FooterContactForm({ activePage, bgColor }) {
   const [email, setEmail] = useState("")
-  const [result, setResult] = useState("")
+  const [result, setResult] = useState({})
   const classes = [bgColor, activePage ? activePage : "", "footer-contact"]
 
-  const handleSubmit = async (e, email) => {
-    const result = await addToMailChimp(email)
+  const handleSubmit = async e => {
+    e.preventDefault()
+    const result = await addToMailChimp(email, {
+      FNAME: "not supplied",
+      LNAME: "not supplied",
+      MMERGE4: "not supplied",
+    })
     setResult(result)
+  }
+
+  const generateResponse = () => {
+    if (result && result.result && result.result === "error") {
+      if (result.msg.includes("already subscribed"))
+        return "That email is already subscribed!"
+
+      if (result.msg.includes("not valid")) return result.msg
+
+      return "There was a problem subscribing, please try again later"
+    } else if (result && result.result && result.result === "success") {
+      return `Thanks for subscribing ${email}!`
+    }
   }
 
   return (
@@ -20,10 +38,7 @@ export default function FooterContactForm({ activePage, bgColor }) {
         </div>
         <div className="contact-form">
           <div className="contact-form__container">
-            <form
-              className="contact-form__form"
-              onSubmit={e => handleSubmit(e, email)}
-            >
+            <form className="contact-form__form" onSubmit={handleSubmit}>
               <input
                 className="contact-form__input"
                 placeholder="your email"
@@ -44,6 +59,9 @@ export default function FooterContactForm({ activePage, bgColor }) {
           </div>
         </div>
       </div>
+      {Object.keys(result).length > 0 && result.result && (
+        <div className="footer-contact__status-msg">{generateResponse()}</div>
+      )}
     </section>
   )
 }
