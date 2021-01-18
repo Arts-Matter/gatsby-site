@@ -131,6 +131,17 @@
   }
 }
 
+.footer-contact__status-msg {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-family: var(--visueltBold);
+  text-align: center;
+}
+
 @media only screen and (max-width: 889px) {
   .footer-contact {
     margin-top: var(--formElementHeight);
