@@ -14,7 +14,6 @@ export default function NewsFeed({ contentContainerRef }) {
         sort: { fields: date, order: DESC }
         limit: 10
         filter: { title: { ne: "Why #ArtsMatter" } }
-        skip: 1
       ) {
         edges {
           node {
@@ -69,6 +68,7 @@ export default function NewsFeed({ contentContainerRef }) {
     return news
   }, [])
 
+  console.log(data)
   return (
     <div className="news-feed">
       <div className="news-feed__container">
