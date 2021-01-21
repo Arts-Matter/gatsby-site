@@ -60,7 +60,8 @@ export default function ResourcesSearchPanel({ handleFilterChange, handleSearch 
       ]
     },
     {
-      "groupName": "Media Arts Strain",
+      "groupName": "Media Arts Discipline",
+      // Update group slug after data from contentful is update
       "groupSlug": "mediaArtsStrain",
       "children": [
         {
