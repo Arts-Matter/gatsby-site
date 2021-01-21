@@ -11,7 +11,7 @@ import ResourcesNotFound from "../components/resourcesNotFound"
 import "../components/resources.scss"
 
 const Page = ({ data }) => {
-  const title = "Resources"
+  const title = "Instructional Resources"
   const topRight = "Lesson plans, activity guides, instructional media, student worksheets, assessment rubrics, and more provide a standards-based framework for teaching media arts in the classroom with the structure needed for students to learn."
   const resources = data.allContentfulResource.edges
   const [activeResources, setActiveResources] = useState(resources)
