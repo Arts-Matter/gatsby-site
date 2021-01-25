@@ -6,8 +6,8 @@
 }
 
 .resource {
-  margin-top: calc( var(--spacing-s) * 1.5 );
-  padding: calc( var(--spacing-s) * 3) calc( var(--spacing-s) * 2);
+  margin-top: calc(var(--spacing-s) * 1.5);
+  padding: calc(var(--spacing-s) * 3) calc(var(--spacing-s) * 2);
   background-color: var(--oyster);
 
   @media only screen and (max-width: 889px) {
@@ -17,7 +17,7 @@
 
 .resource__columns {
   display: flex;
-  margin-left: calc( var(--spacing-s) * -4 );
+  margin-left: calc(var(--spacing-s) * -4);
 
   @media only screen and (max-width: 889px) {
     display: block;
@@ -27,7 +27,7 @@
 
 .resource__col {
   width: 50%;
-  padding-left: calc( var(--spacing-s) * 4 );
+  padding-left: calc(var(--spacing-s) * 4);
 
   @media only screen and (max-width: 889px) {
     width: 100%;
@@ -37,6 +37,22 @@
       margin-top: 20px;
     }
   }
+}
+
+.resource__col--flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resource__featured-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+  min-height: 250px;
 }
 
 .resource__meta-list {
@@ -72,6 +88,16 @@
   font-size: var(--headerFontSizeTertiary);
 }
 
+.resource__col .button {
+  background-color: var(--magenta);
+  width: 100%;
+  color: var(--white);
+
+  &:after {
+    background-color: var(--white);
+  }
+}
+
 .resource__downloads-title {
   margin-bottom: 16px;
   font-size: 13px;
@@ -105,7 +131,7 @@
     text-decoration: none;
 
     &:after {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       right: 0;
