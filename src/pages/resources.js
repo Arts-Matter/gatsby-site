@@ -1,6 +1,9 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 
+// TODO
+// Update data being pulled for active resources and being passed to results panel
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeaderArea from "../components/headerArea"
