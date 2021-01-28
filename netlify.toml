@@ -1,0 +1,14 @@
+[context.production.environment]
+CONTENTFUL_ENVIRONMENT = "master"
+
+[context.staging.environment]
+CONTENTFUL_ENVIRONMENT = "master"
+
+[context.phase-2.environment]
+CONTENTFUL_ENVIRONMENT = "release-2"
+
+[context.deploy-preview.environment]
+CONTENTFUL_ENVIRONMENT = "release-2"
+
+[context.branch-deploy.environment]
+CONTENTFUL_ENVIRONMENT = "release-2"
