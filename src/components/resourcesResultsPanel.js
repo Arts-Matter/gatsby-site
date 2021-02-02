@@ -12,12 +12,16 @@ const ResourcesResultsPanel = ({ resources }) => {
         return (
           <div key={node.id} className="resource">
             <div className="resource__columns">
-              <div className="resource__col resource__col--flex-center">
-                <div
-                  className="resource__featured-image"
-                  style={{ backgroundImage: "url(/1.jpg)" }}
-                ></div>
-              </div>
+              {node.featuredImage !== null && node.featuredImage.file.url && (
+                <div className="resource__col resource__col--flex-center">
+                  <div
+                    className="resource__featured-image"
+                    style={{
+                      backgroundImage: `url(${node.featuredImage.file.url})`,
+                    }}
+                  ></div>
+                </div>
+              )}
 
               <div className="resource__col">
                 <div className="resource__meta-list">
