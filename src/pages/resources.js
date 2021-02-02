@@ -150,4 +150,61 @@ export const query = graphql`
   }
 `
 
+/**
+ * New query to pull from the Resource Bucket content type
+ * 
+ * Note:
+ * 
+ * - Standard has been removed entirely
+ * - mediaArtsStrain is updated to mediaArtsDiscipline
+ * - We will want to use the title to create a slug, or maybe offer them a slug field for this content type as well (like we will do for news)
+ * - Classroom photos has a max of 3 images
+ * - studentArtwork and instructional resources, we will want to confirm the file type
+ * - videos is a full link right now, but this is just a text field. You will want to see how YouTube embed plugins prefer this string to come and we can update accordingly.
+ */
+/*
+export const query = graphql`
+  {
+    allContentfulResourceBucket {
+      edges {
+        node {
+          gradeLevel
+          mediaArtsDiscipline
+          subjectArea
+          description {
+            description
+          }
+          id
+          title
+          videos
+          instructionalResources {
+            file {
+              fileName
+              contentType
+            }
+            title
+          }
+          featuredImage {
+            file {
+              fileName
+            }
+          }
+          classroomPhotos {
+            file {
+              fileName
+            }
+          }
+          studentArtwork {
+            file {
+              contentType
+              fileName
+            }
+          }
+        }
+      }
+    }
+  }
+`
+*/
+
 export default Page
