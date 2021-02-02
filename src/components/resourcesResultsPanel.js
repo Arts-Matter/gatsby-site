@@ -1,5 +1,4 @@
 import React from "react"
-import { addOrdinalToGrade } from "./utils.js"
 import Button from "./button"
 import "./resourcesResultsPanel.scss"
 
@@ -35,9 +34,9 @@ const ResourcesResultsPanel = ({ resources }) => {
                       })}
                     </span>
                   )}
-                  {node.gradeLevel !== null && (
+                  {node.gradeLevel !== null && node.gradeLevel.length > 0 && (
                     <span className="resource__meta-item">
-                      {addOrdinalToGrade(node.gradeLevel)}
+                      {node.gradeLevel.join(", ")}
                     </span>
                   )}
                   {node.mediaArtsStrain && (
@@ -60,7 +59,7 @@ const ResourcesResultsPanel = ({ resources }) => {
                     <p>{node.description.description}</p>
                   </div>
                 )}
-                <Button url="/news" text="Learn More"/>
+                <Button url="/news" text="Learn More" />
               </div>
 
               {/* <div className="resource__col">
