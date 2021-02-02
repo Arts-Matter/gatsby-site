@@ -13,7 +13,7 @@ const ResourcesResultsPanel = ({ resources }) => {
           <div key={node.id} className="resource">
             <div className="resource__columns">
               {node.featuredImage !== null && node.featuredImage.file.url && (
-                <div className="resource__col resource__col--flex-center">
+                <div className="resource__col">
                   <div
                     className="resource__featured-image"
                     style={{
