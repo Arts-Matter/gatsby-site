@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import { addOrdinalToGrade } from "./utils.js"
 import Button from "./button"
 import "./resourcesResultsPanel.scss"
