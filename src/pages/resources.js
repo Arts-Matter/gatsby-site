@@ -75,7 +75,10 @@ const Page = ({ data }) => {
       filteredResources = filteredResources.filter(({ node }) => {
         if (node.gradeLevel !== null) {
           return updatedActiveFilters.gradeLevel.some(
-            i => node.gradeLevel === parseInt(i)
+            i => {
+              let nodeSelectedGrades = node.gradeLevel.map(grade => grade.replace(/[^0-9]/g, ''))
+              return nodeSelectedGrades.includes(i)
+            }
           )
         } else {
           return false
