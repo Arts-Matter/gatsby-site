@@ -1,8 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import "./singleNews.scss"
-// import { BLOCKS } from "@contentful/rich-text-types"
-// import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import "./singleResource.scss"
 import { useWindowSize } from "../components/hooks"
 
 import SEO from "../components/seo"
@@ -31,13 +29,7 @@ export default function SingleResource({ data, pageContext }) {
     return (
       <React.Fragment>
         {title && <h1>{title}</h1>}
-        {/* {(date || byline) && (
-          <h6>
-            {`${date ? date : ""}`}&nbsp;&nbsp;{`${date && byline ? "|" : ""}`}
-            &nbsp;&nbsp;By {`${byline ? byline : ""}`}
-          </h6>
-        )} */}
-        {/* {width < 890 && returnHeaderRight()} */}
+        {width < 890 && returnHeaderRight()}
         {description && <h4>{description.description}</h4>}
       </React.Fragment>
     )
@@ -60,59 +52,78 @@ export default function SingleResource({ data, pageContext }) {
     )
   }
 
-  // const NewsImage = ({ file, description }) => {
-  //   return (
-  //     <React.Fragment>
-  //       {(file || description) && (
-  //         <div className="news-article__image">
-  //           {file && (
-  //             <img
-  //               src={file["en-US"].url}
-  //               alt={description ? description["en-US"] : ""}
-  //             />
-  //           )}
-  //           {description && <div>{description["en-US"]}</div>}
-  //         </div>
-  //       )}
-  //     </React.Fragment>
-  //   )
-  // }
-
-  // const options = {
-  //   renderNode: {
-  //     [BLOCKS.EMBEDDED_ASSET]: node => {
-  //       let file, description
-
-  //       if (node.data && node.data.target && node.data.target.fields) {
-  //         file = node.data.target.fields.file
-  //         description = node.data.target.fields.description
-  //       }
-  //       return <NewsImage file={file} description={description} />
-  //     },
-  //     [BLOCKS.PARAGRAPH]: (node, children) => (
-  //       <p className="news-article__text">{children}</p>
-  //     ),
-  //     [BLOCKS.LIST_ITEM]: (node, children) => (
-  //       <li className="news-article__li">{children}</li>
-  //     ),
-  //     [BLOCKS.QUOTE]: (node, children) => (
-  //       <blockquote className="news-article__quote">{children}</blockquote>
-  //     ),
-  //   },
-  // }
-
   console.log(data)
 
   return (
-    <Layout active="news-article" bgColor="magenta">
+    <Layout active="single-resource" bgColor="magenta">
       <SEO title="Resource" />
       <HeaderArea
         topLeft={returnHeaderLeft()}
         topRight={width > 889 ? returnHeaderRight() : null}
         customTop={true}
       />
-      <div className="news-article__container">
+      <div className="single-resource__container">
         <SocialMediaBar title={title} url={url} hashtags={["arts-matter"]} />
+        {/* 
+              |     Move these sections to components later   |
+              V                                               V      */}
+        <div className="single-resource__videos">
+          {videos && videos.map((video, i) => <div key={i}>{video}</div>)}
+        </div>
+        {studentArtwork && (
+          <div className="single-resource__artwork">
+            <h4>Student Artwork</h4>
+            <div className="single-resource__artwork-wrapper">
+              {studentArtwork.map((artwork, i) => {
+                return (
+                  <div key={i} className="single-resource__artwork-container">
+                    <img
+                      className="single-resource__artwork-img"
+                      src={artwork.file.url}
+                      alt={artwork.title ? artwork.title : ""}
+                    />
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        )}
+        {instructionalResources && (
+          <div className="single-resource__resources">
+            <h4>Instructional Resources</h4>
+            {instructionalResources.map(resource => {
+              const { contentType, fileName, url } = resource.file
+
+              if (url && fileName) {
+                return (
+                  <div className="single-resource__resource-container">
+                    <a href={url} target="_blank" rel="noopener noreferrer">
+                      {fileName}
+                    </a>
+                  </div>
+                )
+              }
+            })}
+          </div>
+        )}
+        {classroomPhotos && (
+          <div className="single-resource__classroom-photos">
+            <h4>Classroom Photos</h4>
+            <div className="single-resource__classroom-wrapper">
+              {classroomPhotos.map((photo, i) => {
+                return (
+                  <div key={i} className="single-resource__classroom-container">
+                    <img
+                      className="single-resource__classroom-img"
+                      src={photo.fixed.src}
+                      alt={photo.title ? photo.title : ""}
+                    />
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </Layout>
   )
@@ -124,7 +135,7 @@ export const query = graphql`
       edges {
         node {
           classroomPhotos {
-            fixed {
+            fixed(quality: 100, width: 720) {
               src
             }
             description
