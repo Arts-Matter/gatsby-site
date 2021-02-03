@@ -2,7 +2,7 @@ import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import "./newsBottomHeaderArea.scss"
 
-import { convertTitleToSlug } from "./helpers"
+import { determineSlug } from "./helpers"
 
 export default function NewsBottomHeaderArea() {
   const data = useStaticQuery(graphql`
@@ -44,11 +44,7 @@ export default function NewsBottomHeaderArea() {
     slug,
     headerImage,
   } = data.allContentfulSingleton.edges[0].node.entry
-  let formattedSlug = slug
-    ? convertTitleToSlug(slug)
-    : title
-    ? convertTitleToSlug(title)
-    : contentful_id
+  const formattedSlug = determineSlug(slug, title, contentful_id)
 
   return (
     <>

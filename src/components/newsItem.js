@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import "./newsItem.scss"
 
-import { convertTitleToSlug } from "./helpers"
+import { determineSlug } from "./helpers"
 
 export default function NewsItem({
   image,
@@ -14,21 +14,14 @@ export default function NewsItem({
   hoverEffects,
 }) {
   const renderNewsItem = () => {
-    const formattedSlug = slug
-      ? convertTitleToSlug(slug)
-      : title
-      ? convertTitleToSlug(title)
-      : contentful_id
+    const formattedSlug = determineSlug(slug, title, contentful_id)
 
     return (
       <div
         className={hoverEffects ? "news-item news-item--hover" : "news-item"}
       >
         <div className="news-item__back-panel"></div>
-        <Link
-          className="news-item__link"
-          to={`/news/${formattedSlug}`}
-        >
+        <Link className="news-item__link" to={`/news/${formattedSlug}`}>
           <div className="news-item__wrapper">
             <div className="news-item__image-container">
               {image && (

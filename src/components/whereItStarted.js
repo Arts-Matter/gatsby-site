@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { useWindowSize } from "./hooks"
-import { convertTitleToSlug } from "./helpers"
+import { determineSlug } from "./helpers"
 import "./whereItStarted.scss"
 import Button from "./button"
 
@@ -31,11 +31,7 @@ export default function WhereItStarted() {
     slug,
     contentful_id,
   } = data.allContentfulNewsItem.edges[0].node
-  const formattedSlug = slug
-    ? convertTitleToSlug(slug)
-    : title
-    ? convertTitleToSlug(title)
-    : contentful_id
+  const formattedSlug = determineSlug(slug, title, contentful_id)
   const url = `/news/${formattedSlug}`
 
   return (
