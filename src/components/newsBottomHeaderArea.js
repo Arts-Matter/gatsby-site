@@ -62,10 +62,7 @@ export default function NewsBottomHeaderArea() {
           <div className="bottom-left__description">{summary.summary}</div>
         )}
         {contentful_id && (
-          <Link
-            className="bottom-left__link"
-            to={`/news/${formattedSlug ? formattedSlug : contentful_id}`}
-          >
+          <Link className="bottom-left__link" to={`/news/${formattedSlug}`}>
             <div className="bottom-left__more"></div>
           </Link>
         )}
