@@ -103,6 +103,8 @@ export default function SingleResource({ data, pageContext }) {
                   </div>
                 )
               }
+
+              return
             })}
           </div>
         )}
