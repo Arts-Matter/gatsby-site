@@ -17,17 +17,26 @@ export default function WhereItStarted() {
       ) {
         edges {
           node {
-            date
             title
+            slug
+            contentful_id
           }
         }
       }
     }
   `)
 
-  const {date, title} = data.allContentfulNewsItem.edges[0].node
-
-  const slug = (date && title) ? `/news/${date}/${convertTitleToSlug(title)}` : null
+  const {
+    title,
+    slug,
+    contentful_id,
+  } = data.allContentfulNewsItem.edges[0].node
+  const formattedSlug = slug
+    ? convertTitleToSlug(slug)
+    : title
+    ? convertTitleToSlug(title)
+    : contentful_id
+  const url = `/news/${formattedSlug}`
 
   return (
     <div className="where-it-all-started">
@@ -43,7 +52,7 @@ export default function WhereItStarted() {
               exhibitions of Latin American and Latino art in cultural
               institutions and museums across Southern California.
             </p>
-            {slug && <Button url={slug} text="Learn More" />}
+            {url && <Button url={url} text="Learn More" />}
           </div>
         </div>
       </div>

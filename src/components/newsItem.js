@@ -10,10 +10,15 @@ export default function NewsItem({
   title,
   description,
   contentful_id,
+  slug,
   hoverEffects,
 }) {
   const renderNewsItem = () => {
-    const slug = convertTitleToSlug(title)
+    const formattedSlug = slug
+      ? convertTitleToSlug(slug)
+      : title
+      ? convertTitleToSlug(title)
+      : contentful_id
 
     return (
       <div
@@ -22,7 +27,7 @@ export default function NewsItem({
         <div className="news-item__back-panel"></div>
         <Link
           className="news-item__link"
-          to={`/news${date ? "/" + date : ""}/${slug ? slug : contentful_id}`}
+          to={`/news/${formattedSlug}`}
         >
           <div className="news-item__wrapper">
             <div className="news-item__image-container">
@@ -51,7 +56,9 @@ export default function NewsItem({
 
   return (
     <React.Fragment>
-      {contentful_id && (image || date || title || description) && renderNewsItem()}
+      {contentful_id &&
+        (image || date || title || description) &&
+        renderNewsItem()}
     </React.Fragment>
   )
 }

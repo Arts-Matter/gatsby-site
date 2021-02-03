@@ -27,6 +27,7 @@ export default function NewsBottomHeaderArea() {
                   summary
                 }
                 contentful_id
+                slug
               }
             }
           }
@@ -40,10 +41,15 @@ export default function NewsBottomHeaderArea() {
     date,
     summary,
     contentful_id,
+    slug,
     headerImage,
   } = data.allContentfulSingleton.edges[0].node.entry
-  const slug = title ? convertTitleToSlug(title) : null
- 
+  let formattedSlug = slug
+    ? convertTitleToSlug(slug)
+    : title
+    ? convertTitleToSlug(title)
+    : contentful_id
+
   return (
     <>
       <div className="bottom-left">
@@ -58,7 +64,7 @@ export default function NewsBottomHeaderArea() {
         {contentful_id && (
           <Link
             className="bottom-left__link"
-            to={`/news${date ? "/" + date : ""}/${slug ? slug : contentful_id}`}
+            to={`/news/${formattedSlug ? formattedSlug : contentful_id}`}
           >
             <div className="bottom-left__more"></div>
           </Link>
