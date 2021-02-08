@@ -65,33 +65,6 @@ const ResourcesResultsPanel = ({ resources }) => {
                 )}
                 <Button url="/news" text="Learn More" />
               </div>
-
-              {/* <div className="resource__col">
-                {node.resourceFiles && (
-                  <div className="resource__downloads">
-                    <h3 className="resource__downloads-title">Downloads</h3>
-                    <ul className="resource__files-list">
-                      {node.resourceFiles.map(resource => {
-                        return (
-                          <li
-                            key={resource.id}
-                            className="resource__files-list-item"
-                          >
-                            <a
-                              href={resource.file.file.url}
-                              download=""
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              {resource.title}
-                            </a>
-                          </li>
-                        )
-                      })}
-                    </ul>
-                  </div>
-                )}
-              </div> */}
             </div>
           </div>
         )

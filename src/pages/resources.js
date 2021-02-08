@@ -18,10 +18,9 @@ const Page = ({ data }) => {
   const title = "Instructional Resources"
   const topRight =
     "Lesson plans, activity guides, instructional media, student worksheets, assessment rubrics, and more provide a standards-based framework for teaching media arts in the classroom with the structure needed for students to learn."
-  // const resources = data.allContentfulResource.edges
-  const newResources = data.allContentfulResourceBucket.edges
-  console.log("Resource Bucket: ", newResources)
-  const [activeResources, setActiveResources] = useState(newResources)
+  const resources = data.allContentfulResourceBucket.edges
+  console.log("Resource Bucket: ", resources)
+  const [activeResources, setActiveResources] = useState(resources)
   const initialActiveFilters = {
     subjectArea: [],
     mediaArtsDiscipline: [],
@@ -42,7 +41,7 @@ const Page = ({ data }) => {
     setActiveFilters(updatedActiveFilters)
 
     // set the baseline
-    let filteredResources = newResources
+    let filteredResources = resources
 
     // filter Subject Area if any filter are set
     if (updatedActiveFilters.subjectArea.length) {
@@ -74,12 +73,12 @@ const Page = ({ data }) => {
     if (updatedActiveFilters.gradeLevel.length) {
       filteredResources = filteredResources.filter(({ node }) => {
         if (node.gradeLevel !== null) {
-          return updatedActiveFilters.gradeLevel.some(
-            i => {
-              let nodeSelectedGrades = node.gradeLevel.map(grade => grade.replace(/[^0-9]/g, ''))
-              return nodeSelectedGrades.includes(i)
-            }
-          )
+          return updatedActiveFilters.gradeLevel.some(i => {
+            let nodeSelectedGrades = node.gradeLevel.map(grade =>
+              grade.replace(/[^0-9]/g, "")
+            )
+            return nodeSelectedGrades.includes(i)
+          })
         } else {
           return false
         }
@@ -88,40 +87,6 @@ const Page = ({ data }) => {
 
     setActiveResources(filteredResources)
   }
-
-  // Not used after removing search by standard
-
-  // const handleSearch = searchTerm => {
-  //   const filterCheckboxes = document.querySelectorAll(".fancy-checkbox input")
-
-  //   // Clear all the checkboxes because they aren't used for search
-  //   filterCheckboxes.forEach(filter => {
-  //     filter.checked = false
-  //   })
-
-  //   // Clear active filter state
-  //   setActiveFilters(initialActiveFilters)
-
-  //   // Bail and reset resources if search term is blank
-  //   if (!searchTerm) {
-  //     setActiveResources(newResources)
-  //     return
-  //   }
-
-  //   // Show resources that match search term
-  //   let searchedResources = newResources
-
-  //   searchedResources = searchedResources.filter(({ node }) => {
-  //     if (node.standard) {
-  //       const standardArray = node.standard.split(",").map(item => item.trim())
-  //       return standardArray.includes(searchTerm)
-  //     } else {
-  //       return false
-  //     }
-  //   })
-
-  //   setActiveResources(searchedResources)
-  // }
 
   return (
     <Layout active="resources" bgColor="geo">
@@ -136,35 +101,6 @@ const Page = ({ data }) => {
     </Layout>
   )
 }
-
-// export const query = graphql`
-//   {
-//     allContentfulResource {
-//       edges {
-//         node {
-//           gradeLevel
-//           mediaArtsStrain
-//           subjectArea
-//           standard
-//           title
-//           description {
-//             description
-//           }
-//           id
-//           resourceFiles {
-//             title
-//             id
-//             file {
-//               file {
-//                 url
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
 
 /**
  * New query to pull from the Resource Bucket content type
@@ -181,30 +117,6 @@ const Page = ({ data }) => {
 
 export const query = graphql`
   {
-    allContentfulResource {
-      edges {
-        node {
-          gradeLevel
-          mediaArtsStrain
-          subjectArea
-          standard
-          title
-          description {
-            description
-          }
-          id
-          resourceFiles {
-            title
-            id
-            file {
-              file {
-                url
-              }
-            }
-          }
-        }
-      }
-    }
     allContentfulResourceBucket {
       edges {
         node {
