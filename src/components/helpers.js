@@ -12,3 +12,13 @@ export function convertTitleToSlug(title) {
 
   return null
 }
+
+export function determineSlug(slug, title, contentful_id) {
+  if (slug) {
+    return convertTitleToSlug(slug)
+  } else if (!slug && title) {
+    return convertTitleToSlug(title)
+  } else if (!slug && !title && contentful_id) {
+    return contentful_id
+  }
+}

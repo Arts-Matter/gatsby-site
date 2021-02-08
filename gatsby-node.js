@@ -20,7 +20,7 @@ exports.createPages = async ({ actions, graphql }) => {
           node {
             contentful_id
             title
-            date
+            slug
           }
         }
       }
@@ -38,14 +38,22 @@ exports.createPages = async ({ actions, graphql }) => {
 
   // Create single news pages
   data.allContentfulNewsItem.edges.forEach(edge => {
-    const slug = convertTitleToSlug(edge.node.title)
-    const id = edge.node["contentful_id"]
-    const date = edge.node.date
+    const { title, slug, contentful_id } = edge.node
+    const id = contentful_id
+    let determinedSlug
+
+    if (slug) {
+      determinedSlug = convertTitleToSlug(slug)
+    } else if (!slug && title) {
+      determinedSlug = convertTitleToSlug(title)
+    } else if (!slug && !title && contentful_id) {
+      determinedSlug = contentful_id
+    }
 
     actions.createPage({
-      path: `news${date ? '/' + date : ''}/${slug ? slug : id}`,
+      path: `news/${determinedSlug}`,
       component: require.resolve("./src/templates/singleNews.js"),
-      context: { id }, // Pass ID to get news item in template
+      context: { id },
     })
   })
 
