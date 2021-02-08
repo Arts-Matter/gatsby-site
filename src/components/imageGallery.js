@@ -1,7 +1,18 @@
 import React from "react"
+import PropTypes from "prop-types"
 import "./imageGallery.scss"
 
 export default function ImageGallery({ images, controls }) {
+  
+  // Images format : [
+  //   {
+  //     src(required): String,
+  //     title(optional): String,
+  //     caption(optional): String,
+  //   },
+  //   ...
+  // ]
+
   const [curIndex, setCurIndex] = React.useState(0)
 
   const handleNextImage = isNext => {
@@ -78,4 +89,9 @@ ImageGallery.defaultProps = {
   controls: {
     theme: "dark",
   },
+}
+
+ImageGallery.propTypes = {
+  images: PropTypes.object.isRequired,
+  controls: PropTypes.object,
 }
