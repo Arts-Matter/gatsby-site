@@ -24,6 +24,7 @@ export default function NewsArchive() {
                 src
               }
             }
+            slug
           }
         }
       }
@@ -31,7 +32,7 @@ export default function NewsArchive() {
   `)
 
   const newsItems = data.allContentfulNewsItem.edges.reduce((news, curNews) => {
-    const { date, title, contentful_id } = curNews.node
+    const { date, title, contentful_id, slug } = curNews.node
     const summary =
       curNews.node.summary === null ? null : curNews.node.summary.summary
     const imgSrc =
@@ -42,11 +43,12 @@ export default function NewsArchive() {
       title,
       date,
       contentfulId: contentful_id,
+      slug,
       summary,
       imgSrc,
     }
 
-    news.push(newNewsItem);
+    news.push(newNewsItem)
 
     return news
   }, [])
@@ -61,6 +63,7 @@ export default function NewsArchive() {
             title={item.title}
             key={item.contentfulId}
             contentful_id={item.contentfulId}
+            slug={item.slug}
           />
         )
       })}

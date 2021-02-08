@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import "./newsItem.scss"
 
-import { convertTitleToSlug } from "./helpers"
+import { determineSlug } from "./helpers"
 
 export default function NewsItem({
   image,
@@ -10,20 +10,18 @@ export default function NewsItem({
   title,
   description,
   contentful_id,
+  slug,
   hoverEffects,
 }) {
   const renderNewsItem = () => {
-    const slug = convertTitleToSlug(title)
+    const formattedSlug = determineSlug(slug, title, contentful_id)
 
     return (
       <div
         className={hoverEffects ? "news-item news-item--hover" : "news-item"}
       >
         <div className="news-item__back-panel"></div>
-        <Link
-          className="news-item__link"
-          to={`/news${date ? "/" + date : ""}/${slug ? slug : contentful_id}`}
-        >
+        <Link className="news-item__link" to={`/news/${formattedSlug}`}>
           <div className="news-item__wrapper">
             <div className="news-item__image-container">
               {image && (
@@ -51,7 +49,9 @@ export default function NewsItem({
 
   return (
     <React.Fragment>
-      {contentful_id && (image || date || title || description) && renderNewsItem()}
+      {contentful_id &&
+        (image || date || title || description) &&
+        renderNewsItem()}
     </React.Fragment>
   )
 }
