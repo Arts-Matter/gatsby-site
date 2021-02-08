@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 import Layout from "../components/layout"
 import HeaderArea from "../components/headerArea"
 import SocialMediaBar from "../components/socialMediaBar"
+import ImageGallery from "../components/imageGallery"
 
 export default function SingleResource({ data, pageContext }) {
   const { width } = useWindowSize()
@@ -52,7 +53,7 @@ export default function SingleResource({ data, pageContext }) {
     )
   }
 
-  const getEmbedLink = url => {
+  const getEmbedUrl = url => {
     const urlArr = url.split("/")
     // We need this index to insert some things after the url base
     // Some links are formatted as youtu.be
@@ -72,18 +73,31 @@ export default function SingleResource({ data, pageContext }) {
     }
 
     if (ytIndex >= 0 && embedModeIndex === -1) {
+      // We need to add /embed
       urlArr.splice(ytIndex + 1, 0, "embed")
       return urlArr.join("/")
     } else if (ytIndex && embedModeIndex >= 0) {
       // Url is already in the correct format
       return url
     } else {
-      // url is invalid
+      // url is invalid (not youtube or bad format)
       return false
     }
   }
 
-  console.log(data)
+  const buildGalleryImages = images => {
+    return images.map(image => {
+      const src = image.fixed ? image.fixed.src : null
+      const title = image.title ? image.title : null
+      const caption = image.description ? image.description : null
+
+      return {
+        src,
+        title,
+        caption,
+      }
+    })
+  }
 
   return (
     <Layout active="single-resource" bgColor="magenta">
@@ -98,21 +112,32 @@ export default function SingleResource({ data, pageContext }) {
         {/* 
               |     Move these sections to components later   |
               V                                               V      */}
+        {classroomPhotos && (
+          <div className="single-resource__classroom-photos">
+            <ImageGallery images={buildGalleryImages(classroomPhotos)} />
+          </div>
+        )}
         <div className="single-resource__videos">
-          <h4>Videos</h4>
           {videos &&
-            videos.map((video, i) => (
-              <iframe
-                className="single-resource__video"
-                src={getEmbedLink(video)}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen"
-                allowFullScreen={true}
-                webkitallowfullscreen="true"
-                mozallowfullscreen="true"
-                key={i}
-              ></iframe>
-            ))}
+            videos.map((video, i) => {
+              const embedUrl = getEmbedUrl(video)
+
+              if (embedUrl !== false) {
+                return (
+                  <iframe
+                    className="single-resource__video"
+                    src={getEmbedUrl(video)}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen"
+                    allowFullScreen={true}
+                    webkitallowfullscreen="true"
+                    mozallowfullscreen="true"
+                    key={i}
+                  >Your browser doesn't support IFrame :/</iframe>
+                )
+              }
+              
+            })}
         </div>
         {studentArtwork && (
           <div className="single-resource__artwork">
@@ -147,27 +172,7 @@ export default function SingleResource({ data, pageContext }) {
                   </div>
                 )
               }
-
-              return
             })}
-          </div>
-        )}
-        {classroomPhotos && (
-          <div className="single-resource__classroom-photos">
-            <h4>Classroom Photos</h4>
-            <div className="single-resource__classroom-wrapper">
-              {classroomPhotos.map((photo, i) => {
-                return (
-                  <div key={i} className="single-resource__classroom-container">
-                    <img
-                      className="single-resource__classroom-img"
-                      src={photo.fixed.src}
-                      alt={photo.title ? photo.title : ""}
-                    />
-                  </div>
-                )
-              })}
-            </div>
           </div>
         )}
       </div>
