@@ -52,6 +52,37 @@ export default function SingleResource({ data, pageContext }) {
     )
   }
 
+  const getEmbedLink = url => {
+    const urlArr = url.split("/")
+    // We need this index to insert some things after the url base
+    // Some links are formatted as youtu.be
+    const ytIndex = urlArr.findIndex(e => e.includes("youtu"))
+    const alternateBaseUrlIndex = urlArr.findIndex(e => e.includes("youtu.be"))
+    const watchModeIndex = urlArr.findIndex(e => e.includes("watch"))
+    const embedModeIndex = urlArr.findIndex(e => e.includes("embed"))
+
+    // URL is format youtu.be, we need to update that
+    if (alternateBaseUrlIndex >= 0) {
+      urlArr.splice(ytIndex, 1, "youtube.com")
+    }
+
+    // URL has /watch we need to remove that
+    if (watchModeIndex >= 0) {
+      urlArr.splice(watchModeIndex, 1)
+    }
+
+    if (ytIndex >= 0 && embedModeIndex === -1) {
+      urlArr.splice(ytIndex + 1, 0, "embed")
+      return urlArr.join("/")
+    } else if (ytIndex && embedModeIndex >= 0) {
+      // Url is already in the correct format
+      return url
+    } else {
+      // url is invalid
+      return false
+    }
+  }
+
   console.log(data)
 
   return (
@@ -68,7 +99,20 @@ export default function SingleResource({ data, pageContext }) {
               |     Move these sections to components later   |
               V                                               V      */}
         <div className="single-resource__videos">
-          {videos && videos.map((video, i) => <div key={i}>{video}</div>)}
+          <h4>Videos</h4>
+          {videos &&
+            videos.map((video, i) => (
+              <iframe
+                className="single-resource__video"
+                src={getEmbedLink(video)}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen"
+                allowFullScreen={true}
+                webkitallowfullscreen="true"
+                mozallowfullscreen="true"
+                key={i}
+              ></iframe>
+            ))}
         </div>
         {studentArtwork && (
           <div className="single-resource__artwork">
@@ -91,12 +135,12 @@ export default function SingleResource({ data, pageContext }) {
         {instructionalResources && (
           <div className="single-resource__resources">
             <h4>Instructional Resources</h4>
-            {instructionalResources.map(resource => {
+            {instructionalResources.map((resource, i) => {
               const { contentType, fileName, url } = resource.file
 
               if (url && fileName) {
                 return (
-                  <div className="single-resource__resource-container">
+                  <div key={i} className="single-resource__resource-container">
                     <a href={url} target="_blank" rel="noopener noreferrer">
                       {fileName}
                     </a>
