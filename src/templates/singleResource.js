@@ -109,6 +109,24 @@ export default function SingleResource({ data, pageContext }) {
         {/* 
               |     Move these sections to components later   |
               V                                               V      */}
+        {instructionalResources && (
+          <div className="single-resource__resources">
+            <h4>Instructional Resources</h4>
+            {instructionalResources.map((resource, i) => {
+              const { contentType, fileName, url } = resource.file
+
+              if (url && fileName) {
+                return (
+                  <div key={i} className="single-resource__resource-container">
+                    <a href={url} target="_blank" rel="noopener noreferrer">
+                      {fileName}
+                    </a>
+                  </div>
+                )
+              }
+            })}
+          </div>
+        )}
         {classroomPhotos && (
           <div className="single-resource__classroom-photos">
             <ImageGallery images={buildGalleryImages(classroomPhotos)} />
@@ -131,10 +149,11 @@ export default function SingleResource({ data, pageContext }) {
                     webkitallowfullscreen="true"
                     mozallowfullscreen="true"
                     key={i}
-                  >Your browser doesn't support IFrame :/</iframe>
+                  >
+                    Your browser doesn't support IFrame :/
+                  </iframe>
                 )
               }
-
             })}
         </div>
         {studentArtwork && (
@@ -153,24 +172,6 @@ export default function SingleResource({ data, pageContext }) {
                 )
               })}
             </div>
-          </div>
-        )}
-        {instructionalResources && (
-          <div className="single-resource__resources">
-            <h4>Instructional Resources</h4>
-            {instructionalResources.map((resource, i) => {
-              const { contentType, fileName, url } = resource.file
-
-              if (url && fileName) {
-                return (
-                  <div key={i} className="single-resource__resource-container">
-                    <a href={url} target="_blank" rel="noopener noreferrer">
-                      {fileName}
-                    </a>
-                  </div>
-                )
-              }
-            })}
           </div>
         )}
       </div>
