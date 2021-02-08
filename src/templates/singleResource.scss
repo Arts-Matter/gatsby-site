@@ -1,6 +1,6 @@
 .single-resource__container {
   width: 100%;
-  padding: var(--spacer);
+  padding: 16px;
 
   h4 {
     font-size: 28px;
@@ -20,9 +20,15 @@
 .single-resource__videos {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  flex-wrap:wrap;
   padding: 16px;
   margin-bottom: 16px;
+}
+
+.single-resource__video {
+  margin: 16px;
 }
 
 .single-resource__artwork,
