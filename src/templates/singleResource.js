@@ -16,11 +16,8 @@ export default function SingleResource({ data, pageContext }) {
     classroomPhotos,
     description,
     featuredImage,
-    gradeLevel,
     instructionalResources,
-    mediaArtsDiscipline,
     studentArtwork,
-    subjectArea,
     title,
     videos,
   } = resourceData
@@ -125,6 +122,7 @@ export default function SingleResource({ data, pageContext }) {
               if (embedUrl !== false) {
                 return (
                   <iframe
+                    title={i}
                     className="single-resource__video"
                     src={getEmbedUrl(video)}
                     frameBorder="0"
@@ -136,7 +134,7 @@ export default function SingleResource({ data, pageContext }) {
                   >Your browser doesn't support IFrame :/</iframe>
                 )
               }
-              
+
             })}
         </div>
         {studentArtwork && (

@@ -68,7 +68,6 @@ export default function NewsFeed({ contentContainerRef }) {
     return news
   }, [])
 
-  console.log(data)
   return (
     <div className="news-feed">
       <div className="news-feed__container">
