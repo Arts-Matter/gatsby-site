@@ -1,4 +1,8 @@
 .resources-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   @media only screen and (max-width: 889px) {
     padding-left: var(--spacing-s);
     padding-right: var(--spacing-s);
@@ -7,8 +11,9 @@
 
 .resource {
   margin-top: calc(var(--spacing-s) * 1.5);
-  padding: calc(var(--spacing-s) * 3) calc(var(--spacing-s) * 2);
   background-color: var(--oyster);
+  max-width: 1200px;
+  padding: 16px;
 
   @media only screen and (max-width: 889px) {
     padding: var(--spacing-s);
@@ -16,8 +21,8 @@
 }
 
 .resource__columns {
-  display: flex;
-  margin-left: calc(var(--spacing-s) * -4);
+  display: grid;
+  grid-template-columns: 3fr 2fr;
 
   @media only screen and (max-width: 889px) {
     display: block;
@@ -26,20 +31,28 @@
 }
 
 .resource__col {
-  width: 50%;
-  padding-left: calc(var(--spacing-s) * 4);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 32px;
 
   @media only screen and (max-width: 889px) {
     width: 100%;
-    padding-left: 0;
+    padding: 0;
 
     &:last-child {
       margin-top: 20px;
+      padding: 16px;
     }
+  }
+}
+
+.resource__col--left-justify {
+  align-items: flex-start;
+
+  @media only screen and (max-width: 889px) {
+    align-items: center;
   }
 }
 
@@ -66,7 +79,6 @@
 }
 
 .resource__meta-item {
-  display: inline-block;
   font-family: var(--ibmPlexMono);
   font-size: 13px;
   letter-spacing: 0.96px;
@@ -83,10 +95,6 @@
   &:last-child:after {
     display: none;
   }
-}
-
-.resource__meta-item--strain {
-  color: var(--black);
 }
 
 .resource__title {
