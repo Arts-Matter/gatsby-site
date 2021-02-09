@@ -28,6 +28,7 @@ export default function NewsFeed({ contentContainerRef }) {
                 src
               }
             }
+            slug
           }
         }
       }
@@ -46,7 +47,7 @@ export default function NewsFeed({ contentContainerRef }) {
   }, [width, contentContainerRef])
 
   const newsItems = data.allContentfulNewsItem.edges.reduce((news, curNews) => {
-    const { date, title, contentful_id } = curNews.node
+    const { date, title, contentful_id, slug } = curNews.node
     const summary =
       curNews.node.summary === null ? null : curNews.node.summary.summary
     const imgSrc =
@@ -57,6 +58,7 @@ export default function NewsFeed({ contentContainerRef }) {
       title,
       date,
       contentfulId: contentful_id,
+      slug,
       summary,
       imgSrc,
     }
@@ -68,7 +70,6 @@ export default function NewsFeed({ contentContainerRef }) {
     return news
   }, [])
 
-  console.log(data)
   return (
     <div className="news-feed">
       <div className="news-feed__container">
@@ -81,6 +82,7 @@ export default function NewsFeed({ contentContainerRef }) {
                 title={item.title}
                 description={item.summary}
                 contentful_id={item.contentfulId}
+                slug={item.slug}
                 key={item.contentfulId}
                 hoverEffects={width > 889 ? true : false}
               />
