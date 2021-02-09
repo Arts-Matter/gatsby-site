@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import "./singleResource.scss"
 import { useWindowSize } from "../components/hooks"
@@ -10,6 +10,8 @@ import SocialMediaBar from "../components/socialMediaBar"
 import ImageGallery from "../components/imageGallery"
 
 export default function SingleResource({ data, pageContext }) {
+  const [ showLightbox, setShowLightbox] = useState(false)
+  const [ selectedImage, setSelectedImage] = useState(null)
   const { width } = useWindowSize()
   const resourceData = data.allContentfulResourceBucket.edges[0].node
   const {
@@ -96,6 +98,17 @@ export default function SingleResource({ data, pageContext }) {
     })
   }
 
+  const handleOpenImage = (e) => {
+    e.preventDefault()
+    const src = e.target.src ? e.target.src : null
+    console.log(e.target)
+    
+    if(src) {
+      setShowLightbox(true)
+      setSelectedImage(src)
+    }
+  }
+
   return (
     <Layout active="single-resource" bgColor="magenta">
       <SEO title="Resource" />
@@ -162,13 +175,17 @@ export default function SingleResource({ data, pageContext }) {
             <div className="single-resource__artwork-wrapper">
               {studentArtwork.map((artwork, i) => {
                 return (
-                  <div key={i} className="single-resource__artwork-container">
+                  <button
+                    key={i}
+                    className="single-resource__artwork-container"
+                    onClick={handleOpenImage}
+                  >
                     <img
                       className="single-resource__artwork-img"
                       src={artwork.file.url}
                       alt={artwork.title ? artwork.title : ""}
                     />
-                  </div>
+                  </button>
                 )
               })}
             </div>
