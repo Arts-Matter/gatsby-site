@@ -2,9 +2,6 @@ import React from "react"
 import Button from "./button"
 import "./resourcesResultsPanel.scss"
 
-// TODO
-//  - [ ] Remove commented out code once done referencing it
-
 const ResourcesResultsPanel = ({ resources }) => {
   return (
     <div className="resources-results">
@@ -23,7 +20,8 @@ const ResourcesResultsPanel = ({ resources }) => {
                 </div>
               )}
 
-              <div className="resource__col">
+              <div className="resource__col resource__col--left-justify">
+                <h2 className="resource__title">{node.title}</h2>
                 <div className="resource__meta-list">
                   {node.subjectArea && (
                     <span className="resource__meta-item">
@@ -38,26 +36,25 @@ const ResourcesResultsPanel = ({ resources }) => {
                       })}
                     </span>
                   )}
-                  {node.gradeLevel !== null && node.gradeLevel.length > 0 && (
+                  {node.mediaArtsDiscipline && (
                     <span className="resource__meta-item">
-                      {node.gradeLevel.join(", ")}
-                    </span>
-                  )}
-                  {node.mediaArtsStrain && (
-                    <span className="resource__meta-item resource__meta-item--strain">
-                      {node.mediaArtsStrain.map((strain, i) => {
+                      {node.mediaArtsDiscipline.map((discipline, i) => {
                         let preText = ""
 
                         if (i > 0) {
                           preText = " & "
                         }
 
-                        return <span key={i}>{preText + strain}</span>
+                        return <span key={i}>{preText + discipline}</span>
                       })}
                     </span>
                   )}
+                  {node.gradeLevel !== null && node.gradeLevel.length > 0 && (
+                    <span className="resource__meta-item">
+                      {node.gradeLevel.join(", ")}
+                    </span>
+                  )}
                 </div>
-                <h2 className="resource__title">{node.title}</h2>
                 {node.description && (
                   <div className="resource__description">
                     <p>{node.description.description}</p>
