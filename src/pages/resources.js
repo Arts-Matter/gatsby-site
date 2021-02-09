@@ -156,6 +156,8 @@ export const query = graphql`
               url
             }
           }
+          slug
+          contentful_id
         }
       }
     }
