@@ -1,6 +1,9 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
+import { Dialog } from "@reach/dialog"
+import "@reach/dialog/styles.css"
 import "./singleResource.scss"
+
 import { useWindowSize } from "../components/hooks"
 
 import SEO from "../components/seo"
@@ -10,8 +13,8 @@ import SocialMediaBar from "../components/socialMediaBar"
 import ImageGallery from "../components/imageGallery"
 
 export default function SingleResource({ data, pageContext }) {
-  const [ showLightbox, setShowLightbox] = useState(false)
-  const [ selectedImage, setSelectedImage] = useState(null)
+  const [showLightbox, setShowLightbox] = useState(false)
+  const [selectedImage, setSelectedImage] = useState(null)
   const { width } = useWindowSize()
   const resourceData = data.allContentfulResourceBucket.edges[0].node
   const {
@@ -98,15 +101,21 @@ export default function SingleResource({ data, pageContext }) {
     })
   }
 
-  const handleOpenImage = (e) => {
+  const handleOpenImage = e => {
     e.preventDefault()
     const src = e.target.src ? e.target.src : null
     console.log(e.target)
-    
-    if(src) {
+
+    if (src) {
       setShowLightbox(true)
       setSelectedImage(src)
     }
+  }
+
+  const handleCloseImage = e => {
+    e.preventDefault()
+    setShowLightbox(false)
+    setSelectedImage(null)
   }
 
   return (
@@ -118,6 +127,18 @@ export default function SingleResource({ data, pageContext }) {
         customTop={true}
       />
       <div className="single-resource__container">
+        {showLightbox && selectedImage && (
+          <Dialog
+            className="single-resource__lightbox"
+            aria-label="image dialog"
+          >
+            <button onClick={handleCloseImage}>&#10006;</button>
+            <div
+              className="single-resource__lightbox-img"
+              style={{ backgroundImage: `url("${selectedImage}")` }}
+            ></div>
+          </Dialog>
+        )}
         <SocialMediaBar title={title} url={url} hashtags={["arts-matter"]} />
         {/* 
               |     Move these sections to components later   |
