@@ -92,6 +92,6 @@ ImageGallery.defaultProps = {
 }
 
 ImageGallery.propTypes = {
-  images: PropTypes.object.isRequired,
+  images: PropTypes.array.isRequired,
   controls: PropTypes.object,
 }
