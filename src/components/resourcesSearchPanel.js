@@ -4,33 +4,11 @@ import ResourcesFilterGroup from "../components/resourcesFilterGroup"
 import "./resourcesSearchPanel.scss"
 
 export default function ResourcesSearchPanel({ handleFilterChange }) {
-  // Not used after removing search by standard
-  // const [searchTerm, setSearchTerm] = useState('')
 
   const handleFilterClick = (e, groupSlug, childName) => {
     const isFilterChecked = e.target.checked
-
-    // Clear out search field because we are now filtering
-    // setSearchTerm('')
-
     handleFilterChange(isFilterChecked, groupSlug, childName)
   }
-
-  // Not used after removing search by standard
-
-  // const handleInputChange = (e) => {
-  //   setSearchTerm(e.target.value)
-  // }
-
-  // const handleClearClick = () => {
-  //   setSearchTerm('')
-  //   handleSearch('')
-  // }
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   handleSearch(searchTerm);
-  // }
 
   /* ======================================================================= */
   /* NOTE: I couldn't figure out a way to pull the possible field values from
