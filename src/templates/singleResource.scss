@@ -22,7 +22,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   padding: 16px;
   margin-bottom: 16px;
 }
@@ -31,8 +31,7 @@
   margin: 16px;
 }
 
-.single-resource__artwork,
-.single-resource__classroom-photos {
+.single-resource__artwork {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -41,8 +40,7 @@
   padding: 16px;
 }
 
-.single-resource__artwork-wrapper,
-.single-resource__classroom-wrapper {
+.single-resource__artwork-wrapper {
   display: grid;
   justify-items: center;
   align-items: center;
@@ -53,25 +51,23 @@
   width: 100%;
 }
 
-.single-resource__classroom-wrapper {
-  grid-template-columns: 1fr 1fr;
-}
-
-.single-resource__artwork-container,
-.single-resource__classroom-container {
+.single-resource__artwork-container {
   max-width: 200px;
   width: 100%;
   height: 100%;
+  border: none;
 }
 
-.single-resource__classroom-container {
-  max-width: unset;
-}
-
-.single-resource__artwork-img,
-.single-resource__classroom-img {
+.single-resource__artwork-img {
   width: 100%;
   height: 100%;
   margin-bottom: 0;
   box-shadow: 5px 0px 20px 0px #00000029;
+  transition: var(--easeOut);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.025);
+  }
 }
