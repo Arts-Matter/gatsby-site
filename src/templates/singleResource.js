@@ -11,6 +11,7 @@ import Layout from "../components/layout"
 import HeaderArea from "../components/headerArea"
 import SocialMediaBar from "../components/socialMediaBar"
 import ImageGallery from "../components/imageGallery"
+import InstructionalResources from "../components/instructionalResources"
 
 export default function SingleResource({ data, pageContext }) {
   const [showLightbox, setShowLightbox] = useState(false)
@@ -144,29 +145,16 @@ export default function SingleResource({ data, pageContext }) {
               |     Move these sections to components later   |
               V                                               V      */}
         {instructionalResources && (
-          <div className="single-resource__resources">
-            <h4>Instructional Resources</h4>
-            {instructionalResources.map((resource, i) => {
-              const { contentType, fileName, url } = resource.file
-
-              if (url && fileName) {
-                return (
-                  <div key={i} className="single-resource__resource-container">
-                    <a href={url} target="_blank" rel="noopener noreferrer">
-                      {fileName}
-                    </a>
-                  </div>
-                )
-              }
-            })}
-          </div>
+          <InstructionalResources resources={instructionalResources} />
         )}
         {classroomPhotos && (
           <div className="single-resource__classroom-photos">
+            <h4>Classroom Photos</h4>
             <ImageGallery images={buildGalleryImages(classroomPhotos)} />
           </div>
         )}
         <div className="single-resource__videos">
+          <h4>Videos</h4>
           {videos &&
             videos.map((video, i) => {
               const embedUrl = getEmbedUrl(video)
