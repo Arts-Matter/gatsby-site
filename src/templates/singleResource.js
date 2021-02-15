@@ -105,7 +105,6 @@ export default function SingleResource({ data, pageContext }) {
   const handleOpenImage = e => {
     e.preventDefault()
     const src = e.target.src ? e.target.src : null
-    console.log(e.target)
 
     if (src) {
       setShowLightbox(true)
