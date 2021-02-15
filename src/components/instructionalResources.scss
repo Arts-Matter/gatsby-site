@@ -1,0 +1,34 @@
+.single-resource__resources {
+  margin-bottom: 64px;
+  text-align: center;
+}
+
+.single-resource__resources-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+
+  @media only screen and (max-width: 889px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: center;
+    justify-items: center;
+  }
+}
+
+.single-resource__resource-container {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  min-height: 164px;
+  text-align: center;
+  margin: var(--spacing-s) 8px;
+}
+
+.single-resource__resource-image {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
