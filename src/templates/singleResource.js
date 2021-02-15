@@ -143,14 +143,32 @@ export default function SingleResource({ data, pageContext }) {
         {/* 
               |     Move these sections to components later   |
               V                                               V      */}
-        {instructionalResources && (
-          <InstructionalResources resources={instructionalResources} />
-        )}
-        {classroomPhotos && (
-          <div className="single-resource__classroom-photos">
-            <h4>Classroom Photos</h4>
-            <ImageGallery images={buildGalleryImages(classroomPhotos)} />
+        {instructionalResources && classroomPhotos ? (
+          <div className="single-resource__instructional-resources">
+            <h4>Instructional Resources</h4>
+            <div className="single-resource__2-col">
+              {instructionalResources && (
+                <InstructionalResources resources={instructionalResources} />
+              )}
+              {classroomPhotos && (
+                <div className="single-resource__classroom-photos">
+                  <ImageGallery images={buildGalleryImages(classroomPhotos)} />
+                </div>
+              )}
+            </div>
           </div>
+        ) : (
+          <React.Fragment>
+            {instructionalResources && (
+              <InstructionalResources resources={instructionalResources} />
+            )}
+            {classroomPhotos && (
+              <div className="single-resource__classroom-photos">
+                <h4>Classroom Photos</h4>
+                <ImageGallery images={buildGalleryImages(classroomPhotos)} />
+              </div>
+            )}
+          </React.Fragment>
         )}
         {videos && (
           <div className="single-resource__videos">

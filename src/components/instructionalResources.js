@@ -5,7 +5,6 @@ import "./instructionalResources.scss"
 export default function InstructionalResources({ resources }) {
   return (
     <div className="single-resource__resources">
-      <h4>Instructional Resources</h4>
       <div className="single-resource__resources-wrapper">
         {resources.map((resource, i) => {
           const { contentType, fileName, url } = resource.file
