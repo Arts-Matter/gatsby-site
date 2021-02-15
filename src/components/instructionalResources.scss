@@ -1,8 +1,3 @@
-.single-resource__resources {
-  margin-bottom: 64px;
-  text-align: center;
-}
-
 .single-resource__resources-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -21,9 +16,16 @@
   display: flex;
   flex-direction: column;
   width: 200px;
-  min-height: 164px;
   text-align: center;
-  margin: var(--spacing-s) 8px;
+  margin: 8px;
+
+  a {
+    transition: var(--easeOut);
+  }
+
+  a:hover {
+    color: var(--magenta);
+  }
 }
 
 .single-resource__resource-image {

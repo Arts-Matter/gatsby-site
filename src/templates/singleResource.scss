@@ -4,7 +4,7 @@
 
   h4 {
     font-size: 28px;
-    margin: 32px 0px 64px 0px;
+    margin: 32px 0px;
     text-align: center;
   }
 
@@ -18,9 +18,10 @@
   }
 }
 
-.single-resource__classroom-photos {
-  max-width: 750px;
-  margin: 0 auto;
+.single-resource__2-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 64px 8px;
 }
 
 .single-resource__videos {
@@ -56,11 +57,6 @@
 .single-resource__video {
   width: 100%;
   height: 100%;
-  // @media only screen and (max-width: 800px) {
-  //   min-height: 400px;
-  //   width: 100%;
-  //   margin: 16px 0;
-  // }
 }
 
 .single-resource__artwork {
