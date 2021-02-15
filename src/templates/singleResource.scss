@@ -5,6 +5,7 @@
   h4 {
     font-size: 28px;
     margin: 32px 0px 64px 0px;
+    text-align: center;
   }
 
   .social-media-bar ul {
@@ -25,10 +26,20 @@
   flex-wrap: wrap;
   padding: 16px;
   margin-bottom: 16px;
+
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+  }
 }
 
 .single-resource__video {
   margin: 16px;
+
+  @media only screen and (max-width: 800px) {
+    min-height: 400px;
+    width: 100%;
+    margin: 16px 0;
+  }
 }
 
 .single-resource__artwork {
@@ -44,11 +55,16 @@
   display: grid;
   justify-items: center;
   align-items: center;
-  row-gap: 64px;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 8px;
   row-gap: 64px;
   width: 100%;
+
+  @media only screen and (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+  }
 }
 
 .single-resource__artwork-container {
