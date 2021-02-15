@@ -152,31 +152,34 @@ export default function SingleResource({ data, pageContext }) {
             <ImageGallery images={buildGalleryImages(classroomPhotos)} />
           </div>
         )}
-        <div className="single-resource__videos">
-          <h4>Videos</h4>
-          {videos &&
-            videos.map((video, i) => {
-              const embedUrl = getEmbedUrl(video)
+        {videos && (
+          <div className="single-resource__videos">
+            <h4>Videos</h4>
+            <div className="single-resource__videos-container">
+              {videos.map((video, i) => {
+                const embedUrl = getEmbedUrl(video)
 
-              if (embedUrl !== false) {
-                return (
-                  <iframe
-                    title={i}
-                    className="single-resource__video"
-                    src={getEmbedUrl(video)}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen"
-                    allowFullScreen={true}
-                    webkitallowfullscreen="true"
-                    mozallowfullscreen="true"
-                    key={i}
-                  >
-                    Your browser doesn't support IFrame :/
-                  </iframe>
-                )
-              }
-            })}
-        </div>
+                if (embedUrl !== false) {
+                  return (
+                    <iframe
+                      title={i}
+                      className="single-resource__video"
+                      src={getEmbedUrl(video)}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen"
+                      allowFullScreen={true}
+                      webkitallowfullscreen="true"
+                      mozallowfullscreen="true"
+                      key={i}
+                    >
+                      Your browser doesn't support IFrame :/
+                    </iframe>
+                  )
+                }
+              })}
+            </div>
+          </div>
+        )}
         {studentArtwork && (
           <div className="single-resource__artwork">
             <h4>Student Artwork</h4>
