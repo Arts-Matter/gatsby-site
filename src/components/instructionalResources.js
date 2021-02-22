@@ -4,25 +4,50 @@ import "./instructionalResources.scss"
 
 export default function InstructionalResources({ resources }) {
   return (
-    <div className="single-resource__resources">
-      <h4>Instructional Resources</h4>
-      <div className="single-resource__resources-wrapper">
-        {resources.map((resource, i) => {
-          const { contentType, fileName, url } = resource.file
+    <div className="instructional-resources">
+      <div className="instructional-resources__columns">
+        <div className="instructional-resources__col">
+          <div className="instructional-resources__meta-list">
+            <h2 className="instructional-resources__title">
+              Instructional Resources
+            </h2>
+            <p>
+              Aliquip et fugiat proident culpa fugiat fugiat culpa in
+              exercitation aliquip minim nisi sunt culpa.Excepteur quis nisi
+              incididunt amet velit consequat proident duis laborum do.
+            </p>
+          </div>
+        </div>
+        <div className="instructional-resources__col">
+          <div className="instructional-resources__downloads">
+            <h3 className="instructional-resources__downloads-title">
+              Downloads
+            </h3>
+            <ul className="instructional-resources__files-list">
+              {resources.map((resource, i) => {
+                const { fileName, url } = resource.file
 
-          if (url && fileName) {
-            return (
-              <div key={i} className="single-resource__resource-container">
-                <div className="single-resource__resource-image">
-                  File Logo Here
-                </div>
-                <a href={url} target="_blank" rel="noopener noreferrer">
-                  {fileName}
-                </a>
-              </div>
-            )
-          }
-        })}
+                if (fileName && url) {
+                  return (
+                    <li
+                      key={`${fileName ? fileName : ""}${i}`}
+                      className="instructional-resources__files-list-item"
+                    >
+                      <a
+                        href={url}
+                        download=""
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {fileName}
+                      </a>
+                    </li>
+                  )
+                }
+              })}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   )
