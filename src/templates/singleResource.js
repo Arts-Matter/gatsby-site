@@ -43,14 +43,7 @@ export default function SingleResource({ data, pageContext }) {
     return (
       <React.Fragment>
         {featuredImage && (
-          <div className="top__image-container">
-            <div
-              className="top__image"
-              style={{
-                backgroundImage: `url("${featuredImage.file.url}")`,
-              }}
-            ></div>
-          </div>
+          <ImageGallery images={buildGalleryImages(classroomPhotos)} />
         )}
       </React.Fragment>
     )
@@ -145,12 +138,6 @@ export default function SingleResource({ data, pageContext }) {
               V                                               V      */}
         {instructionalResources && (
           <InstructionalResources resources={instructionalResources} />
-        )}
-        {classroomPhotos && (
-          <div className="single-resource__classroom-photos">
-            <h4>Classroom Photos</h4>
-            <ImageGallery images={buildGalleryImages(classroomPhotos)} />
-          </div>
         )}
         {videos && (
           <div className="single-resource__videos">
