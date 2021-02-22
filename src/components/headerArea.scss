@@ -3,7 +3,7 @@
 }
 .news-archive .header-area,
 .news-article .header-area,
-.single-resource .header-area{
+.single-resource .header-area {
   padding: 0;
 }
 
@@ -188,6 +188,12 @@
       margin-top: var(--spacing-m);
       font-size: var(--mobileSectionSubTitleFontSize);
       line-height: var(--mobileSectionSubTitleLineHeight);
+    }
+  }
+
+  .single-resource .top__left {
+    h1 {
+      margin-bottom: 36px;
     }
   }
 
