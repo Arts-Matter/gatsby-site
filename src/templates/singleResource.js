@@ -18,6 +18,7 @@ export default function SingleResource({ data, pageContext }) {
   const [selectedImage, setSelectedImage] = useState(null)
   const { width } = useWindowSize()
   const resourceData = data.allContentfulResourceBucket.edges[0].node
+
   const {
     classroomPhotos,
     description,
@@ -26,6 +27,8 @@ export default function SingleResource({ data, pageContext }) {
     studentArtwork,
     title,
     videos,
+    gradeLevel,
+    mediaArtsDiscipline,
   } = resourceData
   const url = typeof window !== `undefined` ? window.location.href : null
 
@@ -134,7 +137,11 @@ export default function SingleResource({ data, pageContext }) {
         )}
         <SocialMediaBar title={title} url={url} hashtags={["arts-matter"]} />
         {instructionalResources.length > 0 && (
-          <InstructionalResources resources={instructionalResources} />
+          <InstructionalResources
+            resources={instructionalResources}
+            gradeLevels={gradeLevel}
+            mediaArtsDisciplines={mediaArtsDiscipline}
+          />
         )}
         {/* 
               |     Move these sections to components later   |
