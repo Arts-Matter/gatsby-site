@@ -133,12 +133,12 @@ export default function SingleResource({ data, pageContext }) {
           </Dialog>
         )}
         <SocialMediaBar title={title} url={url} hashtags={["arts-matter"]} />
+        {instructionalResources.length > 0 && (
+          <InstructionalResources resources={instructionalResources} />
+        )}
         {/* 
               |     Move these sections to components later   |
               V                                               V      */}
-        {instructionalResources && (
-          <InstructionalResources resources={instructionalResources} />
-        )}
         {videos && (
           <div className="single-resource__videos">
             <h4>Videos</h4>
