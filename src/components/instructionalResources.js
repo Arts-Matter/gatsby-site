@@ -2,7 +2,11 @@ import React from "react"
 import PropTypes from "prop-types"
 import "./instructionalResources.scss"
 
-export default function InstructionalResources({ resources }) {
+export default function InstructionalResources({
+  resources,
+  gradeLevels,
+  mediaArtsDisciplines,
+}) {
   return (
     <div className="instructional-resources">
       <div className="instructional-resources__columns">
@@ -11,6 +15,26 @@ export default function InstructionalResources({ resources }) {
             <h2 className="instructional-resources__title">
               Instructional Resources
             </h2>
+            <ul className="instructional-resources__list">
+              {mediaArtsDisciplines &&
+                mediaArtsDisciplines.map(discipline => {
+                  return (
+                    <li className="instructional-resources__list-item">
+                      {discipline}
+                    </li>
+                  )
+                })}
+            </ul>
+            <ul className="instructional-resources__list">
+              {gradeLevels &&
+                gradeLevels.map(grade => {
+                  return (
+                    <li className="instructional-resources__list-item">
+                      {grade}
+                    </li>
+                  )
+                })}
+            </ul>
             <p>
               Aliquip et fugiat proident culpa fugiat fugiat culpa in
               exercitation aliquip minim nisi sunt culpa.Excepteur quis nisi
@@ -55,4 +79,6 @@ export default function InstructionalResources({ resources }) {
 
 InstructionalResources.propTypes = {
   resources: PropTypes.array.isRequired,
+  gradeLevels: PropTypes.array,
+  mediaArtsDisciplines: PropTypes.array,
 }
