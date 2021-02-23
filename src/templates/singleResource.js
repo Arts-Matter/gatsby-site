@@ -128,7 +128,10 @@ export default function SingleResource({ data, pageContext }) {
             className="single-resource__lightbox"
             aria-label="image dialog"
           >
-            <button onClick={handleCloseImage}>&#10006;</button>
+            <button
+              className="single-resource__lightbox-button"
+              onClick={handleCloseImage}
+            ></button>
             <div
               className="single-resource__lightbox-img"
               style={{ backgroundImage: `url("${selectedImage}")` }}
@@ -155,7 +158,7 @@ export default function SingleResource({ data, pageContext }) {
 
                 if (embedUrl !== false) {
                   return (
-                    <div className="single-resource__video-wrapper">
+                    <div key={i} className="single-resource__video-wrapper">
                       <iframe
                         title={i}
                         className="single-resource__video"
@@ -165,7 +168,6 @@ export default function SingleResource({ data, pageContext }) {
                         allowFullScreen={true}
                         webkitallowfullscreen="true"
                         mozallowfullscreen="true"
-                        key={i}
                       >
                         Your browser doesn't support IFrame :/
                       </iframe>
