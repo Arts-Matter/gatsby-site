@@ -17,9 +17,9 @@ export default function InstructionalResources({
             </h2>
             <ul className="instructional-resources__list">
               {mediaArtsDisciplines &&
-                mediaArtsDisciplines.map(discipline => {
+                mediaArtsDisciplines.map((discipline, i) => {
                   return (
-                    <li className="instructional-resources__list-item">
+                    <li key={i} className="instructional-resources__list-item">
                       {discipline}
                     </li>
                   )
@@ -27,9 +27,9 @@ export default function InstructionalResources({
             </ul>
             <ul className="instructional-resources__list">
               {gradeLevels &&
-                gradeLevels.map(grade => {
+                gradeLevels.map((grade, i) => {
                   return (
-                    <li className="instructional-resources__list-item">
+                    <li key={i} className="instructional-resources__list-item">
                       {grade}
                     </li>
                   )
