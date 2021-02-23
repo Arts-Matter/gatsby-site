@@ -155,19 +155,21 @@ export default function SingleResource({ data, pageContext }) {
 
                 if (embedUrl !== false) {
                   return (
-                    <iframe
-                      title={i}
-                      className="single-resource__video"
-                      src={getEmbedUrl(video)}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen"
-                      allowFullScreen={true}
-                      webkitallowfullscreen="true"
-                      mozallowfullscreen="true"
-                      key={i}
-                    >
-                      Your browser doesn't support IFrame :/
-                    </iframe>
+                    <div className="single-resource__video-wrapper">
+                      <iframe
+                        title={i}
+                        className="single-resource__video"
+                        src={getEmbedUrl(video)}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen"
+                        allowFullScreen={true}
+                        webkitallowfullscreen="true"
+                        mozallowfullscreen="true"
+                        key={i}
+                      >
+                        Your browser doesn't support IFrame :/
+                      </iframe>
+                    </div>
                   )
                 }
               })}
