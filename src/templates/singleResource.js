@@ -148,7 +148,7 @@ export default function SingleResource({ data, pageContext }) {
               V                                               V      */}
         {videos && (
           <div className="single-resource__videos">
-            <h4>Videos</h4>
+            <h2>Videos</h2>
             <div className="single-resource__videos-container">
               {videos.map((video, i) => {
                 const embedUrl = getEmbedUrl(video)
@@ -176,7 +176,7 @@ export default function SingleResource({ data, pageContext }) {
         )}
         {studentArtwork && (
           <div className="single-resource__artwork">
-            <h4>Student Artwork</h4>
+            <h2>Student Artwork</h2>
             <div className="single-resource__artwork-wrapper">
               {studentArtwork.map((artwork, i) => {
                 return (
