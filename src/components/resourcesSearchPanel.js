@@ -1,32 +1,13 @@
-import React, { useState } from "react"
+import React from "react"
 import ResourcesFilterGroup from "../components/resourcesFilterGroup"
 
 import "./resourcesSearchPanel.scss"
 
-export default function ResourcesSearchPanel({ handleFilterChange, handleSearch }) {
-  const [searchTerm, setSearchTerm] = useState('')
+export default function ResourcesSearchPanel({ handleFilterChange }) {
 
   const handleFilterClick = (e, groupSlug, childName) => {
     const isFilterChecked = e.target.checked
-
-    // Clear out search field because we are now filtering
-    setSearchTerm('')
-
     handleFilterChange(isFilterChecked, groupSlug, childName)
-  }
-
-  const handleInputChange = (e) => {
-    setSearchTerm(e.target.value)
-  }
-
-  const handleClearClick = () => {
-    setSearchTerm('')
-    handleSearch('')
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    handleSearch(searchTerm);
   }
 
   /* ======================================================================= */
@@ -60,8 +41,8 @@ export default function ResourcesSearchPanel({ handleFilterChange, handleSearch 
       ]
     },
     {
-      "groupName": "Media Arts Strain",
-      "groupSlug": "mediaArtsStrain",
+      "groupName": "Media Arts Discipline",
+      "groupSlug": "mediaArtsDiscipline",
       "children": [
         {
           "name": "Design",
@@ -160,18 +141,6 @@ export default function ResourcesSearchPanel({ handleFilterChange, handleSearch 
           }
 
         </div>
-      </div>
-      <div className="resources-search-panel__search-bar">
-        <h2 className="resources-search-panel__search-bar-title">or Search by Standard</h2>
-        <form className="resources-search-panel__search-bar-form" onSubmit={handleSubmit}>
-          <div className="resources-search-panel__search-input">
-            <input type="text" placeholder="i.e. CCSS.MATH.CONTENT.K.CC.A.1" name="standard" value={searchTerm} onChange={handleInputChange} autoComplete="off" autoCorrect="off" />
-            <button className={"resources-search-panel__search-input-clear " + (searchTerm ? 'resources-search-panel__search-input-clear--active' : '')} type="button" title="clear" onClick={handleClearClick}>
-              <span className="u-visually-hide">Clear</span>
-            </button>
-          </div>
-          <button className="resources-search-panel__search-submit" type="submit">Submit</button>
-        </form>
       </div>
     </div>
   )
