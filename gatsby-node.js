@@ -24,10 +24,19 @@ exports.createPages = async ({ actions, graphql }) => {
           }
         }
       }
+      allContentfulResourceBucket {
+        edges {
+          node {
+            title
+            contentful_id
+            slug
+          }
+        }
+      }
     }
   `)
 
-  // Create single news page(s)
+  // Create single news pages
   data.allContentfulNewsItem.edges.forEach(edge => {
     const { title, slug, contentful_id } = edge.node
     const id = contentful_id
@@ -47,4 +56,27 @@ exports.createPages = async ({ actions, graphql }) => {
       context: { id },
     })
   })
+
+  // Create single resource pages
+  data.allContentfulResourceBucket.edges.forEach(edge => {
+    const { slug, contentful_id, title } = edge.node
+    const id = contentful_id
+
+    let determinedSlug
+    // Use provided slug first, title second, ID as fallback
+    if (slug) {
+      determinedSlug = convertTitleToSlug(slug)
+    } else if (!slug && title) {
+      determinedSlug = convertTitleToSlug(title)
+    } else if (!slug && !title && contentful_id) {
+      determinedSlug = contentful_id
+    }
+
+    actions.createPage({
+      path: `resources/${determinedSlug}`,
+      component: require.resolve("./src/templates/singleResource.js"),
+      context: { id }, // Pass contentful_id to grab resource data in template
+    })
+  })
+
 }

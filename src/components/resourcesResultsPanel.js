@@ -1,11 +1,16 @@
 import React from "react"
 import Button from "./button"
+import { determineSlug } from "./helpers"
 import "./resourcesResultsPanel.scss"
 
 const ResourcesResultsPanel = ({ resources }) => {
   return (
     <div className="resources-results">
       {resources.map(({ node }) => {
+        const slug = node.slug ? node.slug : null
+        const title = node.title ? node.title : null
+        const contentful_id = node.contentful_id ? node.contentful_id : null
+        const determinedSlug = determineSlug(slug, title, contentful_id)
         return (
           <div key={node.id} className="resource">
             <div className="resource__columns">
@@ -60,7 +65,12 @@ const ResourcesResultsPanel = ({ resources }) => {
                     <p>{node.description.description}</p>
                   </div>
                 )}
-                <Button url="/news" text="Learn More" />
+                {determinedSlug && (
+                  <Button
+                    url={`/resources/${determinedSlug}`}
+                    text="Learn More"
+                  />
+                )}
               </div>
             </div>
           </div>

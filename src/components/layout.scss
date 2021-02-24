@@ -16,7 +16,8 @@
 }
 
 .news-archive .content-container,
-.news-article .content-container {
+.news-article .content-container,
+.single-resource .content-container {
   padding: 180px 84px 0;
   max-width: var(--max-width-calc);
 }
@@ -59,7 +60,8 @@
 
 @media only screen and (max-width: 889px) {
   .content-container,
-  .news-article .content-container {
+  .news-article .content-container,
+  .single-resource .content-container {
     padding: 0;
   }
 
