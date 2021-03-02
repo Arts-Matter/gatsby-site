@@ -31,6 +31,8 @@ export default function SingleResource({ data, pageContext }) {
     mediaArtsDiscipline,
   } = resourceData
 
+  console.log("instruc: ", instructionalResources)
+
   const url = typeof window !== `undefined` ? window.location.href : null
 
   const returnHeaderLeft = () => {
@@ -216,7 +218,7 @@ export default function SingleResource({ data, pageContext }) {
           </Dialog>
         )}
         <SocialMediaBar title={title} url={url} hashtags={["arts-matter"]} />
-        {instructionalResources.length > 0 && (
+        {instructionalResources && instructionalResources.length > 0 && (
           <InstructionalResources
             resources={instructionalResources}
             gradeLevels={gradeLevel}
