@@ -30,6 +30,7 @@ export default function SingleResource({ data, pageContext }) {
     gradeLevel,
     mediaArtsDiscipline,
   } = resourceData
+
   const url = typeof window !== `undefined` ? window.location.href : null
 
   const returnHeaderLeft = () => {
@@ -114,6 +115,78 @@ export default function SingleResource({ data, pageContext }) {
     setSelectedImage(null)
   }
 
+  // Used with student artwork in lightbox dialog
+  const handleNextImage = action => {
+    const curIndex = findImage(selectedImage)
+    if (curIndex === -1) return
+
+    if (action === "next" && curIndex !== studentArtwork.length - 1) {
+      if (
+        studentArtwork[curIndex + 1].file &&
+        studentArtwork[curIndex + 1].file.url
+      ) {
+        setSelectedImage(studentArtwork[curIndex + 1].file.url)
+      }
+    } else if (action === "next") {
+      if (studentArtwork[0].file && studentArtwork[0].file.url) {
+        setSelectedImage(studentArtwork[0].file.url)
+      }
+    } else if (action === "previous" && curIndex !== 0) {
+      if (
+        studentArtwork[curIndex - 1].file &&
+        studentArtwork[curIndex - 1].file.url
+      ) {
+        setSelectedImage(studentArtwork[curIndex - 1].file.url)
+      }
+    } else if (action === "previous") {
+      if (
+        studentArtwork[studentArtwork.length - 1].file &&
+        studentArtwork[studentArtwork.length - 1].file.url
+      ) {
+        setSelectedImage(studentArtwork[studentArtwork.length - 1].file.url)
+      }
+    }
+  }
+
+  // find a photo by src in student artwork
+  const findImage = src => {
+    const image = studentArtwork.findIndex(photo => {
+      if (
+        photo.file &&
+        photo.file.url &&
+        (photo.file.url === src ||
+          photo.file.url === src.replace("http:", "") ||
+          photo.file.url === src.replace("https:", ""))
+      ) {
+        return true
+      } else return false
+    })
+
+    return image
+  }
+
+  // Arrow buttons for lightbox dialog
+  const arrowButton = type => {
+    const classes = ["single-resource__arrow-img"]
+
+    if (type === "previous") {
+      classes.push("single-resource__arrow-img--previous")
+    } else if (type === "next") {
+      classes.push("single-resource__arrow-img--next")
+    }
+
+    return (
+      <button
+        onClick={() =>
+          handleNextImage(type === "previous" ? "previous" : "next")
+        }
+        className="single-resource__lightbox-nav"
+      >
+        <div className={classes.join(" ")}></div>
+      </button>
+    )
+  }
+
   return (
     <Layout active="single-resource" bgColor="magenta">
       <SEO title="Resource" />
@@ -132,10 +205,14 @@ export default function SingleResource({ data, pageContext }) {
               className="single-resource__lightbox-button"
               onClick={handleCloseImage}
             ></button>
-            <div
-              className="single-resource__lightbox-img"
-              style={{ backgroundImage: `url("${selectedImage}")` }}
-            ></div>
+            <div className="single-resource__lightbox-container">
+              {arrowButton("previous")}
+              <div
+                className="single-resource__lightbox-img"
+                style={{ backgroundImage: `url("${selectedImage}")` }}
+              ></div>
+              {arrowButton("next")}
+            </div>
           </Dialog>
         )}
         <SocialMediaBar title={title} url={url} hashtags={["arts-matter"]} />
