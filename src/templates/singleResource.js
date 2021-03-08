@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { Dialog } from "@reach/dialog"
+import { BLOCKS, INLINES } from "@contentful/rich-text-types"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import "@reach/dialog/styles.css"
 import "./singleResource.scss"
 
@@ -21,7 +23,6 @@ export default function SingleResource({ data, pageContext }) {
 
   const {
     classroomPhotos,
-    description,
     featuredImage,
     instructionalResources,
     studentArtwork,
@@ -30,6 +31,9 @@ export default function SingleResource({ data, pageContext }) {
     gradeLevel,
     mediaArtsDiscipline,
   } = resourceData
+  const excerptBody = resourceData.childContentfulResourceBucketExcerptRichTextNode
+    ? resourceData.childContentfulResourceBucketExcerptRichTextNode.json
+    : null
   const url = typeof window !== `undefined` ? window.location.href : null
 
   const returnHeaderLeft = () => {
@@ -37,7 +41,7 @@ export default function SingleResource({ data, pageContext }) {
       <React.Fragment>
         {title && <h1>{title}</h1>}
         {width < 890 && returnHeaderRight()}
-        {description && <h4>{description.description}</h4>}
+        {excerptBody && documentToReactComponents(excerptBody, options)}
       </React.Fragment>
     )
   }
@@ -112,6 +116,26 @@ export default function SingleResource({ data, pageContext }) {
     e.preventDefault()
     setShowLightbox(false)
     setSelectedImage(null)
+  }
+
+  const options = {
+    renderNode: {
+      [BLOCKS.PARAGRAPH]: (node, children) => (
+        <p className="single-resource__rich-text">{children}</p>
+      ),
+      [BLOCKS.LIST_ITEM]: (node, children) => (
+        <li className="single-resource__rich-li">{children}</li>
+      ),
+      [BLOCKS.QUOTE]: (node, children) => (
+        <blockquote className="single-resource__rich-quote">
+          {children}
+        </blockquote>
+      ),
+      [INLINES.ENTRY_HYPERLINK]: (node, children) => (
+        // will need to build out this logic further
+        <a href={`/pages/temp`}>{children}</a>
+      ),
+    },
   }
 
   return (
@@ -214,11 +238,7 @@ export const query = graphql`
             fixed(quality: 100, width: 720) {
               src
             }
-            description
             title
-          }
-          description {
-            description
           }
           gradeLevel
           featuredImage {
@@ -247,6 +267,9 @@ export const query = graphql`
             }
           }
           videos
+          childContentfulResourceBucketExcerptRichTextNode {
+            json
+          }
         }
       }
     }

@@ -1,9 +1,64 @@
 import React from "react"
 import Button from "./button"
+import { BLOCKS, INLINES } from "@contentful/rich-text-types"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { determineSlug } from "./helpers"
 import "./resourcesResultsPanel.scss"
 
 const ResourcesResultsPanel = ({ resources }) => {
+  const options = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: node => {
+        let src, title
+
+        if (
+          node.data &&
+          node.data.target &&
+          node.data.target.fields &&
+          node.data.target.fields.file
+        ) {
+          src = node.data.target.fields.file["en-US"]
+            ? node.data.target.fields.file["en-US"].url
+            : null
+          title = node.data.target.fields.title
+            ? node.data.target.fields.title["en-US"]
+            : null
+        }
+        if (src)
+          return (
+            <img
+              className="resource__col-img"
+              src={src}
+              alt={`${title ? title : ""}`}
+            />
+          )
+      },
+      [BLOCKS.PARAGRAPH]: (node, children) => (
+        <p className="resource__rich-text">{children}</p>
+      ),
+      [BLOCKS.LIST_ITEM]: (node, children) => (
+        <li className="resource-rich-li">{children}</li>
+      ),
+      [BLOCKS.QUOTE]: (node, children) => (
+        <blockquote className="resource__rich-quote">{children}</blockquote>
+      ),
+      [INLINES.ENTRY_HYPERLINK]: (node, children) => (
+        // will need to build out this logic further
+        <a href={`/pages/temp`}>{children}</a>
+      ),
+    },
+  }
+
+  const renderDescription = (descBody, excerptBody) => {
+    if (descBody) {
+      return documentToReactComponents(descBody.json, options)
+    }
+
+    if (excerptBody) {
+      return documentToReactComponents(excerptBody.json, options)
+    }
+  }
+
   return (
     <div className="resources-results">
       {resources.map(({ node }) => {
@@ -11,6 +66,12 @@ const ResourcesResultsPanel = ({ resources }) => {
         const title = node.title ? node.title : null
         const contentful_id = node.contentful_id ? node.contentful_id : null
         const determinedSlug = determineSlug(slug, title, contentful_id)
+        const descBody = node.childContentfulResourceBucketDescriptionRichTextNode
+          ? node.childContentfulResourceBucketDescriptionRichTextNode
+          : null
+        const excerptBody = node.childContentfulResourceBucketExcerptRichTextNode
+          ? node.childContentfulResourceBucketExcerptRichTextNode
+          : null
         return (
           <div key={node.id} className="resource">
             <div className="resource__columns">
@@ -60,11 +121,8 @@ const ResourcesResultsPanel = ({ resources }) => {
                     </div>
                   )}
                 </div>
-                {node.description && (
-                  <div className="resource__description">
-                    <p>{node.description.description}</p>
-                  </div>
-                )}
+                {node.childContentfulResourceBucketDescriptionRichTextNode &&
+                  renderDescription(descBody, excerptBody)}
                 {determinedSlug && (
                   <Button
                     url={`/resources/${determinedSlug}`}
