@@ -122,9 +122,6 @@ export const query = graphql`
           gradeLevel
           mediaArtsDiscipline
           subjectArea
-          description {
-            description
-          }
           id
           title
           videos
@@ -146,7 +143,6 @@ export const query = graphql`
             file {
               url
             }
-            description
             title
           }
           studentArtwork {
@@ -158,6 +154,12 @@ export const query = graphql`
           }
           slug
           contentful_id
+          childContentfulResourceBucketDescriptionRichTextNode {
+            json
+          }
+          childContentfulResourceBucketExcerptRichTextNode {
+            json
+          }
         }
       }
     }
