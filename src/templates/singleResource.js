@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { Dialog } from "@reach/dialog"
-import { BLOCKS, INLINES } from "@contentful/rich-text-types"
+import { BLOCKS } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import "@reach/dialog/styles.css"
 import "./singleResource.scss"
@@ -41,7 +41,11 @@ export default function SingleResource({ data, pageContext }) {
       <React.Fragment>
         {title && <h1>{title}</h1>}
         {width < 890 && returnHeaderRight()}
-        {excerptBody && documentToReactComponents(excerptBody, options)}
+        {excerptBody && (
+          <div className="single-resource__rich-text-container">
+            {documentToReactComponents(excerptBody, options)}
+          </div>
+        )}
       </React.Fragment>
     )
   }
@@ -131,10 +135,13 @@ export default function SingleResource({ data, pageContext }) {
           {children}
         </blockquote>
       ),
-      [INLINES.ENTRY_HYPERLINK]: (node, children) => (
-        // will need to build out this logic further
-        <a href={`/pages/temp`}>{children}</a>
-      ),
+      // [INLINES.ENTRY_HYPERLINK]: (node, children) => (
+      //   // will need to build out this logic further
+      //   <a href={`/pages/temp`}>{children}</a>
+      // ),
+      // [INLINES.ASSET_HYPERLINK]: (node, children) => (
+        
+      // ),
     },
   }
 

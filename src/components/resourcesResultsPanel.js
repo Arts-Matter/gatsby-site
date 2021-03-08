@@ -1,6 +1,6 @@
 import React from "react"
 import Button from "./button"
-import { BLOCKS, INLINES } from "@contentful/rich-text-types"
+import { BLOCKS } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { determineSlug } from "./helpers"
 import "./resourcesResultsPanel.scss"
@@ -42,10 +42,10 @@ const ResourcesResultsPanel = ({ resources }) => {
       [BLOCKS.QUOTE]: (node, children) => (
         <blockquote className="resource__rich-quote">{children}</blockquote>
       ),
-      [INLINES.ENTRY_HYPERLINK]: (node, children) => (
-        // will need to build out this logic further
-        <a href={`/pages/temp`}>{children}</a>
-      ),
+      // [INLINES.ENTRY_HYPERLINK]: (node, children) => (
+      //   // will need to build out this logic further
+      //   <a href={`/pages/temp`}>{children}</a>
+      // ),
     },
   }
 
