@@ -64,6 +64,7 @@
   height: 100%;
   min-height: 250px;
   max-width: 500px;
+  max-height: 1000px;
 
   @media only screen and (max-width: 889px) {
     max-width: 75%;
@@ -91,9 +92,10 @@
 }
 
 .resource__rich-img {
+  margin: var(--spacing-s);
+
   @media only screen and (max-width: 889px) {
     max-width: 75%;
-    margin: var(--spacing-s);
   }
 }
 
@@ -154,6 +156,7 @@
   max-width: 200px;
   color: var(--white);
   transition: all 0.2s ease-out;
+  align-self: center;
 
   &:after {
     background-color: var(--white);
