@@ -27,7 +27,7 @@ const ResourcesResultsPanel = ({ resources }) => {
         if (src)
           return (
             <img
-              className="resource__col-img"
+              className="resource__rich-img"
               src={src}
               alt={`${title ? title : ""}`}
             />
@@ -72,67 +72,70 @@ const ResourcesResultsPanel = ({ resources }) => {
         const excerptBody = node.childContentfulResourceBucketExcerptRichTextNode
           ? node.childContentfulResourceBucketExcerptRichTextNode
           : null
-        return (
-          <div key={node.id} className="resource">
-            <div className="resource__columns">
-              {node.featuredImage !== null && node.featuredImage.file.url && (
-                <div className="resource__col">
-                  <div
-                    className="resource__featured-image"
-                    style={{
-                      backgroundImage: `url(${node.featuredImage.file.url})`,
-                    }}
-                  ></div>
-                </div>
-              )}
 
-              <div className="resource__col resource__col--left-justify">
-                <h2 className="resource__title">{node.title}</h2>
-                <div className="resource__meta-list">
-                  {node.subjectArea && (
-                    <span className="resource__meta-item">
-                      {node.subjectArea.map((subject, i) => {
-                        let preText = ""
-
-                        if (i > 0) {
-                          preText = " & "
-                        }
-
-                        return <span key={i}>{preText + subject}</span>
-                      })}
-                    </span>
-                  )}
-                  {node.mediaArtsDiscipline && (
-                    <span className="resource__meta-item">
-                      {node.mediaArtsDiscipline.map((discipline, i) => {
-                        let preText = ""
-
-                        if (i > 0) {
-                          preText = " & "
-                        }
-
-                        return <span key={i}>{preText + discipline}</span>
-                      })}
-                    </span>
-                  )}
-                  {node.gradeLevel !== null && node.gradeLevel.length > 0 && (
-                    <div className="resource__meta-item">
-                      {node.gradeLevel.join(", ")}
-                    </div>
-                  )}
-                </div>
-                {node.childContentfulResourceBucketDescriptionRichTextNode &&
-                  renderDescription(descBody, excerptBody)}
-                {determinedSlug && (
-                  <Button
-                    url={`/resources/${determinedSlug}`}
-                    text="Learn More"
-                  />
+        if (title && (descBody || excerptBody)) {
+          return (
+            <div key={node.id} className="resource">
+              <div className="resource__columns">
+                {node.featuredImage !== null && node.featuredImage.file.url && (
+                  <div className="resource__col">
+                    <div
+                      className="resource__featured-image"
+                      style={{
+                        backgroundImage: `url(${node.featuredImage.file.url})`,
+                      }}
+                    ></div>
+                  </div>
                 )}
+
+                <div className="resource__col resource__col--left-justify">
+                  <h2 className="resource__title">{node.title}</h2>
+                  <div className="resource__meta-list">
+                    {node.subjectArea && (
+                      <span className="resource__meta-item">
+                        {node.subjectArea.map((subject, i) => {
+                          let preText = ""
+
+                          if (i > 0) {
+                            preText = " & "
+                          }
+
+                          return <span key={i}>{preText + subject}</span>
+                        })}
+                      </span>
+                    )}
+                    {node.mediaArtsDiscipline && (
+                      <span className="resource__meta-item">
+                        {node.mediaArtsDiscipline.map((discipline, i) => {
+                          let preText = ""
+
+                          if (i > 0) {
+                            preText = " & "
+                          }
+
+                          return <span key={i}>{preText + discipline}</span>
+                        })}
+                      </span>
+                    )}
+                    {node.gradeLevel !== null && node.gradeLevel.length > 0 && (
+                      <div className="resource__meta-item">
+                        {node.gradeLevel.join(", ")}
+                      </div>
+                    )}
+                  </div>
+                  {node.childContentfulResourceBucketDescriptionRichTextNode &&
+                    renderDescription(descBody, excerptBody)}
+                  {determinedSlug && (
+                    <Button
+                      url={`/resources/${determinedSlug}`}
+                      text="Learn More"
+                    />
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        )
+          )
+        }
       })}
     </div>
   )
