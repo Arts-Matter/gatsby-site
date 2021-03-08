@@ -140,7 +140,7 @@ export default function SingleResource({ data, pageContext }) {
       //   <a href={`/pages/temp`}>{children}</a>
       // ),
       // [INLINES.ASSET_HYPERLINK]: (node, children) => (
-        
+
       // ),
     },
   }
@@ -170,7 +170,7 @@ export default function SingleResource({ data, pageContext }) {
           </Dialog>
         )}
         <SocialMediaBar title={title} url={url} hashtags={["arts-matter"]} />
-        {instructionalResources.length > 0 && (
+        {instructionalResources && instructionalResources.length > 0 && (
           <InstructionalResources
             resources={instructionalResources}
             gradeLevels={gradeLevel}
