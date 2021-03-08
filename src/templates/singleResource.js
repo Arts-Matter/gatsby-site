@@ -109,6 +109,19 @@ export default function SingleResource({ data, pageContext }) {
     }
   }
 
+  const handleEnterOpenImage = e => {
+    if (e.keyCode === 13) {
+      const imgSrc = e.target.children[0]
+        ? e.target.children[0].getAttribute("src")
+        : null
+
+      if (imgSrc !== null) {
+        setSelectedImage(imgSrc)
+        setShowLightbox(true)
+      }
+    }
+  }
+
   const handleCloseImage = e => {
     e.preventDefault()
     setShowLightbox(false)
@@ -200,6 +213,10 @@ export default function SingleResource({ data, pageContext }) {
           <Dialog
             className="single-resource__lightbox"
             aria-label="image dialog"
+            onDismiss={() => {
+              setShowLightbox(false)
+              setSelectedImage(null)
+            }}
           >
             <button
               className="single-resource__lightbox-button"
@@ -265,6 +282,7 @@ export default function SingleResource({ data, pageContext }) {
                     key={i}
                     className="single-resource__artwork-container"
                     onClick={handleOpenImage}
+                    onKeyUp={handleEnterOpenImage}
                   >
                     <img
                       className="single-resource__artwork-img"
