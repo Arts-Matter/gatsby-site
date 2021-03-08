@@ -6,7 +6,6 @@
     font-size: 28px;
     margin: 32px 0px 64px 0px;
     width: 100%;
-
   }
 
   .social-media-bar ul {
@@ -21,6 +20,45 @@
       text-align: center;
     }
   }
+}
+
+.single-resource__rich-li {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 0;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.8rem;
+    width: 24px;
+    height: 1px;
+    background-color: var(--black);
+  }
+}
+
+.single-resource__rich-quote {
+  margin: 50px 0 50px 72px;
+  padding-left: 40px;
+  border-left: 4px solid var(--sunflower);
+  color: #545454;
+  font-size: var(--mobileParagraphFontSize);
+  line-height: var(--mobileSectionSubTitleLineHeight);
+  font-family: var(--visueltRegular);
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  i,
+  b {
+    color: #545454;
+  }
+}
+
+.single-resource__rich-text {
+  margin-bottom: 28px;
 }
 
 .single-resource__classroom-photos {
@@ -182,4 +220,17 @@
   background-position: center;
   width: 100%;
   height: 100%;
+}
+
+@media only screen and (max-width: 375px) {
+  .single-resource__rich-text {
+    font-size: 15px;
+    line-height: var(--mobileParagraphLineHeight);
+    margin-bottom: 18px;
+  }
+
+  .single-resource__rich-quote {
+    margin: 25px 0 25px 25px;
+    padding-left: 20px;
+  }
 }
