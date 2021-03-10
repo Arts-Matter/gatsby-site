@@ -1,10 +1,6 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 
-// TODO
-// - [x] Update data being pulled for active resources and being passed to results panel
-// - [ ] Keep an eye out for contentful data structure changes
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeaderArea from "../components/headerArea"
@@ -101,19 +97,6 @@ const Page = ({ data }) => {
   )
 }
 
-/**
- * New query to pull from the Resource Bucket content type
- *
- * Note:
- *
- * - Standard has been removed entirely
- * - mediaArtsStrain is updated to mediaArtsDiscipline
- * - We will want to use the title to create a slug, or maybe offer them a slug field for this content type as well (like we will do for news)
- * - Classroom photos has a max of 3 images
- * - studentArtwork and instructional resources, we will want to confirm the file type
- * - videos is a full link right now, but this is just a text field. You will want to see how YouTube embed plugins prefer this string to come and we can update accordingly.
- */
-
 export const query = graphql`
   {
     allContentfulResourceBucket {
@@ -122,9 +105,6 @@ export const query = graphql`
           gradeLevel
           mediaArtsDiscipline
           subjectArea
-          description {
-            description
-          }
           id
           title
           videos
@@ -146,7 +126,6 @@ export const query = graphql`
             file {
               url
             }
-            description
             title
           }
           studentArtwork {
@@ -158,6 +137,12 @@ export const query = graphql`
           }
           slug
           contentful_id
+          childContentfulResourceBucketDescriptionRichTextNode {
+            json
+          }
+          childContentfulResourceBucketExcerptRichTextNode {
+            json
+          }
         }
       }
     }

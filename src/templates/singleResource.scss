@@ -22,6 +22,70 @@
   }
 }
 
+.single-resource__rich-text-container {
+  margin-top: var(--spacing-m);
+  display: flex;
+  flex-direction: column;
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+.single-resource__rich-li {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 0;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.8rem;
+    width: 24px;
+    height: 1px;
+    background-color: var(--black);
+  }
+}
+
+.single-resource__rich-quote {
+  margin: 50px 0 50px 72px;
+  padding-left: 40px;
+  border-left: 4px solid var(--sunflower);
+  color: #545454;
+  font-size: var(--mobileParagraphFontSize);
+  line-height: var(--mobileSectionSubTitleLineHeight);
+  font-family: var(--visueltRegular);
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  i,
+  b {
+    color: #545454;
+  }
+}
+
+.single-resource__rich-text {
+  margin-bottom: 28px;
+}
+
+.single-resource__rich-img {
+  max-width: 75%;
+  align-self: center;
+
+  @media only screen and (max-width: 500px) {
+    max-width: 100%;
+  }
+}
+
 .single-resource__classroom-photos {
   max-width: 750px;
   margin: 0 auto;
@@ -240,4 +304,17 @@
   background-position: center;
   width: 100%;
   height: 100%;
+}
+
+@media only screen and (max-width: 375px) {
+  .single-resource__rich-text {
+    font-size: 15px;
+    line-height: var(--mobileParagraphLineHeight);
+    margin-bottom: 18px;
+  }
+
+  .single-resource__rich-quote {
+    margin: 25px 0 25px 25px;
+    padding-left: 20px;
+  }
 }

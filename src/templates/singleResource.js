@@ -1,6 +1,8 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import { graphql } from "gatsby"
 import { Dialog } from "@reach/dialog"
+import { BLOCKS } from "@contentful/rich-text-types"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import "@reach/dialog/styles.css"
 import "./singleResource.scss"
 
@@ -16,12 +18,12 @@ import InstructionalResources from "../components/instructionalResources"
 export default function SingleResource({ data, pageContext }) {
   const [showLightbox, setShowLightbox] = useState(false)
   const [selectedImage, setSelectedImage] = useState(null)
+  const focusedImage = useRef(null)
   const { width } = useWindowSize()
   const resourceData = data.allContentfulResourceBucket.edges[0].node
 
   const {
     classroomPhotos,
-    description,
     featuredImage,
     instructionalResources,
     studentArtwork,
@@ -31,6 +33,9 @@ export default function SingleResource({ data, pageContext }) {
     mediaArtsDiscipline,
   } = resourceData
 
+  const descriptionBody = resourceData.childContentfulResourceBucketDescriptionRichTextNode
+    ? resourceData.childContentfulResourceBucketDescriptionRichTextNode.json
+    : null
   const url = typeof window !== `undefined` ? window.location.href : null
 
   const returnHeaderLeft = () => {
@@ -38,7 +43,11 @@ export default function SingleResource({ data, pageContext }) {
       <React.Fragment>
         {title && <h1>{title}</h1>}
         {width < 890 && returnHeaderRight()}
-        {description && <h4>{description.description}</h4>}
+        {descriptionBody && (
+          <div className="single-resource__rich-text-container">
+            {documentToReactComponents(descriptionBody, options)}
+          </div>
+        )}
       </React.Fragment>
     )
   }
@@ -115,10 +124,10 @@ export default function SingleResource({ data, pageContext }) {
         ? e.target.children[0].getAttribute("src")
         : null
 
-      if (imgSrc !== null) {
+      if (imgSrc !== null && selectedImage == null) {
         setSelectedImage(imgSrc)
         setShowLightbox(true)
-      }
+      } else if( selectedImage !== null) setSelectedImage(null)
     }
   }
 
@@ -126,6 +135,14 @@ export default function SingleResource({ data, pageContext }) {
     e.preventDefault()
     setShowLightbox(false)
     setSelectedImage(null)
+  }
+
+  // Needed to be able to open and close images with keys
+  const handleKeyCloseImage = e => {
+    e.preventDefault()
+    setShowLightbox(false)
+    // doesnt reset selected image so that the enter key 
+    // doesnt trigger the image to be reopened in a loop
   }
 
   // Used with student artwork in lightbox dialog
@@ -200,6 +217,47 @@ export default function SingleResource({ data, pageContext }) {
     )
   }
 
+  const options = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: node => {
+        let src, title
+
+        if (
+          node.data &&
+          node.data.target &&
+          node.data.target.fields &&
+          node.data.target.fields.file
+        ) {
+          src = node.data.target.fields.file["en-US"]
+            ? node.data.target.fields.file["en-US"].url
+            : null
+          title = node.data.target.fields.title
+            ? node.data.target.fields.title["en-US"]
+            : null
+        }
+        if (src)
+          return (
+            <img
+              className="single-resource__rich-img"
+              src={src}
+              alt={`${title ? title : ""}`}
+            />
+          )
+      },
+      [BLOCKS.PARAGRAPH]: (node, children) => (
+        <p className="single-resource__rich-text">{children}</p>
+      ),
+      [BLOCKS.LIST_ITEM]: (node, children) => (
+        <li className="single-resource__rich-li">{children}</li>
+      ),
+      [BLOCKS.QUOTE]: (node, children) => (
+        <blockquote className="single-resource__rich-quote">
+          {children}
+        </blockquote>
+      ),
+    },
+  }
+
   return (
     <Layout active="single-resource" bgColor="magenta">
       <SEO title="Resource" />
@@ -221,6 +279,7 @@ export default function SingleResource({ data, pageContext }) {
             <button
               className="single-resource__lightbox-button"
               onClick={handleCloseImage}
+              onKeyPress={handleKeyCloseImage}
             ></button>
             <div className="single-resource__lightbox-container">
               {arrowButton("previous")}
@@ -309,11 +368,7 @@ export const query = graphql`
             fixed(quality: 100, width: 720) {
               src
             }
-            description
             title
-          }
-          description {
-            description
           }
           gradeLevel
           featuredImage {
@@ -342,6 +397,9 @@ export const query = graphql`
             }
           }
           videos
+          childContentfulResourceBucketDescriptionRichTextNode {
+            json
+          }
         }
       }
     }
