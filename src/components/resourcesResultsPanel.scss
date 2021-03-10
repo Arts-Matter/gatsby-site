@@ -13,6 +13,7 @@
   margin-top: calc(var(--spacing-s) * 1.5);
   background-color: var(--oyster);
   max-width: 1200px;
+  min-width: 100%;
   padding: 16px;
 
   @media only screen and (max-width: 889px) {
@@ -54,6 +55,12 @@
   @media only screen and (max-width: 889px) {
     align-items: center;
   }
+
+  h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1rem;
+  } 
 }
 
 .resource__featured-image {
@@ -140,7 +147,7 @@
     margin-right: 6px;
   }
 
-  &:last-child:after {
+  &:last-of-type:after {
     display: none;
   }
 }
