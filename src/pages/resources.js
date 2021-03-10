@@ -1,10 +1,6 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 
-// TODO
-// - [x] Update data being pulled for active resources and being passed to results panel
-// - [ ] Keep an eye out for contentful data structure changes
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeaderArea from "../components/headerArea"
