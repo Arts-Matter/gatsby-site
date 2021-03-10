@@ -124,6 +124,31 @@ export default function SingleResource({ data, pageContext }) {
 
   const options = {
     renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: node => {
+        let src, title
+
+        if (
+          node.data &&
+          node.data.target &&
+          node.data.target.fields &&
+          node.data.target.fields.file
+        ) {
+          src = node.data.target.fields.file["en-US"]
+            ? node.data.target.fields.file["en-US"].url
+            : null
+          title = node.data.target.fields.title
+            ? node.data.target.fields.title["en-US"]
+            : null
+        }
+        if (src)
+          return (
+            <img
+              className="single-resource__rich-img"
+              src={src}
+              alt={`${title ? title : ""}`}
+            />
+          )
+      },
       [BLOCKS.PARAGRAPH]: (node, children) => (
         <p className="single-resource__rich-text">{children}</p>
       ),
