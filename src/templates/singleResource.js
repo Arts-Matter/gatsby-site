@@ -31,8 +31,8 @@ export default function SingleResource({ data, pageContext }) {
     gradeLevel,
     mediaArtsDiscipline,
   } = resourceData
-  const excerptBody = resourceData.childContentfulResourceBucketExcerptRichTextNode
-    ? resourceData.childContentfulResourceBucketExcerptRichTextNode.json
+  const descriptionBody = resourceData.childContentfulResourceBucketDescriptionRichTextNode
+    ? resourceData.childContentfulResourceBucketDescriptionRichTextNode.json
     : null
   const url = typeof window !== `undefined` ? window.location.href : null
 
@@ -41,9 +41,9 @@ export default function SingleResource({ data, pageContext }) {
       <React.Fragment>
         {title && <h1>{title}</h1>}
         {width < 890 && returnHeaderRight()}
-        {excerptBody && (
+        {descriptionBody && (
           <div className="single-resource__rich-text-container">
-            {documentToReactComponents(excerptBody, options)}
+            {documentToReactComponents(descriptionBody, options)}
           </div>
         )}
       </React.Fragment>
@@ -135,13 +135,6 @@ export default function SingleResource({ data, pageContext }) {
           {children}
         </blockquote>
       ),
-      // [INLINES.ENTRY_HYPERLINK]: (node, children) => (
-      //   // will need to build out this logic further
-      //   <a href={`/pages/temp`}>{children}</a>
-      // ),
-      // [INLINES.ASSET_HYPERLINK]: (node, children) => (
-
-      // ),
     },
   }
 
@@ -274,7 +267,7 @@ export const query = graphql`
             }
           }
           videos
-          childContentfulResourceBucketExcerptRichTextNode {
+          childContentfulResourceBucketDescriptionRichTextNode {
             json
           }
         }

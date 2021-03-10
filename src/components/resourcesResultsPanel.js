@@ -50,12 +50,12 @@ const ResourcesResultsPanel = ({ resources }) => {
   }
 
   const renderDescription = (descBody, excerptBody) => {
-    if (descBody) {
-      return documentToReactComponents(descBody.json, options)
-    }
-
     if (excerptBody) {
       return documentToReactComponents(excerptBody.json, options)
+    }
+
+    if (descBody) {
+      return documentToReactComponents(descBody.json, options)
     }
   }
 
