@@ -24,6 +24,18 @@
 
 .single-resource__rich-text-container {
   margin-top: var(--spacing-m);
+  display: flex;
+  flex-direction: column;
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
 }
 
 .single-resource__rich-li {
@@ -63,6 +75,15 @@
 
 .single-resource__rich-text {
   margin-bottom: 28px;
+}
+
+.single-resource__rich-img {
+  max-width: 75%;
+  align-self: center;
+
+  @media only screen and (max-width: 500px) {
+    max-width: 100%;
+  }
 }
 
 .single-resource__classroom-photos {
