@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { Dialog } from "@reach/dialog"
+import { BLOCKS } from "@contentful/rich-text-types"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import "@reach/dialog/styles.css"
 import "./singleResource.scss"
 
@@ -21,7 +23,6 @@ export default function SingleResource({ data, pageContext }) {
 
   const {
     classroomPhotos,
-    description,
     featuredImage,
     instructionalResources,
     studentArtwork,
@@ -30,6 +31,9 @@ export default function SingleResource({ data, pageContext }) {
     gradeLevel,
     mediaArtsDiscipline,
   } = resourceData
+  const descriptionBody = resourceData.childContentfulResourceBucketDescriptionRichTextNode
+    ? resourceData.childContentfulResourceBucketDescriptionRichTextNode.json
+    : null
   const url = typeof window !== `undefined` ? window.location.href : null
 
   const returnHeaderLeft = () => {
@@ -37,7 +41,11 @@ export default function SingleResource({ data, pageContext }) {
       <React.Fragment>
         {title && <h1>{title}</h1>}
         {width < 890 && returnHeaderRight()}
-        {description && <h4>{description.description}</h4>}
+        {descriptionBody && (
+          <div className="single-resource__rich-text-container">
+            {documentToReactComponents(descriptionBody, options)}
+          </div>
+        )}
       </React.Fragment>
     )
   }
@@ -114,6 +122,47 @@ export default function SingleResource({ data, pageContext }) {
     setSelectedImage(null)
   }
 
+  const options = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: node => {
+        let src, title
+
+        if (
+          node.data &&
+          node.data.target &&
+          node.data.target.fields &&
+          node.data.target.fields.file
+        ) {
+          src = node.data.target.fields.file["en-US"]
+            ? node.data.target.fields.file["en-US"].url
+            : null
+          title = node.data.target.fields.title
+            ? node.data.target.fields.title["en-US"]
+            : null
+        }
+        if (src)
+          return (
+            <img
+              className="single-resource__rich-img"
+              src={src}
+              alt={`${title ? title : ""}`}
+            />
+          )
+      },
+      [BLOCKS.PARAGRAPH]: (node, children) => (
+        <p className="single-resource__rich-text">{children}</p>
+      ),
+      [BLOCKS.LIST_ITEM]: (node, children) => (
+        <li className="single-resource__rich-li">{children}</li>
+      ),
+      [BLOCKS.QUOTE]: (node, children) => (
+        <blockquote className="single-resource__rich-quote">
+          {children}
+        </blockquote>
+      ),
+    },
+  }
+
   return (
     <Layout active="single-resource" bgColor="magenta">
       <SEO title="Resource" />
@@ -139,7 +188,7 @@ export default function SingleResource({ data, pageContext }) {
           </Dialog>
         )}
         <SocialMediaBar title={title} url={url} hashtags={["arts-matter"]} />
-        {instructionalResources.length > 0 && (
+        {instructionalResources && instructionalResources.length > 0 && (
           <InstructionalResources
             resources={instructionalResources}
             gradeLevels={gradeLevel}
@@ -214,11 +263,7 @@ export const query = graphql`
             fixed(quality: 100, width: 720) {
               src
             }
-            description
             title
-          }
-          description {
-            description
           }
           gradeLevel
           featuredImage {
@@ -247,6 +292,9 @@ export const query = graphql`
             }
           }
           videos
+          childContentfulResourceBucketDescriptionRichTextNode {
+            json
+          }
         }
       }
     }
