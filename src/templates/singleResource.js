@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import { graphql } from "gatsby"
 import { Dialog } from "@reach/dialog"
 import { BLOCKS } from "@contentful/rich-text-types"
@@ -18,6 +18,7 @@ import InstructionalResources from "../components/instructionalResources"
 export default function SingleResource({ data, pageContext }) {
   const [showLightbox, setShowLightbox] = useState(false)
   const [selectedImage, setSelectedImage] = useState(null)
+  const focusedImage = useRef(null)
   const { width } = useWindowSize()
   const resourceData = data.allContentfulResourceBucket.edges[0].node
 
@@ -31,6 +32,7 @@ export default function SingleResource({ data, pageContext }) {
     gradeLevel,
     mediaArtsDiscipline,
   } = resourceData
+
   const descriptionBody = resourceData.childContentfulResourceBucketDescriptionRichTextNode
     ? resourceData.childContentfulResourceBucketDescriptionRichTextNode.json
     : null
@@ -116,10 +118,103 @@ export default function SingleResource({ data, pageContext }) {
     }
   }
 
+  const handleEnterOpenImage = e => {
+    if (e.keyCode === 13) {
+      const imgSrc = e.target.children[0]
+        ? e.target.children[0].getAttribute("src")
+        : null
+
+      if (imgSrc !== null && selectedImage == null) {
+        setSelectedImage(imgSrc)
+        setShowLightbox(true)
+      } else if( selectedImage !== null) setSelectedImage(null)
+    }
+  }
+
   const handleCloseImage = e => {
     e.preventDefault()
     setShowLightbox(false)
     setSelectedImage(null)
+  }
+
+  // Needed to be able to open and close images with keys
+  const handleKeyCloseImage = e => {
+    e.preventDefault()
+    setShowLightbox(false)
+    // doesnt reset selected image so that the enter key 
+    // doesnt trigger the image to be reopened in a loop
+  }
+
+  // Used with student artwork in lightbox dialog
+  const handleNextImage = action => {
+    const curIndex = findImage(selectedImage)
+    if (curIndex === -1) return
+
+    if (action === "next" && curIndex !== studentArtwork.length - 1) {
+      if (
+        studentArtwork[curIndex + 1].file &&
+        studentArtwork[curIndex + 1].file.url
+      ) {
+        setSelectedImage(studentArtwork[curIndex + 1].file.url)
+      }
+    } else if (action === "next") {
+      if (studentArtwork[0].file && studentArtwork[0].file.url) {
+        setSelectedImage(studentArtwork[0].file.url)
+      }
+    } else if (action === "previous" && curIndex !== 0) {
+      if (
+        studentArtwork[curIndex - 1].file &&
+        studentArtwork[curIndex - 1].file.url
+      ) {
+        setSelectedImage(studentArtwork[curIndex - 1].file.url)
+      }
+    } else if (action === "previous") {
+      if (
+        studentArtwork[studentArtwork.length - 1].file &&
+        studentArtwork[studentArtwork.length - 1].file.url
+      ) {
+        setSelectedImage(studentArtwork[studentArtwork.length - 1].file.url)
+      }
+    }
+  }
+
+  // find a photo by src in student artwork
+  const findImage = src => {
+    const image = studentArtwork.findIndex(photo => {
+      if (
+        photo.file &&
+        photo.file.url &&
+        (photo.file.url === src ||
+          photo.file.url === src.replace("http:", "") ||
+          photo.file.url === src.replace("https:", ""))
+      ) {
+        return true
+      } else return false
+    })
+
+    return image
+  }
+
+  // Arrow buttons for lightbox dialog
+  const arrowButton = type => {
+    const classes = ["single-resource__arrow-img"]
+
+    if (type === "previous") {
+      classes.push("single-resource__arrow-img--previous")
+    } else if (type === "next") {
+      classes.push("single-resource__arrow-img--next")
+    }
+
+    return (
+      <button
+        onClick={() =>
+          handleNextImage(type === "previous" ? "previous" : "next")
+        }
+        className="single-resource__lightbox-nav"
+      >
+        <div className={classes.join(" ")}></div>
+      </button>
+    )
   }
 
   const options = {
@@ -176,15 +271,24 @@ export default function SingleResource({ data, pageContext }) {
           <Dialog
             className="single-resource__lightbox"
             aria-label="image dialog"
+            onDismiss={() => {
+              setShowLightbox(false)
+              setSelectedImage(null)
+            }}
           >
             <button
               className="single-resource__lightbox-button"
               onClick={handleCloseImage}
+              onKeyPress={handleKeyCloseImage}
             ></button>
-            <div
-              className="single-resource__lightbox-img"
-              style={{ backgroundImage: `url("${selectedImage}")` }}
-            ></div>
+            <div className="single-resource__lightbox-container">
+              {arrowButton("previous")}
+              <div
+                className="single-resource__lightbox-img"
+                style={{ backgroundImage: `url("${selectedImage}")` }}
+              ></div>
+              {arrowButton("next")}
+            </div>
           </Dialog>
         )}
         <SocialMediaBar title={title} url={url} hashtags={["arts-matter"]} />
@@ -237,6 +341,7 @@ export default function SingleResource({ data, pageContext }) {
                     key={i}
                     className="single-resource__artwork-container"
                     onClick={handleOpenImage}
+                    onKeyUp={handleEnterOpenImage}
                   >
                     <img
                       className="single-resource__artwork-img"

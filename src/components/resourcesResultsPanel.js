@@ -42,10 +42,6 @@ const ResourcesResultsPanel = ({ resources }) => {
       [BLOCKS.QUOTE]: (node, children) => (
         <blockquote className="resource__rich-quote">{children}</blockquote>
       ),
-      // [INLINES.ENTRY_HYPERLINK]: (node, children) => (
-      //   // will need to build out this logic further
-      //   <a href={`/pages/temp`}>{children}</a>
-      // ),
     },
   }
 
