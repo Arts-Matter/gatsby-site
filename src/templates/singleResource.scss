@@ -3,9 +3,18 @@
   padding: 16px;
 
   h2 {
-    font-size: 28px;
-    margin: 32px 0px 64px 0px;
+    margin: 32px 0px 32px 0px;
     width: 100%;
+    line-height: 59px;
+    color: var(--ocean);
+  }
+
+  .instructional-resources {
+    h2 {
+      color: var(--black);
+      margin: 0 0 16px;
+      line-height: 28px;
+    }
   }
 
   .social-media-bar ul {
@@ -15,10 +24,6 @@
 
   @media only screen and (max-width: 889px) {
     padding: var(--contentPadding-s);
-
-    h2 {
-      text-align: center;
-    }
   }
 }
 
@@ -157,7 +162,7 @@
 
 .single-resource__artwork-wrapper {
   display: grid;
-  justify-items: center;
+  justify-items: flex-start;
   align-items: center;
   grid-template-columns: 1fr 1fr 1fr;
   row-gap: 64px;

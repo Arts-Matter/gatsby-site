@@ -15,9 +15,10 @@ export default function InstructionalResources({
             <h2 className="instructional-resources__title">
               Instructional Resources
             </h2>
+            {mediaArtsDisciplines &&
             <ul className="instructional-resources__list">
-              {mediaArtsDisciplines &&
-                mediaArtsDisciplines.map((discipline, i) => {
+              <li class="instructional-resources__list-item instructional-resources__list-item--title">Disciplines:</li>
+                {mediaArtsDisciplines.map((discipline, i) => {
                   return (
                     <li key={i} className="instructional-resources__list-item">
                       {discipline}
@@ -25,9 +26,11 @@ export default function InstructionalResources({
                   )
                 })}
             </ul>
+            }
+            {gradeLevels &&
             <ul className="instructional-resources__list">
-              {gradeLevels &&
-                gradeLevels.map((grade, i) => {
+              <li class="instructional-resources__list-item instructional-resources__list-item--title">Grade Levels:</li>
+                {gradeLevels.map((grade, i) => {
                   return (
                     <li key={i} className="instructional-resources__list-item">
                       {grade}
@@ -35,11 +38,7 @@ export default function InstructionalResources({
                   )
                 })}
             </ul>
-            <p>
-              Aliquip et fugiat proident culpa fugiat fugiat culpa in
-              exercitation aliquip minim nisi sunt culpa.Excepteur quis nisi
-              incididunt amet velit consequat proident duis laborum do.
-            </p>
+            }
           </div>
         </div>
         <div className="instructional-resources__col">
