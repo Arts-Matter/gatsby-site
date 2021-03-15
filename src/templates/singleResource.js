@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { Dialog } from "@reach/dialog"
 import { BLOCKS } from "@contentful/rich-text-types"
@@ -18,7 +18,6 @@ import InstructionalResources from "../components/instructionalResources"
 export default function SingleResource({ data, pageContext }) {
   const [showLightbox, setShowLightbox] = useState(false)
   const [selectedImage, setSelectedImage] = useState(null)
-  const focusedImage = useRef(null)
   const { width } = useWindowSize()
   const resourceData = data.allContentfulResourceBucket.edges[0].node
 
@@ -280,7 +279,7 @@ export default function SingleResource({ data, pageContext }) {
               className="single-resource__lightbox-button"
               onClick={handleCloseImage}
               onKeyPress={handleKeyCloseImage}
-            ></button>
+            ><span class="a11y-hidden">Close Image</span></button>
             <div className="single-resource__lightbox-container">
               {arrowButton("previous")}
               <div
@@ -326,6 +325,8 @@ export default function SingleResource({ data, pageContext }) {
                       </iframe>
                     </div>
                   )
+                } else {
+                  return null
                 }
               })}
             </div>

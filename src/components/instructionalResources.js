@@ -66,6 +66,8 @@ export default function InstructionalResources({
                       </a>
                     </li>
                   )
+                } else {
+                  return null
                 }
               })}
             </ul>

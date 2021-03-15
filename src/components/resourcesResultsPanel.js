@@ -131,6 +131,8 @@ const ResourcesResultsPanel = ({ resources }) => {
               </div>
             </div>
           )
+        } else {
+          return null
         }
       })}
     </div>
