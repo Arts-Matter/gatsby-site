@@ -41,7 +41,11 @@ export default function AboutTeam() {
     }
   `)
 
-  const teamMembers = data.allContentfulListOfThings.nodes[0].entries.reduce(
+  if ( data.allContentfulListOfThings.nodes.entries.length === 0 ) {
+    return null;
+  }
+
+  const  teamMembers = data.allContentfulListOfThings.nodes[0].entries.reduce(
     (team, curMember) => {
       const descriptions = curMember.description.content.reduce(
         (descriptions, curDescription) => {
@@ -62,7 +66,6 @@ export default function AboutTeam() {
         },
         []
       )
-
       const newMember = {
         name: curMember.name,
         role: curMember.role,
