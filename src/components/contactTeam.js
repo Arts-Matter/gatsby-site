@@ -30,7 +30,7 @@ export default function ContactPageTeam() {
     }
   `)
 
-  if ( data.allContentfulListOfThings.nodes.entries.length === 0 ) {
+  if ( data.allContentfulListOfThings.nodes[0].entries.length === 0 ) {
     return null;
   }
 
