@@ -41,11 +41,11 @@ export default function AboutTeam() {
     }
   `)
 
-  if ( data.allContentfulListOfThings.nodes.entries.length === 0 ) {
+  if ( data.allContentfulListOfThings.nodes[0].entries.length === 0 ) {
     return null;
   }
 
-  const  teamMembers = data.allContentfulListOfThings.nodes[0].entries.reduce(
+  const teamMembers = data.allContentfulListOfThings.nodes[0].entries.reduce(
     (team, curMember) => {
       const descriptions = curMember.description.content.reduce(
         (descriptions, curDescription) => {
