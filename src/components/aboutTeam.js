@@ -41,6 +41,10 @@ export default function AboutTeam() {
     }
   `)
 
+  if ( ! data.allContentfulListOfThings.nodes[0].entries ) {
+    return null;
+  }
+
   if ( data.allContentfulListOfThings.nodes[0].entries.length === 0 ) {
     return null;
   }
